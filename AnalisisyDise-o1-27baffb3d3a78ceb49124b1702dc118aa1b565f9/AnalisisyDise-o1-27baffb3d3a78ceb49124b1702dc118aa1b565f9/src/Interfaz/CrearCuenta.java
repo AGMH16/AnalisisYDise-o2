@@ -5,7 +5,6 @@
  */
 package Interfaz;
 
-//import CRUD.crud;
 import Usuario.Compresor;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -21,7 +20,6 @@ public class CrearCuenta extends javax.swing.JFrame {
     String usuario = "", correo_electronico="";
     Password contraseña3;
     String pass_concatenada = "", pass_concatenada2 = "";
-   // crud thecrud = new crud();
 
     /**
      * Creates new form Menu
@@ -39,9 +37,9 @@ public class CrearCuenta extends javax.swing.JFrame {
         jButton2.setContentAreaFilled(false);
         jButton2.setBorderPainted(false);
 
-        jButton1.setOpaque(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setBorderPainted(false);
+        CrearCuentabttn.setOpaque(false);
+        CrearCuentabttn.setContentAreaFilled(false);
+        CrearCuentabttn.setBorderPainted(false);
 
         jButton3.setOpaque(false);
         jButton3.setContentAreaFilled(false);
@@ -61,17 +59,19 @@ public class CrearCuenta extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        CrearCuentabttn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        Usuariotxt = new javax.swing.JTextField();
+        Contraseñatxt = new javax.swing.JPasswordField();
+        ConfContraseñatxt = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Correotxt = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        PuestoLaboraltxt = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -90,14 +90,14 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("Usuario");
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jButton1.setText("CREAR CUENTA");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        CrearCuentabttn.setBackground(new java.awt.Color(0, 0, 102));
+        CrearCuentabttn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CrearCuentabttn.setForeground(new java.awt.Color(102, 102, 102));
+        CrearCuentabttn.setText("CREAR CUENTA");
+        CrearCuentabttn.setBorder(null);
+        CrearCuentabttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                CrearCuentabttnActionPerformed(evt);
             }
         });
 
@@ -111,36 +111,36 @@ public class CrearCuenta extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/candado (1).png"))); // NOI18N
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Usuariotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Usuariotxt.setForeground(new java.awt.Color(153, 153, 153));
+        Usuariotxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Usuariotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                UsuariotxtActionPerformed(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        Usuariotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
+                UsuariotxtKeyPressed(evt);
             }
         });
 
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        Contraseñatxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Contraseñatxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                ContraseñatxtActionPerformed(evt);
             }
         });
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        Contraseñatxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyPressed(evt);
+                ContraseñatxtKeyPressed(evt);
             }
         });
 
-        jPasswordField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPasswordField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        ConfContraseñatxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ConfContraseñatxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordField2KeyPressed(evt);
+                ConfContraseñatxtKeyPressed(evt);
             }
         });
 
@@ -150,17 +150,35 @@ public class CrearCuenta extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/correo-electronico (1).png"))); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        Correotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Correotxt.setForeground(new java.awt.Color(153, 153, 153));
+        Correotxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Correotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                CorreotxtActionPerformed(evt);
             }
         });
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        Correotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField2KeyPressed(evt);
+                CorreotxtKeyPressed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel10.setText("Puesto Laboral");
+
+        PuestoLaboraltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PuestoLaboraltxt.setForeground(new java.awt.Color(153, 153, 153));
+        PuestoLaboraltxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PuestoLaboraltxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PuestoLaboraltxtActionPerformed(evt);
+            }
+        });
+        PuestoLaboraltxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PuestoLaboraltxtKeyPressed(evt);
             }
         });
 
@@ -182,23 +200,27 @@ public class CrearCuenta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addContainerGap(202, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Correotxt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ConfContraseñatxt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Usuariotxt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Contraseñatxt, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(CrearCuentabttn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(46, 46, 46))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -208,32 +230,36 @@ public class CrearCuenta extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Contraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConfContraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(Correotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(CrearCuentabttn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 530, 530));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 530, 600));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -246,10 +272,10 @@ public class CrearCuenta extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 620));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 700));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(102, 102, 102));
@@ -272,48 +298,48 @@ public class CrearCuenta extends javax.swing.JFrame {
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 460, 620));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, -60, 460, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void UsuariotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuariotxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_UsuariotxtActionPerformed
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void UsuariotxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuariotxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            usuario = jTextField1.getText();
-            jPasswordField1.setText("");
-            jPasswordField1.requestFocus();
+      //      usuario = jTexUsuariotxtText();
+            Contraseñatxt.setText("");
+            Contraseñatxt.requestFocus();
         }
-    }//GEN-LAST:event_jTextField1KeyPressed
+    }//GEN-LAST:event_UsuariotxtKeyPressed
 
-    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+    private void ContraseñatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñatxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             pass_concatenada = "";
-            char[] contraseña = jPasswordField1.getPassword();
+            char[] contraseña = Contraseñatxt.getPassword();
             for (int i = 0; i < contraseña.length; i++) {
                 pass_concatenada = pass_concatenada + contraseña[i];
                 System.out.println(contraseña[i]);
             }
             System.out.println("pass   " + pass_concatenada);
-            jPasswordField2.setText("");
-            jPasswordField2.requestFocus();
+            ConfContraseñatxt.setText("");
+            ConfContraseñatxt.requestFocus();
         }
-    }//GEN-LAST:event_jPasswordField1KeyPressed
+    }//GEN-LAST:event_ContraseñatxtKeyPressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void CrearCuentabttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCuentabttnActionPerformed
         // TODO add your handling code here:
-        usuario = jTextField1.getText();
+    //    usuario = jTexUsuariotxtText();
         System.out.println("1 Usuario" + usuario);
-        correo_electronico = jTextField2.getText();
+        correo_electronico = Correotxt.getText();
         System.out.println("2 Correo Electronico" + correo_electronico);
-        char[] contraseña = jPasswordField1.getPassword();
+        char[] contraseña = Contraseñatxt.getPassword();
         System.out.println("Contraseña" + contraseña);
-        char[] contraseña2 = jPasswordField2.getPassword();
+        char[] contraseña2 = ConfContraseñatxt.getPassword();
         System.out.println("Confirmación de constraseña:  " + contraseña2);
         if (usuario.equals("") | pass_concatenada.equals("") | (pass_concatenada2).equals("")) {
             JOptionPane.showMessageDialog(null, "No todos los campos están llenos");
@@ -322,13 +348,13 @@ public class CrearCuenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Verificación de contraseñas correcta");
             String thecontraseña = comprimir(String.valueOf(contraseña));
             System.out.println("nueva contraseña " + thecontraseña);
-          //  thecrud.insertarUsuario(usuario, thecontraseña,correo_electronico);
+           // thecrud.insertarUsuario(usuario, thecontraseña,correo_electronico);
         } else {
             JOptionPane.showMessageDialog(null, "La contraseña no es la misma, por favor verificar nuevamente ");
 
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_CrearCuentabttnActionPerformed
     private String comprimir(String frase) {
         Compresor compresor = new Compresor();
         String Cadena_en_binario = compresor.CodigoAscii_a_binario(frase);
@@ -344,41 +370,49 @@ public class CrearCuenta extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jPasswordField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField2KeyPressed
+    private void ConfContraseñatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ConfContraseñatxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             pass_concatenada2 = "";
-            char[] contraseña2 = jPasswordField2.getPassword();
+            char[] contraseña2 = ConfContraseñatxt.getPassword();
             for (int i = 0; i < contraseña2.length; i++) {
                 pass_concatenada2 = pass_concatenada2 + contraseña2[i];
                 System.out.println(contraseña2[i]);
             }
             System.out.println("pass2   " + pass_concatenada2);
-            jTextField2.setText("");
-            jTextField2.requestFocus();
+            Correotxt.setText("");
+            Correotxt.requestFocus();
         }
-    }//GEN-LAST:event_jPasswordField2KeyPressed
+    }//GEN-LAST:event_ConfContraseñatxtKeyPressed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void ContraseñatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñatxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_ContraseñatxtActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
            System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void CorreotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorreotxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_CorreotxtActionPerformed
 
-    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+    private void CorreotxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CorreotxtKeyPressed
         // TODO add your handling code here:
          if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            correo_electronico = jTextField2.getText();
+            correo_electronico = Correotxt.getText();
          
         }
-    }//GEN-LAST:event_jTextField2KeyPressed
+    }//GEN-LAST:event_CorreotxtKeyPressed
+
+    private void PuestoLaboraltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuestoLaboraltxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PuestoLaboraltxtActionPerformed
+
+    private void PuestoLaboraltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PuestoLaboraltxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PuestoLaboraltxtKeyPressed
 
     /**
      * @param args the command line arguments
@@ -419,10 +453,16 @@ public class CrearCuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPasswordField ConfContraseñatxt;
+    private javax.swing.JPasswordField Contraseñatxt;
+    private javax.swing.JTextField Correotxt;
+    private javax.swing.JButton CrearCuentabttn;
+    private javax.swing.JTextField PuestoLaboraltxt;
+    private javax.swing.JTextField Usuariotxt;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -433,9 +473,5 @@ public class CrearCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
