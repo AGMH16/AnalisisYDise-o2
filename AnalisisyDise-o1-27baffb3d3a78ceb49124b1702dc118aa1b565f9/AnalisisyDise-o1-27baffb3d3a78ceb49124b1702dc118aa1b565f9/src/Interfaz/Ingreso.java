@@ -5,8 +5,10 @@
  */
 package Interfaz;
 
+import Conexion.ConexionBD;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 import sun.security.util.Password;
 
 /**
@@ -18,6 +20,8 @@ public class Ingreso extends javax.swing.JFrame {
     String usuario = "";
     Password contraseña3;
     String pass_concatenada;
+    ConexionBD sQL = new ConexionBD();
+
 
     /**
      * Creates new form Menu
@@ -28,6 +32,9 @@ public class Ingreso extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
+         if (sQL.getConnection() != null) {
+            JOptionPane.showMessageDialog(null, "Conexión Exitosa");
+        }
     }
 
     public void transparenciButton() {

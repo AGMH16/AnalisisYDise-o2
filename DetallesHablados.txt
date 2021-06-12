@@ -1,2 +1,7 @@
-Tabla de venta:
-Adomicilio, 1 indica que fue a domicilio, y 0 que fue en punto de venta.
+Tabla de insumo:
+Al guardar mercadería solo se va a utilizar nombre, existencia y fecha.
+Arreglar la interfaz inventario(mob y equipo, utiles y enseres), mercadería y materia prima (aves,medicamento y alimento).
+Hacer interfaz para consultas.
+
+
+
