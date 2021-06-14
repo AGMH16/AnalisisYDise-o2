@@ -97,7 +97,7 @@ public class Mercaderia extends javax.swing.JFrame {
         FechaCalendar = new com.toedter.calendar.JDateChooser();
         jButton4 = new javax.swing.JButton();
         Eliminarbtn = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        AgragaMercaderiabtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -202,8 +202,8 @@ public class Mercaderia extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton2.setText("+");
+        AgragaMercaderiabtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        AgragaMercaderiabtn.setText("+");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -248,11 +248,9 @@ public class Mercaderia extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel2)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)
+                                .addComponent(AgragaMercaderiabtn)
                                 .addGap(249, 249, 249))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(jLabel10))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -272,7 +270,7 @@ public class Mercaderia extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Productojcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))))
+                            .addComponent(AgragaMercaderiabtn))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cantidadtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -507,13 +505,13 @@ public class Mercaderia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizarbtn;
+    private javax.swing.JButton AgragaMercaderiabtn;
     private javax.swing.JTextField Cantidadtxt;
     private javax.swing.JButton Eliminarbtn;
     private com.toedter.calendar.JDateChooser FechaCalendar;
     private javax.swing.JButton Guardarbtn;
     private javax.swing.JComboBox<String> Productojcmb;
     private javax.swing.JTextField Totaltxt;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
