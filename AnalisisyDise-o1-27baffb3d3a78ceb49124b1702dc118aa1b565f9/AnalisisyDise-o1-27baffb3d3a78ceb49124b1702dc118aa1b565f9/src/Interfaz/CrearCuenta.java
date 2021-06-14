@@ -6,6 +6,7 @@
 package Interfaz;
 
 import Usuario.Compresor;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
@@ -254,14 +255,14 @@ public class CrearCuenta extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CrearCuentabttn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 530, 600));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setBackground(java.awt.SystemColor.activeCaption);
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -364,10 +365,10 @@ public class CrearCuenta extends javax.swing.JFrame {
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-      
-            Ingreso menux = new Ingreso();
+       jPanel1.setBackground(Color.decode("#212b41"));
+         /*   Ingreso menux = new Ingreso();
         menux.setVisible(true);
-        dispose();
+        dispose();*/
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ConfContraseñatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ConfContraseñatxtKeyPressed

@@ -3,5 +3,10 @@ Al guardar mercadería solo se va a utilizar nombre, existencia y fecha.
 Arreglar la interfaz inventario(mob y equipo, utiles y enseres), mercadería y materia prima (aves,medicamento y alimento).
 Hacer interfaz para consultas.
 
+En inventario:
+Generar una busqueda desde el combobox de producto, sí este existe se deja solo activo el botón de actualizar
+Sino existe se da la opición de agregar producto y se deja activo el botón de registrar
+¿Cómo evitar que ingresen articulos (pollo, concentrado, etc) que no van en esta interfaz?
+
 
 
