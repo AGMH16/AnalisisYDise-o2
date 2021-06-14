@@ -98,7 +98,7 @@ public class PanelMail extends javax.swing.JFrame {
         btnEnviar.setBackground(new java.awt.Color(0, 0, 153));
         btnEnviar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEnviar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEnviar.setText("ENVIAR");
+        btnEnviar.setText("Enviar");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnviarActionPerformed(evt);
@@ -128,7 +128,7 @@ public class PanelMail extends javax.swing.JFrame {
         btnEnviar1.setBackground(new java.awt.Color(0, 0, 204));
         btnEnviar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEnviar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnEnviar1.setText("VERIFICAR");
+        btnEnviar1.setText("Verificar");
         btnEnviar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnviar1ActionPerformed(evt);
