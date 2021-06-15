@@ -74,6 +74,13 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         PuestoLaboraltxt = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        ApellidoColaboradortxt = new javax.swing.JTextField();
+        NombreColaboradortxt = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        Supervisorrb = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -188,6 +195,48 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(153, 153, 153));
         jLabel11.setText("DATOS DEL COLABORADOR");
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel12.setText("Apellido");
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InicioS.png"))); // NOI18N
+
+        ApellidoColaboradortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ApellidoColaboradortxt.setForeground(new java.awt.Color(153, 153, 153));
+        ApellidoColaboradortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ApellidoColaboradortxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApellidoColaboradortxtActionPerformed(evt);
+            }
+        });
+        ApellidoColaboradortxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ApellidoColaboradortxtKeyPressed(evt);
+            }
+        });
+
+        NombreColaboradortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        NombreColaboradortxt.setForeground(new java.awt.Color(153, 153, 153));
+        NombreColaboradortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        NombreColaboradortxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreColaboradortxtActionPerformed(evt);
+            }
+        });
+        NombreColaboradortxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                NombreColaboradortxtKeyPressed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel14.setText("Nombre");
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InicioS.png"))); // NOI18N
+
+        Supervisorrb.setText("Supervisor");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -200,9 +249,11 @@ public class CrearCuenta extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(Supervisorrb)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -210,7 +261,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
-                        .addContainerGap(198, Short.MAX_VALUE))
+                        .addContainerGap(196, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Correotxt, javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,25 +273,53 @@ public class CrearCuenta extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 201, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(CrearCuentabttn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(46, 46, 46))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                        .addGap(32, 32, 32))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
+                .addGap(129, 129, 129))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
                 .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
@@ -267,11 +346,13 @@ public class CrearCuenta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CrearCuentabttn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CrearCuentabttn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Supervisorrb))
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 530, 630));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 530, 810));
 
         jPanel1.setBackground(java.awt.SystemColor.activeCaption);
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -284,10 +365,10 @@ public class CrearCuenta extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 700));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 790));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(102, 102, 102));
@@ -310,7 +391,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, -60, 460, 770));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, -80, 460, 950));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -426,6 +507,22 @@ public class CrearCuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PuestoLaboraltxtKeyPressed
 
+    private void ApellidoColaboradortxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoColaboradortxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApellidoColaboradortxtActionPerformed
+
+    private void ApellidoColaboradortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidoColaboradortxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApellidoColaboradortxtKeyPressed
+
+    private void NombreColaboradortxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreColaboradortxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreColaboradortxtActionPerformed
+
+    private void NombreColaboradortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreColaboradortxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreColaboradortxtKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -465,17 +562,24 @@ public class CrearCuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ApellidoColaboradortxt;
     private javax.swing.JPasswordField ConfContraseñatxt;
     private javax.swing.JPasswordField Contraseñatxt;
     private javax.swing.JTextField Correotxt;
     private javax.swing.JButton CrearCuentabttn;
+    private javax.swing.JTextField NombreColaboradortxt;
     private javax.swing.JTextField PuestoLaboraltxt;
+    private javax.swing.JRadioButton Supervisorrb;
     private javax.swing.JTextField Usuariotxt;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -56,7 +56,7 @@ public class Colaborador extends javax.swing.JFrame {
         Actualizarbtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Libretatable = new javax.swing.JTable();
+        ListaColaboradorestable = new javax.swing.JTable();
         Actualizarbtn1 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -93,7 +93,7 @@ public class Colaborador extends javax.swing.JFrame {
         Actualizarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Actualizarbtn.setForeground(new java.awt.Color(102, 102, 102));
-        Actualizarbtn.setText("Eliminar Cliente");
+        Actualizarbtn.setText("Eliminar Colaborador");
         Actualizarbtn.setBorder(null);
         Actualizarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,30 +103,30 @@ public class Colaborador extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("LIBRETA DE CLIENTES");
+        jLabel3.setText("LISTA DE COLABORADORES");
 
-        Libretatable.setModel(new javax.swing.table.DefaultTableModel(
+        ListaColaboradorestable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "No. Cliente", "Nombre", "Apellido", "Celular", "Telefono", "Direccion"
+                "No. Colaborador", "Supervisor", "Nombre", "Apellido", "Usuario", "Puesto", "Correo Electronico"
             }
         ));
-        Libretatable.addMouseListener(new java.awt.event.MouseAdapter() {
+        ListaColaboradorestable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                LibretatableMousePressed(evt);
+                ListaColaboradorestableMousePressed(evt);
             }
         });
-        jScrollPane1.setViewportView(Libretatable);
+        jScrollPane1.setViewportView(ListaColaboradorestable);
 
         Actualizarbtn1.setBackground(new java.awt.Color(102, 102, 102));
         Actualizarbtn1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Actualizarbtn1.setForeground(new java.awt.Color(102, 102, 102));
-        Actualizarbtn1.setText("Editar Cliete");
+        Actualizarbtn1.setText("Editar Colaborador");
         Actualizarbtn1.setBorder(null);
         Actualizarbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,25 +152,25 @@ public class Colaborador extends javax.swing.JFrame {
                         .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(Actualizarbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Actualizarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(585, 585, 585)
-                        .addComponent(EliminarClientebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(Actualizarbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Actualizarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(659, 659, 659)
+                                .addComponent(EliminarClientebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(852, Short.MAX_VALUE)
+                    .addContainerGap(926, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(79, 79, 79)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(443, Short.MAX_VALUE)))
+                    .addContainerGap(517, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,9 +183,9 @@ public class Colaborador extends javax.swing.JFrame {
                         .addComponent(EliminarClientebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addGap(72, 72, 72)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Actualizarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Actualizarbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -202,7 +202,7 @@ public class Colaborador extends javax.swing.JFrame {
                     .addContainerGap(413, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 700, 530));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 790, 530));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,14 +253,14 @@ public class Colaborador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void LibretatableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LibretatableMousePressed
+    private void ListaColaboradorestableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaColaboradorestableMousePressed
         // TODO add your handling code here:
-        int numfila=Libretatable.getRowCount();
+        int numfila=ListaColaboradorestable.getRowCount();
         
-        Libretatable.getEditingColumn();
+        ListaColaboradorestable.getEditingColumn();
         System.out.println("La fila "+ numfila + " fue seleccionada");
-        System.out.println("Veamos que salio "+ Libretatable.getEditingColumn());
-    }//GEN-LAST:event_LibretatableMousePressed
+        System.out.println("Veamos que salio "+ ListaColaboradorestable.getEditingColumn());
+    }//GEN-LAST:event_ListaColaboradorestableMousePressed
 
     private void Actualizarbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actualizarbtn1ActionPerformed
         // TODO add your handling code here:
@@ -324,7 +324,7 @@ public class Colaborador extends javax.swing.JFrame {
     private javax.swing.JButton Actualizarbtn;
     private javax.swing.JButton Actualizarbtn1;
     private javax.swing.JButton EliminarClientebtn;
-    private javax.swing.JTable Libretatable;
+    private javax.swing.JTable ListaColaboradorestable;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
