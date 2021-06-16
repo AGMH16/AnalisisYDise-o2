@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package Interfaz;
-
-/*import CRUD.crud;
-import Usuario.ConexionBD;*/
+import java.awt.event.KeyEvent;
+import java.util.Arrays;
+import javax.swing.ImageIcon;
+import sun.security.util.Password;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -89,6 +91,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         Eliminarbtn = new javax.swing.JButton();
         FechaCalendar = new com.toedter.calendar.JCalendar();
         jRadioButton1 = new javax.swing.JRadioButton();
+        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,7 +150,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal_1.png"))); // NOI18N
 
         Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Cantidadtxt.setForeground(new java.awt.Color(153, 153, 153));
+        Cantidadtxt.setForeground(new java.awt.Color(102, 102, 102));
         Cantidadtxt.setText("Cantidad");
         Cantidadtxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Cantidadtxt.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +171,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         jLabel11.setText("Fecha de Ingreso");
 
         Totaltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Totaltxt.setForeground(new java.awt.Color(153, 153, 153));
+        Totaltxt.setForeground(new java.awt.Color(102, 102, 102));
         Totaltxt.setText("Total");
         Totaltxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Totaltxt.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +196,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         });
 
         jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(153, 153, 153));
+        jRadioButton1.setForeground(new java.awt.Color(102, 102, 102));
         jRadioButton1.setText("Pollo");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -217,12 +220,12 @@ public class MateriaPrima extends javax.swing.JFrame {
                                     .addComponent(jLabel11)
                                     .addComponent(FechaCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Cantidadtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 77, Short.MAX_VALUE))))
+                                .addGap(0, 60, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Actualizarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Eliminarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -268,22 +271,36 @@ public class MateriaPrima extends javax.swing.JFrame {
                 .addGap(59, 59, 59))
         );
 
+        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
+        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_oscuroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 77, Short.MAX_VALUE)
+                .addGap(0, 110, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -387,6 +404,23 @@ public class MateriaPrima extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+boolean modoOscuro = false;
+    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
+        // TODO add your handling code here:
+        if (!modoOscuro) {
+            jPanel1.setBackground(Color.decode("#212b41"));
+            jPanel2.setBackground(Color.decode("#2e3951"));
+            Cantidadtxt.setBackground(Color.decode("#FFFFE0"));
+            Totaltxt.setBackground(Color.decode("#FFFFE0"));
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
+
+            modoOscuro = true;
+        } else {
+
+            this.dispose();
+
+        }
+    }//GEN-LAST:event_btn_oscuroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -557,6 +591,7 @@ public class MateriaPrima extends javax.swing.JFrame {
     private com.toedter.calendar.JCalendar FechaCalendar;
     private javax.swing.JButton Guardarbtn;
     private javax.swing.JTextField Totaltxt;
+    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel11;

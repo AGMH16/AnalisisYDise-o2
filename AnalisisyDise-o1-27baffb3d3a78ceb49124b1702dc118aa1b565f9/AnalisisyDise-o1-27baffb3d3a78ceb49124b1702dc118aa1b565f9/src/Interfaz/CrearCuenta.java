@@ -9,6 +9,7 @@ import Usuario.Compresor;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sun.security.util.Password;
 
@@ -77,6 +78,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         Supervisorrb = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,7 +91,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 
         CrearCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
         CrearCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CrearCuentabtn.setForeground(new java.awt.Color(102, 102, 102));
+        CrearCuentabtn.setForeground(new java.awt.Color(153, 153, 153));
         CrearCuentabtn.setText("Crear Cuenta");
         CrearCuentabtn.setBorder(null);
         CrearCuentabtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -108,7 +110,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/campo-de-contrasena-con-asteriscos.png"))); // NOI18N
 
         Usuariotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Usuariotxt.setForeground(new java.awt.Color(153, 153, 153));
+        Usuariotxt.setForeground(new java.awt.Color(102, 102, 102));
         Usuariotxt.setText("Usuario");
         Usuariotxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Usuariotxt.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +124,7 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        Contraseñatxt.setForeground(new java.awt.Color(102, 102, 102));
         Contraseñatxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Contraseñatxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +137,7 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        ConfContraseñatxt.setForeground(new java.awt.Color(102, 102, 102));
         ConfContraseñatxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ConfContraseñatxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -148,7 +152,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/correo-electronico (2).png"))); // NOI18N
 
         Correotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Correotxt.setForeground(new java.awt.Color(153, 153, 153));
+        Correotxt.setForeground(new java.awt.Color(102, 102, 102));
         Correotxt.setText("Correo Electronico");
         Correotxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Correotxt.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +167,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         });
 
         PuestoLaboraltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PuestoLaboraltxt.setForeground(new java.awt.Color(153, 153, 153));
+        PuestoLaboraltxt.setForeground(new java.awt.Color(102, 102, 102));
         PuestoLaboraltxt.setText("Puesto Laboral");
         PuestoLaboraltxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PuestoLaboraltxt.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +186,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel11.setText("DATOS DEL COLABORADOR");
 
         ApellidoColaboradortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ApellidoColaboradortxt.setForeground(new java.awt.Color(153, 153, 153));
+        ApellidoColaboradortxt.setForeground(new java.awt.Color(102, 102, 102));
         ApellidoColaboradortxt.setText("Apellidos");
         ApellidoColaboradortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ApellidoColaboradortxt.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +201,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         });
 
         NombreColaboradortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        NombreColaboradortxt.setForeground(new java.awt.Color(153, 153, 153));
+        NombreColaboradortxt.setForeground(new java.awt.Color(102, 102, 102));
         NombreColaboradortxt.setText("Nombres");
         NombreColaboradortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         NombreColaboradortxt.addActionListener(new java.awt.event.ActionListener() {
@@ -241,13 +245,12 @@ public class CrearCuenta extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addComponent(ApellidoColaboradortxt)
                                 .addComponent(NombreColaboradortxt)
-                                .addComponent(Correotxt)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(ConfContraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                                    .addComponent(Supervisorrb))
+                                .addComponent(Correotxt, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+                                .addComponent(ConfContraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel8))
-                            .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Supervisorrb)
+                                .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -313,6 +316,13 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
+        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_oscuroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -324,12 +334,17 @@ public class CrearCuenta extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
                         .addComponent(jButton2))
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton3))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
@@ -468,6 +483,28 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void PuestoLaboraltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuestoLaboraltxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PuestoLaboraltxtActionPerformed
+boolean modoOscuro = false;
+    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
+        // TODO add your handling code here:
+         if (!modoOscuro) {
+            jPanel1.setBackground(Color.decode("#212b41"));
+            jPanel2.setBackground(Color.decode("#2e3951"));
+            NombreColaboradortxt.setBackground(Color.decode("#FFFFE0"));
+            ApellidoColaboradortxt.setBackground(Color.decode("#FFFFE0"));
+            Correotxt.setBackground(Color.decode("#FFFFE0"));
+            PuestoLaboraltxt.setBackground(Color.decode("#FFFFE0"));
+            Usuariotxt.setBackground(Color.decode("#FFFFE0"));
+            Contraseñatxt.setBackground(Color.decode("#FFFFE0"));
+            ConfContraseñatxt.setBackground(Color.decode("#FFFFE0"));
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
+
+            modoOscuro = true;
+        } else {
+
+            this.dispose();
+
+        }
+    }//GEN-LAST:event_btn_oscuroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -517,6 +554,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     private javax.swing.JTextField PuestoLaboraltxt;
     private javax.swing.JRadioButton Supervisorrb;
     private javax.swing.JTextField Usuariotxt;
+    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;
