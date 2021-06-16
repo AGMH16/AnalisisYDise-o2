@@ -21,6 +21,7 @@ public class ConexionBD {
             return connection;
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
+            System.out.println(e);
             throw new RuntimeException("Conexión fallida", e);
         }
     }
