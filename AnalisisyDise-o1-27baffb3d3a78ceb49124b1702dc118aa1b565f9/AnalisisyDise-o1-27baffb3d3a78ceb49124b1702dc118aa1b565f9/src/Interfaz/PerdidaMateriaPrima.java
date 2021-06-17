@@ -25,39 +25,41 @@ import sun.security.util.Password;
  *
  * @author jenif
  */
-public class MateriaPrima extends javax.swing.JFrame {
+public class PerdidaMateriaPrima extends javax.swing.JFrame {
 
     String proveedor = "", producto = "", dimensional = "", dimensional2 = "";
     String nombreproveedor = "", tipoproducto = "";
     int cantidad = 0, total = 0, cantidad2 = 0, dia, anio = 0, mes = 0;
-
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
 
     /**
      * Creates new form Menu
      */
-    public MateriaPrima() {
+    public PerdidaMateriaPrima() {
 
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
 
+       
+
+      
     }
 
     public void transparenciButton() {
-
+       
         Guardarbtn.setOpaque(false);
         Guardarbtn.setContentAreaFilled(false);
         Guardarbtn.setBorderPainted(false);
-        jButton3.setOpaque(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setBorderPainted(false);
-
-        jButton5.setOpaque(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setBorderPainted(false);
+      jButton7.setOpaque(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setBorderPainted(false);
+       
+        jButton4.setOpaque(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setBorderPainted(false);
         Actualizarbtn.setOpaque(false);
         Actualizarbtn.setContentAreaFilled(false);
         Actualizarbtn.setBorderPainted(false);
@@ -75,90 +77,73 @@ public class MateriaPrima extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Perdidas = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Actualizarbtn = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         Guardarbtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         Cantidadtxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        Totaltxt = new javax.swing.JTextField();
         Eliminarbtn = new javax.swing.JButton();
-        FechaCalendar = new com.toedter.calendar.JCalendar();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jLabel4 = new javax.swing.JLabel();
-        Proveedorjcmb = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        Enfermorbtn = new javax.swing.JRadioButton();
+        jLabel14 = new javax.swing.JLabel();
+        FechaCalendar2 = new com.toedter.calendar.JCalendar();
+        jLabel3 = new javax.swing.JLabel();
+        Observacionbtn = new javax.swing.JRadioButton();
+        Muertosrbtn = new javax.swing.JRadioButton();
+        jLabel13 = new javax.swing.JLabel();
         CodigoAveriotxt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(980, 754));
+        setMinimumSize(new java.awt.Dimension(1110, 515));
+        setPreferredSize(new java.awt.Dimension(1110, 515));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(244, 253, 251));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(980, 754));
-        jPanel1.setVerifyInputWhenFocusTarget(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 700));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(102, 102, 102));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(102, 102, 102));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-de-regreso.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButton7ActionPerformed(evt);
             }
         });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Actualizarbtn.setForeground(new java.awt.Color(102, 102, 102));
         Actualizarbtn.setText("Actualizar");
-        Actualizarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
         Actualizarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ActualizarbtnActionPerformed(evt);
             }
         });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("MATERIA PRIMA ");
+        jPanel2.add(Actualizarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 370, 120, -1));
 
         Guardarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Guardarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Guardarbtn.setForeground(new java.awt.Color(102, 102, 102));
         Guardarbtn.setText("Guardar");
         Guardarbtn.setBorder(null);
-        Guardarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
         Guardarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarbtnActionPerformed(evt);
             }
         });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pollo.png"))); // NOI18N
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal_1.png"))); // NOI18N
+        jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, 120, 35));
 
         Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Cantidadtxt.setForeground(new java.awt.Color(102, 102, 102));
-        Cantidadtxt.setText("Cantidad");
+        Cantidadtxt.setForeground(new java.awt.Color(153, 153, 153));
+        Cantidadtxt.setText("Unidades afectadas");
         Cantidadtxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Cantidadtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,52 +155,74 @@ public class MateriaPrima extends javax.swing.JFrame {
                 CantidadtxtKeyPressed(evt);
             }
         });
+        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 253, 43));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario.png"))); // NOI18N
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel11.setText("Fecha de Ingreso");
-
-        Totaltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Totaltxt.setForeground(new java.awt.Color(102, 102, 102));
-        Totaltxt.setText("Total");
-        Totaltxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Totaltxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TotaltxtActionPerformed(evt);
-            }
-        });
-        Totaltxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TotaltxtKeyPressed(evt);
-            }
-        });
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
 
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
         Eliminarbtn.setText("Eliminar");
-        Eliminarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
         Eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarbtnActionPerformed(evt);
             }
         });
+        jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 330, 120, -1));
 
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jRadioButton1.setText("Pollo");
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setText("Cantidad");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario (2).png"))); // NOI18N
-
-        Proveedorjcmb.setBackground(new java.awt.Color(244, 253, 251));
-        Proveedorjcmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Proveedorjcmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", " ", " " }));
-        Proveedorjcmb.addActionListener(new java.awt.event.ActionListener() {
+        Enfermorbtn.setBackground(new java.awt.Color(244, 253, 251));
+        Perdidas.add(Enfermorbtn);
+        Enfermorbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Enfermorbtn.setText("Enfermo");
+        Enfermorbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProveedorjcmbActionPerformed(evt);
+                EnfermorbtnActionPerformed(evt);
             }
         });
+        jPanel2.add(Enfermorbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel14.setText("Fecha de la perdida");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, -1, -1));
+        jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 320, 150));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("PERDIDA DE LA MATERIA PRIMA");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 24, -1, -1));
+
+        Observacionbtn.setBackground(new java.awt.Color(244, 253, 251));
+        Perdidas.add(Observacionbtn);
+        Observacionbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Observacionbtn.setText("En observacion");
+        Observacionbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ObservacionbtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Observacionbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+
+        Muertosrbtn.setBackground(new java.awt.Color(244, 253, 251));
+        Perdidas.add(Muertosrbtn);
+        Muertosrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Muertosrbtn.setText("Muerto");
+        Muertosrbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MuertosrbtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Muertosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setText("Tipo de Perdida");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
 
         CodigoAveriotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CodigoAveriotxt.setForeground(new java.awt.Color(153, 153, 153));
@@ -230,97 +237,21 @@ public class MateriaPrima extends javax.swing.JFrame {
                 CodigoAveriotxtKeyPressed(evt);
             }
         });
+        jPanel2.add(CodigoAveriotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 253, 43));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel15.setText("Código de averío");
+        jLabel15.setText("Código de averío afectado");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(CodigoAveriotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(49, 49, 49)
-                            .addComponent(jLabel3))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(59, 59, 59)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel6))
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel4))
-                                    .addGap(29, 29, 29)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Proveedorjcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(Totaltxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(FechaCalendar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Cantidadtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(jLabel15)
-                                .addComponent(jLabel11)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Actualizarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Eliminarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Guardarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(51, 51, 51))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(297, 297, 297)
-                .addComponent(Eliminarbtn)
-                .addGap(18, 18, 18)
-                .addComponent(Actualizarbtn)
-                .addGap(18, 18, 18)
-                .addComponent(Guardarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CodigoAveriotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(Proveedorjcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
-                .addComponent(Cantidadtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(FechaCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(52, 52, 52)))
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(Totaltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36))
-        );
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(102, 102, 102));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-de-regreso.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
         btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
@@ -334,58 +265,44 @@ public class MateriaPrima extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(210, Short.MAX_VALUE)
+                .addContainerGap(75, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 943, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83))
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(jButton7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5))
+                        .addComponent(jButton4))
+                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 760));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 515));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void TotaltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            total = Integer.parseInt(Totaltxt.getText());
-
-        }
-    }//GEN-LAST:event_TotaltxtKeyPressed
-
-    private void TotaltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotaltxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TotaltxtActionPerformed
+        Menu3 menux = new Menu3();
+        menux.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void CantidadtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyPressed
         // TODO add your handling code here:
@@ -408,14 +325,14 @@ public class MateriaPrima extends javax.swing.JFrame {
     }
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
 
-        // tipoproducto = (String) Productojcmb.getSelectedItem();
+      
+       // tipoproducto = (String) Productojcmb.getSelectedItem();
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        //  dimensional2 = (String) jComboBox3.getSelectedItem();
-        String fecha = FechaCalendar.getDate().toString();
-        System.out.println("FECHA  " + fecha);
-        total = Integer.parseInt(Totaltxt.getText());
+       // dimensional2 = (String) jComboBox3.getSelectedItem();
+       // String fecha = FechaCalendar.getDate().toString();
+       
         //   obtener_proveedor(0,nombreproveedor);
-        /*  try {
+      /*  try {
             thecrud.IngresarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total, nombreproveedor);
         } catch (SQLException ex) {
             Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
@@ -423,16 +340,20 @@ public class MateriaPrima extends javax.swing.JFrame {
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
         // TODO add your handling code here:
 
-        // tipoproducto = (String) Productojcmb.getSelectedItem();
+      //  tipoproducto = (String) Productojcmb.getSelectedItem();
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        // dimensional2 = (String) jComboBox3.getSelectedItem();
-        String fecha = FechaCalendar.getDate().toString();
-        System.out.println("FECHA  " + fecha);
-        total = Integer.parseInt(Totaltxt.getText());
-        /* try {
+        //dimensional2 = (String) jComboBox3.getSelectedItem();
+       // String fecha = FechaCalendar.getDate().toString();
+       
+       /* try {
             thecrud.ActualizarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total);
         } catch (SQLException ex) {
             Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
@@ -441,14 +362,13 @@ public class MateriaPrima extends javax.swing.JFrame {
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
         // TODO add your handling code here:
-        // tipoproducto = (String) Productojcmb.getSelectedItem();
+       // tipoproducto = (String) Productojcmb.getSelectedItem();
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        //  dimensional2 = (String) jComboBox3.getSelectedItem();
-        String fecha = FechaCalendar.getDate().toString();
-        System.out.println("FECHA  " + fecha);
-        total = Integer.parseInt(Totaltxt.getText());
+       // dimensional2 = (String) jComboBox3.getSelectedItem();
+      //  String fecha = FechaCalendar.getDate().toString();
+    
         //   obtener_proveedor(0,nombreproveedor);
-        /*  try {
+      /*  try {
             thecrud.EliminarProducto(con, tipoproducto);
         } catch (SQLException ex) {
             Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
@@ -456,9 +376,17 @@ public class MateriaPrima extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void EnfermorbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnfermorbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_EnfermorbtnActionPerformed
+
+    private void ObservacionbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObservacionbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ObservacionbtnActionPerformed
+
+    private void MuertosrbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MuertosrbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MuertosrbtnActionPerformed
 boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         // TODO add your handling code here:
@@ -466,7 +394,6 @@ boolean modoOscuro = false;
             jPanel1.setBackground(Color.decode("#212b41"));
             jPanel2.setBackground(Color.decode("#2e3951"));
             Cantidadtxt.setBackground(Color.decode("#FFFFE0"));
-            Totaltxt.setBackground(Color.decode("#FFFFE0"));
             btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
 
             modoOscuro = true;
@@ -476,10 +403,6 @@ boolean modoOscuro = false;
 
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-
-    private void ProveedorjcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorjcmbActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ProveedorjcmbActionPerformed
 
     private void CodigoAveriotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoAveriotxtActionPerformed
         // TODO add your handling code here:
@@ -506,13 +429,13 @@ boolean modoOscuro = false;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerdidaMateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerdidaMateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerdidaMateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerdidaMateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -646,7 +569,7 @@ boolean modoOscuro = false;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MateriaPrima().setVisible(true);
+                new PerdidaMateriaPrima().setVisible(true);
             }
         });
     }
@@ -656,22 +579,22 @@ boolean modoOscuro = false;
     private javax.swing.JTextField Cantidadtxt;
     private javax.swing.JTextField CodigoAveriotxt;
     private javax.swing.JButton Eliminarbtn;
-    private com.toedter.calendar.JCalendar FechaCalendar;
+    private javax.swing.JRadioButton Enfermorbtn;
+    private com.toedter.calendar.JCalendar FechaCalendar2;
     private javax.swing.JButton Guardarbtn;
-    private javax.swing.JComboBox<String> Proveedorjcmb;
-    private javax.swing.JTextField Totaltxt;
+    private javax.swing.JRadioButton Muertosrbtn;
+    private javax.swing.JRadioButton Observacionbtn;
+    private javax.swing.ButtonGroup Perdidas;
     private javax.swing.JButton btn_oscuro;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
     // End of variables declaration//GEN-END:variables
 }

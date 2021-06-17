@@ -88,25 +88,29 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Cantidadtxt = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         Totaltxt = new javax.swing.JTextField();
         Eliminarbtn = new javax.swing.JButton();
-        Medicamentosrb = new javax.swing.JRadioButton();
-        Alimentosrb = new javax.swing.JRadioButton();
+        Medicamentosrbtn = new javax.swing.JRadioButton();
+        Alimentosrbtn = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        Inmunizadorrbtn = new javax.swing.JRadioButton();
+        ConCrecimientorbtn = new javax.swing.JRadioButton();
         FechaCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel14 = new javax.swing.JLabel();
         FechaCalendar2 = new com.toedter.calendar.JCalendar();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        Maizrbtn = new javax.swing.JRadioButton();
+        Vitaminarbtn = new javax.swing.JRadioButton();
+        Vacunarbtn = new javax.swing.JRadioButton();
+        ConEngorderbtn = new javax.swing.JRadioButton();
+        Dimensionaljcmb = new javax.swing.JComboBox<>();
+        AgregarDimensionalbtn = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        Proveedorjcmb = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
 
@@ -136,7 +140,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
                 ActualizarbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Actualizarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 610, 120, -1));
+        jPanel2.add(Actualizarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 610, 120, -1));
 
         Guardarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Guardarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -148,13 +152,13 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
                 GuardarbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 650, 82, 35));
+        jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 650, 120, 35));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inyeccion.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal_1.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 610, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 680, -1, -1));
 
         Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Cantidadtxt.setForeground(new java.awt.Color(153, 153, 153));
@@ -170,10 +174,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
                 CantidadtxtKeyPressed(evt);
             }
         });
-        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 560, 253, 43));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, -1, -1));
+        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 630, 253, 43));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
@@ -199,7 +200,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
                 TotaltxtKeyPressed(evt);
             }
         });
-        jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 630, 253, 43));
+        jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 700, 253, 43));
 
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -209,20 +210,20 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
                 EliminarbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 570, 100, -1));
+        jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 570, 120, -1));
 
-        Medicamentosrb.setBackground(new java.awt.Color(244, 253, 251));
-        TipoInsumo.add(Medicamentosrb);
-        Medicamentosrb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Medicamentosrb.setForeground(new java.awt.Color(51, 51, 51));
-        Medicamentosrb.setText("Medicamentos");
-        jPanel2.add(Medicamentosrb, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+        Medicamentosrbtn.setBackground(new java.awt.Color(244, 253, 251));
+        TipoInsumo.add(Medicamentosrbtn);
+        Medicamentosrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Medicamentosrbtn.setForeground(new java.awt.Color(51, 51, 51));
+        Medicamentosrbtn.setText("Medicamentos");
+        jPanel2.add(Medicamentosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
 
-        Alimentosrb.setBackground(new java.awt.Color(244, 253, 251));
-        TipoInsumo.add(Alimentosrb);
-        Alimentosrb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Alimentosrb.setText("Alimentos");
-        jPanel2.add(Alimentosrb, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, -1, -1));
+        Alimentosrbtn.setBackground(new java.awt.Color(244, 253, 251));
+        TipoInsumo.add(Alimentosrbtn);
+        Alimentosrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Alimentosrbtn.setText("Alimentos");
+        jPanel2.add(Alimentosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maiz.png"))); // NOI18N
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
@@ -237,62 +238,99 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jLabel13.setText("Tipo de Alimento");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, -1, -1));
 
-        jRadioButton1.setBackground(new java.awt.Color(244, 253, 251));
-        Medicamentos.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jRadioButton1.setText("Inmunizador");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        Inmunizadorrbtn.setBackground(new java.awt.Color(244, 253, 251));
+        Medicamentos.add(Inmunizadorrbtn);
+        Inmunizadorrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Inmunizadorrbtn.setText("Inmunizador");
+        Inmunizadorrbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                InmunizadorrbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
+        jPanel2.add(Inmunizadorrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
 
-        jRadioButton2.setBackground(new java.awt.Color(244, 253, 251));
-        Alimentos.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jRadioButton2.setText("Concentrado de crecimiento");
-        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, -1, -1));
-        jPanel2.add(FechaCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, -1, 125));
+        ConCrecimientorbtn.setBackground(new java.awt.Color(244, 253, 251));
+        Alimentos.add(ConCrecimientorbtn);
+        ConCrecimientorbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConCrecimientorbtn.setText("Concentrado de crecimiento");
+        jPanel2.add(ConCrecimientorbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
+        jPanel2.add(FechaCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, 125));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Fecha de Ingreso");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
-        jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, -1, 125));
+        jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, -1, 125));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("MEDICAMENTOS Y ALIMENTOS");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 24, -1, -1));
 
-        jRadioButton3.setBackground(new java.awt.Color(244, 253, 251));
-        Alimentos.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jRadioButton3.setText("Concentrado de engorde y Maiz");
-        jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 251, -1, -1));
+        Maizrbtn.setBackground(new java.awt.Color(244, 253, 251));
+        Alimentos.add(Maizrbtn);
+        Maizrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Maizrbtn.setText("Maiz");
+        jPanel2.add(Maizrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, -1, -1));
 
-        jRadioButton4.setBackground(new java.awt.Color(244, 253, 251));
-        Medicamentos.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jRadioButton4.setText("Vitamina");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        Vitaminarbtn.setBackground(new java.awt.Color(244, 253, 251));
+        Medicamentos.add(Vitaminarbtn);
+        Vitaminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Vitaminarbtn.setText("Vitamina");
+        Vitaminarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                VitaminarbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
+        jPanel2.add(Vitaminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
 
-        jRadioButton5.setBackground(new java.awt.Color(244, 253, 251));
-        Medicamentos.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jRadioButton5.setText("Vacuna");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        Vacunarbtn.setBackground(new java.awt.Color(244, 253, 251));
+        Medicamentos.add(Vacunarbtn);
+        Vacunarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Vacunarbtn.setText("Vacuna");
+        Vacunarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                VacunarbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
+        jPanel2.add(Vacunarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
+
+        ConEngorderbtn.setBackground(new java.awt.Color(244, 253, 251));
+        Alimentos.add(ConEngorderbtn);
+        ConEngorderbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConEngorderbtn.setText("Concentrado de engorde ");
+        jPanel2.add(ConEngorderbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, -1, -1));
+
+        Dimensionaljcmb.setBackground(new java.awt.Color(244, 253, 251));
+        Dimensionaljcmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Dimensionaljcmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DimensionaljcmbActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Dimensionaljcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 630, 140, 40));
+
+        AgregarDimensionalbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AgregarDimensionalbtn.setText("+");
+        AgregarDimensionalbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarDimensionalbtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(AgregarDimensionalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario (2).png"))); // NOI18N
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 560, -1, -1));
+
+        Proveedorjcmb.setBackground(new java.awt.Color(244, 253, 251));
+        Proveedorjcmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Proveedorjcmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", " ", " " }));
+        Proveedorjcmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProveedorjcmbActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Proveedorjcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 560, 250, 50));
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton4.setForeground(new java.awt.Color(102, 102, 102));
@@ -315,14 +353,11 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 976, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -332,17 +367,18 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4))
+                            .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 761, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 830));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 860));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -441,17 +477,17 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void InmunizadorrbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InmunizadorrbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_InmunizadorrbtnActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void VitaminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VitaminarbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_VitaminarbtnActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void VacunarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VacunarbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_VacunarbtnActionPerformed
 boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         // TODO add your handling code here:
@@ -469,6 +505,20 @@ boolean modoOscuro = false;
 
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+
+    private void DimensionaljcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DimensionaljcmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DimensionaljcmbActionPerformed
+
+    private void AgregarDimensionalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDimensionalbtnActionPerformed
+        // TODO add your handling code here:
+        dimensional = JOptionPane.showInputDialog("Ingrese Producto");
+        Dimensionaljcmb.addItem(dimensional);
+    }//GEN-LAST:event_AgregarDimensionalbtnActionPerformed
+
+    private void ProveedorjcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorjcmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProveedorjcmbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -570,17 +620,26 @@ boolean modoOscuro = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizarbtn;
+    private javax.swing.JButton AgregarDimensionalbtn;
     private javax.swing.ButtonGroup Alimentos;
-    private javax.swing.JRadioButton Alimentosrb;
+    private javax.swing.JRadioButton Alimentosrbtn;
     private javax.swing.JTextField Cantidadtxt;
+    private javax.swing.JRadioButton ConCrecimientorbtn;
+    private javax.swing.JRadioButton ConEngorderbtn;
+    private javax.swing.JComboBox<String> Dimensionaljcmb;
     private javax.swing.JButton Eliminarbtn;
     private com.toedter.calendar.JCalendar FechaCalendar1;
     private com.toedter.calendar.JCalendar FechaCalendar2;
     private javax.swing.JButton Guardarbtn;
+    private javax.swing.JRadioButton Inmunizadorrbtn;
+    private javax.swing.JRadioButton Maizrbtn;
     private javax.swing.ButtonGroup Medicamentos;
-    private javax.swing.JRadioButton Medicamentosrb;
+    private javax.swing.JRadioButton Medicamentosrbtn;
+    private javax.swing.JComboBox<String> Proveedorjcmb;
     private javax.swing.ButtonGroup TipoInsumo;
     private javax.swing.JTextField Totaltxt;
+    private javax.swing.JRadioButton Vacunarbtn;
+    private javax.swing.JRadioButton Vitaminarbtn;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
@@ -592,14 +651,9 @@ boolean modoOscuro = false;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     // End of variables declaration//GEN-END:variables
 }
