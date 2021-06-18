@@ -316,14 +316,15 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void EntrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarbtnActionPerformed
         // TODO add your handling code here:
-        usuario = Usuariotxt.getText();
+        
+      /*  usuario = Usuariotxt.getText();
         System.out.println("1 Usuario" + usuario);
         char[] contraseña = Contraseñiatxt.getPassword();
         System.out.println("2 Contraseña" + contraseña);
 
         Menu3 menux = new Menu3();
         menux.setVisible(true);
-        dispose();
+        dispose();*/
     }//GEN-LAST:event_EntrarbtnActionPerformed
 
     private void RegistrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarbtnActionPerformed

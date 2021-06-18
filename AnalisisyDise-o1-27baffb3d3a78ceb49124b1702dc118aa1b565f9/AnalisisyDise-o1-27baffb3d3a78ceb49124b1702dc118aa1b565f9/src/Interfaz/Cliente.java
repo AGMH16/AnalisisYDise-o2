@@ -27,7 +27,9 @@ public class Cliente extends javax.swing.JFrame {
     int telefonoMovil = 0, telefonocasa = 0;
     Password contraseña3;
     String pass_concatenada;
-
+    Componente componente = new Componente();
+    ColorComponente pintarInterfaz = new ColorComponente();
+    boolean modoOscuro = false;
     /**
      * Creates new form Menu
      */
@@ -389,25 +391,28 @@ public class Cliente extends javax.swing.JFrame {
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ActualizarbtnActionPerformed
-    boolean modoOscuro = false;
+    
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
+       /* componente.setPanelFondo(jPanel1);
+        componente.setPanelBase(jPanel2);
+        componente.setText(NombreClientetxt);
+        componente.setText2(ApellidoClientetxt);
+        componente.setText3(CelularClientetxt);
+        componente.setText4(TelefonoClientetxt);
+        componente.setText5(DireccionClientetxt);
+        componente.setBoton(btn_oscuro);
+        componente.setBoton2(GuardarClientebtn);
+        componente.setBoton3(Actualizarbtn);
+        componente.setLabel(jLabel3);*/
+        componente.ComponentesCliente(btn_oscuro, GuardarClientebtn, Actualizarbtn, jLabel3, NombreClientetxt, ApellidoClientetxt, CelularClientetxt, DireccionClientetxt, TelefonoClientetxt, jPanel1, jPanel2);
+        pintarInterfaz.setComponente(componente);
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-            NombreClientetxt.setBackground(Color.decode("#FFFFE0"));
-            ApellidoClientetxt.setBackground(Color.decode("#FFFFE0"));
-            CelularClientetxt.setBackground(Color.decode("#FFFFE0"));
-            TelefonoClientetxt.setBackground(Color.decode("#FFFFE0"));
-            DireccionClientetxt.setBackground(Color.decode("#FFFFE0"));
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
+            pintarInterfaz.ClienteModoObscuro();
             modoOscuro = true;
-        } else {
-
-            this.dispose();
-
+        }else if (modoOscuro == true) {
+            pintarInterfaz.ClienteModoClaro();
+            modoOscuro = false;
         }
-
     }//GEN-LAST:event_btn_oscuroActionPerformed
 
     /**

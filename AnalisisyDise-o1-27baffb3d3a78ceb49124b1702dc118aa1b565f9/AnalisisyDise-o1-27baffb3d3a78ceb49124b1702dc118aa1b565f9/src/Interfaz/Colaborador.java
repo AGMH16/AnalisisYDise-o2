@@ -21,6 +21,8 @@ public class Colaborador extends javax.swing.JFrame {
     int telefonoMovil = 0, telefonocasa = 0;
     Password contraseña3;
     String pass_concatenada;
+    Componente componente = new Componente();
+    ColorComponente obscurecer = new ColorComponente();
 
     /**
      * Creates new form Menu
@@ -258,7 +260,7 @@ public class Colaborador extends javax.swing.JFrame {
 
     private void EliminarClientebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarClientebtnActionPerformed
         // TODO add your handling code here:
-   
+
     }//GEN-LAST:event_EliminarClientebtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -276,11 +278,11 @@ public class Colaborador extends javax.swing.JFrame {
 
     private void ListaColaboradorestableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaColaboradorestableMousePressed
         // TODO add your handling code here:
-        int numfila=ListaColaboradorestable.getRowCount();
-        
+        int numfila = ListaColaboradorestable.getRowCount();
+
         ListaColaboradorestable.getEditingColumn();
-        System.out.println("La fila "+ numfila + " fue seleccionada");
-        System.out.println("Veamos que salio "+ ListaColaboradorestable.getEditingColumn());
+        System.out.println("La fila " + numfila + " fue seleccionada");
+        System.out.println("Veamos que salio " + ListaColaboradorestable.getEditingColumn());
     }//GEN-LAST:event_ListaColaboradorestableMousePressed
 
     private void Actualizarbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actualizarbtn1ActionPerformed
@@ -290,16 +292,23 @@ public class Colaborador extends javax.swing.JFrame {
     private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BuscartxtActionPerformed
-boolean modoOscuro = false;
+    boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         // TODO add your handling code here:
-         if (!modoOscuro) {
+        if (!modoOscuro) {
+            componente.setPanelFondo(jPanel1);
+            componente.setPanelBase(jPanel2);
+            componente.setText(Buscartxt);
+            componente.setBoton(btn_oscuro);
+            obscurecer.setComponente(componente);
+            obscurecer.PintarColaborador();
+            /*
             jPanel1.setBackground(Color.decode("#212b41"));
             jPanel2.setBackground(Color.decode("#2e3951"));
             Buscartxt.setBackground(Color.decode("#FFFFE0"));
-            
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
 
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
+*/
             modoOscuro = true;
         } else {
 
