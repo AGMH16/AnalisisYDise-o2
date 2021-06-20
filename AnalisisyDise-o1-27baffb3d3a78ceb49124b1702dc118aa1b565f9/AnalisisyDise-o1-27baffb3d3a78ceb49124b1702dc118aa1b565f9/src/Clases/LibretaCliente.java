@@ -10,20 +10,23 @@ package Clases;
  * @author jenif
  */
 public class LibretaCliente {
-    private String nombre, apellido, celular, telefono,direccion;
-    public LibretaCliente(){
-        this.nombre=nombre;
-        this.apellido=apellido;
-        this.celular=celular;
-        this.telefono=telefono;
-        this.direccion=direccion;
+
+    private String nombre, apellido, celular, telefono, direccion;
+
+    public LibretaCliente() {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.celular = celular;
+        this.telefono = telefono;
+        this.direccion = direccion;
     }
-    public LibretaCliente(String nombre, String apellido, String celular,String telefono, String direccion){
-         this.nombre=nombre;
-        this.apellido=apellido;
-        this.celular=celular;
-        this.telefono=telefono;
-        this.direccion=direccion;
+
+    public LibretaCliente(String nombre, String apellido, String celular, String telefono, String direccion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.celular = celular;
+        this.telefono = telefono;
+        this.direccion = direccion;
     }
 
     public String getNombre() {
@@ -65,5 +68,5 @@ public class LibretaCliente {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
+
 }
