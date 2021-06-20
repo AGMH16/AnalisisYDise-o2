@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class MateriaPrima {
 
-    private int total;
+    private float total;
     private String loteAverio;
     private Date fechaIngreso;
     private Usuario usuario;
@@ -25,18 +25,18 @@ public class MateriaPrima {
         this.usuario = usuario;
     }
 
-    public MateriaPrima(int total, String loteAverio, Date fechaIngreso, Usuario usuario) {
+    public MateriaPrima(float total, String loteAverio, Date fechaIngreso, Usuario usuario) {
         this.total = total;
         this.loteAverio = loteAverio;
         this.fechaIngreso = fechaIngreso;
         this.usuario = usuario;
     }
 
-    public int getTotal() {
+    public float getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(float total) {
         this.total = total;
     }
 
