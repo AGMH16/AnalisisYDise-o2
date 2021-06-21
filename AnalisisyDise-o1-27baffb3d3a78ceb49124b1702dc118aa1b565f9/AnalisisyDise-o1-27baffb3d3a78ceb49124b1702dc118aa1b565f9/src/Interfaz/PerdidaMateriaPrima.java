@@ -97,14 +97,12 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         CodigoAveriotxt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1110, 515));
-        setPreferredSize(new java.awt.Dimension(1110, 515));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(244, 253, 251));
+        jPanel1.setBackground(new java.awt.Color(52, 73, 94));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 700));
 
@@ -116,11 +114,11 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(93, 109, 126));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Actualizarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Actualizarbtn.setForeground(new java.awt.Color(255, 255, 224));
         Actualizarbtn.setText("Actualizar");
         Actualizarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +129,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
 
         Guardarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Guardarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Guardarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Guardarbtn.setForeground(new java.awt.Color(255, 255, 224));
         Guardarbtn.setText("Guardar");
         Guardarbtn.setBorder(null);
         Guardarbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +139,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         });
         jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, 120, 35));
 
+        Cantidadtxt.setBackground(new java.awt.Color(255, 255, 224));
         Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Cantidadtxt.setForeground(new java.awt.Color(153, 153, 153));
         Cantidadtxt.setText("Unidades afectadas");
@@ -161,7 +160,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
 
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Eliminarbtn.setForeground(new java.awt.Color(255, 255, 224));
         Eliminarbtn.setText("Eliminar");
         Eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,9 +170,9 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 330, 120, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 224));
         jLabel12.setText("Cantidad");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
 
         Enfermorbtn.setBackground(new java.awt.Color(244, 253, 251));
         Perdidas.add(Enfermorbtn);
@@ -187,13 +186,13 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jPanel2.add(Enfermorbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 224));
         jLabel14.setText("Fecha de la perdida");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, -1, -1));
         jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 320, 150));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 224));
         jLabel3.setText("PERDIDA DE LA MATERIA PRIMA");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 24, -1, -1));
 
@@ -220,12 +219,13 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jPanel2.add(Muertosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setForeground(new java.awt.Color(255, 255, 224));
         jLabel13.setText("Tipo de Perdida");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
 
+        CodigoAveriotxt.setBackground(new java.awt.Color(255, 255, 224));
         CodigoAveriotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CodigoAveriotxt.setForeground(new java.awt.Color(153, 153, 153));
+        CodigoAveriotxt.setForeground(new java.awt.Color(255, 255, 224));
         CodigoAveriotxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         CodigoAveriotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,9 +240,9 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jPanel2.add(CodigoAveriotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 253, 43));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel15.setForeground(new java.awt.Color(255, 255, 224));
         jLabel15.setText("Código de averío afectado");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton4.setForeground(new java.awt.Color(102, 102, 102));
@@ -253,26 +253,14 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
             }
         });
 
-        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
-        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_oscuroActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 943, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)))
+                .addContainerGap(84, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 943, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -280,19 +268,14 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
-                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addContainerGap(409, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 515));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -388,22 +371,6 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MuertosrbtnActionPerformed
 boolean modoOscuro = false;
-    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        // TODO add your handling code here:
-        if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-            Cantidadtxt.setBackground(Color.decode("#FFFFE0"));
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
-            modoOscuro = true;
-        } else {
-
-            this.dispose();
-
-        }
-    }//GEN-LAST:event_btn_oscuroActionPerformed
-
     private void CodigoAveriotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoAveriotxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CodigoAveriotxtActionPerformed
@@ -585,7 +552,6 @@ boolean modoOscuro = false;
     private javax.swing.JRadioButton Muertosrbtn;
     private javax.swing.JRadioButton Observacionbtn;
     private javax.swing.ButtonGroup Perdidas;
-    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel12;

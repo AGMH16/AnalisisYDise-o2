@@ -70,6 +70,8 @@ public class Ingreso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -82,21 +84,29 @@ public class Ingreso extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         RecuperarContraseñiabtn = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(52, 73, 94));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(93, 109, 126));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 224));
         jLabel2.setText("Contraseña");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 224));
         jLabel3.setText("Usuario");
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
@@ -154,7 +164,7 @@ public class Ingreso extends javax.swing.JFrame {
 
         Entrarbtn.setBackground(new java.awt.Color(0, 0, 102));
         Entrarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Entrarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Entrarbtn.setForeground(new java.awt.Color(255, 255, 224));
         Entrarbtn.setText("Entrar");
         Entrarbtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Entrarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -166,7 +176,7 @@ public class Ingreso extends javax.swing.JFrame {
 
         Registrarbtn.setBackground(new java.awt.Color(0, 0, 102));
         Registrarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Registrarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Registrarbtn.setForeground(new java.awt.Color(255, 255, 224));
         Registrarbtn.setText("Registrarse");
         Registrarbtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Registrarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -182,7 +192,7 @@ public class Ingreso extends javax.swing.JFrame {
 
         RecuperarContraseñiabtn.setBackground(new java.awt.Color(0, 0, 102));
         RecuperarContraseñiabtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        RecuperarContraseñiabtn.setForeground(new java.awt.Color(102, 102, 102));
+        RecuperarContraseñiabtn.setForeground(new java.awt.Color(255, 255, 224));
         RecuperarContraseñiabtn.setText("Recuperar Contraseña");
         RecuperarContraseñiabtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         RecuperarContraseñiabtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -241,49 +251,28 @@ public class Ingreso extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Registrarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Entrarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 540, 510));
-
-        jPanel1.setBackground(new java.awt.Color(244, 253, 251));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
-        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_oscuroActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 972, Short.MAX_VALUE)
-                .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(0, 263, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(207, 207, 207)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 579, Short.MAX_VALUE))
+                .addComponent(jButton2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 620));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -346,24 +335,6 @@ public class Ingreso extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_RecuperarContraseñiabtnActionPerformed
 boolean modoOscuro = false;
-    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        // TODO add your handling code here:
-        if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-            Usuariotxt.setBackground(Color.decode("#FFFFE0"));
-            Contraseñiatxt.setBackground(Color.decode("#FFFFE0"));
-            
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
-            modoOscuro = true;
-        } else {
-
-            this.dispose();
-
-        }
-    }//GEN-LAST:event_btn_oscuroActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -406,7 +377,6 @@ boolean modoOscuro = false;
     private javax.swing.JButton RecuperarContraseñiabtn;
     private javax.swing.JButton Registrarbtn;
     private javax.swing.JTextField Usuariotxt;
-    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

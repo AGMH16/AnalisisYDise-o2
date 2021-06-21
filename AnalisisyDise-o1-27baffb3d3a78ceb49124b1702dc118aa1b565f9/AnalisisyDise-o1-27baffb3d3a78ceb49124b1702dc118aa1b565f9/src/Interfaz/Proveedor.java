@@ -18,7 +18,7 @@ import sun.security.util.Password;
  */
 public class Proveedor extends javax.swing.JFrame {
 
-    String usuario = "", correo_electronico="";
+    String usuario = "", correo_electronico = "";
     Password contraseña3;
     String pass_concatenada = "", pass_concatenada2 = "";
 
@@ -45,6 +45,12 @@ public class Proveedor extends javax.swing.JFrame {
         jButton3.setOpaque(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setBorderPainted(false);
+        EliminarCuentabtn.setOpaque(false);
+        EliminarCuentabtn.setContentAreaFilled(false);
+        EliminarCuentabtn.setBorderPainted(false);
+        ActualizarCuentabtn.setOpaque(false);
+        ActualizarCuentabtn.setContentAreaFilled(false);
+        ActualizarCuentabtn.setBorderPainted(false);
 
     }
 
@@ -57,240 +63,21 @@ public class Proveedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         CrearCuentabtn = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        NombreProveedortxt = new javax.swing.JTextField();
-        TelefonoProveedortxt = new javax.swing.JPasswordField();
-        DireccionProveedortxt = new javax.swing.JPasswordField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        TelefonoProveedortxt = new javax.swing.JTextField();
         EmpresaProveedortxt = new javax.swing.JTextField();
         EliminarCuentabtn = new javax.swing.JButton();
         ActualizarCuentabtn = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        NombreProveedortxt1 = new javax.swing.JTextField();
+        TelefonoProveedortxt1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("Empresa");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setText("Nombre");
-
-        CrearCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
-        CrearCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CrearCuentabtn.setForeground(new java.awt.Color(102, 102, 102));
-        CrearCuentabtn.setText("Crear Cuenta");
-        CrearCuentabtn.setBorder(null);
-        CrearCuentabtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CrearCuentabtnActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel4.setText("Teléfono");
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InicioS.png"))); // NOI18N
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/candado.png"))); // NOI18N
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/candado (1).png"))); // NOI18N
-
-        NombreProveedortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        NombreProveedortxt.setForeground(new java.awt.Color(153, 153, 153));
-        NombreProveedortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        NombreProveedortxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreProveedortxtActionPerformed(evt);
-            }
-        });
-        NombreProveedortxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                NombreProveedortxtKeyPressed(evt);
-            }
-        });
-
-        TelefonoProveedortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        TelefonoProveedortxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TelefonoProveedortxtActionPerformed(evt);
-            }
-        });
-        TelefonoProveedortxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TelefonoProveedortxtKeyPressed(evt);
-            }
-        });
-
-        DireccionProveedortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        DireccionProveedortxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                DireccionProveedortxtKeyPressed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel8.setText("Dirección");
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/correo-electronico (1).png"))); // NOI18N
-
-        EmpresaProveedortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        EmpresaProveedortxt.setForeground(new java.awt.Color(153, 153, 153));
-        EmpresaProveedortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        EmpresaProveedortxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmpresaProveedortxtActionPerformed(evt);
-            }
-        });
-        EmpresaProveedortxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                EmpresaProveedortxtKeyPressed(evt);
-            }
-        });
-
-        EliminarCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
-        EliminarCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        EliminarCuentabtn.setForeground(new java.awt.Color(102, 102, 102));
-        EliminarCuentabtn.setText("Eliminar Cuenta");
-        EliminarCuentabtn.setBorder(null);
-        EliminarCuentabtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarCuentabtnActionPerformed(evt);
-            }
-        });
-
-        ActualizarCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
-        ActualizarCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ActualizarCuentabtn.setForeground(new java.awt.Color(102, 102, 102));
-        ActualizarCuentabtn.setText("Actualizar Cuenta");
-        ActualizarCuentabtn.setBorder(null);
-        ActualizarCuentabtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarCuentabtnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel5))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(EmpresaProveedortxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DireccionProveedortxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NombreProveedortxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TelefonoProveedortxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(ActualizarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(EliminarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)))
-                        .addGap(46, 46, 46))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NombreProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(TelefonoProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(DireccionProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(EmpresaProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EliminarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ActualizarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 600, 540));
-
-        jPanel1.setBackground(java.awt.SystemColor.activeCaption);
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel11.setText("PROVEEDOR");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel11)
-                .addContainerGap(335, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11)
-                .addContainerGap(657, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 700));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(102, 102, 102));
@@ -312,58 +99,203 @@ public class Proveedor extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, -60, 460, 770));
+        jPanel1.setBackground(new java.awt.Color(52, 73, 94));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jPanel2.setBackground(new java.awt.Color(93, 109, 126));
+
+        CrearCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
+        CrearCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CrearCuentabtn.setForeground(new java.awt.Color(255, 255, 224));
+        CrearCuentabtn.setText("Crear Cuenta");
+        CrearCuentabtn.setBorder(null);
+        CrearCuentabtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearCuentabtnActionPerformed(evt);
+            }
+        });
+
+        TelefonoProveedortxt.setBackground(new java.awt.Color(255, 255, 224));
+        TelefonoProveedortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TelefonoProveedortxt.setForeground(new java.awt.Color(102, 102, 102));
+        TelefonoProveedortxt.setText("Telefono");
+        TelefonoProveedortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TelefonoProveedortxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TelefonoProveedortxtActionPerformed(evt);
+            }
+        });
+        TelefonoProveedortxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TelefonoProveedortxtKeyPressed(evt);
+            }
+        });
+
+        EmpresaProveedortxt.setBackground(new java.awt.Color(255, 255, 224));
+        EmpresaProveedortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EmpresaProveedortxt.setForeground(new java.awt.Color(102, 102, 102));
+        EmpresaProveedortxt.setText("Empresa");
+        EmpresaProveedortxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        EmpresaProveedortxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmpresaProveedortxtActionPerformed(evt);
+            }
+        });
+        EmpresaProveedortxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                EmpresaProveedortxtKeyPressed(evt);
+            }
+        });
+
+        EliminarCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
+        EliminarCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EliminarCuentabtn.setForeground(new java.awt.Color(255, 255, 224));
+        EliminarCuentabtn.setText("Eliminar Cuenta");
+        EliminarCuentabtn.setBorder(null);
+        EliminarCuentabtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarCuentabtnActionPerformed(evt);
+            }
+        });
+
+        ActualizarCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
+        ActualizarCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ActualizarCuentabtn.setForeground(new java.awt.Color(255, 255, 224));
+        ActualizarCuentabtn.setText("Actualizar Cuenta");
+        ActualizarCuentabtn.setBorder(null);
+        ActualizarCuentabtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarCuentabtnActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel11.setText("PROVEEDOR");
+
+        NombreProveedortxt1.setBackground(new java.awt.Color(255, 255, 224));
+        NombreProveedortxt1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        NombreProveedortxt1.setForeground(new java.awt.Color(102, 102, 102));
+        NombreProveedortxt1.setText("Nombre");
+        NombreProveedortxt1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        NombreProveedortxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreProveedortxt1ActionPerformed(evt);
+            }
+        });
+        NombreProveedortxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                NombreProveedortxt1KeyPressed(evt);
+            }
+        });
+
+        TelefonoProveedortxt1.setBackground(new java.awt.Color(255, 255, 224));
+        TelefonoProveedortxt1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        TelefonoProveedortxt1.setForeground(new java.awt.Color(102, 102, 102));
+        TelefonoProveedortxt1.setText("Dirección");
+        TelefonoProveedortxt1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TelefonoProveedortxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TelefonoProveedortxt1ActionPerformed(evt);
+            }
+        });
+        TelefonoProveedortxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TelefonoProveedortxt1KeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(NombreProveedortxt1)
+                            .addComponent(TelefonoProveedortxt)
+                            .addComponent(TelefonoProveedortxt1)
+                            .addComponent(EmpresaProveedortxt)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(ActualizarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(EliminarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel11)))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NombreProveedortxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(TelefonoProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(TelefonoProveedortxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(EmpresaProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ActualizarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EliminarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(210, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NombreProveedortxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreProveedortxtActionPerformed
+    private void TelefonoProveedortxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonoProveedortxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreProveedortxtActionPerformed
-
-    private void NombreProveedortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreProveedortxtKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-      //      usuario = jTexUsuariotxtText();
-            TelefonoProveedortxt.setText("");
-            TelefonoProveedortxt.requestFocus();
-        }
-    }//GEN-LAST:event_NombreProveedortxtKeyPressed
+    }//GEN-LAST:event_TelefonoProveedortxtActionPerformed
 
     private void TelefonoProveedortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoProveedortxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            pass_concatenada = "";
-            char[] contraseña = TelefonoProveedortxt.getPassword();
-            for (int i = 0; i < contraseña.length; i++) {
-                pass_concatenada = pass_concatenada + contraseña[i];
-                System.out.println(contraseña[i]);
-            }
-            System.out.println("pass   " + pass_concatenada);
-            DireccionProveedortxt.setText("");
-            DireccionProveedortxt.requestFocus();
+            //      usuario = jTexUsuariotxtText();
+            TelefonoProveedortxt.setText("");
+            TelefonoProveedortxt.requestFocus();
         }
     }//GEN-LAST:event_TelefonoProveedortxtKeyPressed
 
     private void CrearCuentabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCuentabtnActionPerformed
         // TODO add your handling code here:
-    //    usuario = jTexUsuariotxtText();
+        //    usuario = jTexUsuariotxtText();
         System.out.println("1 Usuario" + usuario);
         correo_electronico = EmpresaProveedortxt.getText();
         System.out.println("2 Correo Electronico" + correo_electronico);
-        char[] contraseña = TelefonoProveedortxt.getPassword();
-        System.out.println("Contraseña" + contraseña);
-        char[] contraseña2 = DireccionProveedortxt.getPassword();
-        System.out.println("Confirmación de constraseña:  " + contraseña2);
         if (usuario.equals("") | pass_concatenada.equals("") | (pass_concatenada2).equals("")) {
             JOptionPane.showMessageDialog(null, "No todos los campos están llenos");
         }
         if (pass_concatenada.equals(pass_concatenada2)) {
-            JOptionPane.showMessageDialog(null, "Verificación de contraseñas correcta");
-            String thecontraseña = comprimir(String.valueOf(contraseña));
-            System.out.println("nueva contraseña " + thecontraseña);
-           // thecrud.insertarUsuario(usuario, thecontraseña,correo_electronico);
+
+            // thecrud.insertarUsuario(usuario, thecontraseña,correo_electronico);
         } else {
             JOptionPane.showMessageDialog(null, "La contraseña no es la misma, por favor verificar nuevamente ");
 
@@ -379,34 +311,15 @@ public class Proveedor extends javax.swing.JFrame {
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       jPanel1.setBackground(Color.decode("#212b41"));
-         /*   Ingreso menux = new Ingreso();
+        jPanel1.setBackground(Color.decode("#212b41"));
+        /*   Ingreso menux = new Ingreso();
         menux.setVisible(true);
         dispose();*/
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void DireccionProveedortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DireccionProveedortxtKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            pass_concatenada2 = "";
-            char[] contraseña2 = DireccionProveedortxt.getPassword();
-            for (int i = 0; i < contraseña2.length; i++) {
-                pass_concatenada2 = pass_concatenada2 + contraseña2[i];
-                System.out.println(contraseña2[i]);
-            }
-            System.out.println("pass2   " + pass_concatenada2);
-            EmpresaProveedortxt.setText("");
-            EmpresaProveedortxt.requestFocus();
-        }
-    }//GEN-LAST:event_DireccionProveedortxtKeyPressed
-
-    private void TelefonoProveedortxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonoProveedortxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TelefonoProveedortxtActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-           System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void EmpresaProveedortxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpresaProveedortxtActionPerformed
@@ -415,9 +328,9 @@ public class Proveedor extends javax.swing.JFrame {
 
     private void EmpresaProveedortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmpresaProveedortxtKeyPressed
         // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             correo_electronico = EmpresaProveedortxt.getText();
-         
+
         }
     }//GEN-LAST:event_EmpresaProveedortxtKeyPressed
 
@@ -428,6 +341,22 @@ public class Proveedor extends javax.swing.JFrame {
     private void ActualizarCuentabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarCuentabtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ActualizarCuentabtnActionPerformed
+
+    private void NombreProveedortxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreProveedortxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreProveedortxt1ActionPerformed
+
+    private void NombreProveedortxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreProveedortxt1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreProveedortxt1KeyPressed
+
+    private void TelefonoProveedortxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonoProveedortxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TelefonoProveedortxt1ActionPerformed
+
+    private void TelefonoProveedortxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoProveedortxt1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TelefonoProveedortxt1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -474,23 +403,14 @@ public class Proveedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActualizarCuentabtn;
     private javax.swing.JButton CrearCuentabtn;
-    private javax.swing.JPasswordField DireccionProveedortxt;
     private javax.swing.JButton EliminarCuentabtn;
     private javax.swing.JTextField EmpresaProveedortxt;
-    private javax.swing.JTextField NombreProveedortxt;
-    private javax.swing.JPasswordField TelefonoProveedortxt;
+    private javax.swing.JTextField NombreProveedortxt1;
+    private javax.swing.JTextField TelefonoProveedortxt;
+    private javax.swing.JTextField TelefonoProveedortxt1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

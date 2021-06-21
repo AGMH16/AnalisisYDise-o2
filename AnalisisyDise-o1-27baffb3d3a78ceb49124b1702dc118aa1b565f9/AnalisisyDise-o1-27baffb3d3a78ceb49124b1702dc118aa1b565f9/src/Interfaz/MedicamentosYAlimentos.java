@@ -112,12 +112,11 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         Proveedorjcmb = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
-        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(244, 253, 251));
+        jPanel1.setBackground(new java.awt.Color(52, 73, 94));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 700));
 
@@ -129,11 +128,11 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(93, 109, 126));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Actualizarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Actualizarbtn.setForeground(new java.awt.Color(255, 255, 224));
         Actualizarbtn.setText("Actualizar");
         Actualizarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +143,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
         Guardarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Guardarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Guardarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Guardarbtn.setForeground(new java.awt.Color(255, 255, 224));
         Guardarbtn.setText("Guardar");
         Guardarbtn.setBorder(null);
         Guardarbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -160,8 +159,9 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal_1.png"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 680, -1, -1));
 
+        Cantidadtxt.setBackground(new java.awt.Color(255, 255, 224));
         Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Cantidadtxt.setForeground(new java.awt.Color(153, 153, 153));
+        Cantidadtxt.setForeground(new java.awt.Color(102, 102, 102));
         Cantidadtxt.setText("Cantidad");
         Cantidadtxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Cantidadtxt.addActionListener(new java.awt.event.ActionListener() {
@@ -177,17 +177,18 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 630, 253, 43));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 224));
         jLabel7.setText("Tipo de Insumo");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 72, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 224));
         jLabel11.setText("Fecha de Vencimiento");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, -1, -1));
 
+        Totaltxt.setBackground(new java.awt.Color(255, 255, 224));
         Totaltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Totaltxt.setForeground(new java.awt.Color(153, 153, 153));
+        Totaltxt.setForeground(new java.awt.Color(102, 102, 102));
         Totaltxt.setText("Total");
         Totaltxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Totaltxt.addActionListener(new java.awt.event.ActionListener() {
@@ -203,7 +204,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 700, 253, 43));
 
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Eliminarbtn.setForeground(new java.awt.Color(255, 255, 224));
         Eliminarbtn.setText("Eliminar");
         Eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,18 +224,18 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         TipoInsumo.add(Alimentosrbtn);
         Alimentosrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Alimentosrbtn.setText("Alimentos");
-        jPanel2.add(Alimentosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, -1, -1));
+        jPanel2.add(Alimentosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maiz.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 224));
         jLabel12.setText("Tipo de Medicamento");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setForeground(new java.awt.Color(255, 255, 224));
         jLabel13.setText("Tipo de Alimento");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, -1, -1));
 
@@ -254,16 +255,16 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         ConCrecimientorbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ConCrecimientorbtn.setText("Concentrado de crecimiento");
         jPanel2.add(ConCrecimientorbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
-        jPanel2.add(FechaCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, 125));
+        jPanel2.add(FechaCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, -1, 125));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 224));
         jLabel14.setText("Fecha de Ingreso");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
-        jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, -1, 125));
+        jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, -1, 125));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 224));
         jLabel3.setText("MEDICAMENTOS Y ALIMENTOS");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 24, -1, -1));
 
@@ -341,23 +342,14 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
             }
         });
 
-        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
-        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_oscuroActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap(66, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 976, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -365,17 +357,14 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4))
-                            .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 761, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(34, 34, 34)
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addContainerGap(735, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 860));
@@ -389,6 +378,48 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         menux.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void ProveedorjcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorjcmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProveedorjcmbActionPerformed
+
+    private void AgregarDimensionalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDimensionalbtnActionPerformed
+        // TODO add your handling code here:
+        dimensional = JOptionPane.showInputDialog("Ingrese Producto");
+        Dimensionaljcmb.addItem(dimensional);
+    }//GEN-LAST:event_AgregarDimensionalbtnActionPerformed
+
+    private void DimensionaljcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DimensionaljcmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DimensionaljcmbActionPerformed
+
+    private void VacunarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VacunarbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VacunarbtnActionPerformed
+
+    private void VitaminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VitaminarbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VitaminarbtnActionPerformed
+
+    private void InmunizadorrbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InmunizadorrbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InmunizadorrbtnActionPerformed
+
+    private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
+        // TODO add your handling code here:
+        // tipoproducto = (String) Productojcmb.getSelectedItem();
+        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
+        // dimensional2 = (String) jComboBox3.getSelectedItem();
+        //  String fecha = FechaCalendar.getDate().toString();
+
+        total = Integer.parseInt(Totaltxt.getText());
+        //   obtener_proveedor(0,nombreproveedor);
+        /*  try {
+            thecrud.EliminarProducto(con, tipoproducto);
+        } catch (SQLException ex) {
+            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void TotaltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyPressed
         // TODO add your handling code here:
@@ -413,6 +444,43 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     private void CantidadtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantidadtxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CantidadtxtActionPerformed
+
+    private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
+
+        // tipoproducto = (String) Productojcmb.getSelectedItem();
+        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
+        // dimensional2 = (String) jComboBox3.getSelectedItem();
+        // String fecha = FechaCalendar.getDate().toString();
+
+        total = Integer.parseInt(Totaltxt.getText());
+        //   obtener_proveedor(0,nombreproveedor);
+        /*  try {
+            thecrud.IngresarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total, nombreproveedor);
+        } catch (SQLException ex) {
+            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_GuardarbtnActionPerformed
+
+    private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
+        // TODO add your handling code here:
+
+        //  tipoproducto = (String) Productojcmb.getSelectedItem();
+        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
+        //dimensional2 = (String) jComboBox3.getSelectedItem();
+        // String fecha = FechaCalendar.getDate().toString();
+
+        total = Integer.parseInt(Totaltxt.getText());
+        /* try {
+            thecrud.ActualizarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total);
+        } catch (SQLException ex) {
+            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_ActualizarbtnActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton7ActionPerformed
     List Proveedores = new ArrayList();
 
     static void obtener_proveedor(ArrayList<Integer> id, ArrayList<String> Proveedor) {
@@ -420,106 +488,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         String proveedor = "";
         id.get(ID);
         Proveedor.get(Integer.parseInt(proveedor));
-    }
-    private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
-
-      
-       // tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-       // dimensional2 = (String) jComboBox3.getSelectedItem();
-       // String fecha = FechaCalendar.getDate().toString();
-       
-        total = Integer.parseInt(Totaltxt.getText());
-        //   obtener_proveedor(0,nombreproveedor);
-      /*  try {
-            thecrud.IngresarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total, nombreproveedor);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
-    }//GEN-LAST:event_GuardarbtnActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-        // TODO add your handling code here:
-
-      //  tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        //dimensional2 = (String) jComboBox3.getSelectedItem();
-       // String fecha = FechaCalendar.getDate().toString();
-       
-        total = Integer.parseInt(Totaltxt.getText());
-       /* try {
-            thecrud.ActualizarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }//GEN-LAST:event_ActualizarbtnActionPerformed
-
-    private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-        // TODO add your handling code here:
-       // tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-       // dimensional2 = (String) jComboBox3.getSelectedItem();
-      //  String fecha = FechaCalendar.getDate().toString();
-    
-        total = Integer.parseInt(Totaltxt.getText());
-        //   obtener_proveedor(0,nombreproveedor);
-      /*  try {
-            thecrud.EliminarProducto(con, tipoproducto);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
-    }//GEN-LAST:event_EliminarbtnActionPerformed
-
-    private void InmunizadorrbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InmunizadorrbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InmunizadorrbtnActionPerformed
-
-    private void VitaminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VitaminarbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VitaminarbtnActionPerformed
-
-    private void VacunarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VacunarbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VacunarbtnActionPerformed
-boolean modoOscuro = false;
-    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        // TODO add your handling code here:
-        if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-            Cantidadtxt.setBackground(Color.decode("#FFFFE0"));
-            Totaltxt.setBackground(Color.decode("#FFFFE0"));
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
-            modoOscuro = true;
-        } else {
-
-            this.dispose();
-
-        }
-    }//GEN-LAST:event_btn_oscuroActionPerformed
-
-    private void DimensionaljcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DimensionaljcmbActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DimensionaljcmbActionPerformed
-
-    private void AgregarDimensionalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDimensionalbtnActionPerformed
-        // TODO add your handling code here:
-        dimensional = JOptionPane.showInputDialog("Ingrese Producto");
-        Dimensionaljcmb.addItem(dimensional);
-    }//GEN-LAST:event_AgregarDimensionalbtnActionPerformed
-
-    private void ProveedorjcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorjcmbActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ProveedorjcmbActionPerformed
-
+    }boolean modoOscuro = false;
     /**
      * @param args the command line arguments
      */
@@ -640,7 +609,6 @@ boolean modoOscuro = false;
     private javax.swing.JTextField Totaltxt;
     private javax.swing.JRadioButton Vacunarbtn;
     private javax.swing.JRadioButton Vitaminarbtn;
-    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel11;

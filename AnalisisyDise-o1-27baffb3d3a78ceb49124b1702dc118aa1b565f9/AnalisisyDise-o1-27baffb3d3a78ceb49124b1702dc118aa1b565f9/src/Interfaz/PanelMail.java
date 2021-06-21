@@ -82,14 +82,15 @@ public class PanelMail extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(93, 109, 126));
         jPanel1.setForeground(new java.awt.Color(0, 0, 153));
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 224));
         jLabel1.setText("Enviar a:");
 
+        txtdestino.setBackground(new java.awt.Color(255, 255, 224));
         txtdestino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtdestino.setForeground(new java.awt.Color(102, 102, 102));
         txtdestino.setText("ejemplo@gmail.com");
@@ -106,13 +107,14 @@ public class PanelMail extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 224));
         jLabel3.setText("Ingrese el código: ");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 224));
         jLabel4.setText("RECUPERACIÓN ");
 
+        txtcodigo.setBackground(new java.awt.Color(255, 255, 224));
         txtcodigo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

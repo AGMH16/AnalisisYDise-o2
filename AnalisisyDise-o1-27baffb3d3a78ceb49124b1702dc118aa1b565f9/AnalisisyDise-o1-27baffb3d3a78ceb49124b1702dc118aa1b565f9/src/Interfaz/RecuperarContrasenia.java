@@ -68,18 +68,19 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(93, 109, 126));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 224));
         jLabel2.setText("Nueva Contraseña");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 224));
         jLabel3.setText("Usuario");
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
 
+        jTextField1.setBackground(new java.awt.Color(255, 255, 224));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(153, 153, 153));
         jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -109,6 +110,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
 
+        jPasswordField1.setBackground(new java.awt.Color(255, 255, 224));
         jPasswordField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -146,11 +148,12 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InicioS.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 224));
         jLabel6.setText("Confirmar Contraseña");
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
 
+        jPasswordField2.setBackground(new java.awt.Color(255, 255, 224));
         jPasswordField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPasswordField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -238,7 +241,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 590, -1));
 
-        jPanel1.setBackground(new java.awt.Color(244, 253, 251));
+        jPanel1.setBackground(new java.awt.Color(52, 73, 94));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N

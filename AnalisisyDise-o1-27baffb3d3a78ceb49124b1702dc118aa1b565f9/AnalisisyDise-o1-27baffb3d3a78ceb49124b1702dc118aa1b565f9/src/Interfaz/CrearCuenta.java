@@ -78,20 +78,20 @@ public class CrearCuenta extends javax.swing.JFrame {
         Supervisorrb = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(244, 253, 251));
+        jPanel1.setBackground(new java.awt.Color(52, 73, 94));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 860));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(93, 109, 126));
         jPanel2.setPreferredSize(new java.awt.Dimension(500, 500));
 
-        CrearCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
+        CrearCuentabtn.setBackground(new java.awt.Color(255, 255, 224));
         CrearCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CrearCuentabtn.setForeground(new java.awt.Color(153, 153, 153));
+        CrearCuentabtn.setForeground(new java.awt.Color(255, 255, 224));
         CrearCuentabtn.setText("Crear Cuenta");
         CrearCuentabtn.setBorder(null);
         CrearCuentabtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -102,13 +102,14 @@ public class CrearCuenta extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 224));
         jLabel4.setText("Contraseña");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/campo-de-contrasena-con-asteriscos.png"))); // NOI18N
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/campo-de-contrasena-con-asteriscos.png"))); // NOI18N
 
+        Usuariotxt.setBackground(new java.awt.Color(255, 255, 224));
         Usuariotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Usuariotxt.setForeground(new java.awt.Color(102, 102, 102));
         Usuariotxt.setText("Usuario");
@@ -124,6 +125,7 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        Contraseñatxt.setBackground(new java.awt.Color(255, 255, 224));
         Contraseñatxt.setForeground(new java.awt.Color(102, 102, 102));
         Contraseñatxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Contraseñatxt.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +139,8 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
-        ConfContraseñatxt.setForeground(new java.awt.Color(102, 102, 102));
+        ConfContraseñatxt.setBackground(new java.awt.Color(255, 255, 224));
+        ConfContraseñatxt.setForeground(new java.awt.Color(255, 255, 224));
         ConfContraseñatxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ConfContraseñatxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -146,11 +149,12 @@ public class CrearCuenta extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 224));
         jLabel8.setText("Confirmar Contraseña");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/correo-electronico (2).png"))); // NOI18N
 
+        Correotxt.setBackground(new java.awt.Color(255, 255, 224));
         Correotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Correotxt.setForeground(new java.awt.Color(102, 102, 102));
         Correotxt.setText("Correo Electronico");
@@ -166,6 +170,7 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        PuestoLaboraltxt.setBackground(new java.awt.Color(255, 255, 224));
         PuestoLaboraltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         PuestoLaboraltxt.setForeground(new java.awt.Color(102, 102, 102));
         PuestoLaboraltxt.setText("Puesto Laboral");
@@ -182,9 +187,10 @@ public class CrearCuenta extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 224));
         jLabel11.setText("DATOS DEL COLABORADOR");
 
+        ApellidoColaboradortxt.setBackground(new java.awt.Color(255, 255, 224));
         ApellidoColaboradortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ApellidoColaboradortxt.setForeground(new java.awt.Color(102, 102, 102));
         ApellidoColaboradortxt.setText("Apellidos");
@@ -200,6 +206,7 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        NombreColaboradortxt.setBackground(new java.awt.Color(255, 255, 224));
         NombreColaboradortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NombreColaboradortxt.setForeground(new java.awt.Color(102, 102, 102));
         NombreColaboradortxt.setText("Nombres");
@@ -218,7 +225,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario (2).png"))); // NOI18N
 
         Supervisorrb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Supervisorrb.setForeground(new java.awt.Color(153, 153, 153));
+        Supervisorrb.setForeground(new java.awt.Color(255, 255, 224));
         Supervisorrb.setText("Supervisor");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -248,9 +255,11 @@ public class CrearCuenta extends javax.swing.JFrame {
                                 .addComponent(Correotxt, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
                                 .addComponent(ConfContraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel8))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Supervisorrb)
-                                .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Supervisorrb, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -275,9 +284,9 @@ public class CrearCuenta extends javax.swing.JFrame {
                         .addComponent(Correotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(25, 25, 25)
                 .addComponent(Usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addGap(7, 7, 7)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +304,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel6))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -316,43 +325,33 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
-        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
-        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_oscuroActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
+                .addContainerGap(119, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton3))))
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addComponent(jButton3)
+                .addGap(1, 1, 1)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 860));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -484,28 +483,6 @@ public class CrearCuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PuestoLaboraltxtActionPerformed
 boolean modoOscuro = false;
-    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        // TODO add your handling code here:
-         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-            NombreColaboradortxt.setBackground(Color.decode("#FFFFE0"));
-            ApellidoColaboradortxt.setBackground(Color.decode("#FFFFE0"));
-            Correotxt.setBackground(Color.decode("#FFFFE0"));
-            PuestoLaboraltxt.setBackground(Color.decode("#FFFFE0"));
-            Usuariotxt.setBackground(Color.decode("#FFFFE0"));
-            Contraseñatxt.setBackground(Color.decode("#FFFFE0"));
-            ConfContraseñatxt.setBackground(Color.decode("#FFFFE0"));
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
-            modoOscuro = true;
-        } else {
-
-            this.dispose();
-
-        }
-    }//GEN-LAST:event_btn_oscuroActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -554,7 +531,6 @@ boolean modoOscuro = false;
     private javax.swing.JTextField PuestoLaboraltxt;
     private javax.swing.JRadioButton Supervisorrb;
     private javax.swing.JTextField Usuariotxt;
-    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;
