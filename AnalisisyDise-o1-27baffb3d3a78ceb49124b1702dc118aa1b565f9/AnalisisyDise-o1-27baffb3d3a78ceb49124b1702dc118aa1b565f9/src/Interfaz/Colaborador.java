@@ -21,8 +21,6 @@ public class Colaborador extends javax.swing.JFrame {
     int telefonoMovil = 0, telefonocasa = 0;
     Password contraseña3;
     String pass_concatenada;
-    Componente componente = new Componente();
-    ColorComponente obscurecer = new ColorComponente();
 
     /**
      * Creates new form Menu
