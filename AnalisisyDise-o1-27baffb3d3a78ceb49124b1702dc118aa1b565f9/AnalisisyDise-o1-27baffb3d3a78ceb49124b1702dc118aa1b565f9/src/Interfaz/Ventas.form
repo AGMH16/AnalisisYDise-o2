@@ -46,7 +46,9 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="230" max="32767" attributes="0"/>
                   <Component id="jPanel2" min="-2" pref="622" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                  <Component id="btn_oscuro" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Salirbtn" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -57,6 +59,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel2" min="-2" pref="563" max="-2" attributes="0"/>
                       <Component id="Salirbtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_oscuro" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -478,6 +481,16 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalirbtnActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_oscuro">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/darkmode_1.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_oscuroActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

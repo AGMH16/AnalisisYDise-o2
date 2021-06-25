@@ -79,6 +79,7 @@ public class Ventas extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jComboBox7 = new javax.swing.JComboBox<>();
         Salirbtn = new javax.swing.JButton();
+        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -280,6 +281,13 @@ public class Ventas extends javax.swing.JFrame {
             }
         });
 
+        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
+        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_oscuroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -287,7 +295,9 @@ public class Ventas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(230, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138)
+                .addGap(90, 90, 90)
+                .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(Salirbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -295,7 +305,8 @@ public class Ventas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Salirbtn))
+                    .addComponent(Salirbtn)
+                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -353,6 +364,44 @@ public class Ventas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField7KeyPressed
 
+    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
+        if (!modoOscuro) {
+            jPanel1.setBackground(Color.decode("#212b41"));
+            jPanel2.setBackground(Color.decode("#2e3951"));
+            txtOperacion.setForeground(Color.decode("#0db387"));
+            txtResultado.setForeground(Color.decode("#0db387"));
+            cambiarColorBtn1(btn_multi);
+            cambiarColorBtn1(btn_suma);
+            cambiarColorBtn1(btn_resta);
+            cambiarColorBtn1(btn_exp);
+            cambiarColorBtn1(btn_division);
+            cambiarColorBtn1(btn_c);
+            cambiarColorBtn1(btn_porcentaje);
+            cambiarColorBtn2(btn_1);
+            cambiarColorBtn2(btn_2);
+            cambiarColorBtn2(btn_3);
+            cambiarColorBtn2(btn_4);
+            cambiarColorBtn2(btn_5);
+            cambiarColorBtn2(btn_6);
+            cambiarColorBtn2(btn_7);
+            cambiarColorBtn2(btn_8);
+            cambiarColorBtn2(btn_9);
+            cambiarColorBtn2(btn_0);
+            cambiarColorBtn2(btn_dot);
+
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
+            btn_igual.setIcon(new ImageIcon(getClass().getResource("/images/btn3_dark.png")));
+            btn_igual.setPressedIcon(new ImageIcon(getClass().getResource("/images/btn3_dark.png")));
+            btn_igual.setRolloverIcon(new ImageIcon(getClass().getResource("/images/btn3_pressed_dark.png")));
+            btn_igual.setForeground(Color.decode("#2e3951"));
+            modoOscuro = true;
+        } else {
+            Calculadora frame = new Calculadora();
+            this.dispose();
+            frame.setVisible(true);
+        }
+    }//GEN-LAST:event_btn_oscuroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -397,6 +446,7 @@ public class Ventas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Salirbtn;
+    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox2;

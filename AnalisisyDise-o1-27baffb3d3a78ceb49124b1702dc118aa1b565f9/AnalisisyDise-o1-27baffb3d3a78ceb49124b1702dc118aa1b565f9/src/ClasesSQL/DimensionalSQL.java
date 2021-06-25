@@ -17,15 +17,27 @@ public class DimensionalSQL {
 
     ConexionBD Conexion = new ConexionBD();
 
-    public void Insertar(String dimensional) {
+    public void InsertarDimensional(String dimensional) {
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
                 statement.execute("INSERT INTO dimensional(Dimensional) VALUES('" + dimensional + "')");
-                JOptionPane.showMessageDialog(null, "DIMENSIONAL añedida a la lista");
+                JOptionPane.showMessageDialog(null, "Dimensional añedida a la lista");
             }
             Conexion.getConnection().close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR EL USUARIO");
+            JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR DIMENSIONAL");
+        }
+    }
+    // //DELETE FROM dimensional WHERE Dimensional="Libras";
+    public void EliminarDimensional(String dimensional){
+        try {
+            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+                statement.execute("DELETE FROM dimensional WHERE dimensional=('" + dimensional + "')");
+                JOptionPane.showMessageDialog(null, "DIMENSIONAL eliminada de la lista");
+            }
+            Conexion.getConnection().close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
         }
     }
 }
