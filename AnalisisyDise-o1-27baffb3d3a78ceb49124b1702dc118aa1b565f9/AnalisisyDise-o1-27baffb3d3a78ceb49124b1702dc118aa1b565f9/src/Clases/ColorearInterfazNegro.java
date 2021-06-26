@@ -57,11 +57,11 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
     public void ColorearInventarioNegro(JPanel jPanel1, JPanel jPanel2, JButton Activador, JComboBox producto, JComboBox proveedor, JComboBox dimensional, JTextField Cantidad, JTextField Total, JButton add1, JButton add2, JButton eliminar, JButton actualizar, JButton guardar) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         colorear.setCombo(producto);
-        colorear.PintarCombo();
+       // colorear.PintarCombo();
         colorear.setCombo(proveedor);
-        colorear.PintarCombo();
+      //  colorear.PintarCombo();
         colorear.setCombo(dimensional);
-        colorear.PintarCombo();
+      //  colorear.PintarCombo();
         ColorearTextos(Cantidad, Total, null, null, null);
         ColorearBotones(add1, add2, eliminar, actualizar, guardar);
     }
@@ -69,7 +69,7 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
     public void ColorearMateriaPrima(JPanel jPanel1, JPanel jPanel2, JButton Activador, JComboBox proveedor, JTextField Cantidad, JTextField Total, JTextField CodigoAverio, JButton eliminar, JButton actualizar, JButton guardar) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         colorear.setCombo(proveedor);
-        colorear.PintarCombo();
+     //   colorear.PintarCombo();
         ColorearBotones(guardar, eliminar, actualizar, null, null);
         ColorearTextos(CodigoAverio, Cantidad, Total, null, null);
 
@@ -81,9 +81,9 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
         colorear.setBoton(add1);
         colorear.PintarBoton();
         colorear.setCombo(proveedor);
-        colorear.PintarCombo();
+    //    colorear.PintarCombo();
         colorear.setCombo(dimensional);
-        colorear.PintarCombo();
+    //    colorear.PintarCombo();
     }
 
     public void ColorearMercaderiaNegro(JPanel jPanel1, JPanel jPanel2, JButton Activador, JComboBox producto, JTextField Cantidad, JTextField Total, JButton add1, JButton guardar, JButton actualizar, JButton eliminar) {
