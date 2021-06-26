@@ -28,6 +28,7 @@ public class Cliente extends javax.swing.JFrame {
     Password contraseña3;
     String pass_concatenada;
     boolean modoOscuro = false;
+
     /**
      * Creates new form Menu
      */
@@ -76,16 +77,17 @@ public class Cliente extends javax.swing.JFrame {
         Actualizarbtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        btn_oscuro = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(52, 73, 94));
+        jPanel1.setBackground(new java.awt.Color(242, 253, 250));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(93, 109, 126));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        NombreClientetxt.setBackground(new java.awt.Color(255, 255, 224));
         NombreClientetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NombreClientetxt.setForeground(new java.awt.Color(102, 102, 102));
         NombreClientetxt.setText("Nombres");
@@ -101,7 +103,6 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
-        ApellidoClientetxt.setBackground(new java.awt.Color(255, 255, 224));
         ApellidoClientetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ApellidoClientetxt.setForeground(new java.awt.Color(102, 102, 102));
         ApellidoClientetxt.setText("Apellidos");
@@ -121,7 +122,6 @@ public class Cliente extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario (2).png"))); // NOI18N
 
-        CelularClientetxt.setBackground(new java.awt.Color(255, 255, 224));
         CelularClientetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CelularClientetxt.setForeground(new java.awt.Color(102, 102, 102));
         CelularClientetxt.setText("Teléfono Móvil");
@@ -137,7 +137,6 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
-        DireccionClientetxt.setBackground(new java.awt.Color(255, 255, 224));
         DireccionClientetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         DireccionClientetxt.setForeground(new java.awt.Color(102, 102, 102));
         DireccionClientetxt.setText("Dirección");
@@ -155,7 +154,6 @@ public class Cliente extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/hogar.png"))); // NOI18N
 
-        TelefonoClientetxt.setBackground(new java.awt.Color(255, 255, 224));
         TelefonoClientetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TelefonoClientetxt.setForeground(new java.awt.Color(102, 102, 102));
         TelefonoClientetxt.setText("Teléfono Casa");
@@ -185,7 +183,7 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
-        Actualizarbtn.setBackground(new java.awt.Color(255, 255, 224));
+        Actualizarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Actualizarbtn.setForeground(new java.awt.Color(255, 255, 224));
         Actualizarbtn.setText("Guardar Actualización");
@@ -199,7 +197,7 @@ public class Cliente extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(0, 51, 102));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("DATOS DEL CLIENTE");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -207,7 +205,7 @@ public class Cliente extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(0, 120, Short.MAX_VALUE)
+                .addGap(0, 63, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -278,26 +276,50 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
+        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
+        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_oscuroActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-de-regreso.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
+                .addContainerGap(162, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 550));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -377,7 +399,41 @@ public class Cliente extends javax.swing.JFrame {
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ActualizarbtnActionPerformed
-    
+
+    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
+        if (!modoOscuro) {
+            jPanel1.setBackground(Color.decode("#212b41"));
+            jPanel2.setBackground(Color.decode("#2e3951"));
+            NombreClientetxt.setBackground(Color.decode("#FFFFE0"));
+            ApellidoClientetxt.setBackground(Color.decode("#FFFFE0"));
+            CelularClientetxt.setBackground(Color.decode("#FFFFE0"));
+            TelefonoClientetxt.setBackground(Color.decode("#FFFFE0"));
+            DireccionClientetxt.setBackground(Color.decode("#FFFFE0"));
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
+            GuardarClientebtn.setForeground(Color.decode("#FFFFE0"));
+            Actualizarbtn.setForeground(Color.decode("#FFFFE0"));
+            jLabel3.setForeground(Color.decode("#FFFFE0"));
+            modoOscuro = true;
+        } else if (modoOscuro == true) {
+            jPanel1.setBackground(Color.decode("#F2FDFA"));
+            jPanel2.setBackground(Color.WHITE);
+            NombreClientetxt.setBackground(Color.white);
+            ApellidoClientetxt.setBackground(Color.white);
+            CelularClientetxt.setBackground(Color.white);
+            TelefonoClientetxt.setBackground(Color.white);
+            DireccionClientetxt.setBackground(Color.white);
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
+            GuardarClientebtn.setForeground(Color.decode("#66646C"));
+            Actualizarbtn.setForeground(Color.decode("#66646C"));
+            jLabel3.setForeground(Color.decode("#666666"));
+            modoOscuro = false;
+        }
+    }//GEN-LAST:event_btn_oscuroActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -424,7 +480,9 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JButton GuardarClientebtn;
     private javax.swing.JTextField NombreClientetxt;
     private javax.swing.JTextField TelefonoClientetxt;
+    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -92,12 +92,13 @@ public class MateriaPrima extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         Proveedorjcmb = new javax.swing.JComboBox<>();
         CodigoAveriotxt = new javax.swing.JTextField();
+        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(980, 754));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(52, 73, 94));
+        jPanel1.setBackground(new java.awt.Color(242, 253, 250));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(980, 754));
         jPanel1.setVerifyInputWhenFocusTarget(false);
@@ -120,10 +121,10 @@ public class MateriaPrima extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(93, 109, 126));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Actualizarbtn.setForeground(new java.awt.Color(255, 255, 224));
+        Actualizarbtn.setForeground(new java.awt.Color(102, 102, 102));
         Actualizarbtn.setText("Actualizar");
         Actualizarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
         Actualizarbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -132,13 +133,14 @@ public class MateriaPrima extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("MATERIA PRIMA ");
 
         Guardarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Guardarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Guardarbtn.setForeground(new java.awt.Color(255, 255, 224));
+        Guardarbtn.setForeground(new java.awt.Color(102, 102, 102));
         Guardarbtn.setText("Guardar");
         Guardarbtn.setBorder(null);
         Guardarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -150,7 +152,6 @@ public class MateriaPrima extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal_1.png"))); // NOI18N
 
-        Cantidadtxt.setBackground(new java.awt.Color(255, 255, 224));
         Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Cantidadtxt.setForeground(new java.awt.Color(102, 102, 102));
         Cantidadtxt.setText("Cantidad");
@@ -172,7 +173,6 @@ public class MateriaPrima extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Fecha de Ingreso");
 
-        Totaltxt.setBackground(new java.awt.Color(255, 255, 224));
         Totaltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Totaltxt.setForeground(new java.awt.Color(102, 102, 102));
         Totaltxt.setText("Total");
@@ -189,7 +189,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         });
 
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Eliminarbtn.setForeground(new java.awt.Color(255, 255, 224));
+        Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
         Eliminarbtn.setText("Eliminar");
         Eliminarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
         Eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +209,6 @@ public class MateriaPrima extends javax.swing.JFrame {
             }
         });
 
-        CodigoAveriotxt.setBackground(new java.awt.Color(255, 255, 224));
         CodigoAveriotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CodigoAveriotxt.setForeground(new java.awt.Color(102, 102, 102));
         CodigoAveriotxt.setText("Código de averío");
@@ -230,17 +229,17 @@ public class MateriaPrima extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel3))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Proveedorjcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -248,13 +247,13 @@ public class MateriaPrima extends javax.swing.JFrame {
                                 .addComponent(FechaCalendar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Cantidadtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel11)
-                            .addComponent(CodigoAveriotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Actualizarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Eliminarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Guardarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(51, 51, 51))
+                            .addComponent(CodigoAveriotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Actualizarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Eliminarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Guardarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(51, 51, 51))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,18 +268,18 @@ public class MateriaPrima extends javax.swing.JFrame {
                 .addComponent(Guardarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel3)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel3)
+                        .addGap(38, 38, 38)
                         .addComponent(CodigoAveriotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(Proveedorjcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addComponent(Cantidadtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
+                        .addGap(186, 186, 186)
                         .addComponent(jLabel4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,6 +292,13 @@ public class MateriaPrima extends javax.swing.JFrame {
                 .addGap(56, 56, 56))
         );
 
+        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
+        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_oscuroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -300,17 +306,22 @@ public class MateriaPrima extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(225, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109)
+                .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -423,6 +434,24 @@ boolean modoOscuro = false;
     private void CodigoAveriotxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CodigoAveriotxtKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_CodigoAveriotxtKeyPressed
+
+    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
+        if (!modoOscuro) {
+            jPanel1.setBackground(Color.decode("#212b41"));
+            jPanel2.setBackground(Color.decode("#2e3951"));
+
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
+
+            modoOscuro = true;
+        } else if (modoOscuro == true) {
+            jPanel1.setBackground(Color.decode("#F2FDFA"));
+            jPanel2.setBackground(Color.WHITE);
+
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
+
+            modoOscuro = false;
+        }
+    }//GEN-LAST:event_btn_oscuroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -595,6 +624,7 @@ boolean modoOscuro = false;
     private javax.swing.JButton Guardarbtn;
     private javax.swing.JComboBox<String> Proveedorjcmb;
     private javax.swing.JTextField Totaltxt;
+    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel11;

@@ -6,6 +6,7 @@
 package Interfaz;
 
 //import CRUD.crud;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -25,6 +26,7 @@ import javax.mail.BodyPart;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMultipart;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -74,23 +76,22 @@ public class PanelMail extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtdestino = new javax.swing.JTextField();
         btnEnviar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
         btnEnviar1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(93, 109, 126));
+        jPanel1.setBackground(new java.awt.Color(242, 253, 250));
         jPanel1.setForeground(new java.awt.Color(0, 0, 153));
 
-        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Enviar a:");
 
-        txtdestino.setBackground(new java.awt.Color(255, 255, 224));
         txtdestino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtdestino.setForeground(new java.awt.Color(102, 102, 102));
         txtdestino.setText("ejemplo@gmail.com");
@@ -106,15 +107,13 @@ public class PanelMail extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 224));
-        jLabel3.setText("Ingrese el código: ");
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("RECUPERACIÓN ");
 
-        txtcodigo.setBackground(new java.awt.Color(255, 255, 224));
+        txtcodigo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtcodigo.setForeground(new java.awt.Color(102, 102, 102));
+        txtcodigo.setText("Ingrese el código");
         txtcodigo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +145,13 @@ public class PanelMail extends javax.swing.JFrame {
             }
         });
 
+        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
+        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_oscuroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,16 +166,20 @@ public class PanelMail extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addGap(18, 18, 18)
                             .addComponent(txtdestino, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE))
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtcodigo, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(55, 55, 55))
-            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -178,13 +188,11 @@ public class PanelMail extends javax.swing.JFrame {
                 .addComponent(btnEnviar)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(26, 26, 26)
+                .addGap(36, 36, 36)
                 .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(46, 46, 46)
                 .addComponent(btnEnviar1)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -288,6 +296,23 @@ public class PanelMail extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    boolean modoOscuro = false;
+    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
+        if (!modoOscuro) {
+            jPanel1.setBackground(Color.decode("#212b41"));
+            
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
+
+            modoOscuro = true;
+        } else if (modoOscuro == true) {
+            jPanel1.setBackground(Color.decode("#F2FDFA"));
+        
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
+
+            modoOscuro = false;
+        }
+    }//GEN-LAST:event_btn_oscuroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -329,10 +354,10 @@ public class PanelMail extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnEnviar1;
+    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton3;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtcodigo;
