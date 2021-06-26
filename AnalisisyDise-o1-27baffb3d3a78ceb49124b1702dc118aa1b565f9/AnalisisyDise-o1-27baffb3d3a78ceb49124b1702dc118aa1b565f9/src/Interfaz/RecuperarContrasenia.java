@@ -5,8 +5,10 @@
  */
 package Interfaz;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import sun.security.util.Password;
 
@@ -64,25 +66,25 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(93, 109, 126));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Nueva Contraseña");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Usuario");
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 224));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField1.setForeground(new java.awt.Color(102, 102, 102));
         jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +112,6 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 255, 224));
         jPasswordField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -133,7 +134,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
         Confirmarbtn.setBackground(new java.awt.Color(0, 0, 102));
         Confirmarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Confirmarbtn.setForeground(new java.awt.Color(153, 153, 153));
+        Confirmarbtn.setForeground(new java.awt.Color(102, 102, 102));
         Confirmarbtn.setText("Confirmar");
         Confirmarbtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Confirmarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -148,12 +149,11 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InicioS.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Confirmar Contraseña");
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
 
-        jPasswordField2.setBackground(new java.awt.Color(255, 255, 224));
         jPasswordField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPasswordField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -241,7 +241,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 590, -1));
 
-        jPanel1.setBackground(new java.awt.Color(52, 73, 94));
+        jPanel1.setBackground(new java.awt.Color(242, 253, 250));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -252,18 +252,29 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
             }
         });
 
+        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
+        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_oscuroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 1020, Short.MAX_VALUE)
+                .addGap(0, 972, Short.MAX_VALUE)
+                .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 579, Short.MAX_VALUE))
         );
 
@@ -337,6 +348,25 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPasswordField2KeyPressed
 
+    boolean modoOscuro = false;
+    private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
+        if (!modoOscuro) {
+            jPanel1.setBackground(Color.decode("#212b41"));
+            jPanel2.setBackground(Color.decode("#2e3951"));
+
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
+
+            modoOscuro = true;
+        } else if (modoOscuro == true) {
+            jPanel1.setBackground(Color.decode("#F2FDFA"));
+            jPanel2.setBackground(Color.WHITE);
+
+            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
+
+            modoOscuro = false;
+        }
+    }//GEN-LAST:event_btn_oscuroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -375,6 +405,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Confirmarbtn;
+    private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

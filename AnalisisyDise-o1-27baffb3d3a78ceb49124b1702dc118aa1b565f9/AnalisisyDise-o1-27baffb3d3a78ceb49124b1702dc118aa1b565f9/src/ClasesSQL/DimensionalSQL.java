@@ -6,8 +6,14 @@
 package ClasesSQL;
 
 import Conexion.ConexionBD;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -28,8 +34,9 @@ public class DimensionalSQL {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR DIMENSIONAL");
         }
     }
+
     // //DELETE FROM dimensional WHERE Dimensional="Libras";
-    public void EliminarDimensional(String dimensional){
+    public void EliminarDimensional(String dimensional) {
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
                 statement.execute("DELETE FROM dimensional WHERE dimensional=('" + dimensional + "')");
@@ -40,4 +47,30 @@ public class DimensionalSQL {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
         }
     }
+
+//select idDimensional, Dimensional from dimensional;
+    public int BuscarDimensional(JComboBox Dimensionaljcmb, String nombreDimensional) {
+        int id = 0;
+        try {
+            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+                ResultSet clr = statement.executeQuery("select idDimensional,Dimensional from libreta");
+                while (clr.next()) {
+                    id = clr.getInt("idDimensional");
+                    String dimensional1 = clr.getString("Dimensional");
+
+                    if (nombreDimensional.equals(dimensional1)) {
+                        Dimensionaljcmb.setToolTipText(dimensional1);
+
+                    }
+                }
+
+            }
+            Conexion.getConnection().close();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
+        }
+
+        return id;
+    }
+
 }
