@@ -7,6 +7,8 @@ package Interfaz;
 
 //import CRUD.crud;
 //import Usuario.ConexionBD;
+import Clases.ColorearInterfazBlanco;
+import Clases.ColorearInterfazNegro;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -23,6 +25,7 @@ import java.util.Arrays;
 import javax.swing.ImageIcon;
 import sun.security.util.Password;
 import java.awt.Color;
+
 /**
  *
  * @author jenif
@@ -32,9 +35,12 @@ public class Inventario extends javax.swing.JFrame {
     String proveedor = "", producto = "", dimensional = "", dimensional2 = "";
     String nombreproveedor = "", tipoproducto = "";
     int cantidad = 0, total = 0, cantidad2 = 0, dia, anio = 0, mes = 0;
+    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
+
+    
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
-
     /**
      * Creates new form Menu
      */
@@ -45,8 +51,7 @@ public class Inventario extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         transparenciButton();
 
-       // thecrud.ListaDeProveedores(jComboBox1);
-
+        // thecrud.ListaDeProveedores(jComboBox1);
         Dimensionaljcmb.addItem("Unidades");
         Dimensionaljcmb.addItem("Docenas");
         Dimensionaljcmb.addItem("Libras");
@@ -74,9 +79,9 @@ public class Inventario extends javax.swing.JFrame {
         jButton7.setOpaque(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setBorderPainted(false);
-        AgragarProductobtn.setOpaque(false);
-        AgragarProductobtn.setContentAreaFilled(false);
-        AgragarProductobtn.setBorderPainted(false);
+        AgregarProductobtn.setOpaque(false);
+        AgregarProductobtn.setContentAreaFilled(false);
+        AgregarProductobtn.setBorderPainted(false);
         jButton4.setOpaque(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setBorderPainted(false);
@@ -86,7 +91,7 @@ public class Inventario extends javax.swing.JFrame {
         Eliminarbtn.setOpaque(false);
         Eliminarbtn.setContentAreaFilled(false);
         Eliminarbtn.setBorderPainted(false);
-         Guardarbtn.setOpaque(false);
+        Guardarbtn.setOpaque(false);
         Guardarbtn.setContentAreaFilled(false);
         Guardarbtn.setBorderPainted(false);
     }
@@ -113,7 +118,7 @@ public class Inventario extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         Proveedorjcmb = new javax.swing.JComboBox<>();
         Productojcmb = new javax.swing.JComboBox<>();
-        AgragarProductobtn = new javax.swing.JButton();
+        AgregarProductobtn = new javax.swing.JButton();
         Dimensionaljcmb = new javax.swing.JComboBox<>();
         AgregarDimensionalbtn = new javax.swing.JButton();
         jTextField6 = new javax.swing.JTextField();
@@ -208,15 +213,15 @@ public class Inventario extends javax.swing.JFrame {
         Productojcmb.setToolTipText("");
         jPanel2.add(Productojcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 253, 42));
 
-        AgragarProductobtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        AgragarProductobtn.setForeground(new java.awt.Color(102, 102, 102));
-        AgragarProductobtn.setText("+");
-        AgragarProductobtn.addActionListener(new java.awt.event.ActionListener() {
+        AgregarProductobtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AgregarProductobtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregarProductobtn.setText("+");
+        AgregarProductobtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgragarProductobtnActionPerformed(evt);
+                AgregarProductobtnActionPerformed(evt);
             }
         });
-        jPanel2.add(AgragarProductobtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
+        jPanel2.add(AgregarProductobtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
 
         Dimensionaljcmb.setBackground(new java.awt.Color(244, 253, 251));
         Dimensionaljcmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -380,11 +385,11 @@ public class Inventario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DimensionaljcmbActionPerformed
 
-    private void AgragarProductobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgragarProductobtnActionPerformed
+    private void AgregarProductobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductobtnActionPerformed
         // TODO add your handling code here:
         producto = JOptionPane.showInputDialog("Ingrese Producto");
         Productojcmb.addItem(producto);
-    }//GEN-LAST:event_AgragarProductobtnActionPerformed
+    }//GEN-LAST:event_AgregarProductobtnActionPerformed
 
     private void ProveedorjcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorjcmbActionPerformed
         // TODO add your handling code here:
@@ -415,11 +420,11 @@ public class Inventario extends javax.swing.JFrame {
         tipoproducto = (String) Productojcmb.getSelectedItem();
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
         dimensional2 = (String) Dimensionaljcmb.getSelectedItem();
-       // String fecha = jDateChooser1.getDate().toString();
+        // String fecha = jDateChooser1.getDate().toString();
         //System.out.println("FECHA  " + fecha);
         total = Integer.parseInt(jTextField6.getText());
         //   obtener_proveedor(0,nombreproveedor);
-       /* try {
+        /* try {
             thecrud.IngresarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total, nombreproveedor);
         } catch (SQLException ex) {
             Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
@@ -440,9 +445,9 @@ public class Inventario extends javax.swing.JFrame {
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
         dimensional2 = (String) Dimensionaljcmb.getSelectedItem();
         //String fecha = jDateChooser1.getDate().toString();
-       // System.out.println("FECHA  " + fecha);
+        // System.out.println("FECHA  " + fecha);
         total = Integer.parseInt(jTextField6.getText());
-     /*   try {
+        /*   try {
             thecrud.ActualizarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total);
         } catch (SQLException ex) {
             Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
@@ -456,10 +461,10 @@ public class Inventario extends javax.swing.JFrame {
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
         dimensional2 = (String) Dimensionaljcmb.getSelectedItem();
         //String fecha = jDateChooser1.getDate().toString();
-       // System.out.println("FECHA  " + fecha);
+        // System.out.println("FECHA  " + fecha);
         total = Integer.parseInt(jTextField6.getText());
         //   obtener_proveedor(0,nombreproveedor);
-       /* try {
+        /* try {
             thecrud.EliminarProducto(con, tipoproducto);
         } catch (SQLException ex) {
             Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
@@ -481,22 +486,16 @@ public class Inventario extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
+            pintarInterfaz.ColorearInventarioNegro(jPanel1, jPanel2, btn_oscuro, Productojcmb, Proveedorjcmb, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            jPanel1.setBackground(Color.decode("#F2FDFA"));
-            jPanel2.setBackground(Color.WHITE);
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-
+            pintarInterfazBlanco.ColorearInventarioBlanco(jPanel1, jPanel2, btn_oscuro, Productojcmb, Proveedorjcmb, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
+            
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-boolean modoOscuro = false;
+    boolean modoOscuro = false;
+
     /**
      * @param args the command line arguments
      */
@@ -541,8 +540,8 @@ boolean modoOscuro = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizarbtn;
-    private javax.swing.JButton AgragarProductobtn;
     private javax.swing.JButton AgregarDimensionalbtn;
+    private javax.swing.JButton AgregarProductobtn;
     private javax.swing.JTextField Cantidadtxt;
     private javax.swing.JComboBox<String> Dimensionaljcmb;
     private javax.swing.JButton Eliminarbtn;

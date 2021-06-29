@@ -14,31 +14,31 @@ import javax.swing.ImageIcon;
  */
 public class ColorearComponenteBlanco extends Componente {
 
-    private void PintarBotonActivar() {
+    public void PintarBotonActivar() {
         getBoton().setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
     }
 
-    private void PintarBoton() {
+    public void PintarBoton() {
         getBoton().setForeground(Color.decode("#66646C"));
     }
 
-    private void PintarLabel() {
+    public void PintarLabel() {
         getLabel().setForeground(Color.decode("#666666"));
     }
 
-    private void PintarTexto() {
+    public void PintarTexto() {
        getText().setForeground(Color.WHITE);
     }
 
-    private void PintarContraseña() {
+    public void PintarContraseña() {
         getContraseña().setBackground(Color.decode("#FFFFE0"));
     }
 
-    private void PintarPanelFondo() {
+    public void PintarPanelFondo() {
         getPanelFondo().setBackground(Color.decode("#F2FDFA"));
     }
 
-    private void PintarPanelBase() {
+    public void PintarPanelBase() {
         getPanelBase().setBackground(Color.WHITE);
     }
 }

@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import Clases.ColorearInterfazBlanco;
+import Clases.ColorearInterfazNegro;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -17,29 +19,33 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class RecuperarContrasenia extends javax.swing.JFrame {
+
     String usuario = "";
     Password contraseña3;
-    String pass_concatenada,pass_concatenada2;
+    String pass_concatenada, pass_concatenada2;
+    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
+
     /**
      * Creates new form Menu
      */
     public RecuperarContrasenia() {
-       
-       this.setUndecorated(true);
+
+        this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
     }
-    
-       public void transparenciButton(){
-    jButton2.setOpaque(false);
-    jButton2.setContentAreaFilled(false);
-    jButton2.setBorderPainted(false);
-     Confirmarbtn.setOpaque(false);
-    Confirmarbtn.setContentAreaFilled(false);
-    Confirmarbtn.setBorderPainted(false);
-    
-}
+
+    public void transparenciButton() {
+        jButton2.setOpaque(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setBorderPainted(false);
+        Confirmarbtn.setOpaque(false);
+        Confirmarbtn.setContentAreaFilled(false);
+        Confirmarbtn.setBorderPainted(false);
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +60,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        Usuariotxt = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPasswordField1 = new javax.swing.JPasswordField();
         Confirmarbtn = new javax.swing.JButton();
@@ -83,17 +89,17 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Usuariotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Usuariotxt.setForeground(new java.awt.Color(102, 102, 102));
+        Usuariotxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Usuariotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                UsuariotxtActionPerformed(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        Usuariotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
+                UsuariotxtKeyPressed(evt);
             }
         });
 
@@ -101,12 +107,12 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+            .addComponent(Usuariotxt, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(Usuariotxt, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -285,14 +291,14 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         // TODO add your handling code here:
-          if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             pass_concatenada = "";
             char[] contraseña = jPasswordField1.getPassword();
             for (int i = 0; i < contraseña.length; i++) {
                 pass_concatenada = pass_concatenada + contraseña[i];
                 System.out.println(contraseña[i]);
             }
-            System.out.println("pass   "+pass_concatenada);
+            System.out.println("pass   " + pass_concatenada);
             jPasswordField2.setText("");
             jPasswordField2.requestFocus();
         }
@@ -300,17 +306,16 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
     private void ConfirmarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarbtnActionPerformed
         // TODO add your handling code here:
-        if(jPasswordField1.getPassword()!=jPasswordField2.getPassword()){
-             JOptionPane.showMessageDialog(null, "La contraseña no es la misma, por favor verificar nuevamente ");
+        if (jPasswordField1.getPassword() != jPasswordField2.getPassword()) {
+            JOptionPane.showMessageDialog(null, "La contraseña no es la misma, por favor verificar nuevamente ");
         }
-        usuario = jTextField1.getText();
+        usuario = Usuariotxt.getText();
         System.out.println("1 Usuario" + usuario);
         char[] contraseña = jPasswordField1.getPassword();
         System.out.println("Contraseña" + contraseña);
         char[] contraseña2 = jPasswordField1.getPassword();
         System.out.println("Confirmación de constraseña:  " + contraseña2);
-      
-        
+
         Menu3 menux = new Menu3();
         menux.setVisible(true);
         dispose();
@@ -321,18 +326,18 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void UsuariotxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuariotxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            usuario = jTextField1.getText();
+            usuario = Usuariotxt.getText();
             jPasswordField1.setText("");
             jPasswordField1.requestFocus();
         }
-    }//GEN-LAST:event_jTextField1KeyPressed
+    }//GEN-LAST:event_UsuariotxtKeyPressed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void UsuariotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuariotxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_UsuariotxtActionPerformed
 
     private void jPasswordField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField2KeyPressed
         // TODO add your handling code here:
@@ -351,18 +356,10 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
+            pintarInterfaz.ColorearRecuperarContraseña(jPanel1, jPanel2, btn_oscuro, Usuariotxt, jPasswordField1, jPasswordField2, Confirmarbtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            jPanel1.setBackground(Color.decode("#F2FDFA"));
-            jPanel2.setBackground(Color.WHITE);
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-
+            pintarInterfazBlanco.ColorearRecuperarContraseña(jPanel1, jPanel2, btn_oscuro, Usuariotxt, jPasswordField1, jPasswordField2, Confirmarbtn);
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
@@ -405,6 +402,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Confirmarbtn;
+    private javax.swing.JTextField Usuariotxt;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
@@ -420,6 +418,5 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

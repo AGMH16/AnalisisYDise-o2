@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import Clases.ColorearInterfazBlanco;
+import Clases.ColorearInterfazNegro;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -18,6 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import sun.security.util.Password;
 
@@ -30,6 +33,9 @@ public class Mercaderia extends javax.swing.JFrame {
     String proveedor = "", producto = "", dimensional = "", dimensional2 = "";
     String nombreproveedor = "", tipoproducto = "";
     int cantidad = 0, total = 0, cantidad2 = 0, dia, anio = 0, mes = 0;
+    ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
+
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
 
@@ -61,9 +67,9 @@ public class Mercaderia extends javax.swing.JFrame {
         jButton3.setOpaque(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setBorderPainted(false);
-        AgragaMercaderiabtn.setOpaque(false);
-        AgragaMercaderiabtn.setContentAreaFilled(false);
-        AgragaMercaderiabtn.setBorderPainted(false);
+        AgregaMercaderiabtn.setOpaque(false);
+        AgregaMercaderiabtn.setContentAreaFilled(false);
+        AgregaMercaderiabtn.setBorderPainted(false);
         jButton4.setOpaque(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setBorderPainted(false);
@@ -100,7 +106,7 @@ public class Mercaderia extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         Totaltxt = new javax.swing.JTextField();
         Eliminarbtn = new javax.swing.JButton();
-        AgragaMercaderiabtn = new javax.swing.JButton();
+        AgregaMercaderiabtn = new javax.swing.JButton();
         FechaCalendar2 = new com.toedter.calendar.JCalendar();
         btn_oscuro = new javax.swing.JButton();
 
@@ -215,9 +221,9 @@ public class Mercaderia extends javax.swing.JFrame {
             }
         });
 
-        AgragaMercaderiabtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        AgragaMercaderiabtn.setForeground(new java.awt.Color(102, 102, 102));
-        AgragaMercaderiabtn.setText("+");
+        AgregaMercaderiabtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        AgregaMercaderiabtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregaMercaderiabtn.setText("+");
 
         btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
         btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
@@ -269,7 +275,7 @@ public class Mercaderia extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AgragaMercaderiabtn)
+                .addComponent(AgregaMercaderiabtn)
                 .addGap(207, 207, 207))
         );
         jPanel2Layout.setVerticalGroup(
@@ -287,7 +293,7 @@ public class Mercaderia extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Productojcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AgragaMercaderiabtn))
+                            .addComponent(AgregaMercaderiabtn))
                         .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -437,18 +443,10 @@ public class Mercaderia extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
+            pintarInterfaz.ColorearMercaderiaNegro(jPanel1, jPanel2, btn_oscuro, Productojcmb, Cantidadtxt, Totaltxt, AgregaMercaderiabtn, Guardarbtn, Actualizarbtn, Eliminarbtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            jPanel1.setBackground(Color.decode("#F2FDFA"));
-            jPanel2.setBackground(Color.WHITE);
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-
+            pintarInterfazBlanco.ColorearMercaderiaBlanco(jPanel1, jPanel2, btn_oscuro, Productojcmb, Cantidadtxt, Totaltxt, AgregaMercaderiabtn, Guardarbtn, Actualizarbtn, Eliminarbtn);
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
@@ -522,7 +520,7 @@ boolean modoOscuro = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizarbtn;
-    private javax.swing.JButton AgragaMercaderiabtn;
+    private javax.swing.JButton AgregaMercaderiabtn;
     private javax.swing.JTextField Cantidadtxt;
     private javax.swing.JButton Eliminarbtn;
     private com.toedter.calendar.JCalendar FechaCalendar2;

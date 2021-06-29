@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import Clases.ColorearComponenteBlanco;
+import Clases.ColorearInterfazBlanco;
+import Clases.ColorearInterfazNegro;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -30,6 +33,8 @@ public class MateriaPrima extends javax.swing.JFrame {
     String proveedor = "", producto = "", dimensional = "", dimensional2 = "";
     String nombreproveedor = "", tipoproducto = "";
     int cantidad = 0, total = 0, cantidad2 = 0, dia, anio = 0, mes = 0;
+    ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
 
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
@@ -437,18 +442,11 @@ boolean modoOscuro = false;
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
+            pintarInterfaz.ColorearMateriaPrima(jPanel1, jPanel2, btn_oscuro, Proveedorjcmb, Cantidadtxt, Totaltxt, CodigoAveriotxt, Eliminarbtn, Actualizarbtn, Guardarbtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            jPanel1.setBackground(Color.decode("#F2FDFA"));
-            jPanel2.setBackground(Color.WHITE);
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-
+            pintarInterfazBlanco.ColorearMateriaPrima(jPanel1, jPanel2, btn_oscuro, Proveedorjcmb, Cantidadtxt, Totaltxt, CodigoAveriotxt, Eliminarbtn, Actualizarbtn, Guardarbtn);
+           
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed

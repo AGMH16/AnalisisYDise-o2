@@ -15,11 +15,11 @@ import javax.swing.JTextField;
  *
  * @author Toshiba
  */
-public class ColorearInterfazNegro extends ColorearComponenteNegro {
+public class ColorearInterfazBlanco extends ColorearComponenteBlanco {
 
-    private ColorearComponenteNegro colorear = IniciarColorear();
+    private ColorearComponenteBlanco colorear = IniciarColorear();
 
-    public void ColorearClienteNegro(JPanel jPanel1, JPanel jPanel2, JButton GuardarClientebtn, JButton Actualizarbtn, JButton Activador, JTextField nombre, JTextField apellido, JTextField movil, JTextField telefono, JTextField direccion) {
+    public void ColorearClienteBlanco(JPanel jPanel1, JPanel jPanel2, JButton GuardarClientebtn, JButton Actualizarbtn, JButton Activador, JTextField nombre, JTextField apellido, JTextField movil, JTextField telefono, JTextField direccion) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         ColorearTextos(nombre, apellido, movil, telefono, direccion);
         colorear.setBoton(Actualizarbtn);
@@ -29,7 +29,7 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
     }
 
     //Esta función se utiliza en la interfaz de colaborador y de libreta
-    public void ColorearConsultasNegro(JPanel jPanel1, JPanel jPanel2, JButton Eliminarbtn, JButton Actualizarbtn, JButton Activador, JTextField buscarTxt) {
+    public void ColorearConsultasBlanco(JPanel jPanel1, JPanel jPanel2, JButton Eliminarbtn, JButton Actualizarbtn, JButton Activador, JTextField buscarTxt) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         colorear.setBoton(Actualizarbtn);
         colorear.PintarBoton();
@@ -39,7 +39,7 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
         colorear.PintarTexto();
     }
 
-    public void ColorearCrearCuentaNegro(JPanel jPanel1, JPanel jPanel2, JButton Activador, JButton CrearCuenta, JTextField nombre, JTextField apellido, JTextField correo, JTextField puesto, JTextField usuario, JPasswordField contraseña, JPasswordField contraseña2) {
+    public void ColorearCrearCuentaBlanco(JPanel jPanel1, JPanel jPanel2, JButton Activador, JButton CrearCuenta, JTextField nombre, JTextField apellido, JTextField correo, JTextField puesto, JTextField usuario, JPasswordField contraseña, JPasswordField contraseña2) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         ColorearTextos(nombre, apellido, correo, puesto, usuario);
         colorear.setBoton(CrearCuenta);
@@ -50,7 +50,7 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
         colorear.PintarContraseña();
     }
 
-    public void ColorearIngresoNegro(JPanel jPanel1, JPanel jPanel2, JButton Activador, JTextField usuario, JPasswordField contraseña, JButton Entrar, JButton Registrar, JButton Recuperar) {
+    public void ColorearIngresoBlanco(JPanel jPanel1, JPanel jPanel2, JButton Activador, JTextField usuario, JPasswordField contraseña, JButton Entrar, JButton Registrar, JButton Recuperar) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         colorear.setText(usuario);
         colorear.PintarTexto();
@@ -64,7 +64,7 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
         colorear.PintarBoton();
     }
 
-    public void ColorearInventarioNegro(JPanel jPanel1, JPanel jPanel2, JButton Activador, JComboBox producto, JComboBox proveedor, JComboBox dimensional, JTextField Cantidad, JTextField Total, JButton add1, JButton add2, JButton eliminar, JButton actualizar, JButton guardar) {
+    public void ColorearInventarioBlanco(JPanel jPanel1, JPanel jPanel2, JButton Activador, JComboBox producto, JComboBox proveedor, JComboBox dimensional, JTextField Cantidad, JTextField Total, JButton add1, JButton add2, JButton eliminar, JButton actualizar, JButton guardar) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         colorear.setCombo(producto);
         // colorear.PintarCombo();
@@ -111,7 +111,7 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
         //    colorear.PintarCombo();
     }
 
-    public void ColorearMercaderiaNegro(JPanel jPanel1, JPanel jPanel2, JButton Activador, JComboBox producto, JTextField Cantidad, JTextField Total, JButton add1, JButton guardar, JButton actualizar, JButton eliminar) {
+    public void ColorearMercaderiaBlanco(JPanel jPanel1, JPanel jPanel2, JButton Activador, JComboBox producto, JTextField Cantidad, JTextField Total, JButton add1, JButton guardar, JButton actualizar, JButton eliminar) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         colorear.setCombo(producto);
         colorear.setText(Cantidad);
@@ -128,7 +128,7 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
         colorear.PintarBoton();
     }
 
-    public void ColorearPanelMailNegro(JPanel jPanel1, JButton Activador, JTextField correo, JTextField codigo, JButton Enviar, JButton Verificar) {
+    public void ColorearPanelMailBlanco(JPanel jPanel1, JButton Activador, JTextField correo, JTextField codigo, JButton Enviar, JButton Verificar) {
         colorear.setPanelFondo(jPanel1);
         colorear.PintarPanelFondo();
         colorear.setBotonActivador(Activador);
@@ -143,7 +143,7 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
         colorear.PintarBoton();
     }
 
-    public void ColorearPerdidaMateriaPrima(JPanel jPanel1, JPanel jPanel2, JButton Activador, JTextField codigoAverio, JTextField cantidad, JButton guardar, JButton actualizar, JButton eliminar) {
+    public void ColorearPerdidaMateriaBlanco(JPanel jPanel1, JPanel jPanel2, JButton Activador, JTextField codigoAverio, JTextField cantidad, JButton guardar, JButton actualizar, JButton eliminar) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         colorear.setText(codigoAverio);
         colorear.PintarTexto();
@@ -157,7 +157,7 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
         colorear.PintarBoton();
     }
 
-    public void ColorearProveedorNegro(JPanel jPanel1, JPanel jPanel2, JButton Activador, JTextField nombre, JTextField telefono, JTextField direccion, JTextField empresa, JButton guardar, JButton actualizar, JButton eliminar) {
+    public void ColorearProveedorBlanco(JPanel jPanel1, JPanel jPanel2, JButton Activador, JTextField nombre, JTextField telefono, JTextField direccion, JTextField empresa, JButton guardar, JButton actualizar, JButton eliminar) {
         ColorearComponentesBase(jPanel1, jPanel2, Activador);
         colorear.setText(nombre);
         colorear.PintarTexto();
@@ -187,9 +187,9 @@ public class ColorearInterfazNegro extends ColorearComponenteNegro {
         colorear.PintarBoton();
     }
 
-    private ColorearComponenteNegro IniciarColorear() {
+    private ColorearComponenteBlanco IniciarColorear() {
         Componente componente = new Componente();
-        ColorearComponenteNegro colorear = new ColorearComponenteNegro();
+        ColorearComponenteBlanco colorear = new ColorearComponenteBlanco();
         return colorear;
     }
 

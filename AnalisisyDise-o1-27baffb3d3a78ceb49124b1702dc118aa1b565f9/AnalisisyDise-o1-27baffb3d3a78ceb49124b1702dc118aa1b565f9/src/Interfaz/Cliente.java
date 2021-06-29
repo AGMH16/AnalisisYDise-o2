@@ -5,6 +5,10 @@
  */
 package Interfaz;
 
+import Clases.ColorearComponenteNegro;
+import Clases.ColorearInterfazBlanco;
+import Clases.ColorearInterfazNegro;
+import Clases.Componente;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -23,6 +27,8 @@ import javax.swing.JButton;
  */
 public class Cliente extends javax.swing.JFrame {
 
+    ColorearInterfazNegro pintarInterfazNegro = new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
     String nombres = "", apellidos = "", direccion = "";
     int telefonoMovil = 0, telefonocasa = 0;
     Password contraseña3;
@@ -402,30 +408,11 @@ public class Cliente extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-            NombreClientetxt.setBackground(Color.decode("#FFFFE0"));
-            ApellidoClientetxt.setBackground(Color.decode("#FFFFE0"));
-            CelularClientetxt.setBackground(Color.decode("#FFFFE0"));
-            TelefonoClientetxt.setBackground(Color.decode("#FFFFE0"));
-            DireccionClientetxt.setBackground(Color.decode("#FFFFE0"));
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-            GuardarClientebtn.setForeground(Color.decode("#FFFFE0"));
-            Actualizarbtn.setForeground(Color.decode("#FFFFE0"));
-            jLabel3.setForeground(Color.decode("#FFFFE0"));
+            pintarInterfazNegro.ColorearClienteNegro(jPanel1, jPanel2, GuardarClientebtn, Actualizarbtn, btn_oscuro, NombreClientetxt, ApellidoClientetxt, CelularClientetxt, TelefonoClientetxt, DireccionClientetxt);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            jPanel1.setBackground(Color.decode("#F2FDFA"));
-            jPanel2.setBackground(Color.WHITE);
-            NombreClientetxt.setBackground(Color.white);
-            ApellidoClientetxt.setBackground(Color.white);
-            CelularClientetxt.setBackground(Color.white);
-            TelefonoClientetxt.setBackground(Color.white);
-            DireccionClientetxt.setBackground(Color.white);
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-            GuardarClientebtn.setForeground(Color.decode("#66646C"));
-            Actualizarbtn.setForeground(Color.decode("#66646C"));
-            jLabel3.setForeground(Color.decode("#666666"));
+            pintarInterfazBlanco.ColorearClienteBlanco(jPanel1, jPanel2, GuardarClientebtn, Actualizarbtn, btn_oscuro, NombreClientetxt, ApellidoClientetxt, CelularClientetxt, TelefonoClientetxt, DireccionClientetxt);
+
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed

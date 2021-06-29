@@ -6,6 +6,8 @@
 package Interfaz;
 
 //import CRUD.crud;
+import Clases.ColorearInterfazBlanco;
+import Clases.ColorearInterfazNegro;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Properties;
@@ -38,6 +40,8 @@ public class PanelMail extends javax.swing.JFrame {
     private int numero, numero2;
     private int multiplicacion = 0;
     private int ubicaciondeform = 0;
+    ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
 
     public void transparenciButton() {
 
@@ -78,7 +82,7 @@ public class PanelMail extends javax.swing.JFrame {
         btnEnviar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
-        btnEnviar1 = new javax.swing.JButton();
+        btnVerificar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
 
@@ -126,13 +130,13 @@ public class PanelMail extends javax.swing.JFrame {
             }
         });
 
-        btnEnviar1.setBackground(new java.awt.Color(0, 0, 204));
-        btnEnviar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnEnviar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnEnviar1.setText("Verificar");
-        btnEnviar1.addActionListener(new java.awt.event.ActionListener() {
+        btnVerificar.setBackground(new java.awt.Color(0, 0, 204));
+        btnVerificar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnVerificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerificar.setText("Verificar");
+        btnVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviar1ActionPerformed(evt);
+                btnVerificarActionPerformed(evt);
             }
         });
 
@@ -160,7 +164,7 @@ public class PanelMail extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnEnviar)
-                    .addComponent(btnEnviar1)
+                    .addComponent(btnVerificar)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel1)
@@ -191,7 +195,7 @@ public class PanelMail extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(btnEnviar1)
+                .addComponent(btnVerificar)
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
@@ -222,7 +226,7 @@ public class PanelMail extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEnviar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar1ActionPerformed
+    private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
     
         //para cambio de contraseña
         codigo = Integer.parseInt(txtcodigo.getText());
@@ -235,7 +239,7 @@ public class PanelMail extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_btnEnviar1ActionPerformed
+    }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void txtcodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodigoKeyPressed
         // TODO add your handling code here:
@@ -299,16 +303,11 @@ public class PanelMail extends javax.swing.JFrame {
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
+            pintarInterfaz.ColorearPanelMailNegro(jPanel1, btn_oscuro,txtdestino, txtcodigo, btnEnviar, btnVerificar);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            jPanel1.setBackground(Color.decode("#F2FDFA"));
+            pintarInterfazBlanco.ColorearPanelMailBlanco(jPanel1, btn_oscuro,txtdestino, txtcodigo, btnEnviar, btnVerificar);
         
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
@@ -353,7 +352,7 @@ public class PanelMail extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
-    private javax.swing.JButton btnEnviar1;
+    private javax.swing.JButton btnVerificar;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton3;
     private javax.swing.JDesktopPane jDesktopPane1;

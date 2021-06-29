@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import Clases.ColorearInterfazBlanco;
+import Clases.ColorearInterfazNegro;
 import Usuario.Compresor;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -22,6 +24,8 @@ public class Proveedor extends javax.swing.JFrame {
     String usuario = "", correo_electronico = "";
     Password contraseña3;
     String pass_concatenada = "", pass_concatenada2 = "";
+    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
     /**
      * Creates new form Menu
@@ -75,7 +79,7 @@ public class Proveedor extends javax.swing.JFrame {
         ActualizarCuentabtn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         NombreProveedortxt1 = new javax.swing.JTextField();
-        TelefonoProveedortxt1 = new javax.swing.JTextField();
+        DireccionProveedortxt1 = new javax.swing.JTextField();
         btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -188,18 +192,18 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
 
-        TelefonoProveedortxt1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        TelefonoProveedortxt1.setForeground(new java.awt.Color(102, 102, 102));
-        TelefonoProveedortxt1.setText("Dirección");
-        TelefonoProveedortxt1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        TelefonoProveedortxt1.addActionListener(new java.awt.event.ActionListener() {
+        DireccionProveedortxt1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        DireccionProveedortxt1.setForeground(new java.awt.Color(102, 102, 102));
+        DireccionProveedortxt1.setText("Dirección");
+        DireccionProveedortxt1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        DireccionProveedortxt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TelefonoProveedortxt1ActionPerformed(evt);
+                DireccionProveedortxt1ActionPerformed(evt);
             }
         });
-        TelefonoProveedortxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+        DireccionProveedortxt1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TelefonoProveedortxt1KeyPressed(evt);
+                DireccionProveedortxt1KeyPressed(evt);
             }
         });
 
@@ -214,7 +218,7 @@ public class Proveedor extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(NombreProveedortxt1)
                             .addComponent(TelefonoProveedortxt)
-                            .addComponent(TelefonoProveedortxt1)
+                            .addComponent(DireccionProveedortxt1)
                             .addComponent(EmpresaProveedortxt)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(ActualizarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,7 +241,7 @@ public class Proveedor extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(TelefonoProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(TelefonoProveedortxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DireccionProveedortxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(EmpresaProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82)
@@ -359,29 +363,21 @@ public class Proveedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreProveedortxt1KeyPressed
 
-    private void TelefonoProveedortxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonoProveedortxt1ActionPerformed
+    private void DireccionProveedortxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DireccionProveedortxt1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TelefonoProveedortxt1ActionPerformed
+    }//GEN-LAST:event_DireccionProveedortxt1ActionPerformed
 
-    private void TelefonoProveedortxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoProveedortxt1KeyPressed
+    private void DireccionProveedortxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DireccionProveedortxt1KeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TelefonoProveedortxt1KeyPressed
+    }//GEN-LAST:event_DireccionProveedortxt1KeyPressed
 
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
+            pintarInterfaz.ColorearProveedorNegro(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt, DireccionProveedortxt1, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            jPanel1.setBackground(Color.decode("#F2FDFA"));
-            jPanel2.setBackground(Color.WHITE);
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-
+            pintarInterfazBlanco.ColorearProveedorBlanco(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt, DireccionProveedortxt1, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
@@ -431,11 +427,11 @@ public class Proveedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActualizarCuentabtn;
     private javax.swing.JButton CrearCuentabtn;
+    private javax.swing.JTextField DireccionProveedortxt1;
     private javax.swing.JButton EliminarCuentabtn;
     private javax.swing.JTextField EmpresaProveedortxt;
     private javax.swing.JTextField NombreProveedortxt1;
     private javax.swing.JTextField TelefonoProveedortxt;
-    private javax.swing.JTextField TelefonoProveedortxt1;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
+import Clases.ColorearInterfazBlanco;
+import Clases.ColorearInterfazNegro;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -26,7 +29,8 @@ public class Ingreso extends javax.swing.JFrame {
     Password contraseña3;
     String pass_concatenada;
     ConexionBD sQL = new ConexionBD();
-
+    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
     /**
      * Creates new form Menu
@@ -37,7 +41,7 @@ public class Ingreso extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
-         if (sQL.getConnection() != null) {
+        if (sQL.getConnection() != null) {
             JOptionPane.showMessageDialog(null, "Conexión Exitosa");
         }
     }
@@ -317,8 +321,8 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void EntrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarbtnActionPerformed
         // TODO add your handling code here:
-        
-      /*  usuario = Usuariotxt.getText();
+
+        /*  usuario = Usuariotxt.getText();
         System.out.println("1 Usuario" + usuario);
         char[] contraseña = Contraseñiatxt.getPassword();
         System.out.println("2 Contraseña" + contraseña);
@@ -349,22 +353,15 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-
+            pintarInterfaz.ColorearIngresoNegro(jPanel1, jPanel2, btn_oscuro, Usuariotxt, Contraseñiatxt, Entrarbtn, Registrarbtn, RecuperarContraseñiabtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            jPanel1.setBackground(Color.decode("#F2FDFA"));
-            jPanel2.setBackground(Color.WHITE);
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-
+            pintarInterfazBlanco.ColorearIngresoBlanco(jPanel1, jPanel2, btn_oscuro, Usuariotxt, Contraseñiatxt, Entrarbtn, Registrarbtn, RecuperarContraseñiabtn);
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-boolean modoOscuro = false;
+    boolean modoOscuro = false;
+
     /**
      * @param args the command line arguments
      */

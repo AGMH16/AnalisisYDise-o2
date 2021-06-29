@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import Clases.ColorearInterfazBlanco;
+import Clases.ColorearInterfazNegro;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -16,6 +18,9 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class Colaborador extends javax.swing.JFrame {
+
+    ColorearInterfazNegro pintarInterfazNegro = new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
     String nombres = "", apellidos = "", direccion = "";
     int telefonoMovil = 0, telefonocasa = 0;
@@ -304,18 +309,10 @@ public class Colaborador extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-          
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-          
+            pintarInterfazNegro.ColorearConsultasNegro(jPanel1, jPanel2, EliminarClientebtn, Actualizarbtn1, btn_oscuro, Buscartxt);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            jPanel1.setBackground(Color.decode("#F2FDFA"));
-            jPanel2.setBackground(Color.WHITE);
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-  
+            pintarInterfazBlanco.ColorearConsultasBlanco(jPanel1, jPanel2, EliminarClientebtn, Actualizarbtn1, btn_oscuro, Buscartxt);
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
@@ -324,6 +321,7 @@ public class Colaborador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EliminarClientebtn1ActionPerformed
     boolean modoOscuro = false;
+
     /**
      * @param args the command line arguments
      */
