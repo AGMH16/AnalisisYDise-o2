@@ -29,9 +29,10 @@ import sun.security.util.Password;
  */
 public class PerdidaMateriaPrima extends javax.swing.JFrame {
 
-    String proveedor = "", producto = "", dimensional = "", dimensional2 = "";
+       String codigo = "";
     String nombreproveedor = "", tipoproducto = "";
-    int cantidad = 0, total = 0, cantidad2 = 0, dia, anio = 0, mes = 0;
+    int cantidad = 0, uniAfectadas=0;
+    boolean muerto, enfermo, enObservacion;
     ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
 
@@ -175,7 +176,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 330, 120, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Cantidad");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
 
@@ -322,19 +323,28 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         Proveedor.get(Integer.parseInt(proveedor));
     }
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
+ codigo = CodigoAveriotxt.getText();
+        uniAfectadas =Integer.parseInt(Cantidadtxt.getText()) ;
+        System.out.println(codigo);
+        System.out.println(uniAfectadas);
 
-      
-       // tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-       // dimensional2 = (String) jComboBox3.getSelectedItem();
-       // String fecha = FechaCalendar.getDate().toString();
-       
-        //   obtener_proveedor(0,nombreproveedor);
-      /*  try {
-            thecrud.IngresarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total, nombreproveedor);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        if (Muertosrbtn.isSelected()) {
+            muerto = true;
+            System.out.println("Muerto" + muerto);
+
+        }
+
+        if (Enfermorbtn.isSelected()) {
+            enfermo = true;
+            System.out.println("Enfermo" + enfermo);
+
+        }
+
+        if (Observacionbtn.isSelected()) {
+            enObservacion = true;
+            System.out.println("En Observación" + enObservacion);
+
+        }
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
@@ -344,34 +354,11 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-        // TODO add your handling code here:
-
-      //  tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        //dimensional2 = (String) jComboBox3.getSelectedItem();
-       // String fecha = FechaCalendar.getDate().toString();
        
-       /* try {
-            thecrud.ActualizarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-        // TODO add your handling code here:
-       // tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-       // dimensional2 = (String) jComboBox3.getSelectedItem();
-      //  String fecha = FechaCalendar.getDate().toString();
-    
-        //   obtener_proveedor(0,nombreproveedor);
-      /*  try {
-            thecrud.EliminarProducto(con, tipoproducto);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
+      
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void EnfermorbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnfermorbtnActionPerformed

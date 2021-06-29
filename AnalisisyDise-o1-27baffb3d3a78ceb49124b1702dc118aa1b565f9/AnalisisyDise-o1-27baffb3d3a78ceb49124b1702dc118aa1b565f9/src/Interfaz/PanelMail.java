@@ -36,6 +36,7 @@ import javax.swing.ImageIcon;
  */
 public class PanelMail extends javax.swing.JFrame {
 
+    private String correo ="";
     private int codigo;
     private int numero, numero2;
     private int multiplicacion = 0;
@@ -311,7 +312,12 @@ public class PanelMail extends javax.swing.JFrame {
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-
+ private void txtdestinoKeyPressed(java.awt.event.KeyEvent evt) {                                      
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            correo = txtdestino.getText();
+        }
+    }     
     /**
      * @param args the command line arguments
      */

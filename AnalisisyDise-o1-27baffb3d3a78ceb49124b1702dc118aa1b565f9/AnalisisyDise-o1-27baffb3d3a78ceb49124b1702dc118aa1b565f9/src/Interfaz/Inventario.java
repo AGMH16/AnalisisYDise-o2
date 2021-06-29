@@ -26,15 +26,12 @@ import javax.swing.ImageIcon;
 import sun.security.util.Password;
 import java.awt.Color;
 
-/**
- *
- * @author jenif
- */
+
 public class Inventario extends javax.swing.JFrame {
 
-    String proveedor = "", producto = "", dimensional = "", dimensional2 = "";
+   String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "";
     String nombreproveedor = "", tipoproducto = "";
-    int cantidad = 0, total = 0, cantidad2 = 0, dia, anio = 0, mes = 0;
+    int cantidad = 0, total = 0, cantidad2 = 0;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
@@ -373,6 +370,7 @@ public class Inventario extends javax.swing.JFrame {
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void AgregarDimensionalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDimensionalbtnActionPerformed
@@ -387,8 +385,8 @@ public class Inventario extends javax.swing.JFrame {
 
     private void AgregarProductobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductobtnActionPerformed
         // TODO add your handling code here:
-        producto = JOptionPane.showInputDialog("Ingrese Producto");
-        Productojcmb.addItem(producto);
+        AgregarProducto = JOptionPane.showInputDialog("Ingrese Producto");
+        Productojcmb.addItem(AgregarProducto);
     }//GEN-LAST:event_AgregarProductobtnActionPerformed
 
     private void ProveedorjcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorjcmbActionPerformed
@@ -397,9 +395,10 @@ public class Inventario extends javax.swing.JFrame {
 
     private void CantidadtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             cantidad = Integer.parseInt(Cantidadtxt.getText());
-
+            //Totaltxt.setText("");
+        //    Totaltxt.requestFocus();
         }
     }//GEN-LAST:event_CantidadtxtKeyPressed
 
@@ -416,7 +415,7 @@ public class Inventario extends javax.swing.JFrame {
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        nombreproveedor = (String) Proveedorjcmb.getSelectedItem();
+     nombreproveedor = (String) Proveedorjcmb.getSelectedItem();
         tipoproducto = (String) Productojcmb.getSelectedItem();
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
         dimensional2 = (String) Dimensionaljcmb.getSelectedItem();
@@ -430,6 +429,7 @@ public class Inventario extends javax.swing.JFrame {
             Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
         }*/
 
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -440,36 +440,11 @@ public class Inventario extends javax.swing.JFrame {
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
         // TODO add your handling code here:
 
-        nombreproveedor = (String) Proveedorjcmb.getSelectedItem();
-        tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        dimensional2 = (String) Dimensionaljcmb.getSelectedItem();
-        //String fecha = jDateChooser1.getDate().toString();
-        // System.out.println("FECHA  " + fecha);
-        total = Integer.parseInt(jTextField6.getText());
-        /*   try {
-            thecrud.ActualizarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total);
-        } catch (SQLException ex) {
-            Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+     
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-        // TODO add your handling code here:
-        nombreproveedor = (String) Proveedorjcmb.getSelectedItem();
-        tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        dimensional2 = (String) Dimensionaljcmb.getSelectedItem();
-        //String fecha = jDateChooser1.getDate().toString();
-        // System.out.println("FECHA  " + fecha);
-        total = Integer.parseInt(jTextField6.getText());
-        //   obtener_proveedor(0,nombreproveedor);
-        /* try {
-            thecrud.EliminarProducto(con, tipoproducto);
-        } catch (SQLException ex) {
-            Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
+      
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void TotaltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotaltxtActionPerformed
@@ -478,10 +453,21 @@ public class Inventario extends javax.swing.JFrame {
 
     private void TotaltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyPressed
         // TODO add your handling code here:
+        total = Integer.parseInt(Totaltxt.getText());
     }//GEN-LAST:event_TotaltxtKeyPressed
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
         // TODO add your handling code here:
+         producto = (String) Productojcmb.getSelectedItem();
+        proveedor = (String) Proveedorjcmb.getSelectedItem();
+        cantidad = Integer.parseInt(Cantidadtxt.getText());
+        dimensional = (String) Dimensionaljcmb.getSelectedItem();
+         total = Integer.parseInt(Totaltxt.getText());
+        System.out.println(producto);
+        System.out.println(proveedor);
+        System.out.println(cantidad);
+        System.out.println(dimensional);
+        System.out.println(total);
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed

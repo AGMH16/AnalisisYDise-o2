@@ -18,7 +18,7 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class Ventas extends javax.swing.JFrame {
-
+    boolean aDomicilio, puntoDeVenta;
     String nombres = "", apellidos = "", producto = "";
     String nombreproveedor = "", tipoproducto = "";
     int cantidad = 0, total = 0, cantidad2 = 0, dia, anio = 0, mes = 0;
@@ -64,7 +64,7 @@ public class Ventas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        nombretxt = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
@@ -72,10 +72,10 @@ public class Ventas extends javax.swing.JFrame {
         jComboBox4 = new javax.swing.JComboBox<>();
         jComboBox6 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        Adomijbtn = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jTextField7 = new javax.swing.JTextField();
+        apellidotxt = new javax.swing.JTextField();
         jComboBox7 = new javax.swing.JComboBox<>();
         Salirbtn = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
@@ -94,7 +94,7 @@ public class Ventas extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 224));
+        jButton1.setForeground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Guardar");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -105,18 +105,18 @@ public class Ventas extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/entrega-de-bienes-a-domicilio.png"))); // NOI18N
 
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField5.setText("Nombres");
-        jTextField5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        nombretxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nombretxt.setForeground(new java.awt.Color(102, 102, 102));
+        nombretxt.setText("Nombres");
+        nombretxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        nombretxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                nombretxtActionPerformed(evt);
             }
         });
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+        nombretxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField5KeyPressed(evt);
+                nombretxtKeyPressed(evt);
             }
         });
 
@@ -148,24 +148,24 @@ public class Ventas extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("FECHA");
 
-        jRadioButton1.setText("A domicilio");
+        Adomijbtn.setText("A domicilio");
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mercado.png"))); // NOI18N
 
         jRadioButton2.setText("Punto de venta");
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField7.setText("Apellidos");
-        jTextField7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        apellidotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        apellidotxt.setForeground(new java.awt.Color(102, 102, 102));
+        apellidotxt.setText("Apellidos");
+        apellidotxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        apellidotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                apellidotxtActionPerformed(evt);
             }
         });
-        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+        apellidotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField7KeyPressed(evt);
+                apellidotxtKeyPressed(evt);
             }
         });
 
@@ -182,7 +182,7 @@ public class Ventas extends javax.swing.JFrame {
                         .addGap(120, 120, 120)
                         .addComponent(jLabel4)
                         .addGap(30, 30, 30)
-                        .addComponent(jRadioButton1)
+                        .addComponent(Adomijbtn)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel12)
                         .addGap(43, 43, 43)
@@ -208,8 +208,8 @@ public class Ventas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(apellidotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,7 +230,7 @@ public class Ventas extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel12)
-                            .addComponent(jRadioButton1)
+                            .addComponent(Adomijbtn)
                             .addComponent(jRadioButton2))
                         .addGap(12, 12, 12))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -241,9 +241,9 @@ public class Ventas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(apellidotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,30 +306,38 @@ public class Ventas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
-        nombres = jTextField5.getText();
-        apellidos = jTextField7.getText();
-        tipoproducto = (String) jComboBox2.getSelectedItem();
-        cantidad2 = Integer.parseInt(jTextField5.getText());
-        dia = Integer.parseInt((String) jComboBox4.getSelectedItem());
-        mes = Integer.parseInt((String) jComboBox7.getSelectedItem());
-        anio = Integer.parseInt((String) jComboBox6.getSelectedItem());
+            if (Adomijbtn.isSelected()) {
+                aDomicilio = true;
+                
+                System.out.println("Adomicilio" + aDomicilio);
 
+            }
+            if (jRadioButton2.isSelected()) {
+                puntoDeVenta = true;
+                System.out.println("Punto de Venta" + puntoDeVenta);
+            }
+        
+        nombres = nombretxt.getText();
+        apellidos = apellidotxt.getText();
+        tipoproducto = (String) jComboBox2.getSelectedItem();
+        System.out.println(nombres);
+        System.out.println(apellidos);
+        System.out.println(tipoproducto);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void nombretxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombretxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_nombretxtActionPerformed
 
-    private void jTextField5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyPressed
+    private void nombretxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombretxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            nombres = jTextField5.getText();
-            jTextField7.setText("");
-            jTextField7.requestFocus();
+            nombres = nombretxt.getText();
+            apellidotxt.setText("");
+            apellidotxt.requestFocus();
         }
-    }//GEN-LAST:event_jTextField5KeyPressed
+    }//GEN-LAST:event_nombretxtKeyPressed
 
     private void SalirbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirbtnActionPerformed
         // TODO add your handling code here:
@@ -343,16 +351,16 @@ public class Ventas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void apellidotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidotxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_apellidotxtActionPerformed
 
-    private void jTextField7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyPressed
+    private void apellidotxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidotxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            apellidos = jTextField7.getText();
+            apellidos = apellidotxt.getText();
         }
-    }//GEN-LAST:event_jTextField7KeyPressed
+    }//GEN-LAST:event_apellidotxtKeyPressed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
       /*  if (!modoOscuro) {
@@ -435,7 +443,9 @@ public class Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton Adomijbtn;
     private javax.swing.JButton Salirbtn;
+    private javax.swing.JTextField apellidotxt;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
@@ -451,9 +461,7 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField nombretxt;
     // End of variables declaration//GEN-END:variables
 }

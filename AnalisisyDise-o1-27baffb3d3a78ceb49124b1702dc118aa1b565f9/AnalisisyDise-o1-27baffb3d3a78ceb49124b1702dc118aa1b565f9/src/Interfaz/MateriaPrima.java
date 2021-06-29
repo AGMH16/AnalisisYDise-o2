@@ -30,9 +30,10 @@ import sun.security.util.Password;
  */
 public class MateriaPrima extends javax.swing.JFrame {
 
-    String proveedor = "", producto = "", dimensional = "", dimensional2 = "";
-    String nombreproveedor = "", tipoproducto = "";
-    int cantidad = 0, total = 0, cantidad2 = 0, dia, anio = 0, mes = 0;
+        String loteAverio = "";
+    String nombreproveedor = "", proveedor = "";
+    int cantidad = 0;
+    float total;
     ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
 
@@ -59,7 +60,6 @@ public class MateriaPrima extends javax.swing.JFrame {
         jButton3.setOpaque(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setBorderPainted(false);
-
         jButton5.setOpaque(false);
         jButton5.setContentAreaFilled(false);
         jButton5.setBorderPainted(false);
@@ -107,6 +107,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(980, 754));
         jPanel1.setVerifyInputWhenFocusTarget(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton3.setForeground(new java.awt.Color(102, 102, 102));
@@ -116,6 +117,7 @@ public class MateriaPrima extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, -1));
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton5.setForeground(new java.awt.Color(102, 102, 102));
@@ -125,8 +127,10 @@ public class MateriaPrima extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 60, 40, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Actualizarbtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -137,11 +141,13 @@ public class MateriaPrima extends javax.swing.JFrame {
                 ActualizarbtnActionPerformed(evt);
             }
         });
+        jPanel2.add(Actualizarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("MATERIA PRIMA ");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 30, -1, -1));
 
         Guardarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Guardarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -154,8 +160,10 @@ public class MateriaPrima extends javax.swing.JFrame {
                 GuardarbtnActionPerformed(evt);
             }
         });
+        jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, 109, 35));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal_1.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 540, -1, -1));
 
         Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Cantidadtxt.setForeground(new java.awt.Color(102, 102, 102));
@@ -171,12 +179,15 @@ public class MateriaPrima extends javax.swing.JFrame {
                 CantidadtxtKeyPressed(evt);
             }
         });
+        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 265, 253, 43));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario.png"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 383, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Fecha de Ingreso");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 342, -1, -1));
 
         Totaltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Totaltxt.setForeground(new java.awt.Color(102, 102, 102));
@@ -192,6 +203,7 @@ public class MateriaPrima extends javax.swing.JFrame {
                 TotaltxtKeyPressed(evt);
             }
         });
+        jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 561, 253, 43));
 
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -202,8 +214,11 @@ public class MateriaPrima extends javax.swing.JFrame {
                 EliminarbtnActionPerformed(evt);
             }
         });
+        jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 620, 109, -1));
+        jPanel2.add(FechaCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 383, -1, 125));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario (2).png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 177, -1, -1));
 
         Proveedorjcmb.setBackground(new java.awt.Color(244, 253, 251));
         Proveedorjcmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -213,6 +228,7 @@ public class MateriaPrima extends javax.swing.JFrame {
                 ProveedorjcmbActionPerformed(evt);
             }
         });
+        jPanel2.add(Proveedorjcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 186, 253, 42));
 
         CodigoAveriotxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CodigoAveriotxt.setForeground(new java.awt.Color(102, 102, 102));
@@ -228,74 +244,9 @@ public class MateriaPrima extends javax.swing.JFrame {
                 CodigoAveriotxtKeyPressed(evt);
             }
         });
+        jPanel2.add(CodigoAveriotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 104, 253, 43));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Proveedorjcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(Totaltxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(FechaCalendar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Cantidadtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel11)
-                            .addComponent(CodigoAveriotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Actualizarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Eliminarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Guardarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(51, 51, 51))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(297, 297, 297)
-                .addComponent(Eliminarbtn)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Actualizarbtn)
-                    .addComponent(jLabel11))
-                .addGap(18, 18, 18)
-                .addComponent(Guardarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel3)
-                        .addGap(38, 38, 38)
-                        .addComponent(CodigoAveriotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(Proveedorjcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(Cantidadtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(jLabel4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FechaCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(Totaltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56))
-        );
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 0, 620, 670));
 
         btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
         btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
@@ -303,37 +254,9 @@ public class MateriaPrima extends javax.swing.JFrame {
                 btn_oscuroActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_oscuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 30, 20));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(225, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 670));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -357,7 +280,7 @@ public class MateriaPrima extends javax.swing.JFrame {
 
     private void CantidadtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             cantidad = Integer.parseInt(Cantidadtxt.getText());
 
         }
@@ -375,52 +298,24 @@ public class MateriaPrima extends javax.swing.JFrame {
         Proveedor.get(Integer.parseInt(proveedor));
     }
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
-
-        // tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        //  dimensional2 = (String) jComboBox3.getSelectedItem();
-        String fecha = FechaCalendar.getDate().toString();
-        System.out.println("FECHA  " + fecha);
+        loteAverio = CodigoAveriotxt.getText();
+        proveedor = (String) Proveedorjcmb.getSelectedItem();
+        cantidad = Integer.parseInt(Cantidadtxt.getText());
         total = Integer.parseInt(Totaltxt.getText());
-        //   obtener_proveedor(0,nombreproveedor);
-        /*  try {
-            thecrud.IngresarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total, nombreproveedor);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        System.out.println(loteAverio);
+        System.out.println(proveedor);
+        System.out.println(cantidad);
+        System.out.println(total);
+
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-        // TODO add your handling code here:
-
-        // tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        // dimensional2 = (String) jComboBox3.getSelectedItem();
-        String fecha = FechaCalendar.getDate().toString();
-        System.out.println("FECHA  " + fecha);
-        total = Integer.parseInt(Totaltxt.getText());
-        /* try {
-            thecrud.ActualizarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+       
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-        // TODO add your handling code here:
-        // tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-        //  dimensional2 = (String) jComboBox3.getSelectedItem();
-        String fecha = FechaCalendar.getDate().toString();
-        System.out.println("FECHA  " + fecha);
-        total = Integer.parseInt(Totaltxt.getText());
-        //   obtener_proveedor(0,nombreproveedor);
-        /*  try {
-            thecrud.EliminarProducto(con, tipoproducto);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+       
 
     }//GEN-LAST:event_EliminarbtnActionPerformed
 

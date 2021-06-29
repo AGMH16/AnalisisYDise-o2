@@ -30,9 +30,10 @@ import sun.security.util.Password;
  */
 public class Mercaderia extends javax.swing.JFrame {
 
-    String proveedor = "", producto = "", dimensional = "", dimensional2 = "";
-    String nombreproveedor = "", tipoproducto = "";
-    int cantidad = 0, total = 0, cantidad2 = 0, dia, anio = 0, mes = 0;
+    String proveedor = "", producto = "";
+    String nombreproveedor = "", tipoproducto = "", agregarProducto="";
+    int cantidad = 0;
+    float total;
     ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
 
@@ -48,9 +49,6 @@ public class Mercaderia extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
-
-       
-
         Productojcmb.addItem("Pollo");
         Productojcmb.addItem("Maíz");
         Productojcmb.addItem("Vacuna");
@@ -382,50 +380,21 @@ public class Mercaderia extends javax.swing.JFrame {
     }
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
 
-      
-        tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-       // dimensional2 = (String) jComboBox3.getSelectedItem();
-      //  String fecha = FechaCalendar.getDate().toString();
-      
-        total = Integer.parseInt(Totaltxt.getText());
-        //   obtener_proveedor(0,nombreproveedor);
-      /*  try {
-            thecrud.IngresarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total, nombreproveedor);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+       producto = (String) Productojcmb.getSelectedItem();
+       cantidad = Integer.parseInt(Cantidadtxt.getText());
+       total = Float.parseFloat(Totaltxt.getText());
+        System.out.println(producto);
+        System.out.println(cantidad);
+        System.out.println(total);
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-        // TODO add your handling code here:
-
-        tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-      //  dimensional2 = (String) jComboBox3.getSelectedItem();
         
-        total = Integer.parseInt(Totaltxt.getText());
-       /* try {
-            thecrud.ActualizarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-        // TODO add your handling code here:
-        tipoproducto = (String) Productojcmb.getSelectedItem();
-        cantidad2 = Integer.parseInt(Cantidadtxt.getText());
-       // dimensional2 = (String) jComboBox3.getSelectedItem();
-        
-        total = Integer.parseInt(Totaltxt.getText());
-        //   obtener_proveedor(0,nombreproveedor);
-      /*  try {
-            thecrud.EliminarProducto(con, tipoproducto);
-        } catch (SQLException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+       
 
     }//GEN-LAST:event_EliminarbtnActionPerformed
 

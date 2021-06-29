@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
 import java.awt.event.KeyEvent;
@@ -21,12 +22,9 @@ import sun.security.util.Password;
  */
 public class Libreta extends javax.swing.JFrame {
 
-    String nombres = "", apellidos = "", direccion = "";
-    int telefonoMovil = 0, telefonocasa = 0;
-    Password contraseña3;
-    String pass_concatenada;
-    ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
+    int telefonoCliente = 0, celularCliente = 0;
+    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
     /**
      * Creates new form Menu
@@ -49,6 +47,9 @@ public class Libreta extends javax.swing.JFrame {
         Actualizarbtn1.setOpaque(false);
         Actualizarbtn1.setContentAreaFilled(false);
         Actualizarbtn1.setBorderPainted(false);
+        Regresarbtn.setOpaque(false);
+        Regresarbtn.setContentAreaFilled(false);
+        Regresarbtn.setBorderPainted(false);
     }
 
     /**
@@ -71,7 +72,9 @@ public class Libreta extends javax.swing.JFrame {
         Libretatable = new javax.swing.JTable();
         Actualizarbtn1 = new javax.swing.JButton();
         Buscartxt = new javax.swing.JTextField();
+        Buscarbtn = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
+        Regresarbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -159,11 +162,24 @@ public class Libreta extends javax.swing.JFrame {
 
         Buscartxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Buscartxt.setForeground(new java.awt.Color(102, 102, 102));
-        Buscartxt.setText("Buscar");
+        Buscartxt.setText("Ingrese el teléfono o celular del cliente");
         Buscartxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Buscartxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscartxtActionPerformed(evt);
+            }
+        });
+        Buscartxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BuscartxtKeyPressed(evt);
+            }
+        });
+
+        Buscarbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        Buscarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/buscar (1).png"))); // NOI18N
+        Buscarbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarbtnActionPerformed(evt);
             }
         });
 
@@ -178,14 +194,18 @@ public class Libreta extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(Actualizarbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(Eliminarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(93, 93, 93)
+                                .addComponent(Eliminarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(286, 286, 286)
                         .addComponent(EliminarClientebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Buscarbtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -202,12 +222,14 @@ public class Libreta extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel3)
-                .addGap(41, 41, 41)
-                .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Buscarbtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Eliminarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Actualizarbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -225,6 +247,15 @@ public class Libreta extends javax.swing.JFrame {
             }
         });
 
+        Regresarbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        Regresarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Regresarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-de-regreso.png"))); // NOI18N
+        Regresarbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresarbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -233,15 +264,21 @@ public class Libreta extends javax.swing.JFrame {
                 .addGap(0, 161, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
-                .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Regresarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Regresarbtn))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -296,7 +333,31 @@ public class Libreta extends javax.swing.JFrame {
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-boolean modoOscuro = false;
+
+    private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
+        // TODO add your handling code here:
+        telefonoCliente = Integer.parseInt(Buscartxt.getText());
+        celularCliente = Integer.parseInt(Buscartxt.getText());
+        System.out.println("Colaborador a buscar:" + telefonoCliente);
+        System.out.println("Colaborador a buscar:" + celularCliente);
+    }//GEN-LAST:event_BuscarbtnActionPerformed
+
+    private void BuscartxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BuscartxtKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            telefonoCliente = Integer.parseInt(Buscartxt.getText());
+            celularCliente = Integer.parseInt(Buscartxt.getText());
+        }
+    }//GEN-LAST:event_BuscartxtKeyPressed
+
+    private void RegresarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarbtnActionPerformed
+        // TODO add your handling code here:
+        Menu3 menux = new Menu3();
+        menux.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_RegresarbtnActionPerformed
+    boolean modoOscuro = false;
+
     /**
      * @param args the command line arguments
      */
@@ -341,10 +402,12 @@ boolean modoOscuro = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizarbtn1;
+    private javax.swing.JButton Buscarbtn;
     private javax.swing.JTextField Buscartxt;
     private javax.swing.JButton EliminarClientebtn;
     private javax.swing.JButton Eliminarbtn;
     private javax.swing.JTable Libretatable;
+    private javax.swing.JButton Regresarbtn;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

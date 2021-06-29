@@ -21,9 +21,8 @@ import sun.security.util.Password;
  */
 public class Proveedor extends javax.swing.JFrame {
 
-    String usuario = "", correo_electronico = "";
-    Password contraseña3;
-    String pass_concatenada = "", pass_concatenada2 = "";
+    
+    String nombre = "", telefono = "", direccion = "", empresa = "";
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
@@ -79,7 +78,7 @@ public class Proveedor extends javax.swing.JFrame {
         ActualizarCuentabtn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         NombreProveedortxt1 = new javax.swing.JTextField();
-        DireccionProveedortxt1 = new javax.swing.JTextField();
+        direcciontxt = new javax.swing.JTextField();
         btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -192,18 +191,18 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
 
-        DireccionProveedortxt1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        DireccionProveedortxt1.setForeground(new java.awt.Color(102, 102, 102));
-        DireccionProveedortxt1.setText("Dirección");
-        DireccionProveedortxt1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        DireccionProveedortxt1.addActionListener(new java.awt.event.ActionListener() {
+        direcciontxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        direcciontxt.setForeground(new java.awt.Color(102, 102, 102));
+        direcciontxt.setText("Dirección");
+        direcciontxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        direcciontxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DireccionProveedortxt1ActionPerformed(evt);
+                direcciontxtActionPerformed(evt);
             }
         });
-        DireccionProveedortxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+        direcciontxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                DireccionProveedortxt1KeyPressed(evt);
+                direcciontxtKeyPressed(evt);
             }
         });
 
@@ -218,14 +217,14 @@ public class Proveedor extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(NombreProveedortxt1)
                             .addComponent(TelefonoProveedortxt)
-                            .addComponent(DireccionProveedortxt1)
                             .addComponent(EmpresaProveedortxt)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(ActualizarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(EliminarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(direcciontxt, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jLabel11)))
@@ -241,7 +240,7 @@ public class Proveedor extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(TelefonoProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(DireccionProveedortxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(direcciontxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(EmpresaProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82)
@@ -290,29 +289,23 @@ public class Proveedor extends javax.swing.JFrame {
 
     private void TelefonoProveedortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoProveedortxtKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            //      usuario = jTexUsuariotxtText();
-            TelefonoProveedortxt.setText("");
-            TelefonoProveedortxt.requestFocus();
+       // TODO add your handling code here:
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            telefono = TelefonoProveedortxt.getText();
+            direcciontxt.setText("");
+            direcciontxt.requestFocus();
         }
     }//GEN-LAST:event_TelefonoProveedortxtKeyPressed
 
     private void CrearCuentabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCuentabtnActionPerformed
-        // TODO add your handling code here:
-        //    usuario = jTexUsuariotxtText();
-        System.out.println("1 Usuario" + usuario);
-        correo_electronico = EmpresaProveedortxt.getText();
-        System.out.println("2 Correo Electronico" + correo_electronico);
-        if (usuario.equals("") | pass_concatenada.equals("") | (pass_concatenada2).equals("")) {
-            JOptionPane.showMessageDialog(null, "No todos los campos están llenos");
-        }
-        if (pass_concatenada.equals(pass_concatenada2)) {
-
-            // thecrud.insertarUsuario(usuario, thecontraseña,correo_electronico);
-        } else {
-            JOptionPane.showMessageDialog(null, "La contraseña no es la misma, por favor verificar nuevamente ");
-
-        }
+       nombre = NombreProveedortxt1.getText();
+        telefono = TelefonoProveedortxt.getText();
+        direccion = direcciontxt.getText();
+        empresa = EmpresaProveedortxt.getText();
+        System.out.println(nombre);
+        System.out.println(telefono);
+        System.out.println(direccion);
+        System.out.println(empresa);
 
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
     private String comprimir(String frase) {
@@ -342,7 +335,7 @@ public class Proveedor extends javax.swing.JFrame {
     private void EmpresaProveedortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmpresaProveedortxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            correo_electronico = EmpresaProveedortxt.getText();
+            empresa = EmpresaProveedortxt.getText();
 
         }
     }//GEN-LAST:event_EmpresaProveedortxtKeyPressed
@@ -363,24 +356,24 @@ public class Proveedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreProveedortxt1KeyPressed
 
-    private void DireccionProveedortxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DireccionProveedortxt1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DireccionProveedortxt1ActionPerformed
-
-    private void DireccionProveedortxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DireccionProveedortxt1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DireccionProveedortxt1KeyPressed
-
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            pintarInterfaz.ColorearProveedorNegro(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt, DireccionProveedortxt1, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
+            pintarInterfaz.ColorearProveedorNegro(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt, direcciontxt, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearProveedorBlanco(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt, DireccionProveedortxt1, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
+            pintarInterfazBlanco.ColorearProveedorBlanco(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt,direcciontxt, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+
+    private void direcciontxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direcciontxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_direcciontxtActionPerformed
+
+    private void direcciontxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_direcciontxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_direcciontxtKeyPressed
 
     /**
      * @param args the command line arguments
@@ -427,12 +420,12 @@ public class Proveedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActualizarCuentabtn;
     private javax.swing.JButton CrearCuentabtn;
-    private javax.swing.JTextField DireccionProveedortxt1;
     private javax.swing.JButton EliminarCuentabtn;
     private javax.swing.JTextField EmpresaProveedortxt;
     private javax.swing.JTextField NombreProveedortxt1;
     private javax.swing.JTextField TelefonoProveedortxt;
     private javax.swing.JButton btn_oscuro;
+    private javax.swing.JTextField direcciontxt;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;

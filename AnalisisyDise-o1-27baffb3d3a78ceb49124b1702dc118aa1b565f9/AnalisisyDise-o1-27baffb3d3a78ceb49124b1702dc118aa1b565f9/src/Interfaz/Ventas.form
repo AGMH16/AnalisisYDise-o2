@@ -83,7 +83,7 @@
                               <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="Adomijbtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -118,8 +118,8 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jButton1" min="-2" pref="82" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField7" min="-2" pref="455" max="-2" attributes="0"/>
-                              <Component id="jTextField5" min="-2" pref="455" max="-2" attributes="0"/>
+                              <Component id="apellidotxt" min="-2" pref="455" max="-2" attributes="0"/>
+                              <Component id="nombretxt" min="-2" pref="455" max="-2" attributes="0"/>
                               <Component id="jComboBox2" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jComboBox4" min="-2" pref="94" max="-2" attributes="0"/>
@@ -145,7 +145,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Adomijbtn" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jRadioButton2" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -160,9 +160,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="jTextField5" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="nombretxt" min="-2" pref="43" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField7" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="apellidotxt" min="-2" pref="43" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jComboBox2" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
@@ -210,7 +210,7 @@
                   <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e0" green="ff" red="ff" type="rgb"/>
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -228,7 +228,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
+            <Component class="javax.swing.JTextField" name="nombretxt">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -244,8 +244,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField5ActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField5KeyPressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombretxtActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nombretxtKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
@@ -386,7 +386,7 @@
                 <Property name="text" type="java.lang.String" value="FECHA"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="Adomijbtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="A domicilio"/>
               </Properties>
@@ -403,7 +403,7 @@
                 <Property name="text" type="java.lang.String" value="Punto de venta"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="apellidotxt">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -419,8 +419,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField7ActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField7KeyPressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="apellidotxtActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="apellidotxtKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox7">

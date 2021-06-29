@@ -28,7 +28,7 @@ import javax.swing.JButton;
 public class Cliente extends javax.swing.JFrame {
 
     ColorearInterfazNegro pintarInterfazNegro = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
+    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
     String nombres = "", apellidos = "", direccion = "";
     int telefonoMovil = 0, telefonocasa = 0;
     Password contraseña3;
@@ -56,6 +56,9 @@ public class Cliente extends javax.swing.JFrame {
         GuardarClientebtn.setOpaque(false);
         GuardarClientebtn.setContentAreaFilled(false);
         GuardarClientebtn.setBorderPainted(false);
+        Regresarbtn.setOpaque(false);
+        Regresarbtn.setContentAreaFilled(false);
+        Regresarbtn.setBorderPainted(false);
 
     }
 
@@ -84,7 +87,7 @@ public class Cliente extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Regresarbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -179,7 +182,7 @@ public class Cliente extends javax.swing.JFrame {
 
         GuardarClientebtn.setBackground(new java.awt.Color(102, 102, 102));
         GuardarClientebtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        GuardarClientebtn.setForeground(new java.awt.Color(255, 255, 224));
+        GuardarClientebtn.setForeground(new java.awt.Color(102, 102, 102));
         GuardarClientebtn.setText("Guardar Cliente");
         GuardarClientebtn.setBorder(null);
         GuardarClientebtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -191,7 +194,7 @@ public class Cliente extends javax.swing.JFrame {
 
         Actualizarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Actualizarbtn.setForeground(new java.awt.Color(255, 255, 224));
+        Actualizarbtn.setForeground(new java.awt.Color(102, 102, 102));
         Actualizarbtn.setText("Guardar Actualización");
         Actualizarbtn.setBorder(null);
         Actualizarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -289,11 +292,11 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-de-regreso.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Regresarbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        Regresarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-de-regreso.png"))); // NOI18N
+        Regresarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                RegresarbtnActionPerformed(evt);
             }
         });
 
@@ -310,7 +313,7 @@ public class Cliente extends javax.swing.JFrame {
                         .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Regresarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,7 +322,7 @@ public class Cliente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3))
+                        .addComponent(Regresarbtn))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -400,6 +403,18 @@ public class Cliente extends javax.swing.JFrame {
 
     private void GuardarClientebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarClientebtnActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        nombres = NombreClientetxt.getText();
+        apellidos = ApellidoClientetxt.getText();
+        telefonoMovil = Integer.parseInt(CelularClientetxt.getText());
+        telefonocasa = Integer.parseInt(TelefonoClientetxt.getText());
+        direccion = DireccionClientetxt.getText();
+
+        System.out.println("Nombres del cliente:" + nombres);
+        System.out.println("Apellido del cliente:" + apellidos);
+        System.out.println("Celular:" + telefonoMovil);
+        System.out.println("Telefono:" + telefonocasa);
+        System.out.println("Dirección:" + direccion);
     }//GEN-LAST:event_GuardarClientebtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
@@ -417,9 +432,9 @@ public class Cliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void RegresarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_RegresarbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -466,10 +481,10 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JTextField DireccionClientetxt;
     private javax.swing.JButton GuardarClientebtn;
     private javax.swing.JTextField NombreClientetxt;
+    private javax.swing.JButton Regresarbtn;
     private javax.swing.JTextField TelefonoClientetxt;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

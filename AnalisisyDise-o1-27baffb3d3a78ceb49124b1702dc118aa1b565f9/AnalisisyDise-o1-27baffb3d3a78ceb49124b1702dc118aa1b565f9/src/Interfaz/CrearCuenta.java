@@ -21,9 +21,10 @@ import sun.security.util.Password;
  */
 public class CrearCuenta extends javax.swing.JFrame {
 
-    String usuario = "", correo_electronico = "";
+   String usuario = "", correo_electronico = "", nombres = "", apellidos = "", puesto = "";
     Password contraseña3;
     String pass_concatenada = "", pass_concatenada2 = "";
+    boolean verificacion;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
@@ -70,7 +71,6 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         Usuariotxt = new javax.swing.JTextField();
         Contraseñatxt = new javax.swing.JPasswordField();
-        ConfContraseñatxt = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         Correotxt = new javax.swing.JTextField();
@@ -78,11 +78,12 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         ApellidoColaboradortxt = new javax.swing.JTextField();
         NombreColaboradortxt = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
         Supervisorrb = new javax.swing.JRadioButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        Contraseñatxt1 = new javax.swing.JPasswordField();
         btn_oscuro = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,7 +96,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 
         CrearCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
         CrearCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CrearCuentabtn.setForeground(new java.awt.Color(153, 153, 153));
+        CrearCuentabtn.setForeground(new java.awt.Color(102, 102, 102));
         CrearCuentabtn.setText("Crear Cuenta");
         CrearCuentabtn.setBorder(null);
         CrearCuentabtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
@@ -141,14 +142,6 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
-        ConfContraseñatxt.setForeground(new java.awt.Color(102, 102, 102));
-        ConfContraseñatxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ConfContraseñatxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                ConfContraseñatxtKeyPressed(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 153, 153));
         jLabel8.setText("Confirmar Contraseña");
@@ -186,7 +179,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("DATOS DEL COLABORADOR");
 
         ApellidoColaboradortxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -219,95 +212,113 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        Supervisorrb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Supervisorrb.setForeground(new java.awt.Color(102, 102, 102));
+        Supervisorrb.setText("Supervisor");
+
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario (2).png"))); // NOI18N
 
-        Supervisorrb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Supervisorrb.setForeground(new java.awt.Color(153, 153, 153));
-        Supervisorrb.setText("Supervisor");
+        Contraseñatxt1.setForeground(new java.awt.Color(102, 102, 102));
+        Contraseñatxt1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Contraseñatxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Contraseñatxt1ActionPerformed(evt);
+            }
+        });
+        Contraseñatxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Contraseñatxt1KeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(85, 85, 85)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel15)
                             .addComponent(jLabel9)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addGap(28, 28, 28)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel15))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(PuestoLaboraltxt)
-                                .addComponent(Usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Contraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4)
-                                .addComponent(ApellidoColaboradortxt)
-                                .addComponent(NombreColaboradortxt)
-                                .addComponent(Correotxt, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
-                                .addComponent(ConfContraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Supervisorrb)
-                                .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(Contraseñatxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(Contraseñatxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(56, 56, 56)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CrearCuentabtn, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                    .addComponent(Supervisorrb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Correotxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+                                .addComponent(Usuariotxt, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel11)))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel15)
-                        .addGap(53, 53, 53))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(Correotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(Usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(7, 7, 7)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
+                .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(Contraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Correotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)))
-                .addGap(9, 9, 9)
+                        .addComponent(Contraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ConfContraseñatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Supervisorrb))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6))
-                .addContainerGap(68, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(Supervisorrb))
+                                .addGap(18, 18, 18)
+                                .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addComponent(Contraseñatxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103))))
         );
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(102, 102, 102));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
+        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_oscuroActionPerformed(evt);
             }
         });
 
@@ -320,10 +331,12 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
-        btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/darkmode_1.png"))); // NOI18N
-        btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(102, 102, 102));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_oscuroActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -333,12 +346,12 @@ public class CrearCuenta extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(90, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
                         .addComponent(jButton2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(jButton3))))
@@ -347,12 +360,12 @@ public class CrearCuenta extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
 
@@ -367,10 +380,10 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void UsuariotxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuariotxtKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            //      usuario = jTexUsuariotxtText();
-            Contraseñatxt.setText("");
-            Contraseñatxt.requestFocus();
+      if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            usuario = Usuariotxt.getText();
+            PuestoLaboraltxt.setText("");
+            PuestoLaboraltxt.requestFocus();
         }
     }//GEN-LAST:event_UsuariotxtKeyPressed
 
@@ -382,36 +395,53 @@ public class CrearCuenta extends javax.swing.JFrame {
             for (int i = 0; i < contraseña.length; i++) {
                 pass_concatenada = pass_concatenada + contraseña[i];
                 System.out.println(contraseña[i]);
+                // System.out.println("pass   " + pass_concatenada);
+                
             }
-            System.out.println("pass   " + pass_concatenada);
-            ConfContraseñatxt.setText("");
-            ConfContraseñatxt.requestFocus();
+            // System.out.println("pass   " + pass_concatenada);
+            Contraseñatxt1.setText("");
+            Contraseñatxt1.requestFocus();
         }
     }//GEN-LAST:event_ContraseñatxtKeyPressed
 
     private void CrearCuentabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCuentabtnActionPerformed
         // TODO add your handling code here:
-        //    usuario = jTexUsuariotxtText();
-        System.out.println("1 Usuario" + usuario);
+      nombres = NombreColaboradortxt.getText();
+        apellidos = ApellidoColaboradortxt.getText();
+        usuario = Usuariotxt.getText();
         correo_electronico = Correotxt.getText();
-        System.out.println("2 Correo Electronico" + correo_electronico);
-        char[] contraseña = Contraseñatxt.getPassword();
-        System.out.println("Contraseña" + contraseña);
-        char[] contraseña2 = ConfContraseñatxt.getPassword();
+        puesto = PuestoLaboraltxt.getText();
+        char[] pass_concatenada = Contraseñatxt.getPassword();
+        char[] contraseña2 = Contraseñatxt1.getPassword();
+
+        System.out.println("Nombre:" + nombres);
+        System.out.println("Apellidos" + apellidos);
+        System.out.println("Usuario" + usuario);
+        System.out.println("Puesto" + puesto);
+        System.out.println("Correo Electronico" + correo_electronico);
+        System.out.println("Contraseña" + pass_concatenada);
+        System.out.println("Contraseña2:" + pass_concatenada2);
+
         System.out.println("Confirmación de constraseña:  " + contraseña2);
         if (usuario.equals("") | pass_concatenada.equals("") | (pass_concatenada2).equals("")) {
             JOptionPane.showMessageDialog(null, "No todos los campos están llenos");
         }
         if (pass_concatenada.equals(pass_concatenada2)) {
             JOptionPane.showMessageDialog(null, "Verificación de contraseñas correcta");
-            String thecontraseña = comprimir(String.valueOf(contraseña));
-            System.out.println("nueva contraseña " + thecontraseña);
-            // thecrud.insertarUsuario(usuario, thecontraseña,correo_electronico);
+            String thecontraseña = comprimir(String.valueOf(pass_concatenada));
+
         } else {
             JOptionPane.showMessageDialog(null, "La contraseña no es la misma, por favor verificar nuevamente ");
 
         }
 
+        if (Supervisorrb.isSelected()) {
+            verificacion = true;
+
+        } else {
+            verificacion = false;
+        }
+        System.out.println("Verificación" + verificacion);
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
     private String comprimir(String frase) {
         Compresor compresor = new Compresor();
@@ -427,21 +457,6 @@ public class CrearCuenta extends javax.swing.JFrame {
         menux.setVisible(true);
         dispose();*/
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void ConfContraseñatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ConfContraseñatxtKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            pass_concatenada2 = "";
-            char[] contraseña2 = ConfContraseñatxt.getPassword();
-            for (int i = 0; i < contraseña2.length; i++) {
-                pass_concatenada2 = pass_concatenada2 + contraseña2[i];
-                System.out.println(contraseña2[i]);
-            }
-            System.out.println("pass2   " + pass_concatenada2);
-            Correotxt.setText("");
-            Correotxt.requestFocus();
-        }
-    }//GEN-LAST:event_ConfContraseñatxtKeyPressed
 
     private void ContraseñatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñatxtActionPerformed
         // TODO add your handling code here:
@@ -460,7 +475,8 @@ public class CrearCuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             correo_electronico = Correotxt.getText();
-
+            Contraseñatxt.setText("");
+            Contraseñatxt.requestFocus();
         }
     }//GEN-LAST:event_CorreotxtKeyPressed
 
@@ -470,6 +486,11 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void ApellidoColaboradortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidoColaboradortxtKeyPressed
         // TODO add your handling code here:
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            apellidos = ApellidoColaboradortxt.getText();
+            Usuariotxt.setText("");
+            Usuariotxt.requestFocus();
+        }
     }//GEN-LAST:event_ApellidoColaboradortxtKeyPressed
 
     private void NombreColaboradortxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreColaboradortxtActionPerformed
@@ -478,10 +499,20 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void NombreColaboradortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreColaboradortxtKeyPressed
         // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            nombres = NombreColaboradortxt.getText();
+            ApellidoColaboradortxt.setText("");
+           ApellidoColaboradortxt.requestFocus();
+        }
     }//GEN-LAST:event_NombreColaboradortxtKeyPressed
 
     private void PuestoLaboraltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PuestoLaboraltxtKeyPressed
         // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            puesto = PuestoLaboraltxt.getText();
+            Correotxt.setText("");
+            Correotxt.requestFocus();
+        }
     }//GEN-LAST:event_PuestoLaboraltxtKeyPressed
 
     private void PuestoLaboraltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuestoLaboraltxtActionPerformed
@@ -491,13 +522,30 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         // TODO add your handling code here:
         if (!modoOscuro) {
-            pintarInterfaz.ColorearCrearCuentaNegro(jPanel1, jPanel2, btn_oscuro, CrearCuentabtn, NombreColaboradortxt, ApellidoColaboradortxt, Correotxt, PuestoLaboraltxt, Usuariotxt, Contraseñatxt, ConfContraseñatxt);
+            pintarInterfaz.ColorearCrearCuentaNegro(jPanel1, jPanel2, btn_oscuro, CrearCuentabtn, NombreColaboradortxt, ApellidoColaboradortxt, Correotxt, PuestoLaboraltxt, Usuariotxt, Contraseñatxt, Contraseñatxt1);
             modoOscuro = true;
         } else {
-            pintarInterfazBlanco.ColorearCrearCuentaBlanco(jPanel1, jPanel2, btn_oscuro, CrearCuentabtn, NombreColaboradortxt, ApellidoColaboradortxt, Correotxt, PuestoLaboraltxt, Usuariotxt, Contraseñatxt, ConfContraseñatxt);
+            pintarInterfazBlanco.ColorearCrearCuentaBlanco(jPanel1, jPanel2, btn_oscuro, CrearCuentabtn, NombreColaboradortxt, ApellidoColaboradortxt, Correotxt, PuestoLaboraltxt, Usuariotxt, Contraseñatxt, Contraseñatxt1);
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+
+    private void Contraseñatxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Contraseñatxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Contraseñatxt1ActionPerformed
+
+    private void Contraseñatxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Contraseñatxt1KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            pass_concatenada2 = "";
+            char[] contraseña2 =Contraseñatxt1.getPassword();
+            for (int i = 0; i < contraseña2.length; i++) {
+                pass_concatenada2 = pass_concatenada2 + contraseña2[i];
+                System.out.println(contraseña2[i]);
+            }
+
+        }
+    }//GEN-LAST:event_Contraseñatxt1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -543,8 +591,8 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApellidoColaboradortxt;
-    private javax.swing.JPasswordField ConfContraseñatxt;
     private javax.swing.JPasswordField Contraseñatxt;
+    private javax.swing.JPasswordField Contraseñatxt1;
     private javax.swing.JTextField Correotxt;
     private javax.swing.JButton CrearCuentabtn;
     private javax.swing.JTextField NombreColaboradortxt;

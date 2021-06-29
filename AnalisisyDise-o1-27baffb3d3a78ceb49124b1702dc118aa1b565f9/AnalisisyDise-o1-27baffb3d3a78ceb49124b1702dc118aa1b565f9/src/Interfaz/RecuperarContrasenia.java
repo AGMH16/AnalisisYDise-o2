@@ -62,7 +62,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         Usuariotxt = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        Contra1 = new javax.swing.JPasswordField();
         Confirmarbtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -118,10 +118,10 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
 
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        Contra1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Contra1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyPressed(evt);
+                Contra1KeyPressed(evt);
             }
         });
 
@@ -129,12 +129,12 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+            .addComponent(Contra1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addComponent(Contra1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -289,11 +289,11 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+    private void Contra1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Contra1KeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             pass_concatenada = "";
-            char[] contraseña = jPasswordField1.getPassword();
+            char[] contraseña = Contra1.getPassword();
             for (int i = 0; i < contraseña.length; i++) {
                 pass_concatenada = pass_concatenada + contraseña[i];
                 System.out.println(contraseña[i]);
@@ -302,20 +302,21 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
             jPasswordField2.setText("");
             jPasswordField2.requestFocus();
         }
-    }//GEN-LAST:event_jPasswordField1KeyPressed
+    }//GEN-LAST:event_Contra1KeyPressed
 
     private void ConfirmarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarbtnActionPerformed
         // TODO add your handling code here:
-        if (jPasswordField1.getPassword() != jPasswordField2.getPassword()) {
-            JOptionPane.showMessageDialog(null, "La contraseña no es la misma, por favor verificar nuevamente ");
+        if(Contra1.getPassword()!=jPasswordField2.getPassword()){
+             JOptionPane.showMessageDialog(null, "La contraseña no es la misma, por favor verificar nuevamente ");
         }
         usuario = Usuariotxt.getText();
         System.out.println("1 Usuario" + usuario);
-        char[] contraseña = jPasswordField1.getPassword();
+        char[] contraseña = Contra1.getPassword();
         System.out.println("Contraseña" + contraseña);
-        char[] contraseña2 = jPasswordField1.getPassword();
+        char[] contraseña2 = Contra1.getPassword();
         System.out.println("Confirmación de constraseña:  " + contraseña2);
-
+      
+        
         Menu3 menux = new Menu3();
         menux.setVisible(true);
         dispose();
@@ -330,8 +331,8 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             usuario = Usuariotxt.getText();
-            jPasswordField1.setText("");
-            jPasswordField1.requestFocus();
+            Contra1.setText("");
+            Contra1.requestFocus();
         }
     }//GEN-LAST:event_UsuariotxtKeyPressed
 
@@ -356,10 +357,10 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            pintarInterfaz.ColorearRecuperarContraseña(jPanel1, jPanel2, btn_oscuro, Usuariotxt, jPasswordField1, jPasswordField2, Confirmarbtn);
+            pintarInterfaz.ColorearRecuperarContraseña(jPanel1, jPanel2, btn_oscuro, Usuariotxt, Contra1, jPasswordField2, Confirmarbtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearRecuperarContraseña(jPanel1, jPanel2, btn_oscuro, Usuariotxt, jPasswordField1, jPasswordField2, Confirmarbtn);
+            pintarInterfazBlanco.ColorearRecuperarContraseña(jPanel1, jPanel2, btn_oscuro, Usuariotxt, Contra1, jPasswordField2, Confirmarbtn);
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
@@ -402,6 +403,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Confirmarbtn;
+    private javax.swing.JPasswordField Contra1;
     private javax.swing.JTextField Usuariotxt;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;
@@ -416,7 +418,6 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     // End of variables declaration//GEN-END:variables
 }

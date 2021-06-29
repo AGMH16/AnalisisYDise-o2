@@ -107,7 +107,7 @@ public class Ingreso extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 224));
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Contraseña");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -309,27 +309,17 @@ public class Ingreso extends javax.swing.JFrame {
     private void ContraseñiatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñiatxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            pass_concatenada = "";
             char[] contraseña = Contraseñiatxt.getPassword();
-            for (int i = 0; i < contraseña.length; i++) {
-                pass_concatenada = pass_concatenada + contraseña[i];
-                System.out.println(contraseña[i]);
-            }
-            System.out.println("pass   " + pass_concatenada);
+
         }
     }//GEN-LAST:event_ContraseñiatxtKeyPressed
 
     private void EntrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarbtnActionPerformed
         // TODO add your handling code here:
-
-        /*  usuario = Usuariotxt.getText();
-        System.out.println("1 Usuario" + usuario);
+        usuario = Usuariotxt.getText();
         char[] contraseña = Contraseñiatxt.getPassword();
+        System.out.println("1 Usuario" + usuario);
         System.out.println("2 Contraseña" + contraseña);
-
-        Menu3 menux = new Menu3();
-        menux.setVisible(true);
-        dispose();*/
     }//GEN-LAST:event_EntrarbtnActionPerformed
 
     private void RegistrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarbtnActionPerformed
