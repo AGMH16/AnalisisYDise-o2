@@ -27,7 +27,7 @@ public class ColorearComponenteBlanco extends Componente {
     }
 
     public void PintarTexto() {
-       getText().setForeground(Color.WHITE);
+       getText().setForeground(Color.decode("#666666"));
     }
 
     public void PintarContraseña() {
