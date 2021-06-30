@@ -188,7 +188,7 @@ public class Colaborador extends javax.swing.JFrame {
         });
 
         Buscarbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        Buscarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/buscar (1).png"))); // NOI18N
+        Buscarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar (1).png"))); // NOI18N
         Buscarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarbtnActionPerformed(evt);
