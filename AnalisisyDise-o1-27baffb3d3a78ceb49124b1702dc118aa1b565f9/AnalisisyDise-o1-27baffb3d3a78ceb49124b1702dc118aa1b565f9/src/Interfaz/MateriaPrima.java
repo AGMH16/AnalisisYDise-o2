@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -33,7 +34,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         String loteAverio = "";
     String nombreproveedor = "", proveedor = "";
     int cantidad = 0;
-    float total;
+    float total,año=0,dia=0,mes=0;;
     ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
 
@@ -141,7 +142,7 @@ public class MateriaPrima extends javax.swing.JFrame {
                 ActualizarbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Actualizarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, -1, -1));
+        jPanel2.add(Actualizarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -160,7 +161,7 @@ public class MateriaPrima extends javax.swing.JFrame {
                 GuardarbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, 109, 35));
+        jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 109, 35));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal_1.png"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 540, -1, -1));
@@ -203,7 +204,7 @@ public class MateriaPrima extends javax.swing.JFrame {
                 TotaltxtKeyPressed(evt);
             }
         });
-        jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 561, 253, 43));
+        jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 253, 43));
 
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -214,7 +215,7 @@ public class MateriaPrima extends javax.swing.JFrame {
                 EliminarbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 620, 109, -1));
+        jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, 109, -1));
         jPanel2.add(FechaCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 383, -1, 125));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario (2).png"))); // NOI18N
@@ -306,6 +307,11 @@ public class MateriaPrima extends javax.swing.JFrame {
         System.out.println(proveedor);
         System.out.println(cantidad);
         System.out.println(total);
+         año = FechaCalendar.getCalendar().get(Calendar.YEAR);
+        mes = FechaCalendar.getCalendar().get(Calendar.MARCH);
+        dia = FechaCalendar.getCalendar().get(Calendar.DAY_OF_MONTH);
+        String fecha = (año + "-" + mes + "-" + dia);
+        System.out.println(fecha);
 
 
     }//GEN-LAST:event_GuardarbtnActionPerformed

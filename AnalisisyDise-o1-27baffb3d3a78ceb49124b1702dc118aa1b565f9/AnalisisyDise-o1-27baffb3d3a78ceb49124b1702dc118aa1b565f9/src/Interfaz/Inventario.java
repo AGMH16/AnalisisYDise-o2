@@ -25,17 +25,16 @@ import java.util.Arrays;
 import javax.swing.ImageIcon;
 import sun.security.util.Password;
 import java.awt.Color;
-
+import java.util.Calendar;
 
 public class Inventario extends javax.swing.JFrame {
 
-   String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "";
+    String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "";
     String nombreproveedor = "", tipoproducto = "";
-    int cantidad = 0, total = 0, cantidad2 = 0;
+    int cantidad = 0, total = 0, cantidad2 = 0, año=0,dia=0,mes=0;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
-    
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
     /**
@@ -370,7 +369,7 @@ public class Inventario extends javax.swing.JFrame {
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void AgregarDimensionalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDimensionalbtnActionPerformed
@@ -395,10 +394,10 @@ public class Inventario extends javax.swing.JFrame {
 
     private void CantidadtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyPressed
         // TODO add your handling code here:
-       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             cantidad = Integer.parseInt(Cantidadtxt.getText());
             //Totaltxt.setText("");
-        //    Totaltxt.requestFocus();
+            //    Totaltxt.requestFocus();
         }
     }//GEN-LAST:event_CantidadtxtKeyPressed
 
@@ -415,7 +414,7 @@ public class Inventario extends javax.swing.JFrame {
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-     nombreproveedor = (String) Proveedorjcmb.getSelectedItem();
+        nombreproveedor = (String) Proveedorjcmb.getSelectedItem();
         tipoproducto = (String) Productojcmb.getSelectedItem();
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
         dimensional2 = (String) Dimensionaljcmb.getSelectedItem();
@@ -440,11 +439,11 @@ public class Inventario extends javax.swing.JFrame {
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
         // TODO add your handling code here:
 
-     
+
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-      
+
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void TotaltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotaltxtActionPerformed
@@ -458,11 +457,17 @@ public class Inventario extends javax.swing.JFrame {
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
         // TODO add your handling code here:
-         producto = (String) Productojcmb.getSelectedItem();
+         año = FechaCalendar.getCalendar().get(Calendar.YEAR);
+        mes = FechaCalendar.getCalendar().get(Calendar.MARCH);
+        dia = FechaCalendar.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+        String fecha = (año + "-" + mes + "-" + dia);
+        System.out.println(fecha);
+        producto = (String) Productojcmb.getSelectedItem();
         proveedor = (String) Proveedorjcmb.getSelectedItem();
         cantidad = Integer.parseInt(Cantidadtxt.getText());
         dimensional = (String) Dimensionaljcmb.getSelectedItem();
-         total = Integer.parseInt(Totaltxt.getText());
+        total = Integer.parseInt(Totaltxt.getText());
         System.out.println(producto);
         System.out.println(proveedor);
         System.out.println(cantidad);
@@ -476,7 +481,7 @@ public class Inventario extends javax.swing.JFrame {
             modoOscuro = true;
         } else if (modoOscuro == true) {
             pintarInterfazBlanco.ColorearInventarioBlanco(jPanel1, jPanel2, btn_oscuro, Productojcmb, Proveedorjcmb, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
-            
+
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed

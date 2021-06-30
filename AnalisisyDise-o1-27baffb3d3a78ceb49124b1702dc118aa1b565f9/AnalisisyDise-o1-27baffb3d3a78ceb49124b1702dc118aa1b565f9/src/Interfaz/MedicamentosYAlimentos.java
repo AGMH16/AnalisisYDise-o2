@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -30,10 +31,10 @@ import sun.security.util.Password;
  */
 public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
-     boolean medicamento, alimento, vacuna, inmunizador, vitamina, conceEngorde, conceCrecimiento, maiz;
+    boolean medicamento, alimento, vacuna, inmunizador, vitamina, conceEngorde, conceCrecimiento, maiz;
 
-    String nombreproveedor = "", tipoproducto = "", nombreProducto = "", nombreAlimento = "", proveedor = "", Dimensional = "",tipoDimensional="";
-    int cantidad = 0;
+    String nombreproveedor = "", tipoproducto = "", nombreProducto = "", nombreAlimento = "", proveedor = "", Dimensional = "", tipoDimensional = "";
+    int cantidad = 0, año = 0, dia = 0, mes = 0, año2 = 0, dia2 = 0, mes2 = 0;
     float total;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
@@ -395,8 +396,8 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
     private void AgregarDimensionalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarDimensionalbtnActionPerformed
         // TODO add your handling code here:
-          tipoDimensional = JOptionPane.showInputDialog("Ingrese Producto");
-         Dimensionaljcmb.addItem(tipoDimensional);
+        tipoDimensional = JOptionPane.showInputDialog("Ingrese Producto");
+        Dimensionaljcmb.addItem(tipoDimensional);
     }//GEN-LAST:event_AgregarDimensionalbtnActionPerformed
 
     private void DimensionaljcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DimensionaljcmbActionPerformed
@@ -416,14 +417,14 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     }//GEN-LAST:event_InmunizadorrbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-       
+
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void TotaltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
-             total = Float.parseFloat(Totaltxt.getText());
+            total = Float.parseFloat(Totaltxt.getText());
         }
     }//GEN-LAST:event_TotaltxtKeyPressed
 
@@ -445,7 +446,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
 
-          if (Medicamentosrbtn.isSelected()) {
+        if (Medicamentosrbtn.isSelected()) {
             medicamento = true;
             tipoproducto = "Medicamentos";
             System.out.println("Tipo Medicamento" + tipoproducto);
@@ -494,17 +495,31 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         } else {
             alimento = false;
         }
+        año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
+        mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
+        dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+        año2 = FechaCalendar1.getCalendar().get(Calendar.YEAR);
+        mes2 = FechaCalendar1.getCalendar().get(Calendar.MARCH);
+        dia2 = FechaCalendar1.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+        String fecha1 = (año + "-" + mes + "-" + dia);
+        System.out.println(fecha1);
+        
+        String fecha2 = (año + "-" + mes + "-" + dia);
+        System.out.println(fecha2);
+        
         proveedor = (String) Proveedorjcmb.getSelectedItem();
         cantidad = Integer.parseInt(Cantidadtxt.getText());
         Dimensional = (String) Dimensionaljcmb.getSelectedItem();
-          total = Float.parseFloat(Totaltxt.getText());
+        total = Float.parseFloat(Totaltxt.getText());
         System.out.println(proveedor);
         System.out.println(cantidad);
         System.out.println(total);
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-       
+
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

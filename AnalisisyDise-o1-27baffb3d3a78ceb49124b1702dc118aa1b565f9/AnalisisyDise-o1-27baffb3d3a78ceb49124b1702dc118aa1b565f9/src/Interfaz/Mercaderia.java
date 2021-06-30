@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -32,7 +33,7 @@ public class Mercaderia extends javax.swing.JFrame {
 
     String proveedor = "", producto = "";
     String nombreproveedor = "", tipoproducto = "", agregarProducto="";
-    int cantidad = 0;
+    int cantidad = 0, año = 0, dia = 0, mes = 0;
     float total;
     ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
@@ -386,6 +387,13 @@ public class Mercaderia extends javax.swing.JFrame {
         System.out.println(producto);
         System.out.println(cantidad);
         System.out.println(total);
+        
+         año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
+        mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
+        dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+        String fecha1 = (año + "-" + mes + "-" + dia);
+        System.out.println(fecha1);
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 

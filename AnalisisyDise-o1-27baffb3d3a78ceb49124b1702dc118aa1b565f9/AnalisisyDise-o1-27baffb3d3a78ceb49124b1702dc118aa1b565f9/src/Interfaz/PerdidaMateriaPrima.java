@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -31,7 +32,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
 
        String codigo = "";
     String nombreproveedor = "", tipoproducto = "";
-    int cantidad = 0, uniAfectadas=0;
+    int cantidad = 0, uniAfectadas=0,año = 0, dia = 0, mes = 0;
     boolean muerto, enfermo, enObservacion;
     ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
@@ -345,6 +346,13 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
             System.out.println("En Observación" + enObservacion);
 
         }
+         
+         año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
+        mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
+        dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+        String fecha1 = (año + "-" + mes + "-" + dia);
+        System.out.println(fecha1);
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
