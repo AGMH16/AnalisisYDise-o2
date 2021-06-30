@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 public class ColorearComponenteBlanco extends Componente {
 
     public void PintarBotonActivar() {
-        getBoton().setIcon(new ImageIcon(getClass().getResource("/images/btn1.png")));
+        getBotonActivador().setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
     }
 
     public void PintarBoton() {
