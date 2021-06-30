@@ -17,7 +17,7 @@ public class ColorearComponenteNegro extends Componente {
 
     public void PintarBotonActivar() {
         /*componente.*/
-        getBotonActivador().setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
+        getBotonActivador().setIcon(new ImageIcon(getClass().getResource("/Imagenes/darkmode_2.png")));
     }
 
     public void PintarBoton() {
