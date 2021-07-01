@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
 import Clases.ColorearComponenteBlanco;
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
@@ -31,16 +32,16 @@ import sun.security.util.Password;
  */
 public class MateriaPrima extends javax.swing.JFrame {
 
-        String loteAverio = "";
+    String loteAverio = "";
     String nombreproveedor = "", proveedor = "";
     int cantidad = 0;
-    float total,año=0,dia=0,mes=0;;
-    ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
+    float total, año = 0, dia = 0, mes = 0;
+    ;
+    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
-
     /**
      * Creates new form Menu
      */
@@ -281,7 +282,7 @@ public class MateriaPrima extends javax.swing.JFrame {
 
     private void CantidadtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyPressed
         // TODO add your handling code here:
-     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             cantidad = Integer.parseInt(Cantidadtxt.getText());
 
         }
@@ -307,7 +308,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         System.out.println(proveedor);
         System.out.println(cantidad);
         System.out.println(total);
-         año = FechaCalendar.getCalendar().get(Calendar.YEAR);
+        año = FechaCalendar.getCalendar().get(Calendar.YEAR);
         mes = FechaCalendar.getCalendar().get(Calendar.MARCH);
         dia = FechaCalendar.getCalendar().get(Calendar.DAY_OF_MONTH);
         String fecha = (año + "-" + mes + "-" + dia);
@@ -317,18 +318,18 @@ public class MateriaPrima extends javax.swing.JFrame {
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-       
+
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-       
+
 
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
-boolean modoOscuro = false;
+    boolean modoOscuro = false;
     private void ProveedorjcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorjcmbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ProveedorjcmbActionPerformed
@@ -347,7 +348,7 @@ boolean modoOscuro = false;
             modoOscuro = true;
         } else if (modoOscuro == true) {
             pintarInterfazBlanco.ColorearMateriaPrima(jPanel1, jPanel2, btn_oscuro, Proveedorjcmb, Cantidadtxt, Totaltxt, CodigoAveriotxt, Eliminarbtn, Actualizarbtn, Guardarbtn);
-           
+
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
