@@ -7,6 +7,8 @@ package Interfaz;
 
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
+import ClasesSQL.LibretaClienteSQL;
+import ClasesSQL.ProveedorSQL;
 import Usuario.Compresor;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -21,10 +23,11 @@ import sun.security.util.Password;
  */
 public class Proveedor extends javax.swing.JFrame {
 
-    
     String nombre = "", telefono = "", direccion = "", empresa = "";
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
+    ProveedorSQL proveedorSQL = new ProveedorSQL();
+    int IdProveedor = 0;
 
     /**
      * Creates new form Menu
@@ -41,11 +44,9 @@ public class Proveedor extends javax.swing.JFrame {
         jButton2.setOpaque(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setBorderPainted(false);
-
         CrearCuentabtn.setOpaque(false);
         CrearCuentabtn.setContentAreaFilled(false);
         CrearCuentabtn.setBorderPainted(false);
-
         jButton3.setOpaque(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setBorderPainted(false);
@@ -79,6 +80,7 @@ public class Proveedor extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         NombreProveedortxt1 = new javax.swing.JTextField();
         direcciontxt = new javax.swing.JTextField();
+        Buscartxt = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,7 +114,7 @@ public class Proveedor extends javax.swing.JFrame {
         CrearCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
         CrearCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CrearCuentabtn.setForeground(new java.awt.Color(102, 102, 102));
-        CrearCuentabtn.setText("Crear Cuenta");
+        CrearCuentabtn.setText("Guardar");
         CrearCuentabtn.setBorder(null);
         CrearCuentabtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +155,7 @@ public class Proveedor extends javax.swing.JFrame {
         EliminarCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
         EliminarCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         EliminarCuentabtn.setForeground(new java.awt.Color(102, 102, 102));
-        EliminarCuentabtn.setText("Eliminar Cuenta");
+        EliminarCuentabtn.setText("Eliminar");
         EliminarCuentabtn.setBorder(null);
         EliminarCuentabtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +166,7 @@ public class Proveedor extends javax.swing.JFrame {
         ActualizarCuentabtn.setBackground(new java.awt.Color(0, 0, 102));
         ActualizarCuentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ActualizarCuentabtn.setForeground(new java.awt.Color(102, 102, 102));
-        ActualizarCuentabtn.setText("Actualizar Cuenta");
+        ActualizarCuentabtn.setText("Actualizar");
         ActualizarCuentabtn.setBorder(null);
         ActualizarCuentabtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +180,7 @@ public class Proveedor extends javax.swing.JFrame {
 
         NombreProveedortxt1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         NombreProveedortxt1.setForeground(new java.awt.Color(102, 102, 102));
-        NombreProveedortxt1.setText("Nombre");
+        NombreProveedortxt1.setText("Nombre Completo");
         NombreProveedortxt1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         NombreProveedortxt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,12 +208,24 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
 
+        Buscartxt.setBackground(new java.awt.Color(102, 102, 102));
+        Buscartxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Buscartxt.setForeground(new java.awt.Color(102, 102, 102));
+        Buscartxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar (1).png"))); // NOI18N
+        Buscartxt.setBorder(null);
+        Buscartxt.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        Buscartxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscartxtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -227,28 +241,32 @@ public class Proveedor extends javax.swing.JFrame {
                             .addComponent(direcciontxt, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(jLabel11)))
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel11)
-                .addGap(29, 29, 29)
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
                 .addComponent(NombreProveedortxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TelefonoProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(direcciontxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(EmpresaProveedortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
+                .addGap(73, 73, 73)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ActualizarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EliminarCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CrearCuentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/darkmode_1.png"))); // NOI18N
@@ -263,19 +281,18 @@ public class Proveedor extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(210, Short.MAX_VALUE)
+                .addContainerGap(186, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
                 .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 510, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 530));
@@ -289,8 +306,8 @@ public class Proveedor extends javax.swing.JFrame {
 
     private void TelefonoProveedortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoProveedortxtKeyPressed
         // TODO add your handling code here:
-       // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             telefono = TelefonoProveedortxt.getText();
             direcciontxt.setText("");
             direcciontxt.requestFocus();
@@ -298,7 +315,7 @@ public class Proveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_TelefonoProveedortxtKeyPressed
 
     private void CrearCuentabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCuentabtnActionPerformed
-       nombre = NombreProveedortxt1.getText();
+        nombre = NombreProveedortxt1.getText();
         telefono = TelefonoProveedortxt.getText();
         direccion = direcciontxt.getText();
         empresa = EmpresaProveedortxt.getText();
@@ -306,6 +323,7 @@ public class Proveedor extends javax.swing.JFrame {
         System.out.println(telefono);
         System.out.println(direccion);
         System.out.println(empresa);
+        proveedorSQL.InsertarProveedor(nombre, direccion, telefono, empresa);
 
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
     private String comprimir(String frase) {
@@ -342,6 +360,11 @@ public class Proveedor extends javax.swing.JFrame {
 
     private void EliminarCuentabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarCuentabtnActionPerformed
         // TODO add your handling code here:
+        proveedorSQL.DeleteProveedor(IdProveedor);
+        NombreProveedortxt1.setText(null);
+        TelefonoProveedortxt.setText(null);
+        direcciontxt.setText(null);
+        EmpresaProveedortxt.setText(null);
     }//GEN-LAST:event_EliminarCuentabtnActionPerformed
 
     private void ActualizarCuentabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarCuentabtnActionPerformed
@@ -362,7 +385,7 @@ public class Proveedor extends javax.swing.JFrame {
             pintarInterfaz.ColorearProveedorNegro(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt, direcciontxt, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearProveedorBlanco(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt,direcciontxt, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
+            pintarInterfazBlanco.ColorearProveedorBlanco(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt, direcciontxt, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
@@ -374,6 +397,13 @@ public class Proveedor extends javax.swing.JFrame {
     private void direcciontxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_direcciontxtKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_direcciontxtKeyPressed
+
+    private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed
+        // TODO add your handling code here:
+        String nombreProveedor = JOptionPane.showInputDialog("Ingrese el nombre del Proveedor");
+        IdProveedor = proveedorSQL.BuscarProveedorPorNombre(NombreProveedortxt1, TelefonoProveedortxt, direcciontxt, EmpresaProveedortxt, nombreProveedor);
+        System.out.println("idProveedor" + IdProveedor);
+    }//GEN-LAST:event_BuscartxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,6 +449,7 @@ public class Proveedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActualizarCuentabtn;
+    private javax.swing.JButton Buscartxt;
     private javax.swing.JButton CrearCuentabtn;
     private javax.swing.JButton EliminarCuentabtn;
     private javax.swing.JTextField EmpresaProveedortxt;

@@ -17,10 +17,10 @@ public class ConexionBD {
         try {
             if (connection == null) {
                 CrearConexion();
-                System.out.println("Entro al if");
+               // System.out.println("Entro al if");
             }
             if (VerificarSQL()) {
-                System.out.println("Si esta activa");
+               // System.out.println("Si esta activa");
             } else {
                 connection.close();
                 CrearConexion();

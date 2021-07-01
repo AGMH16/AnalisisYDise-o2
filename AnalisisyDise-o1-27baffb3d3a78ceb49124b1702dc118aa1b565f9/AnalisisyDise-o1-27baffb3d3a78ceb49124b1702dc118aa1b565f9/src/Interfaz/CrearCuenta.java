@@ -7,6 +7,7 @@ package Interfaz;
 
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
+import ClasesSQL.UsuarioSQL;
 import Usuario.Compresor;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -20,13 +21,14 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class CrearCuenta extends javax.swing.JFrame {
-
-   String usuario = "", correo_electronico = "", nombres = "", apellidos = "", puesto = "";
+     int IdUsuario = 0;
+    String usuario = "", correo_electronico = "", nombres = "", apellidos = "", puesto = "";
     Password contraseña3;
     String pass_concatenada = "", pass_concatenada2 = "";
     boolean verificacion;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
+    UsuarioSQL usuarioSQL = new UsuarioSQL();
 
     /**
      * Creates new form Menu
@@ -81,6 +83,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         Supervisorrb = new javax.swing.JRadioButton();
         jLabel15 = new javax.swing.JLabel();
         Contraseñatxt1 = new javax.swing.JPasswordField();
+        Buscartxt = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -231,6 +234,18 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        Buscartxt.setBackground(new java.awt.Color(102, 102, 102));
+        Buscartxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Buscartxt.setForeground(new java.awt.Color(102, 102, 102));
+        Buscartxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar (1).png"))); // NOI18N
+        Buscartxt.setBorder(null);
+        Buscartxt.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        Buscartxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscartxtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -256,12 +271,14 @@ public class CrearCuenta extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(CrearCuentabtn, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                                     .addComponent(Supervisorrb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Correotxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
-                                .addComponent(Usuariotxt, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Correotxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+                                    .addComponent(Usuariotxt, javax.swing.GroupLayout.Alignment.LEADING)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(jLabel11)))
@@ -270,19 +287,21 @@ public class CrearCuenta extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel11)
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)))
                 .addComponent(Usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,7 +329,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addComponent(Contraseñatxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(103, 103, 103))))
         );
@@ -380,7 +399,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void UsuariotxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsuariotxtKeyPressed
         // TODO add your handling code here:
-      if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             usuario = Usuariotxt.getText();
             PuestoLaboraltxt.setText("");
             PuestoLaboraltxt.requestFocus();
@@ -396,7 +415,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                 pass_concatenada = pass_concatenada + contraseña[i];
                 System.out.println(contraseña[i]);
                 // System.out.println("pass   " + pass_concatenada);
-                
+
             }
             // System.out.println("pass   " + pass_concatenada);
             Contraseñatxt1.setText("");
@@ -406,7 +425,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void CrearCuentabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCuentabtnActionPerformed
         // TODO add your handling code here:
-      nombres = NombreColaboradortxt.getText();
+        nombres = NombreColaboradortxt.getText();
         apellidos = ApellidoColaboradortxt.getText();
         usuario = Usuariotxt.getText();
         correo_electronico = Correotxt.getText();
@@ -422,18 +441,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         System.out.println("Contraseña" + pass_concatenada);
         System.out.println("Contraseña2:" + pass_concatenada2);
 
-        System.out.println("Confirmación de constraseña:  " + contraseña2);
-        if (usuario.equals("") | pass_concatenada.equals("") | (pass_concatenada2).equals("")) {
-            JOptionPane.showMessageDialog(null, "No todos los campos están llenos");
-        }
-        if (pass_concatenada.equals(pass_concatenada2)) {
-            JOptionPane.showMessageDialog(null, "Verificación de contraseñas correcta");
-            String thecontraseña = comprimir(String.valueOf(pass_concatenada));
-
-        } else {
-            JOptionPane.showMessageDialog(null, "La contraseña no es la misma, por favor verificar nuevamente ");
-
-        }
+        
 
         if (Supervisorrb.isSelected()) {
             verificacion = true;
@@ -442,6 +450,7 @@ public class CrearCuenta extends javax.swing.JFrame {
             verificacion = false;
         }
         System.out.println("Verificación" + verificacion);
+        usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, nombres, puesto, correo_electronico);
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
     private String comprimir(String frase) {
         Compresor compresor = new Compresor();
@@ -486,7 +495,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void ApellidoColaboradortxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidoColaboradortxtKeyPressed
         // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             apellidos = ApellidoColaboradortxt.getText();
             Usuariotxt.setText("");
             Usuariotxt.requestFocus();
@@ -502,7 +511,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             nombres = NombreColaboradortxt.getText();
             ApellidoColaboradortxt.setText("");
-           ApellidoColaboradortxt.requestFocus();
+            ApellidoColaboradortxt.requestFocus();
         }
     }//GEN-LAST:event_NombreColaboradortxtKeyPressed
 
@@ -538,7 +547,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             pass_concatenada2 = "";
-            char[] contraseña2 =Contraseñatxt1.getPassword();
+            char[] contraseña2 = Contraseñatxt1.getPassword();
             for (int i = 0; i < contraseña2.length; i++) {
                 pass_concatenada2 = pass_concatenada2 + contraseña2[i];
                 System.out.println(contraseña2[i]);
@@ -546,6 +555,14 @@ public class CrearCuenta extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_Contraseñatxt1KeyPressed
+
+    private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed
+        // TODO add your handling code here:
+        String correoReferencia = JOptionPane.showInputDialog("Ingrese el correo ");
+         IdUsuario = usuarioSQL.BuscarUsuarioPorCorreo(NombreColaboradortxt,ApellidoColaboradortxt, Usuariotxt, PuestoLaboraltxt, Correotxt,correoReferencia);
+       // IdProveedor = proveedorSQL.BuscarProveedorPorNombre(NombreProveedortxt1, TelefonoProveedortxt, direcciontxt, EmpresaProveedortxt, nombreProveedor);
+        System.out.println("idUsuario" + IdUsuario);
+    }//GEN-LAST:event_BuscartxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -591,6 +608,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApellidoColaboradortxt;
+    private javax.swing.JButton Buscartxt;
     private javax.swing.JPasswordField Contraseñatxt;
     private javax.swing.JPasswordField Contraseñatxt1;
     private javax.swing.JTextField Correotxt;

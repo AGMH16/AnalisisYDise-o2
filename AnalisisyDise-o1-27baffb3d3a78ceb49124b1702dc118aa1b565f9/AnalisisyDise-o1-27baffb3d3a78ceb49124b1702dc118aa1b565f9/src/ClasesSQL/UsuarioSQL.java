@@ -20,10 +20,11 @@ public class UsuarioSQL {
 
     ConexionBD Conexion = new ConexionBD();
 
-    public void InsertarUsuario(boolean supervisor, String usuario, String contraseña, String puesto, String correoElectronico) {
+    public void InsertarUsuario(String nombre, String apellido, boolean supervisor, String usuario, String contraseña, String puesto, String correoElectronico) {
         try {
+            //insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('Jenifer','Rabanales',0, 'jenirg','1234','Gerente','jeniferrabanales99@gmail.com');
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
-                statement.execute("usuario(Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values(" + supervisor + ",'" + usuario + "','" + contraseña + "','" + correoElectronico + "')");
+                statement.execute("insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('" + nombre + "','" + apellido + "'," + supervisor + ",'" + usuario + "','" + contraseña + "','" + correoElectronico + "')");
                 JOptionPane.showMessageDialog(null, "Usuario registrado");
             }
             Conexion.getConnection().close();
@@ -45,21 +46,24 @@ public class UsuarioSQL {
         }
     }
 
-    public int BuscarUsuarioPorCorreo(RadioButton Supervisorrb, JTextField Usuariotxt, JTextField PuestoLaboraltxt, JTextField Correotxt, JTextField correoReferencia) {
+    public int BuscarUsuarioPorCorreo(JTextField NombreColaboradortxt,JTextField ApellidoColaboradortxt, JTextField Usuariotxt, JTextField PuestoLaboraltxt, JTextField Correotxt, String correoReferencia) {
         int IdUsuario = 0;
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
-                ResultSet clr = statement.executeQuery("select idUsuario, Supervisor,Usuario,Puesto,CorreoElectronico from usuario");
+                ResultSet clr = statement.executeQuery("select idUsuario, Nombre, Apellido,Usuario,Puesto,CorreoElectronico from usuario WHERE CorreoElectronico=('" + correoReferencia + "')");
                 while (clr.next()) {
                     IdUsuario = clr.getInt("idUsuario");
-                    boolean supervisor = clr.getBoolean("Supervisor");
+                    String nombre= clr.getString("Nombre");
+                    String apellido= clr.getString("Apelldio");
+                  //  boolean supervisor = clr.getBoolean("Supervisor");
                     String usuario = clr.getString("Usuario");
                     String puesto = clr.getString("Puesto");
                     String correoElectronico = clr.getString("CorreoElectronico");
 
                     if (correoReferencia.equals(correoElectronico)) {
                         //Supervisorrb.set
-
+                        NombreColaboradortxt.setText(nombre);
+                        ApellidoColaboradortxt.setText(apellido);
                         Usuariotxt.setText(usuario);
                         PuestoLaboraltxt.setText(puesto);
                         Correotxt.setText(correoElectronico);
