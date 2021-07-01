@@ -24,7 +24,7 @@ public class UsuarioSQL {
         try {
             //insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('Jenifer','Rabanales',0, 'jenirg','1234','Gerente','jeniferrabanales99@gmail.com');
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
-                statement.execute("insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('" + nombre + "','" + apellido + "'," + supervisor + ",'" + usuario + "','" + contraseña + "','" + correoElectronico + "')");
+                statement.execute("insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('" + nombre + "','" + apellido + "','" + supervisor + "','" + usuario + "','" + contraseña + "','" + correoElectronico + "')");
                 JOptionPane.showMessageDialog(null, "Usuario registrado");
             }
             Conexion.getConnection().close();
@@ -43,6 +43,7 @@ public class UsuarioSQL {
             Conexion.getConnection().close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR EL USUARIO");
+            System.out.println("Error:"+e);
         }
     }
 

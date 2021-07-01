@@ -187,7 +187,7 @@ public class Mercaderia extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("Producto");
+        jLabel7.setText("Tipo de Pieza");
 
         Productojcmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 

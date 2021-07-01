@@ -21,7 +21,8 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class CrearCuenta extends javax.swing.JFrame {
-     int IdUsuario = 0;
+
+    int IdUsuario = 0;
     String usuario = "", correo_electronico = "", nombres = "", apellidos = "", puesto = "";
     Password contraseña3;
     String pass_concatenada = "", pass_concatenada2 = "";
@@ -218,6 +219,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         Supervisorrb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Supervisorrb.setForeground(new java.awt.Color(102, 102, 102));
         Supervisorrb.setText("Supervisor");
+        Supervisorrb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupervisorrbActionPerformed(evt);
+            }
+        });
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario (2).png"))); // NOI18N
 
@@ -430,8 +436,16 @@ public class CrearCuenta extends javax.swing.JFrame {
         usuario = Usuariotxt.getText();
         correo_electronico = Correotxt.getText();
         puesto = PuestoLaboraltxt.getText();
-        char[] pass_concatenada = Contraseñatxt.getPassword();
+        char[] contraseña1 = Contraseñatxt.getPassword();
+        for (int i = 0; i < contraseña1.length; i++) {
+            pass_concatenada2 = pass_concatenada2 + contraseña1[i];
+            System.out.println(contraseña1[i]);
+        }
         char[] contraseña2 = Contraseñatxt1.getPassword();
+        for (int i = 0; i < contraseña2.length; i++) {
+            pass_concatenada = pass_concatenada + contraseña2[i];
+            System.out.println(contraseña2[i]);
+        }
 
         System.out.println("Nombre:" + nombres);
         System.out.println("Apellidos" + apellidos);
@@ -439,18 +453,14 @@ public class CrearCuenta extends javax.swing.JFrame {
         System.out.println("Puesto" + puesto);
         System.out.println("Correo Electronico" + correo_electronico);
         System.out.println("Contraseña" + pass_concatenada);
-        System.out.println("Contraseña2:" + pass_concatenada2);
-
-        
-
-        if (Supervisorrb.isSelected()) {
-            verificacion = true;
-
-        } else {
-            verificacion = false;
-        }
         System.out.println("Verificación" + verificacion);
-        usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, nombres, puesto, correo_electronico);
+        String xx;
+        xx = comprimir(pass_concatenada);
+        System.out.println(xx);
+
+        usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, xx, puesto, correo_electronico);
+
+
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
     private String comprimir(String frase) {
         Compresor compresor = new Compresor();
@@ -559,10 +569,14 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed
         // TODO add your handling code here:
         String correoReferencia = JOptionPane.showInputDialog("Ingrese el correo ");
-         IdUsuario = usuarioSQL.BuscarUsuarioPorCorreo(NombreColaboradortxt,ApellidoColaboradortxt, Usuariotxt, PuestoLaboraltxt, Correotxt,correoReferencia);
-       // IdProveedor = proveedorSQL.BuscarProveedorPorNombre(NombreProveedortxt1, TelefonoProveedortxt, direcciontxt, EmpresaProveedortxt, nombreProveedor);
+        IdUsuario = usuarioSQL.BuscarUsuarioPorCorreo(NombreColaboradortxt, ApellidoColaboradortxt, Usuariotxt, PuestoLaboraltxt, Correotxt, correoReferencia);
+        // IdProveedor = proveedorSQL.BuscarProveedorPorNombre(NombreProveedortxt1, TelefonoProveedortxt, direcciontxt, EmpresaProveedortxt, nombreProveedor);
         System.out.println("idUsuario" + IdUsuario);
     }//GEN-LAST:event_BuscartxtActionPerformed
+
+    private void SupervisorrbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupervisorrbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupervisorrbActionPerformed
 
     /**
      * @param args the command line arguments
