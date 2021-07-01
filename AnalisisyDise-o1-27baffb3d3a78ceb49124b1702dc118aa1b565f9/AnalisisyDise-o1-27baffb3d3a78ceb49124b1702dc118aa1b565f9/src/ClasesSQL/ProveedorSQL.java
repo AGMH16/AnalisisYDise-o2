@@ -15,7 +15,7 @@ public class ProveedorSQL {
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
                 statement.execute("INSERT INTO proveedor(Nombre, Direccion, Telefono,Empresa) VALUES ('" + nombre + "','" + direccion + "','" + telefono + "','" + empresa + "')");
-                JOptionPane.showMessageDialog(null, "Proveedor añedido a la lista");
+                JOptionPane.showMessageDialog(null, "Proveedor añadido a la lista");
             }
             Conexion.getConnection().close();
         } catch (Exception e) {
@@ -24,10 +24,10 @@ public class ProveedorSQL {
     }
       
       //DELETE FROM proveedor WHERE Empresa='Pollo Feliz';
-      public void DeleteProveedor(String empresa) {
+      public void DeleteProveedor(int IdProveedor) {
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
-                statement.execute("DELETE FROM proveedor WHERE Empresa=('" + empresa + "')");
+                statement.execute("DELETE FROM proveedor WHERE idProveedor=('" + IdProveedor + "')");
                 JOptionPane.showMessageDialog(null, "Proveedor añedido a la lista");
             }
             Conexion.getConnection().close();
@@ -36,7 +36,7 @@ public class ProveedorSQL {
         }
     }
       
-       public int BuscarProveedorPorEmpresa(JTextField NombreProveedortxt1, JTextField TelefonoProveedortxt, JTextField TelefonoProveedortxt1, JTextField EmpresaProveedortxt, String nombreEmpresa) {
+       public int BuscarProveedorPorNombre(JTextField NombreProveedortxt1, JTextField TelefonoProveedortxt, JTextField TelefonoProveedortxt1, JTextField EmpresaProveedortxt, String nombreProveedor) {
         int IdProveedor=0;
        try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
@@ -48,7 +48,7 @@ public class ProveedorSQL {
                 String telefono = clr.getString("Telefono");
                 String empresa = clr.getString("Empresa");
 
-                if (nombreEmpresa.equals(empresa)) {
+                if (nombreProveedor.equals(nombre)) {
                     NombreProveedortxt1.setText(nombre);
                     TelefonoProveedortxt.setText(direccion);
                     TelefonoProveedortxt1.setText(telefono);
