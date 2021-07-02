@@ -5,9 +5,11 @@
  */
 package ClasesSQL;
 
+import Clases.Usuario;
 import Conexion.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javafx.scene.control.RadioButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -44,20 +46,20 @@ public class UsuarioSQL {
             Conexion.getConnection().close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR EL USUARIO");
-            System.out.println("Error:"+e);
+            System.out.println("Error:" + e);
         }
     }
 
-    public int BuscarUsuarioPorCorreo(JTextField NombreColaboradortxt,JTextField ApellidoColaboradortxt, JTextField Usuariotxt, JTextField PuestoLaboraltxt, JTextField Correotxt, String correoReferencia) {
+    public int BuscarUsuarioPorCorreo(JTextField NombreColaboradortxt, JTextField ApellidoColaboradortxt, JTextField Usuariotxt, JTextField PuestoLaboraltxt, JTextField Correotxt, String correoReferencia) {
         int IdUsuario = 0;
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
                 ResultSet clr = statement.executeQuery("select idUsuario, Nombre, Apellido,Usuario,Puesto,CorreoElectronico from usuario WHERE CorreoElectronico=('" + correoReferencia + "')");
                 while (clr.next()) {
                     IdUsuario = clr.getInt("idUsuario");
-                    String nombre= clr.getString("Nombre");
-                    String apellido= clr.getString("Apelldio");
-                  //  boolean supervisor = clr.getBoolean("Supervisor");
+                    String nombre = clr.getString("Nombre");
+                    String apellido = clr.getString("Apelldio");
+                    //  boolean supervisor = clr.getBoolean("Supervisor");
                     String usuario = clr.getString("Usuario");
                     String puesto = clr.getString("Puesto");
                     String correoElectronico = clr.getString("CorreoElectronico");
@@ -78,4 +80,30 @@ public class UsuarioSQL {
 
         return IdUsuario;
     }
+
+    public ArrayList<Usuario> BuscarUsuario() {
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+        try {
+            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+                ResultSet clr = statement.executeQuery("select * from usuario");
+                while (clr.next()) {
+                    Usuario usuario = new Usuario();
+                    usuario.setIdUsuario(clr.getInt("idUsuario"));
+                    usuario.setNombre(clr.getString("Nombre"));
+                    usuario.setApellido(clr.getString("Apellido"));
+                    usuario.setSupervisor(clr.getBoolean("Supervisor"));
+                    usuario.setUsuario(clr.getString("Usuario"));
+                    usuario.setContraseña(clr.getString("Contraseña"));
+                    usuario.setPuesto(clr.getString("Puesto"));
+                    usuario.setCorreoElectronico(clr.getString("CorreoElectronico"));
+                    usuarios.add(usuario);
+                }
+            }
+            Conexion.getConnection().close();
+        } catch (Exception e) {
+        }
+
+        return usuarios;
+    }
+
 }

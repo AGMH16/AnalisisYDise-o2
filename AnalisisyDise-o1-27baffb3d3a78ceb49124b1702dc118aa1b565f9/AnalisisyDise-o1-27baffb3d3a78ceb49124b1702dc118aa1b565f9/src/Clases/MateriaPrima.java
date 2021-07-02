@@ -17,19 +17,41 @@ public class MateriaPrima {
     private String loteAverio;
     private Date fechaIngreso;
     private Usuario usuario;
+    private int unidadExistente;
+    private String proveedor;
 
     public MateriaPrima() {
         this.total = total;
         this.loteAverio = loteAverio;
         this.fechaIngreso = fechaIngreso;
         this.usuario = usuario;
+        this.unidadExistente = unidadExistente;
+        this.proveedor = proveedor;
     }
 
-    public MateriaPrima(float total, String loteAverio, Date fechaIngreso, Usuario usuario) {
+    public MateriaPrima(float total, String loteAverio, Date fechaIngreso, Usuario usuario, int unidadExistente, String proveedor) {
         this.total = total;
         this.loteAverio = loteAverio;
         this.fechaIngreso = fechaIngreso;
         this.usuario = usuario;
+        this.unidadExistente = unidadExistente;
+        this.proveedor = proveedor;
+    }
+
+    public int getUnidadExistente() {
+        return unidadExistente;
+    }
+
+    public void setUnidadExistente(int unidadExistente) {
+        this.unidadExistente = unidadExistente;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
 
     public float getTotal() {

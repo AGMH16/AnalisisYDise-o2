@@ -7,6 +7,8 @@ package Interfaz;
 
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
+import Clases.Usuario;
+import ClasesSQL.UsuarioSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -14,6 +16,7 @@ import sun.security.util.Password;
 import java.awt.Color;
 import Conexion.ConexionBD;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -31,7 +34,8 @@ public class Ingreso extends javax.swing.JFrame {
     ConexionBD sQL = new ConexionBD();
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
-
+    ArrayList<Usuario> listaUsuarios=new ArrayList<Usuario>();
+    UsuarioSQL usuariosql=new UsuarioSQL();
     /**
      * Creates new form Menu
      */
@@ -44,6 +48,7 @@ public class Ingreso extends javax.swing.JFrame {
         if (sQL.getConnection() != null) {
             JOptionPane.showMessageDialog(null, "Conexión Exitosa");
         }
+        listaUsuarios=usuariosql.BuscarUsuario();
     }
 
     public void transparenciButton() {
@@ -320,6 +325,13 @@ public class Ingreso extends javax.swing.JFrame {
         char[] contraseña = Contraseñiatxt.getPassword();
         System.out.println("1 Usuario" + usuario);
         System.out.println("2 Contraseña" + contraseña);
+       /* for (Clases.Usuario usuario : listaUsuarios ) {
+            if(usuario.equals(usuario.getUsuario()) && contraseña.equals(usuario.getContraseña())){
+                if(usuario.getPuesto().equals()){
+                    
+                }
+            }
+        }*/
     }//GEN-LAST:event_EntrarbtnActionPerformed
 
     private void RegistrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarbtnActionPerformed

@@ -10,8 +10,8 @@ package Clases;
  * @author Toshiba
  */
 public class Usuario {
-
-    private String nombre, apellido, usuario, contraseña, correoElectronico;
+    private String nombre, apellido, usuario, contraseña, correoElectronico, puesto;
+    private int idUsuario;
     private boolean supervisor;
 
     public Usuario() {
@@ -20,16 +20,36 @@ public class Usuario {
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.correoElectronico = correoElectronico;
+        this.puesto = puesto;
+        this.idUsuario = idUsuario;
         this.supervisor = supervisor;
     }
 
-    public Usuario(String nombre, String apellido, String usuario, String contraseña, String correoElectronico, boolean supervisor) {
+    public Usuario(String nombre, String apellido, String usuario, String contraseña, String correoElectronico, String puesto, int idUsuario, boolean supervisor) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.correoElectronico = correoElectronico;
+        this.puesto = puesto;
+        this.idUsuario = idUsuario;
         this.supervisor = supervisor;
+    }
+
+    public String getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombre() {
