@@ -8,6 +8,7 @@ package Interfaz;
 import Clases.ColorearComponenteBlanco;
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
+import ClasesSQL.ProveedorSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -36,7 +37,9 @@ public class MateriaPrima extends javax.swing.JFrame {
     String nombreproveedor = "", proveedor = "";
     int cantidad = 0;
     float total, año = 0, dia = 0, mes = 0;
-    ;
+    ProveedorSQL proveedores = new ProveedorSQL();
+    ArrayList<Clases.Proveedor> listaProveedores = proveedores.ConsultaProveedorNombre();
+
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
@@ -51,6 +54,9 @@ public class MateriaPrima extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
+        for (Clases.Proveedor prov : listaProveedores) {
+            Proveedorjcmb.addItem(prov.getNombre());
+        }
 
     }
 

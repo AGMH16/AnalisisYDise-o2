@@ -13,14 +13,39 @@ import javax.swing.JButton;
  *
  * @author Toshiba
  */
-public class ColorearComponenteNegro extends Componente {
+/*public class Colorcitos {
 
+    private Color colorBoton;
+    private Color colorTexto;
+
+    public Color getColorBoton() {
+        return colorBoton;
+    }
+
+    public void setColorBoton(Color colorBoton) {
+        this.colorBoton = colorBoton;
+    }
+
+    public Color getColorTexto() {
+        return colorTexto;
+    }
+
+    public void setColorTexto(Color colorTexto) {
+        this.colorTexto = colorTexto;
+    }
+
+};*/
+
+public class ColorearComponenteNegro extends Componente {
+  //  Colorcitos colorcitos;
     public void PintarBotonActivar() {
         /*componente.*/
         getBotonActivador().setIcon(new ImageIcon(getClass().getResource("/Imagenes/darkmode_2.png")));
     }
 
     public void PintarBoton() {
+       // getBoton().setForeground(colorcitos.getColorBoton());
+
         getBoton().setForeground(Color.decode("#FFFFE0"));
     }
 
