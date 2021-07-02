@@ -5,36 +5,43 @@
  */
 package Clases;
 
+
 import java.util.Date;
 
 /**
  *
  * @author Toshiba
  */
-public class MateriaPrima {
+public class LotePollo {
 
     private float total;
-    private String loteAverio;
-    private Date fechaIngreso;
-    private Usuario usuario;
+    private String loteAverio, proveedor;
     private int unidadExistente;
-    private String proveedor;
+    private Date fechaIngreso;
+   // private Usuario usuario;
+    
 
-    public MateriaPrima() {
-        this.total = total;
+    public LotePollo() {
         this.loteAverio = loteAverio;
+        this.unidadExistente= unidadExistente;
         this.fechaIngreso = fechaIngreso;
-        this.usuario = usuario;
-        this.unidadExistente = unidadExistente;
-        this.proveedor = proveedor;
+        this.total = total;
+        this.proveedor=proveedor;
     }
 
-    public MateriaPrima(float total, String loteAverio, Date fechaIngreso, Usuario usuario, int unidadExistente, String proveedor) {
-        this.total = total;
+    public LotePollo(String loteAverio,int unidadExistente,Date fechaIngreso, float total, String proveedor) {
         this.loteAverio = loteAverio;
+        this.unidadExistente= unidadExistente;
         this.fechaIngreso = fechaIngreso;
-        this.usuario = usuario;
-        this.unidadExistente = unidadExistente;
+        this.total = total;
+        this.proveedor=proveedor;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
         this.proveedor = proveedor;
     }
 
@@ -44,14 +51,6 @@ public class MateriaPrima {
 
     public void setUnidadExistente(int unidadExistente) {
         this.unidadExistente = unidadExistente;
-    }
-
-    public String getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(String proveedor) {
-        this.proveedor = proveedor;
     }
 
     public float getTotal() {
@@ -78,12 +77,5 @@ public class MateriaPrima {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
 }

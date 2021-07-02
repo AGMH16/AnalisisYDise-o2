@@ -11,7 +11,7 @@ package Clases;
  */
 public class MovimientoLote {
 
-    private MateriaPrima lotePollo;
+    private LotePollo lotePollo;
     private PerdidaMateriaPrima perdidaMateriaPrima;
 
     public MovimientoLote() {
@@ -19,16 +19,16 @@ public class MovimientoLote {
         this.perdidaMateriaPrima = perdidaMateriaPrima;
     }
 
-    public MovimientoLote(MateriaPrima lotePollo, PerdidaMateriaPrima perdidaMateriaPrima) {
+    public MovimientoLote(LotePollo lotePollo, PerdidaMateriaPrima perdidaMateriaPrima) {
         this.lotePollo = lotePollo;
         this.perdidaMateriaPrima = perdidaMateriaPrima;
     }
 
-    public MateriaPrima getLotePollo() {
+    public LotePollo getLotePollo() {
         return lotePollo;
     }
 
-    public void setLotePollo(MateriaPrima lotePollo) {
+    public void setLotePollo(LotePollo lotePollo) {
         this.lotePollo = lotePollo;
     }
 
