@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package ClasesSQL;
+import Clases.Proveedor;
+import Clases.LotePollo;
 import Conexion.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -44,5 +47,29 @@ public class PruebaSQL {
         }
 
         return loteAverio;
+    }
+        
+        public ArrayList<LotePollo> ConsultaCodigoLotePollo() {
+        ArrayList<LotePollo> lotePollo = new ArrayList<LotePollo>();
+        try {
+            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+                ResultSet clr = statement.executeQuery("SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo");
+
+                while (clr.next()) {
+                    
+                    LotePollo lotepollo= new LotePollo();
+                    
+                    lotepollo.setLoteAverio(clr.getString("LoteAverio"));
+                    lotepollo.setUnidadExistente(clr.getInt("UnidadExistente"));
+                    lotepollo.setFechaIngreso(clr.getDate("FechaIngreso"));
+                    lotePollo.add(lotepollo);
+                 
+                }
+            }
+            Conexion.getConnection().close();
+        } catch (Exception e) {
+        }
+
+        return lotePollo;
     }
 }

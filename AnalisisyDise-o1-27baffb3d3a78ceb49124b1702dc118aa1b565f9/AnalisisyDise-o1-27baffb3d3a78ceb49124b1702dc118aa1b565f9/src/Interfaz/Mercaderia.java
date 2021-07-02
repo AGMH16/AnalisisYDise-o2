@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import sun.security.util.Password;
+import ClasesSQL.PruebaSQL;
 
 /**
  *
@@ -443,6 +444,7 @@ public class Mercaderia extends javax.swing.JFrame {
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
         pruebasql.BuscarCodigoLote(idLotejcbx);
+        System.out.println(pruebasql.ConsultaCodigoLotePollo());
 
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
