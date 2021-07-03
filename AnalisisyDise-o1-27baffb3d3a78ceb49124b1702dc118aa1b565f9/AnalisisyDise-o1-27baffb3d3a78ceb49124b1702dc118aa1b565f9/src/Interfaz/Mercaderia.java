@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
+import ClasesSQL.MercaderiaSQL;
 import ClasesSQL.PruebaSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -32,17 +34,19 @@ import ClasesSQL.PruebaSQL;
  * @author jenif
  */
 public class Mercaderia extends javax.swing.JFrame {
+
     PruebaSQL pruebasql = new PruebaSQL();
-    String proveedor = "", producto = "";
-    String nombreproveedor = "", tipoproducto = "", agregarProducto="";
-    int cantidad = 0, año = 0, dia = 0, mes = 0;
+    MercaderiaSQL mercaderiasql = new MercaderiaSQL();
+    LotePollo lote = new LotePollo();
+    String proveedor = "", producto = "", loteAverio="";
+    String nombreproveedor = "", tipoproducto = "", agregarProducto = "";
+    int cantidad = 0, año = 0, dia = 0, mes = 0,stock=0;
     float total;
-    ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
+    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
+    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
-
     /**
      * Creates new form Menu
      */
@@ -58,10 +62,11 @@ public class Mercaderia extends javax.swing.JFrame {
         Productojcmb.addItem("Inmunizador");
         Productojcmb.addItem("Concentrado de engorde");
         Productojcmb.addItem("Concentrado de crecimiento");
+        codigojlbl.setText(lote.getLoteAverio());
     }
 
     public void transparenciButton() {
-       
+
         Guardarbtn.setOpaque(false);
         Guardarbtn.setContentAreaFilled(false);
         Guardarbtn.setBorderPainted(false);
@@ -80,6 +85,9 @@ public class Mercaderia extends javax.swing.JFrame {
         Eliminarbtn.setOpaque(false);
         Eliminarbtn.setContentAreaFilled(false);
         Eliminarbtn.setBorderPainted(false);
+        Buscarbtn.setOpaque(false);
+        Buscarbtn.setContentAreaFilled(false);
+        Buscarbtn.setBorderPainted(false);
     }
 
     /**
@@ -98,19 +106,21 @@ public class Mercaderia extends javax.swing.JFrame {
         Actualizarbtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         Guardarbtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Cantidadtxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         Productojcmb = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         Totaltxt = new javax.swing.JTextField();
         Eliminarbtn = new javax.swing.JButton();
-        AgregaMercaderiabtn = new javax.swing.JButton();
         FechaCalendar2 = new com.toedter.calendar.JCalendar();
         Stocktxt = new javax.swing.JTextField();
-        idLotejcbx = new javax.swing.JComboBox<>();
+        Buscarbtn = new javax.swing.JButton();
+        codigojlbl = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        AgregaMercaderiabtn = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -139,6 +149,7 @@ public class Mercaderia extends javax.swing.JFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Actualizarbtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -149,11 +160,13 @@ public class Mercaderia extends javax.swing.JFrame {
                 ActualizarbtnActionPerformed(evt);
             }
         });
+        jPanel2.add(Actualizarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 117, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 224));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("MERCADERÍA");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 16, -1, -1));
 
         Guardarbtn.setBackground(new java.awt.Color(102, 102, 102));
         Guardarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -166,10 +179,10 @@ public class Mercaderia extends javax.swing.JFrame {
                 GuardarbtnActionPerformed(evt);
             }
         });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pierna-de-pollo.png"))); // NOI18N
+        jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 117, 35));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal_1.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
 
         Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Cantidadtxt.setForeground(new java.awt.Color(102, 102, 102));
@@ -185,18 +198,18 @@ public class Mercaderia extends javax.swing.JFrame {
                 CantidadtxtKeyPressed(evt);
             }
         });
+        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 250, 43));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario.png"))); // NOI18N
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("Tipo de Pieza");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
         Productojcmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel2.add(Productojcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 253, 42));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("Fecha");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
 
         Totaltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Totaltxt.setForeground(new java.awt.Color(102, 102, 102));
@@ -212,6 +225,7 @@ public class Mercaderia extends javax.swing.JFrame {
                 TotaltxtKeyPressed(evt);
             }
         });
+        jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 260, 43));
 
         Eliminarbtn.setBackground(new java.awt.Color(255, 255, 224));
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -223,10 +237,8 @@ public class Mercaderia extends javax.swing.JFrame {
                 EliminarbtnActionPerformed(evt);
             }
         });
-
-        AgregaMercaderiabtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        AgregaMercaderiabtn.setForeground(new java.awt.Color(102, 102, 102));
-        AgregaMercaderiabtn.setText("+");
+        jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, 117, -1));
+        jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, 125));
 
         Stocktxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Stocktxt.setForeground(new java.awt.Color(102, 102, 102));
@@ -242,111 +254,39 @@ public class Mercaderia extends javax.swing.JFrame {
                 StocktxtKeyPressed(evt);
             }
         });
+        jPanel2.add(Stocktxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 140, 43));
 
-        idLotejcbx.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Buscarbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        Buscarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar (1).png"))); // NOI18N
+        Buscarbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarbtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Buscarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Totaltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(FechaCalendar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel11))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(Actualizarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                                .addComponent(Guardarbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addComponent(Eliminarbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(Productojcmb, 0, 253, Short.MAX_VALUE)
-                                            .addComponent(Cantidadtxt)
-                                            .addComponent(Stocktxt))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(AgregaMercaderiabtn)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(idLotejcbx, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addGap(543, 543, 543)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Productojcmb, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AgregaMercaderiabtn)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Cantidadtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                        .addComponent(Stocktxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(idLotejcbx, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)))
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(Eliminarbtn))
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Actualizarbtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Guardarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel5))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(FechaCalendar2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addComponent(Totaltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45))
-        );
+        codigojlbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        codigojlbl.setForeground(new java.awt.Color(102, 102, 102));
+        codigojlbl.setText("....");
+        jPanel2.add(codigojlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 50, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel10.setText("Buscar código de Lote");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pierna-de-pollo.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+
+        AgregaMercaderiabtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        AgregaMercaderiabtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregaMercaderiabtn.setText("+");
+        jPanel2.add(AgregaMercaderiabtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("Tipo de Pieza");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
         btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/darkmode_1.png"))); // NOI18N
         btn_oscuro.addActionListener(new java.awt.event.ActionListener() {
@@ -360,9 +300,9 @@ public class Mercaderia extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 118, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addContainerGap(172, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -374,14 +314,12 @@ public class Mercaderia extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton3)
+                    .addComponent(btn_oscuro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addGap(0, 459, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 550));
@@ -422,29 +360,30 @@ public class Mercaderia extends javax.swing.JFrame {
     }
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
 
-       producto = (String) Productojcmb.getSelectedItem();
-       cantidad = Integer.parseInt(Cantidadtxt.getText());
-       total = Float.parseFloat(Totaltxt.getText());
+        producto = (String) Productojcmb.getSelectedItem();
+        cantidad = Integer.parseInt(Cantidadtxt.getText());
+        total = Float.parseFloat(Totaltxt.getText());
+        stock = Integer.parseInt(Stocktxt.getText());
         System.out.println(producto);
         System.out.println(cantidad);
         System.out.println(total);
-        
-         año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
+        loteAverio=lote.getLoteAverio();
+        año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
         mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
         dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
 
         String fecha1 = (año + "-" + mes + "-" + dia);
         System.out.println(fecha1);
+       // mercaderiasql.InsertarLibretaCliente(producto, cantidad, fecha1, total, loteAverio, stock);
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-        
+
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-        pruebasql.BuscarCodigoLote(idLotejcbx);
-        System.out.println(pruebasql.ConsultaCodigoLotePollo());
+
 
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
@@ -477,7 +416,14 @@ public class Mercaderia extends javax.swing.JFrame {
     private void StocktxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_StocktxtKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_StocktxtKeyPressed
-boolean modoOscuro = false;
+
+    private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
+        // TODO add your handling code here:
+        LotePollo lotepollo = new LotePollo();
+        lotepollo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BuscarbtnActionPerformed
+    boolean modoOscuro = false;
 
     /**
      * @param args the command line arguments
@@ -548,6 +494,7 @@ boolean modoOscuro = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizarbtn;
     private javax.swing.JButton AgregaMercaderiabtn;
+    private javax.swing.JButton Buscarbtn;
     private javax.swing.JTextField Cantidadtxt;
     private javax.swing.JButton Eliminarbtn;
     private com.toedter.calendar.JCalendar FechaCalendar2;
@@ -556,15 +503,16 @@ boolean modoOscuro = false;
     private javax.swing.JTextField Stocktxt;
     private javax.swing.JTextField Totaltxt;
     private javax.swing.JButton btn_oscuro;
-    private javax.swing.JComboBox<String> idLotejcbx;
+    private javax.swing.JLabel codigojlbl;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

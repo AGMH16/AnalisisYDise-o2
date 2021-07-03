@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ClasesSQL;
+
 import Clases.Proveedor;
 import Clases.LotePollo;
 import Conexion.ConexionBD;
@@ -15,18 +16,47 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author jenif
  */
 public class PruebaSQL {
-     ConexionBD Conexion = new ConexionBD();
 
-    
-        public int BuscarCodigoLote(JComboBox idLotejcbx) {
+    ConexionBD Conexion = new ConexionBD();
+
+    public void Buscar(JTable jTable) {
+        String sql = "SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo";
+        Statement st;
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("LoteAverio");
+        model.addColumn("UnidadExistente");
+        model.addColumn("FechaIngreso");
+        jTable.setModel(model);
+
+        String[] dato = new String[3];
+        try {
+
+            st = Conexion.getConnection().createStatement();
+            ResultSet result = st.executeQuery(sql);
+            while (result.next()) {
+                dato[0] = result.getString(1);
+                dato[1] = result.getString(2);
+                dato[2] = result.getString(3);
+
+                model.addRow(dato);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LotePollo.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+        }
+    }
+
+    public int BuscarCodigoLote(JComboBox idLotejcbx) {
         int loteAverio = 0;
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
@@ -35,9 +65,8 @@ public class PruebaSQL {
                     loteAverio = clr.getInt("idDimensional");
                     String dimensional1 = clr.getString("Dimensional");
 
-                       idLotejcbx.setToolTipText(dimensional1);
+                    idLotejcbx.setToolTipText(dimensional1);
 
-                    
                 }
 
             }
@@ -48,22 +77,22 @@ public class PruebaSQL {
 
         return loteAverio;
     }
-        
-        public ArrayList<LotePollo> ConsultaCodigoLotePollo() {
+
+    public ArrayList<LotePollo> ConsultaCodigoLotePollo() {
         ArrayList<LotePollo> lotePollo = new ArrayList<LotePollo>();
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
                 ResultSet clr = statement.executeQuery("SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo");
 
                 while (clr.next()) {
-                    
-                    LotePollo lotepollo= new LotePollo();
-                    
+
+                    LotePollo lotepollo = new LotePollo();
+
                     lotepollo.setLoteAverio(clr.getString("LoteAverio"));
                     lotepollo.setUnidadExistente(clr.getInt("UnidadExistente"));
                     lotepollo.setFechaIngreso(clr.getDate("FechaIngreso"));
                     lotePollo.add(lotepollo);
-                 
+
                 }
             }
             Conexion.getConnection().close();
