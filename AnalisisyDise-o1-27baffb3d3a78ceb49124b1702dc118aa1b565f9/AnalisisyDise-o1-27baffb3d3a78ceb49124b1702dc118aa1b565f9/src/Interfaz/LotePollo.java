@@ -7,6 +7,7 @@ package Interfaz;
 
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
+import ClasesSQL.PruebaSQL;
 import Conexion.ConexionBD;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -25,12 +26,20 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class LotePollo extends javax.swing.JFrame {
-     ConexionBD Conexion = new ConexionBD();
+    PruebaSQL pruebasql = new PruebaSQL();
+    ConexionBD Conexion = new ConexionBD();
     ColorearInterfazNegro pintarInterfazNegro = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
-    String nombreColaborador = "";
-   
+    public static String loteAverio = "";
+
+    public String getLoteAverio() {
+        return loteAverio;
+    }
+
+    public void setLoteAverio(String loteAverio) {
+        this.loteAverio = loteAverio;
+    }
 
     /**
      * Creates new form Menu
@@ -41,20 +50,22 @@ public class LotePollo extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
+        this.loteAverio = loteAverio;
     }
 
     public void transparenciButton() {
         jButton2.setOpaque(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setBorderPainted(false);
-      
         Regresarbtn.setOpaque(false);
         Regresarbtn.setContentAreaFilled(false);
         Regresarbtn.setBorderPainted(false);
         Buscarbtn.setOpaque(false);
         Buscarbtn.setContentAreaFilled(false);
         Buscarbtn.setBorderPainted(false);
-
+        Aceptarbtn.setOpaque(false);
+        Aceptarbtn.setContentAreaFilled(false);
+        Aceptarbtn.setBorderPainted(false);
     }
 
     /**
@@ -76,6 +87,8 @@ public class LotePollo extends javax.swing.JFrame {
         jTable = new javax.swing.JTable();
         EliminarClientebtn1 = new javax.swing.JButton();
         Buscarbtn = new javax.swing.JButton();
+        lotetxt = new javax.swing.JTextField();
+        Aceptarbtn = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
         Regresarbtn = new javax.swing.JButton();
 
@@ -160,13 +173,47 @@ public class LotePollo extends javax.swing.JFrame {
             }
         });
 
+        lotetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lotetxt.setForeground(new java.awt.Color(102, 102, 102));
+        lotetxt.setText("Ingrese código Averío");
+        lotetxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lotetxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lotetxtActionPerformed(evt);
+            }
+        });
+        lotetxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lotetxtKeyPressed(evt);
+            }
+        });
+
+        Aceptarbtn.setBackground(new java.awt.Color(102, 102, 102));
+        Aceptarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Aceptarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Aceptarbtn.setText("Aceptar");
+        Aceptarbtn.setBorder(null);
+        Aceptarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        Aceptarbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AceptarbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(lotetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(Aceptarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(245, 245, 245)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(EliminarClientebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,7 +244,11 @@ public class LotePollo extends javax.swing.JFrame {
                     .addComponent(Buscarbtn))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lotetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Aceptarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(58, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(449, Short.MAX_VALUE)
@@ -277,7 +328,7 @@ public class LotePollo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableMousePressed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-       /* if (!modoOscuro) {
+        /* if (!modoOscuro) {
             pintarInterfazNegro.ColorearConsultasNegro(jPanel1, jPanel2, EliminarClientebtn, Actualizarbtn1, btn_oscuro);
             modoOscuro = true;
         } else if (modoOscuro == true) {
@@ -285,10 +336,10 @@ public class LotePollo extends javax.swing.JFrame {
             modoOscuro = false;
         }*/
     }//GEN-LAST:event_btn_oscuroActionPerformed
- private void BuscartxtKeyPressed(java.awt.event.KeyEvent evt) {                                     
+    private void BuscartxtKeyPressed(java.awt.event.KeyEvent evt) {
         // TODO add your handling code here:
-       
-    }      
+
+    }
     private void EliminarClientebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarClientebtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EliminarClientebtn1ActionPerformed
@@ -298,32 +349,54 @@ public class LotePollo extends javax.swing.JFrame {
     }//GEN-LAST:event_RegresarbtnActionPerformed
 
     private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
-     String sql="SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo";
+       /* String sql = "SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo";
         Statement st;
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("LoteAverio");
         model.addColumn("UnidadExistente");
         model.addColumn("FechaIngreso");
         jTable.setModel(model);
-        
+
         String[] dato = new String[3];
-     try {
-          
-         st = Conexion.getConnection().createStatement();
-         ResultSet result = st.executeQuery(sql);
-         while(result.next()){
-             dato[0]=result.getString(1);
-             dato[1]=result.getString(2);
-             dato[2]=result.getString(3);
-            
-             model.addRow(dato);
-             //System.out.println(result.getString(3));
-         }
-     } catch (SQLException ex) {
-         Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
-         System.out.println(ex);
-     }
+        try {
+
+            st = Conexion.getConnection().createStatement();
+            ResultSet result = st.executeQuery(sql);
+            while (result.next()) {
+                dato[0] = result.getString(1);
+                dato[1] = result.getString(2);
+                dato[2] = result.getString(3);
+
+                model.addRow(dato);
+                //System.out.println(result.getString(3));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+        }*/
+       pruebasql.Buscar(jTable);
     }//GEN-LAST:event_BuscarbtnActionPerformed
+
+    private void lotetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotetxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lotetxtActionPerformed
+
+    private void AceptarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarbtnActionPerformed
+        loteAverio = lotetxt.getText();
+        System.out.println(loteAverio);
+        Mercaderia mercaderia= new Mercaderia();
+        mercaderia.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_AceptarbtnActionPerformed
+
+    private void lotetxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lotetxtKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            loteAverio = lotetxt.getText();
+
+        }
+    }//GEN-LAST:event_lotetxtKeyPressed
     boolean modoOscuro = false;
 
     /**
@@ -393,6 +466,7 @@ public class LotePollo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Aceptarbtn;
     private javax.swing.JButton Buscarbtn;
     private javax.swing.JButton EliminarClientebtn;
     private javax.swing.JButton EliminarClientebtn1;
@@ -405,5 +479,6 @@ public class LotePollo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
+    private javax.swing.JTextField lotetxt;
     // End of variables declaration//GEN-END:variables
 }
