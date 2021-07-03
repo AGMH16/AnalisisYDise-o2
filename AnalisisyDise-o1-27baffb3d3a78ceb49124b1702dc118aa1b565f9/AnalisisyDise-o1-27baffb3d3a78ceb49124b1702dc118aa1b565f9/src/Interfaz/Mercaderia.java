@@ -55,12 +55,11 @@ public class Mercaderia extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
-        Productojcmb.addItem("Pollo");
-        Productojcmb.addItem("Maíz");
-        Productojcmb.addItem("Vacuna");
-        Productojcmb.addItem("Inmunizador");
-        Productojcmb.addItem("Concentrado de engorde");
-        Productojcmb.addItem("Concentrado de crecimiento");
+        Productojcmb.addItem("Pierna");
+        Productojcmb.addItem("Ala");
+        Productojcmb.addItem("Cuadril");
+        Productojcmb.addItem("Pechuga");
+        Productojcmb.addItem("Menudo");
         codigojlbl.setText(lote.getLoteAverio());
     }
 
@@ -111,7 +110,6 @@ public class Mercaderia extends javax.swing.JFrame {
         Productojcmb = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         Totaltxt = new javax.swing.JTextField();
-        Eliminarbtn = new javax.swing.JButton();
         FechaCalendar2 = new com.toedter.calendar.JCalendar();
         Stocktxt = new javax.swing.JTextField();
         Buscarbtn = new javax.swing.JButton();
@@ -225,18 +223,6 @@ public class Mercaderia extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 260, 43));
-
-        Eliminarbtn.setBackground(new java.awt.Color(255, 255, 224));
-        Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
-        Eliminarbtn.setText("Eliminar");
-        Eliminarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        Eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarbtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, 117, -1));
         jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, 125));
 
         Stocktxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -373,19 +359,17 @@ public class Mercaderia extends javax.swing.JFrame {
         String fecha;
         fecha = f.format(FechaCalendar2.getDate());
         System.out.println(fecha);
-        mercaderiasql.InsertarLibretaCliente(producto, cantidad, fecha, total, loteAverio, stock);
+        Date fechas= (Date) FechaCalendar2.getDate();
+        System.out.println(fechas);
+        
+        mercaderiasql.InsertarLibretaCliente(tipoproducto, cantidad, fecha, total, loteAverio, stock);
+       
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-
-
+    
     }//GEN-LAST:event_ActualizarbtnActionPerformed
-
-    private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-
-
-    }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -496,7 +480,6 @@ public class Mercaderia extends javax.swing.JFrame {
     private javax.swing.JButton AgregaMercaderiabtn;
     private javax.swing.JButton Buscarbtn;
     private javax.swing.JTextField Cantidadtxt;
-    private javax.swing.JButton Eliminarbtn;
     private com.toedter.calendar.JCalendar FechaCalendar2;
     private javax.swing.JButton Guardarbtn;
     private javax.swing.JComboBox<String> Productojcmb;

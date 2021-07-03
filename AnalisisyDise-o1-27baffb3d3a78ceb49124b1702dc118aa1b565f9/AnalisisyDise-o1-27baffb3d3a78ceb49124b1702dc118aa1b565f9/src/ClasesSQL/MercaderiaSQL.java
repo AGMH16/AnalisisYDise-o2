@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 public class MercaderiaSQL {
       ConexionBD Conexion = new ConexionBD();
 
-    public void InsertarLibretaCliente(String tipoPieza, int cantidadLibra, Date fechaVenta, float total, String lotepollo_loteAverio,int stock) {
+    public void InsertarLibretaCliente(String tipoPieza, int cantidadLibra, String fechaVenta, float total, String lotepollo_loteAverio,int stock) {
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
                 statement.execute("INSERT INTO mercaderia(TipoPieza,CantidadLibra,FechaVenta,Total,LotePollo_LoteAverio,Stock) VALUES ('" + tipoPieza + "'," + cantidadLibra + ",'" + fechaVenta + "'," + total + ",'" + lotepollo_loteAverio + "'," + stock + ")");
@@ -29,5 +29,5 @@ public class MercaderiaSQL {
             System.out.println(e);
         }
     }
-       
+
 }
