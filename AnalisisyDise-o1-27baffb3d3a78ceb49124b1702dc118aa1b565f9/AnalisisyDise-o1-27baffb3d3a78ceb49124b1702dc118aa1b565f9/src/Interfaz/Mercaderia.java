@@ -44,7 +44,7 @@ public class Mercaderia extends javax.swing.JFrame {
     LotePollo lote = new LotePollo();
     String proveedor = "", producto = "", loteAverio = "";
     String nombreproveedor = "", tipoproducto = "", agregarProducto = "", fecha1;
-    int cantidad = 0, año = 0, dia = 0, mes = 0, stock = 0;
+    int cantidad = 0, stock = 0;
     float total;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
@@ -368,40 +368,18 @@ public class Mercaderia extends javax.swing.JFrame {
         System.out.println(cantidad);
         System.out.println(total);
         loteAverio = lote.getLoteAverio();
-        año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
-        mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
-        dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
-
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        Date fechaDate = null;
-        try {
-            fechaDate = formato.parse(fecha1);
-        } catch (java.text.ParseException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-      //  fecha1 = (año + "/" + mes + "/" + dia);
-       // System.out.println(fecha1);
-          //mercaderiasql.InsertarLibretaCliente(producto, cantidad, fecha1, total, loteAverio, stock);
+        java.util.Date date = new java.util.Date();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        String fecha;
+        fecha = f.format(FechaCalendar2.getDate());
+        System.out.println(fecha);
+        mercaderiasql.InsertarLibretaCliente(producto, cantidad, fecha, total, loteAverio, stock);
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-           año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
-        mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
-        dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
-        fecha1 = (año + "-" + mes + "-" + dia);
-       // System.out.println(fecha1);
-        Date fechaDate = null;
-        try {
-            fechaDate = formato.parse(fecha1);
-            System.out.println(fecha1);
-        } catch (java.text.ParseException ex) {
-            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-      
+
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
