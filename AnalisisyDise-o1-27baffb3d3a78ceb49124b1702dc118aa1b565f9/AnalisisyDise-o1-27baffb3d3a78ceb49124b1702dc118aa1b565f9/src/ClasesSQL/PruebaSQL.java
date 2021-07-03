@@ -6,7 +6,7 @@
 package ClasesSQL;
 
 import Clases.Proveedor;
-import Clases.LotePollo;
+import Clases.MateriaPrima;
 import Conexion.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -51,7 +51,7 @@ public class PruebaSQL {
                 model.addRow(dato);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LotePollo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MateriaPrima.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex);
         }
     }
@@ -78,15 +78,15 @@ public class PruebaSQL {
         return loteAverio;
     }
 
-    public ArrayList<LotePollo> ConsultaCodigoLotePollo() {
-        ArrayList<LotePollo> lotePollo = new ArrayList<LotePollo>();
+    public ArrayList<MateriaPrima> ConsultaCodigoLotePollo() {
+        ArrayList<MateriaPrima> lotePollo = new ArrayList<MateriaPrima>();
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
                 ResultSet clr = statement.executeQuery("SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo");
 
                 while (clr.next()) {
 
-                    LotePollo lotepollo = new LotePollo();
+                    MateriaPrima lotepollo = new MateriaPrima();
 
                     lotepollo.setLoteAverio(clr.getString("LoteAverio"));
                     lotepollo.setUnidadExistente(clr.getInt("UnidadExistente"));

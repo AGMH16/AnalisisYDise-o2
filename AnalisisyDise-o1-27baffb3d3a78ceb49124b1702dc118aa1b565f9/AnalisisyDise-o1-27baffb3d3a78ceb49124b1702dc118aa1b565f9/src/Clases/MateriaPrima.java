@@ -12,31 +12,39 @@ import java.util.Date;
  *
  * @author Toshiba
  */
-public class LotePollo {
-
+public class MateriaPrima {
     private float total;
     private String loteAverio, proveedor;
     private int unidadExistente;
     private Date fechaIngreso;
-   // private Usuario usuario;
+    private Usuario usuario;
+
+    public MateriaPrima() {
+        this.total = total;
+        this.loteAverio = loteAverio;
+        this.proveedor = proveedor;
+        this.unidadExistente = unidadExistente;
+        this.fechaIngreso = fechaIngreso;
+        this.usuario = usuario;
+    }
     
-
-    public LotePollo() {
-        this.loteAverio = loteAverio;
-        this.unidadExistente= unidadExistente;
-        this.fechaIngreso = fechaIngreso;
+    public MateriaPrima(float total, String loteAverio, String proveedor, int unidadExistente, Date fechaIngreso, Usuario usuario) {
         this.total = total;
-        this.proveedor=proveedor;
+        this.loteAverio = loteAverio;
+        this.proveedor = proveedor;
+        this.unidadExistente = unidadExistente;
+        this.fechaIngreso = fechaIngreso;
+        this.usuario = usuario;
+    }
+    
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public LotePollo(String loteAverio,int unidadExistente,Date fechaIngreso, float total, String proveedor) {
-        this.loteAverio = loteAverio;
-        this.unidadExistente= unidadExistente;
-        this.fechaIngreso = fechaIngreso;
-        this.total = total;
-        this.proveedor=proveedor;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
-
+    
     public String getProveedor() {
         return proveedor;
     }
