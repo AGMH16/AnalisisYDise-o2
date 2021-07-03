@@ -28,6 +28,10 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import sun.security.util.Password;
 import ClasesSQL.PruebaSQL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.mail.internet.ParseException;
 
 /**
  *
@@ -38,18 +42,13 @@ public class Mercaderia extends javax.swing.JFrame {
     PruebaSQL pruebasql = new PruebaSQL();
     MercaderiaSQL mercaderiasql = new MercaderiaSQL();
     LotePollo lote = new LotePollo();
-    String proveedor = "", producto = "", loteAverio="";
-    String nombreproveedor = "", tipoproducto = "", agregarProducto = "";
-    int cantidad = 0, año = 0, dia = 0, mes = 0,stock=0;
+    String proveedor = "", producto = "", loteAverio = "";
+    String nombreproveedor = "", tipoproducto = "", agregarProducto = "", fecha1;
+    int cantidad = 0, año = 0, dia = 0, mes = 0, stock = 0;
     float total;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
-    /*crud thecrud = new crud();
-    Connection con = (Connection) ConexionBD.GetConnection();*/
-    /**
-     * Creates new form Menu
-     */
     public Mercaderia() {
 
         this.setUndecorated(true);
@@ -358,6 +357,7 @@ public class Mercaderia extends javax.swing.JFrame {
         id.get(ID);
         Proveedor.get(Integer.parseInt(proveedor));
     }
+
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
 
         producto = (String) Productojcmb.getSelectedItem();
@@ -367,19 +367,41 @@ public class Mercaderia extends javax.swing.JFrame {
         System.out.println(producto);
         System.out.println(cantidad);
         System.out.println(total);
-        loteAverio=lote.getLoteAverio();
+        loteAverio = lote.getLoteAverio();
         año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
         mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
         dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
 
-        String fecha1 = (año + "-" + mes + "-" + dia);
-        System.out.println(fecha1);
-       // mercaderiasql.InsertarLibretaCliente(producto, cantidad, fecha1, total, loteAverio, stock);
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaDate = null;
+        try {
+            fechaDate = formato.parse(fecha1);
+        } catch (java.text.ParseException ex) {
+            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+      //  fecha1 = (año + "/" + mes + "/" + dia);
+       // System.out.println(fecha1);
+          //mercaderiasql.InsertarLibretaCliente(producto, cantidad, fecha1, total, loteAverio, stock);
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+           año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
+        mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
+        dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
+        fecha1 = (año + "-" + mes + "-" + dia);
+       // System.out.println(fecha1);
+        Date fechaDate = null;
+        try {
+            fechaDate = formato.parse(fecha1);
+            System.out.println(fecha1);
+        } catch (java.text.ParseException ex) {
+            Logger.getLogger(Mercaderia.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+      
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed

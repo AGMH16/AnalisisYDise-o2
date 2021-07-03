@@ -32,7 +32,7 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class MateriaPrima extends javax.swing.JFrame {
-
+//HOLA ANDREEEEEEEEEEEEEEEE
     String loteAverio = "";
     String nombreproveedor = "", proveedor = "";
     int cantidad = 0;
