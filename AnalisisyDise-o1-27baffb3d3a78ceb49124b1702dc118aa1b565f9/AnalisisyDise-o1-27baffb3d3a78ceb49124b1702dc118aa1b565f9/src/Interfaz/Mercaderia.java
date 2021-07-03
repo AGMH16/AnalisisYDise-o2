@@ -80,9 +80,6 @@ public class Mercaderia extends javax.swing.JFrame {
         Actualizarbtn.setOpaque(false);
         Actualizarbtn.setContentAreaFilled(false);
         Actualizarbtn.setBorderPainted(false);
-        Eliminarbtn.setOpaque(false);
-        Eliminarbtn.setContentAreaFilled(false);
-        Eliminarbtn.setBorderPainted(false);
         Buscarbtn.setOpaque(false);
         Buscarbtn.setContentAreaFilled(false);
         Buscarbtn.setBorderPainted(false);
@@ -384,13 +381,13 @@ public class Mercaderia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        if (!modoOscuro) {
+       /* if (!modoOscuro) {
             pintarInterfaz.ColorearMercaderiaNegro(jPanel1, jPanel2, btn_oscuro, Productojcmb, Cantidadtxt, Totaltxt, AgregaMercaderiabtn, Guardarbtn, Actualizarbtn, Eliminarbtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
             pintarInterfazBlanco.ColorearMercaderiaBlanco(jPanel1, jPanel2, btn_oscuro, Productojcmb, Cantidadtxt, Totaltxt, AgregaMercaderiabtn, Guardarbtn, Actualizarbtn, Eliminarbtn);
             modoOscuro = false;
-        }
+        }*/
     }//GEN-LAST:event_btn_oscuroActionPerformed
 
     private void StocktxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StocktxtActionPerformed
