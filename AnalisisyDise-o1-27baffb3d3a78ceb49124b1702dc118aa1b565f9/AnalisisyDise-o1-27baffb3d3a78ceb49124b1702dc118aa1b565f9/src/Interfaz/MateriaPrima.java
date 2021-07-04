@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -36,7 +37,7 @@ public class MateriaPrima extends javax.swing.JFrame {
     String loteAverio = "";
     String nombreproveedor = "", proveedor = "";
     int cantidad = 0;
-    float total, año = 0, dia = 0, mes = 0;
+    float total;
     ProveedorSQL proveedores = new ProveedorSQL();
     ArrayList<Clases.Proveedor> listaProveedores = proveedores.ConsultaProveedorNombre();
 
@@ -108,12 +109,12 @@ public class MateriaPrima extends javax.swing.JFrame {
         btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(980, 754));
+        setPreferredSize(new java.awt.Dimension(921, 670));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(242, 253, 250));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(980, 754));
+        jPanel1.setPreferredSize(new java.awt.Dimension(921, 670));
         jPanel1.setVerifyInputWhenFocusTarget(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -186,6 +187,9 @@ public class MateriaPrima extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 CantidadtxtKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CantidadtxtKeyTyped(evt);
+            }
         });
         jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 265, 253, 43));
 
@@ -209,6 +213,9 @@ public class MateriaPrima extends javax.swing.JFrame {
         Totaltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TotaltxtKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TotaltxtKeyTyped(evt);
             }
         });
         jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 253, 43));
@@ -264,7 +271,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         });
         jPanel1.add(btn_oscuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 30, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 670));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -314,10 +321,9 @@ public class MateriaPrima extends javax.swing.JFrame {
         System.out.println(proveedor);
         System.out.println(cantidad);
         System.out.println(total);
-        año = FechaCalendar.getCalendar().get(Calendar.YEAR);
-        mes = FechaCalendar.getCalendar().get(Calendar.MARCH);
-        dia = FechaCalendar.getCalendar().get(Calendar.DAY_OF_MONTH);
-        String fecha = (año + "-" + mes + "-" + dia);
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        String fecha;
+        fecha = f.format(FechaCalendar.getDate());
         System.out.println(fecha);
 
 
@@ -358,6 +364,24 @@ public class MateriaPrima extends javax.swing.JFrame {
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+
+    private void CantidadtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyTyped
+        // TODO add your handling code here:
+        char validar=evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_CantidadtxtKeyTyped
+
+    private void TotaltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyTyped
+        // TODO add your handling code here:
+        char validar=evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_TotaltxtKeyTyped
 
     /**
      * @param args the command line arguments

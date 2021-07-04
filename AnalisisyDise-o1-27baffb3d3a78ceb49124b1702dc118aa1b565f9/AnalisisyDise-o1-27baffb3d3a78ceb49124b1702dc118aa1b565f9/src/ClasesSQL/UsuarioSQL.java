@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javafx.scene.control.RadioButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -26,7 +27,7 @@ public class UsuarioSQL {
         try {
             //insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('Jenifer','Rabanales',0, 'jenirg','1234','Gerente','jeniferrabanales99@gmail.com');
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
-                statement.execute("insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('" + nombre + "','" + apellido + "','" + supervisor + "','" + usuario + "','" + contraseña + "','" + correoElectronico + "')");
+                statement.execute("insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('" + nombre + "','" + apellido + "','" + supervisor + "','" + usuario + "','" + contraseña + "','"+puesto+ "','" + correoElectronico + "')");
                 JOptionPane.showMessageDialog(null, "Usuario registrado");
             }
             Conexion.getConnection().close();
@@ -49,7 +50,7 @@ public class UsuarioSQL {
         }
     }
 
-    public int BuscarUsuarioPorCorreo(JTextField NombreColaboradortxt, JTextField ApellidoColaboradortxt, JTextField Usuariotxt, JTextField PuestoLaboraltxt, JTextField Correotxt, String correoReferencia) {
+    public int BuscarUsuarioPorCorreo(JTextField NombreColaboradortxt, JTextField ApellidoColaboradortxt, JTextField Usuariotxt, JComboBox PuestoLaboraltxt, JTextField Correotxt, String correoReferencia) {
         int IdUsuario = 0;
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
@@ -68,7 +69,7 @@ public class UsuarioSQL {
                         NombreColaboradortxt.setText(nombre);
                         ApellidoColaboradortxt.setText(apellido);
                         Usuariotxt.setText(usuario);
-                        PuestoLaboraltxt.setText(puesto);
+                        PuestoLaboraltxt.setSelectedItem(puesto);
                         Correotxt.setText(correoElectronico);
                     }
                 }

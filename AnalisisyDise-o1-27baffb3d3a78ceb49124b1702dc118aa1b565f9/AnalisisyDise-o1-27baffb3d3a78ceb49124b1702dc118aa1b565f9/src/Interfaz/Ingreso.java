@@ -325,13 +325,12 @@ public class Ingreso extends javax.swing.JFrame {
         char[] contraseña = Contraseñiatxt.getPassword();
         System.out.println("1 Usuario" + usuario);
         System.out.println("2 Contraseña" + contraseña);
-       /* for (Clases.Usuario usuario : listaUsuarios ) {
+        for (Clases.Usuario usuario : listaUsuarios ) {
             if(usuario.equals(usuario.getUsuario()) && contraseña.equals(usuario.getContraseña())){
-                if(usuario.getPuesto().equals()){
-                    
-                }
+                Menu3 menu=new Menu3();
+                menu.setVisible(true);
             }
-        }*/
+        }
     }//GEN-LAST:event_EntrarbtnActionPerformed
 
     private void RegistrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarbtnActionPerformed

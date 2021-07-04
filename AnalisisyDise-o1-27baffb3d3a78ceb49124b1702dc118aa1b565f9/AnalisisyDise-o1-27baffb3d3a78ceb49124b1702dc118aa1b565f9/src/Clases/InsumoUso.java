@@ -17,19 +17,41 @@ public class InsumoUso {
     private int existencia;
     private Date fechaIngreso;
     private Float total;
+    private Dimensional dimensional;
+    private Usuario usuario;
 
     public InsumoUso() {
         this.nombre = nombre;
         this.existencia = existencia;
         this.fechaIngreso = fechaIngreso;
         this.total = total;
+        this.dimensional = dimensional;
+        this.usuario = usuario;
     }
 
-    public InsumoUso(String nombre, int existencia, Date fechaIngreso, float total) {
+    public InsumoUso(String nombre, int existencia, Date fechaIngreso, Float total, Dimensional dimensional, Usuario usuario) {
         this.nombre = nombre;
         this.existencia = existencia;
         this.fechaIngreso = fechaIngreso;
         this.total = total;
+        this.dimensional = dimensional;
+        this.usuario = usuario;
+    }
+
+    public Dimensional getDimensional() {
+        return dimensional;
+    }
+
+    public void setDimensional(Dimensional dimensional) {
+        this.dimensional = dimensional;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getNombre() {
@@ -63,5 +85,5 @@ public class InsumoUso {
     public void setTotal(Float total) {
         this.total = total;
     }
-    
+
 }
