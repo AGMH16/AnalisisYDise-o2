@@ -7,6 +7,7 @@ package Interfaz;
 
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
+import Clases.InsumoUso;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -176,6 +177,9 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 CantidadtxtKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CantidadtxtKeyTyped(evt);
+            }
         });
         jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 253, 43));
 
@@ -201,6 +205,9 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         Totaltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TotaltxtKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TotaltxtKeyTyped(evt);
             }
         });
         jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 253, 43));
@@ -445,7 +452,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     }//GEN-LAST:event_CantidadtxtActionPerformed
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
-
+        InsumoUso datos=new InsumoUso();
         if (Medicamentosrbtn.isSelected()) {
             medicamento = true;
             tipoproducto = "Medicamentos";
@@ -455,7 +462,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
                 vacuna = true;
                 nombreProducto = "Vacuna";
                 System.out.println("Nombre Medicamento" + nombreProducto);
-
+               
             }
             if (Inmunizadorrbtn.isSelected()) {
                 inmunizador = true;
@@ -505,10 +512,10 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
         String fecha1 = (año + "-" + mes + "-" + dia);
         System.out.println(fecha1);
-        
+
         String fecha2 = (año + "-" + mes + "-" + dia);
         System.out.println(fecha2);
-        
+
         proveedor = (String) Proveedorjcmb.getSelectedItem();
         cantidad = Integer.parseInt(Cantidadtxt.getText());
         Dimensional = (String) Dimensionaljcmb.getSelectedItem();
@@ -537,6 +544,24 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+
+    private void CantidadtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_CantidadtxtKeyTyped
+
+    private void TotaltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_TotaltxtKeyTyped
     List Proveedores = new ArrayList();
 
     static void obtener_proveedor(ArrayList<Integer> id, ArrayList<String> Proveedor) {

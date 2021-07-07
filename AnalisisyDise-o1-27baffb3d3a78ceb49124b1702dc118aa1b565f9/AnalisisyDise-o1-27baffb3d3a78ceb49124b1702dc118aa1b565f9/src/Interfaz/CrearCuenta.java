@@ -77,7 +77,6 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         Correotxt = new javax.swing.JTextField();
-        PuestoLaboraltxt = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         ApellidoColaboradortxt = new javax.swing.JTextField();
         NombreColaboradortxt = new javax.swing.JTextField();
@@ -85,6 +84,8 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         Contraseñatxt1 = new javax.swing.JPasswordField();
         Buscartxt = new javax.swing.JButton();
+        PuestoLaboralcmbx = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -167,21 +168,6 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
-        PuestoLaboraltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        PuestoLaboraltxt.setForeground(new java.awt.Color(102, 102, 102));
-        PuestoLaboraltxt.setText("Puesto Laboral");
-        PuestoLaboraltxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        PuestoLaboraltxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PuestoLaboraltxtActionPerformed(evt);
-            }
-        });
-        PuestoLaboraltxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                PuestoLaboraltxtKeyPressed(evt);
-            }
-        });
-
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("DATOS DEL COLABORADOR");
@@ -252,6 +238,19 @@ public class CrearCuenta extends javax.swing.JFrame {
             }
         });
 
+        PuestoLaboralcmbx.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PuestoLaboralcmbx.setForeground(new java.awt.Color(102, 102, 102));
+        PuestoLaboralcmbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Puesto Laboral" }));
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 102, 102));
+        jButton1.setText("+");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -279,12 +278,15 @@ public class CrearCuenta extends javax.swing.JFrame {
                                     .addComponent(Supervisorrb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Correotxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
-                                    .addComponent(Usuariotxt, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(PuestoLaboralcmbx, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton1))
+                                    .addComponent(NombreColaboradortxt)
+                                    .addComponent(ApellidoColaboradortxt)
+                                    .addComponent(Correotxt, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+                                    .addComponent(Usuariotxt)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(jLabel11)))
@@ -301,7 +303,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(34, Short.MAX_VALUE)
                         .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(NombreColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,14 +311,17 @@ public class CrearCuenta extends javax.swing.JFrame {
                         .addComponent(ApellidoColaboradortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addComponent(Usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PuestoLaboraltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Correotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
+                            .addComponent(jLabel9)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(PuestoLaboralcmbx, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1))
+                                .addGap(18, 18, 18)
+                                .addComponent(Correotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(28, 28, 28)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -335,7 +340,7 @@ public class CrearCuenta extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                         .addComponent(Contraseñatxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(103, 103, 103))))
         );
@@ -407,8 +412,8 @@ public class CrearCuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             usuario = Usuariotxt.getText();
-            PuestoLaboraltxt.setText("");
-            PuestoLaboraltxt.requestFocus();
+            //   PuestoLaboraltxt.setText("");
+            //  PuestoLaboraltxt.requestFocus();
         }
     }//GEN-LAST:event_UsuariotxtKeyPressed
 
@@ -435,7 +440,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         apellidos = ApellidoColaboradortxt.getText();
         usuario = Usuariotxt.getText();
         correo_electronico = Correotxt.getText();
-        puesto = PuestoLaboraltxt.getText();
+        puesto = (String) PuestoLaboralcmbx.getSelectedItem();
         char[] contraseña1 = Contraseñatxt.getPassword();
         for (int i = 0; i < contraseña1.length; i++) {
             pass_concatenada2 = pass_concatenada2 + contraseña1[i];
@@ -524,29 +529,16 @@ public class CrearCuenta extends javax.swing.JFrame {
             ApellidoColaboradortxt.requestFocus();
         }
     }//GEN-LAST:event_NombreColaboradortxtKeyPressed
-
-    private void PuestoLaboraltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PuestoLaboraltxtKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            puesto = PuestoLaboraltxt.getText();
-            Correotxt.setText("");
-            Correotxt.requestFocus();
-        }
-    }//GEN-LAST:event_PuestoLaboraltxtKeyPressed
-
-    private void PuestoLaboraltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuestoLaboraltxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PuestoLaboraltxtActionPerformed
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         // TODO add your handling code here:
-        if (!modoOscuro) {
+        /* if (!modoOscuro) {
             pintarInterfaz.ColorearCrearCuentaNegro(jPanel1, jPanel2, btn_oscuro, CrearCuentabtn, NombreColaboradortxt, ApellidoColaboradortxt, Correotxt, PuestoLaboraltxt, Usuariotxt, Contraseñatxt, Contraseñatxt1);
             modoOscuro = true;
         } else {
             pintarInterfazBlanco.ColorearCrearCuentaBlanco(jPanel1, jPanel2, btn_oscuro, CrearCuentabtn, NombreColaboradortxt, ApellidoColaboradortxt, Correotxt, PuestoLaboraltxt, Usuariotxt, Contraseñatxt, Contraseñatxt1);
             modoOscuro = false;
-        }
+        }*/
     }//GEN-LAST:event_btn_oscuroActionPerformed
 
     private void Contraseñatxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Contraseñatxt1ActionPerformed
@@ -569,7 +561,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed
         // TODO add your handling code here:
         String correoReferencia = JOptionPane.showInputDialog("Ingrese el correo ");
-        IdUsuario = usuarioSQL.BuscarUsuarioPorCorreo(NombreColaboradortxt, ApellidoColaboradortxt, Usuariotxt, PuestoLaboraltxt, Correotxt, correoReferencia);
+        IdUsuario = usuarioSQL.BuscarUsuarioPorCorreo(NombreColaboradortxt, ApellidoColaboradortxt, Usuariotxt, PuestoLaboralcmbx, Correotxt, correoReferencia);
         // IdProveedor = proveedorSQL.BuscarProveedorPorNombre(NombreProveedortxt1, TelefonoProveedortxt, direcciontxt, EmpresaProveedortxt, nombreProveedor);
         System.out.println("idUsuario" + IdUsuario);
     }//GEN-LAST:event_BuscartxtActionPerformed
@@ -577,6 +569,12 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void SupervisorrbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupervisorrbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SupervisorrbActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String puesto = JOptionPane.showInputDialog("Ingrese el nuevo puesto");
+        PuestoLaboralcmbx.addItem(puesto);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -628,10 +626,11 @@ public class CrearCuenta extends javax.swing.JFrame {
     private javax.swing.JTextField Correotxt;
     private javax.swing.JButton CrearCuentabtn;
     private javax.swing.JTextField NombreColaboradortxt;
-    private javax.swing.JTextField PuestoLaboraltxt;
+    private javax.swing.JComboBox<String> PuestoLaboralcmbx;
     private javax.swing.JRadioButton Supervisorrb;
     private javax.swing.JTextField Usuariotxt;
     private javax.swing.JButton btn_oscuro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;
