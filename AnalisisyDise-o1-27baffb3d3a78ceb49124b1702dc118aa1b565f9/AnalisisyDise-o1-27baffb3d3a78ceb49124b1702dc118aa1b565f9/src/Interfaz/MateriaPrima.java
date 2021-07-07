@@ -106,6 +106,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         Proveedorjcmb = new javax.swing.JComboBox<>();
         CodigoAveriotxt = new javax.swing.JTextField();
+        Buscarbtn = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -261,6 +262,15 @@ public class MateriaPrima extends javax.swing.JFrame {
         });
         jPanel2.add(CodigoAveriotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 104, 253, 43));
 
+        Buscarbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        Buscarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar (1).png"))); // NOI18N
+        Buscarbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarbtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Buscarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 0, 620, 670));
 
         btn_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/darkmode_1.png"))); // NOI18N
@@ -382,6 +392,12 @@ public class MateriaPrima extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_TotaltxtKeyTyped
+
+    private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
+        // TODO add your handling code here:
+        nombreColaborador = Buscartxt.getText();
+        System.out.println("Colaborador a buscar:" + nombreColaborador);
+    }//GEN-LAST:event_BuscarbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -547,6 +563,7 @@ public class MateriaPrima extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizarbtn;
+    private javax.swing.JButton Buscarbtn;
     private javax.swing.JTextField Cantidadtxt;
     private javax.swing.JTextField CodigoAveriotxt;
     private javax.swing.JButton Eliminarbtn;
