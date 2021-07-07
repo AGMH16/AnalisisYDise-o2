@@ -16,7 +16,7 @@ public class MateriaPrima {
     private float total;
     private String loteAverio, proveedor;
     private int unidadExistente;
-    private Date fechaIngreso;
+    private String fechaIngreso;
     private Usuario usuario;
 
     public MateriaPrima() {
@@ -28,7 +28,7 @@ public class MateriaPrima {
         this.usuario = usuario;
     }
     
-    public MateriaPrima(float total, String loteAverio, String proveedor, int unidadExistente, Date fechaIngreso, Usuario usuario) {
+    public MateriaPrima(float total, String loteAverio, String proveedor, int unidadExistente, String fechaIngreso, Usuario usuario) {
         this.total = total;
         this.loteAverio = loteAverio;
         this.proveedor = proveedor;
@@ -77,11 +77,11 @@ public class MateriaPrima {
         this.loteAverio = loteAverio;
     }
 
-    public Date getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 

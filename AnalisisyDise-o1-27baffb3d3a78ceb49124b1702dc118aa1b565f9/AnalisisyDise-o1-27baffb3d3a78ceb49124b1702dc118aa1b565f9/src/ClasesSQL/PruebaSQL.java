@@ -28,7 +28,16 @@ import javax.swing.table.DefaultTableModel;
 public class PruebaSQL {
 
     ConexionBD Conexion = new ConexionBD();
+    int val;
 
+    public int getVal() {
+        return val;
+    }
+
+    public void setVal(int val) {
+        this.val = val;
+    }
+    
     public void Buscar(JTable jTable) {
         String sql = "SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo";
         Statement st;
@@ -78,27 +87,35 @@ public class PruebaSQL {
         return loteAverio;
     }
 
-    public ArrayList<MateriaPrima> ConsultaCodigoLotePollo() {
-        ArrayList<MateriaPrima> lotePollo = new ArrayList<MateriaPrima>();
+    
+    
+    public int BuscarUsuario(String usuario, String contraseña) {
+        int IdUsuario = 0;
         try {
             try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
-                ResultSet clr = statement.executeQuery("SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo");
-
+                ResultSet clr = statement.executeQuery("SELECT idUsuario,Usuario, Contraseña from usuario");
                 while (clr.next()) {
+                    IdUsuario = clr.getInt("idUsuario");
+                    String Usuario = clr.getString("Usuario");
+                    String Contraseña = clr.getString("Contraseña");
 
-                    MateriaPrima lotepollo = new MateriaPrima();
+                    if ((usuario.equals(Usuario))&&(contraseña.equals(Contraseña))) {
+                        
+                        val= IdUsuario;
+                        //jTextField1.setText(Integer.parseInt(IdUsuario));
+                       /* NombreProveedortxt1.setText(nombre);
+                        TelefonoProveedortxt.setText(direccion);
+                        TelefonoProveedortxt1.setText(telefono);
+                        EmpresaProveedortxt.setText(empresa);*/
+                        System.out.println(val);
 
-                    lotepollo.setLoteAverio(clr.getString("LoteAverio"));
-                    lotepollo.setUnidadExistente(clr.getInt("UnidadExistente"));
-                    lotepollo.setFechaIngreso(clr.getDate("FechaIngreso"));
-                    lotePollo.add(lotepollo);
-
+                    }
                 }
             }
-            Conexion.getConnection().close();
+            //Conexion.getConnection().close();
         } catch (Exception e) {
         }
 
-        return lotePollo;
+        return IdUsuario;
     }
 }

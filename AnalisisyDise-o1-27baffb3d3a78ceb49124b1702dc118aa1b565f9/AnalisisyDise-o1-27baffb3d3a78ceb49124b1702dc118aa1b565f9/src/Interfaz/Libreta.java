@@ -22,10 +22,11 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class Libreta extends javax.swing.JFrame {
+
     LibretaClienteSQL libretaclientesql = new LibretaClienteSQL();
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
-    public static String telefono="", celular="";
+    public static String telefono = "", celular = "";
 
     public static String getTelefono() {
         return telefono;
@@ -43,7 +44,6 @@ public class Libreta extends javax.swing.JFrame {
         Libreta.celular = celular;
     }
 
-
     /**
      * Creates new form Menu
      */
@@ -53,7 +53,7 @@ public class Libreta extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
-      
+
     }
 
     public void transparenciButton() {
@@ -342,7 +342,7 @@ public class Libreta extends javax.swing.JFrame {
     }//GEN-LAST:event_BuscartxtActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-     /*   if (!modoOscuro) {
+        /*   if (!modoOscuro) {
             pintarInterfaz.ColorearConsultasNegro(jPanel1, jPanel2, EliminarClientebtn, Actualizarbtn1, btn_oscuro, Buscartxt);
             modoOscuro = true;
         } else if (modoOscuro == true) {
@@ -360,26 +360,34 @@ public class Libreta extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             telefono = Buscartxt.getText();
-            celular= Buscartxt1.getText();
+            celular = Buscartxt1.getText();
         }
     }//GEN-LAST:event_BuscartxtKeyPressed
 
     private void RegresarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarbtnActionPerformed
         // TODO add your handling code here:
-        Menu3 menux = new Menu3();
-        menux.setVisible(true);
+        Cliente cliente = new Cliente();
+        cliente.setVisible(true);
         dispose();
     }//GEN-LAST:event_RegresarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
         // TODO add your handling code here:
-          telefono = Buscartxt.getText();
-          celular= Buscartxt1.getText();
+        telefono = Buscartxt.getText();
+        celular = Buscartxt1.getText();
+
+        if (Buscartxt.getText() != null) {
+            Cliente cliente = new Cliente(telefono);
+            cliente.setVisible(true);
+            dispose();
+        } else {
+            Cliente cliente = new Cliente(celular);
+            cliente.setVisible(true);
+            dispose();
+        }
         System.out.println(telefono);
         System.out.println(celular);
-       Cliente cliente= new Cliente();
-        cliente.setVisible(true);
-        dispose();
+
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void Buscartxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscartxt1ActionPerformed

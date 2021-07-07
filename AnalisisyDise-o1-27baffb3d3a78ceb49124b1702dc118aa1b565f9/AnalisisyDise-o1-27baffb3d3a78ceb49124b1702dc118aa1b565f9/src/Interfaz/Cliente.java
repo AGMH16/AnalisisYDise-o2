@@ -45,16 +45,24 @@ public class Cliente extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    public Cliente(String referencia) {
+        this.setUndecorated(true);
+        initComponents();
+        this.setLocationRelativeTo(null);
+        transparenciButton();
+        jLabel7.setText(referencia);
+        jLabel7.setText(referencia);
+        nocliente = libretaSQL.BuscarClientePorTelefono(NombreClientetxt, ApellidoClientetxt, CelularClientetxt, TelefonoClientetxt, DireccionClientetxt, referencia);
+        nocliente = libretaSQL.BuscarClientePorCelular(NombreClientetxt, ApellidoClientetxt, CelularClientetxt, TelefonoClientetxt, DireccionClientetxt, referencia);
+    }
+
     public Cliente() {
 
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
-        jLabel7.setText(libreta.getCelular());
-        jLabel7.setText(libreta.getTelefono());
-         nocliente = libretaSQL.BuscarClientePorTelefono(NombreClientetxt, ApellidoClientetxt, CelularClientetxt, TelefonoClientetxt, DireccionClientetxt, libreta.getTelefono());
-         nocliente=libretaSQL.BuscarClientePorCelular(NombreClientetxt, ApellidoClientetxt, CelularClientetxt, TelefonoClientetxt, DireccionClientetxt, libreta.getCelular());
+
     }
 
     public void transparenciButton() {
@@ -255,7 +263,7 @@ public class Cliente extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(0, 51, 102));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("DATOS DEL CLIENTE");
+        jLabel7.setText("...");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -290,7 +298,7 @@ public class Cliente extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(58, 58, 58)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(75, 75, 75))
         );
@@ -502,28 +510,30 @@ public class Cliente extends javax.swing.JFrame {
         Libreta cliente = new Libreta();
         cliente.setVisible(true);
         dispose();
-        
-         
-            System.out.println("No cliente" + nocliente);
+
+        System.out.println("No cliente" + nocliente);
     }//GEN-LAST:event_BuscartxtActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
 
-      /*  libretaSQL.EliminarLibretaCliente(nocliente);
-        NombreClientetxt.setText(null);
-        ApellidoClientetxt.setText(null);
-        CelularClientetxt.setText(null);
-        TelefonoClientetxt.setText(null);
-        DireccionClientetxt.setText(null);/*
-        
-        */
-      
-     libretaSQL.EliminarLibretaCliente(nocliente);
+        libretaSQL.EliminarLibretaCliente(nocliente);
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
         // TODO add your handling code here:
-
+        nombres = NombreClientetxt.getText();
+        apellidos = ApellidoClientetxt.getText();
+        telefonoMovil = CelularClientetxt.getText();
+        telefonocasa = TelefonoClientetxt.getText();
+        direccion = DireccionClientetxt.getText();
+       // libretaSQL. ActualizarLibreta();
+             /*  try {
+            thecrud.ActualizarLibreta(con, id, nombres2, apellidos2, telefonoMovil2, telefonocasa2, direccion2);
+            JOptionPane.showMessageDialog(null, "Actualización con exito");
+        } catch (SQLException ex) {
+            Logger.getLogger(RecuperarContrasenia.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+        }*/
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     /**

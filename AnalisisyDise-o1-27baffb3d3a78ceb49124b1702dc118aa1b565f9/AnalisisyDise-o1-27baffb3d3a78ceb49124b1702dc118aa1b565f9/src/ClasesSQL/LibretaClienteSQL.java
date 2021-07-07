@@ -7,6 +7,8 @@ package ClasesSQL;
 
 import javax.swing.table.DefaultTableModel;
 import Conexion.ConexionBD;
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -48,6 +50,23 @@ public class LibretaClienteSQL {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR CLIENTE");
         }
     }
+    public static void ActualizarLibreta(Connection con, int noCliente, String nombre, String apellido, String celular, String telefono, String direccion) throws SQLException {
+
+        try (CallableStatement cstmt = con.prepareCall("{call mydb.ActualizarLibreta(?,?,?,?,?,?)}");) {
+            cstmt.setInt(1, noCliente);
+            cstmt.setString(2, nombre);
+            cstmt.setString(3, apellido);
+            cstmt.setString(4, celular);
+            cstmt.setString(5, telefono);
+            cstmt.setString(6, direccion);
+            cstmt.execute();
+            JOptionPane.showMessageDialog(null, "Actualizo de forma correcta");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LibretaClienteSQL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+        }
+    }
 
     public int BuscarClientePorTelefono(JTextField NombreClientetxt, JTextField ApellidoClientetxt, JTextField CelularClientetxt, JTextField TelefonoClientetxt, JTextField DireccionClientetxt, String telefonoReferencia) {
         int NoCliente = 0;
@@ -72,7 +91,7 @@ public class LibretaClienteSQL {
                     }
                 }
             }
-            Conexion.getConnection().close();
+            //Conexion.getConnection().close();
         } catch (Exception e) {
         }
 
@@ -102,7 +121,7 @@ public class LibretaClienteSQL {
                     }
                 }
             }
-            Conexion.getConnection().close();
+           // Conexion.getConnection().close();
         } catch (Exception e) {
         }
 

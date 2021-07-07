@@ -39,11 +39,13 @@ import javax.mail.internet.ParseException;
  */
 public class Mercaderia extends javax.swing.JFrame {
 
+    java.util.Date date = new java.util.Date();
+    SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
     PruebaSQL pruebasql = new PruebaSQL();
     MercaderiaSQL mercaderiasql = new MercaderiaSQL();
     LotePollo lote = new LotePollo();
-    String proveedor = "", producto = "", loteAverio = "";
-    String nombreproveedor = "", tipoproducto = "", agregarProducto = "", fecha1;
+    String proveedor = "", producto = "", loteAverio = "" ,fecha;
+    String nombreproveedor = "",  agregarProducto = "", fecha1;
     int cantidad = 0, stock = 0;
     float total;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
@@ -351,21 +353,20 @@ public class Mercaderia extends javax.swing.JFrame {
         System.out.println(cantidad);
         System.out.println(total);
         loteAverio = lote.getLoteAverio();
-        java.util.Date date = new java.util.Date();
-        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
-        String fecha;
+
+       
         fecha = f.format(FechaCalendar2.getDate());
         System.out.println(fecha);
-        Date fechas= (Date) FechaCalendar2.getDate();
+        Date fechas = (Date) FechaCalendar2.getDate();
         System.out.println(fechas);
-        
-        mercaderiasql.InsertarLibretaCliente(tipoproducto, cantidad, fecha, total, loteAverio, stock);
-       
+
+        mercaderiasql.InsertarMercaderia(producto, cantidad, fecha, total, loteAverio, stock);
+
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-    
+
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -381,7 +382,7 @@ public class Mercaderia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-       /* if (!modoOscuro) {
+        /* if (!modoOscuro) {
             pintarInterfaz.ColorearMercaderiaNegro(jPanel1, jPanel2, btn_oscuro, Productojcmb, Cantidadtxt, Totaltxt, AgregaMercaderiabtn, Guardarbtn, Actualizarbtn, Eliminarbtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {

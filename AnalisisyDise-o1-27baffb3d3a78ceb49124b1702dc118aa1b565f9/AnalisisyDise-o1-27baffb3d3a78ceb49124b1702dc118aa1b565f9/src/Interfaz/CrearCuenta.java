@@ -439,7 +439,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         char[] contraseña1 = Contraseñatxt.getPassword();
         for (int i = 0; i < contraseña1.length; i++) {
             pass_concatenada2 = pass_concatenada2 + contraseña1[i];
-            System.out.println(contraseña1[i]);
+        //    System.out.println(contraseña1[i]);
         }
         char[] contraseña2 = Contraseñatxt1.getPassword();
         for (int i = 0; i < contraseña2.length; i++) {
@@ -456,7 +456,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         System.out.println("Verificación" + verificacion);
         String xx;
         xx = comprimir(pass_concatenada);
-        System.out.println(xx);
+        System.out.println("Esta si:"+xx);
 
         usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, xx, puesto, correo_electronico);
 

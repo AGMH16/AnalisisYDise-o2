@@ -15,7 +15,7 @@ public class Compresor {
             binario += Ascii_a_Binario(val_en_ascii);
         }
        // mostrar.setText("el equivalente binario de la palabra ingresada:" + " " + binario);
-        System.out.println("el equivalente binario de la palabra ingresada:" + " " + binario);
+//        System.out.println("el equivalente binario de la palabra ingresada:" + " " + binario);
 
         return binario;
     }
@@ -84,12 +84,12 @@ public class Compresor {
             dato += cadena_rle.charAt(i);
             if (i == totaldevalores) {
                 int dato_en_numero = Integer.parseInt(dato);
-                System.out.println("DATO ANTES" + dato_en_numero);
+            //    System.out.println("DATO ANTES" + dato_en_numero);
 
                 if (dato_en_numero < 33) {
                     dato_en_numero = dato_en_numero + 43;
                 }
-                System.out.println("datooooo" + dato_en_numero);
+             //   System.out.println("datooooo" + dato_en_numero);
                 palabra_creada += decimal_a_ascii(dato_en_numero);
                 totaldevalores = totaldevalores + 2;
                 dato = "";
