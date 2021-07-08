@@ -3,11 +3,16 @@ package ClasesSQL;
 import Conexion.ConexionBD;
 import Clases.Proveedor;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -81,7 +86,7 @@ public class ProveedorSQL {
                     proveedor.setIdProveedor(clr.getInt("idProveedor"));
                     proveedor.setNombre(clr.getString("Nombre"));
                     proveedor.setDireccion(clr.getString("Direccion"));
-                    proveedor.setTelefono(clr.getString("Telefono"));                    
+                    proveedor.setTelefono(clr.getString("Telefono"));
                     proveedores.add(proveedor);
                 }
             }
@@ -91,4 +96,34 @@ public class ProveedorSQL {
 
         return proveedores;
     }
+
+    public void BuscarProveedor(JTable ProveedoresTable) {
+        String sql = "SELECT Nombre, Direccion,Telefono,Empresa from proveedor";
+        Statement st;
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Nombre");
+        model.addColumn("Dirección");
+        model.addColumn("Telefono");
+        model.addColumn("Empresa");
+        ProveedoresTable.setModel(model);
+
+        String[] dato = new String[4];
+        try {
+
+            st = Conexion.getConnection().createStatement();
+            ResultSet result = st.executeQuery(sql);
+            while (result.next()) {
+                dato[0] = result.getString(1);
+                dato[1] = result.getString(2);
+                dato[2] = result.getString(3);
+                dato[3] = result.getString(4);
+                model.addRow(dato);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LibretaClienteSQL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+        }
+
+    }
+
 }

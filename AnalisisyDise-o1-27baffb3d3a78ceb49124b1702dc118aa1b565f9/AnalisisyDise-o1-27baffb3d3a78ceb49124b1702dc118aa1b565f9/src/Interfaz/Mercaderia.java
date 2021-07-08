@@ -44,8 +44,8 @@ public class Mercaderia extends javax.swing.JFrame {
     PruebaSQL pruebasql = new PruebaSQL();
     MercaderiaSQL mercaderiasql = new MercaderiaSQL();
     LotePollo lote = new LotePollo();
-    String proveedor = "", producto = "", loteAverio = "" ,fecha;
-    String nombreproveedor = "",  agregarProducto = "", fecha1;
+    String proveedor = "", producto = "", loteAverio = "", fecha;
+    String nombreproveedor = "", agregarProducto = "", fecha1;
     int cantidad = 0, stock = 0;
     float total;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
@@ -353,15 +353,15 @@ public class Mercaderia extends javax.swing.JFrame {
         System.out.println(cantidad);
         System.out.println(total);
         loteAverio = lote.getLoteAverio();
-
-       
         fecha = f.format(FechaCalendar2.getDate());
         System.out.println(fecha);
         Date fechas = (Date) FechaCalendar2.getDate();
         System.out.println(fechas);
 
         mercaderiasql.InsertarMercaderia(producto, cantidad, fecha, total, loteAverio, stock);
-
+        Stocktxt.setText(null);
+        Cantidadtxt.setText(null);
+        Totaltxt.setText(null);
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 

@@ -35,10 +35,9 @@ public class Cliente extends javax.swing.JFrame {
     Libreta libreta = new Libreta();
     ColorearInterfazNegro pintarInterfazNegro = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
-    String nombres = "", apellidos = "", direccion = "", telefonoMovil = "", telefonocasa = "";
+    String nombres = "", apellidos = "", direccion = "", telefonoMovil = "", telefonocasa = "", pass_concatenada;
     int nocliente = 0;
     Password contraseña3;
-    String pass_concatenada;
     boolean modoOscuro = false;
     LibretaClienteSQL libretaSQL = new LibretaClienteSQL();
 
@@ -476,7 +475,6 @@ public class Cliente extends javax.swing.JFrame {
         telefonoMovil = CelularClientetxt.getText();
         telefonocasa = TelefonoClientetxt.getText();
         direccion = DireccionClientetxt.getText();
-
         System.out.println("Nombres del cliente:" + nombres);
         System.out.println("Apellido del cliente:" + apellidos);
         System.out.println("Celular:" + telefonoMovil);
@@ -484,6 +482,12 @@ public class Cliente extends javax.swing.JFrame {
         System.out.println("Dirección:" + direccion);
 
         libretaSQL.InsertarLibretaCliente(nombres, apellidos, telefonoMovil, telefonocasa, direccion);
+
+        NombreClientetxt.setText(null);
+        ApellidoClientetxt.setText(null);
+        CelularClientetxt.setText(null);
+        TelefonoClientetxt.setText(null);
+        DireccionClientetxt.setText(null);
     }//GEN-LAST:event_GuardarClientebtnActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
@@ -515,8 +519,12 @@ public class Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_BuscartxtActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-
         libretaSQL.EliminarLibretaCliente(nocliente);
+        NombreClientetxt.setText(null);
+        ApellidoClientetxt.setText(null);
+        CelularClientetxt.setText(null);
+        TelefonoClientetxt.setText(null);
+        DireccionClientetxt.setText(null);
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
@@ -526,14 +534,8 @@ public class Cliente extends javax.swing.JFrame {
         telefonoMovil = CelularClientetxt.getText();
         telefonocasa = TelefonoClientetxt.getText();
         direccion = DireccionClientetxt.getText();
-       // libretaSQL. ActualizarLibreta();
-             /*  try {
-            thecrud.ActualizarLibreta(con, id, nombres2, apellidos2, telefonoMovil2, telefonocasa2, direccion2);
-            JOptionPane.showMessageDialog(null, "Actualización con exito");
-        } catch (SQLException ex) {
-            Logger.getLogger(RecuperarContrasenia.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex);
-        }*/
+
+
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     /**

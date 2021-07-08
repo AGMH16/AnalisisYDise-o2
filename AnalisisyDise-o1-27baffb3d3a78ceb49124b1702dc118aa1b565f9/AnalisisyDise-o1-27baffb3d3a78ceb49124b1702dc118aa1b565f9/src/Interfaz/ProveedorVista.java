@@ -8,6 +8,7 @@ package Interfaz;
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
 import ClasesSQL.LibretaClienteSQL;
+import ClasesSQL.ProveedorSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -22,37 +23,31 @@ import sun.security.util.Password;
  *
  * @author jenif
  */
-public class Libreta extends javax.swing.JFrame {
+public class ProveedorVista extends javax.swing.JFrame {
 
-    LibretaClienteSQL libretaclientesql = new LibretaClienteSQL();
+    ProveedorSQL proveedorsql = new ProveedorSQL();
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
-    public static String telefono = "", celular = "";
-    public static String getTelefono() {
-        return telefono;
+    public static String nombreReferencia = "";
+
+    public static String getNombreReferencia() {
+        return nombreReferencia;
     }
 
-    public static void setTelefono(String telefono) {
-        Libreta.telefono = telefono;
-    }
-
-    public static String getCelular() {
-        return celular;
-    }
-
-    public static void setCelular(String celular) {
-        Libreta.celular = celular;
+    public static void setNombreReferencia(String nombreReferencia) {
+        ProveedorVista.nombreReferencia = nombreReferencia;
     }
 
     /**
      * Creates new form Menu
      */
-    public Libreta() {
+    public ProveedorVista() {
 
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
+        this.nombreReferencia=nombreReferencia;
 
     }
 
@@ -88,10 +83,9 @@ public class Libreta extends javax.swing.JFrame {
         Eliminarbtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Libretatable = new javax.swing.JTable();
+        ProveedoresTable = new javax.swing.JTable();
         Buscartxt = new javax.swing.JTextField();
         Buscarbtn = new javax.swing.JButton();
-        Buscartxt1 = new javax.swing.JTextField();
         btn_oscuro = new javax.swing.JButton();
         Regresarbtn = new javax.swing.JButton();
 
@@ -147,9 +141,9 @@ public class Libreta extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("LIBRETA DE CLIENTES");
+        jLabel3.setText("Proveedores registrados");
 
-        Libretatable.setModel(new javax.swing.table.DefaultTableModel(
+        ProveedoresTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -157,19 +151,19 @@ public class Libreta extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "Celular", "Telefono"
+                "Nombre", "Dirección", "Telefono", "Empresa"
             }
         ));
-        Libretatable.addMouseListener(new java.awt.event.MouseAdapter() {
+        ProveedoresTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                LibretatableMousePressed(evt);
+                ProveedoresTableMousePressed(evt);
             }
         });
-        jScrollPane1.setViewportView(Libretatable);
+        jScrollPane1.setViewportView(ProveedoresTable);
 
         Buscartxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Buscartxt.setForeground(new java.awt.Color(102, 102, 102));
-        Buscartxt.setText("Busqueda por el teléfono acá");
+        Buscartxt.setText("Ingrese el nombre del proveedro acá");
         Buscartxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Buscartxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,21 +184,6 @@ public class Libreta extends javax.swing.JFrame {
             }
         });
 
-        Buscartxt1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Buscartxt1.setForeground(new java.awt.Color(102, 102, 102));
-        Buscartxt1.setText("Busqueda por el celular acá");
-        Buscartxt1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Buscartxt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Buscartxt1ActionPerformed(evt);
-            }
-        });
-        Buscartxt1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                Buscartxt1KeyPressed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -221,9 +200,7 @@ public class Libreta extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Buscartxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(60, 60, 60)
                             .addComponent(Eliminarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel3))
@@ -251,8 +228,6 @@ public class Libreta extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Buscartxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
@@ -328,14 +303,14 @@ public class Libreta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void LibretatableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LibretatableMousePressed
+    private void ProveedoresTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProveedoresTableMousePressed
         // TODO add your handling code here:
-        int numfila = Libretatable.getRowCount();
+        int numfila = ProveedoresTable.getRowCount();
 
-        Libretatable.getEditingColumn();
+        ProveedoresTable.getEditingColumn();
         System.out.println("La fila " + numfila + " fue seleccionada");
-        System.out.println("Veamos que salio " + Libretatable.getEditingColumn());
-    }//GEN-LAST:event_LibretatableMousePressed
+        System.out.println("Veamos que salio " + ProveedoresTable.getEditingColumn());
+    }//GEN-LAST:event_ProveedoresTableMousePressed
 
     private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed
         // TODO add your handling code here:
@@ -353,14 +328,14 @@ public class Libreta extends javax.swing.JFrame {
 
     private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
         // TODO add your handling code here:
-        libretaclientesql.Buscar(Libretatable);
+        proveedorsql.BuscarProveedor(ProveedoresTable);
+
     }//GEN-LAST:event_BuscarbtnActionPerformed
 
     private void BuscartxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BuscartxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            telefono = Buscartxt.getText();
-            celular = Buscartxt1.getText();
+            nombreReferencia = Buscartxt.getText();
         }
     }//GEN-LAST:event_BuscartxtKeyPressed
 
@@ -373,30 +348,13 @@ public class Libreta extends javax.swing.JFrame {
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
         // TODO add your handling code here:
-        telefono = Buscartxt.getText();
-        celular = Buscartxt1.getText();
+        nombreReferencia = Buscartxt.getText();
+        System.out.println(nombreReferencia);
+        Proveedor proveedor = new Proveedor();
+        proveedor.setVisible(true);
+        dispose();
 
-        if (Buscartxt.getText() != null) {
-            Cliente cliente = new Cliente(telefono);
-            cliente.setVisible(true);
-            dispose();
-        } else {
-            Cliente cliente = new Cliente(celular);
-            cliente.setVisible(true);
-            dispose();
-        }
-        System.out.println(telefono);
-        System.out.println(celular);
-   
     }//GEN-LAST:event_EliminarbtnActionPerformed
-
-    private void Buscartxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscartxt1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Buscartxt1ActionPerformed
-
-    private void Buscartxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Buscartxt1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Buscartxt1KeyPressed
     boolean modoOscuro = false;
 
     /**
@@ -416,14 +374,22 @@ public class Libreta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Libreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Libreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Libreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Libreta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -436,7 +402,7 @@ public class Libreta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Libreta().setVisible(true);
+                new ProveedorVista().setVisible(true);
             }
         });
     }
@@ -444,10 +410,9 @@ public class Libreta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscarbtn;
     private javax.swing.JTextField Buscartxt;
-    private javax.swing.JTextField Buscartxt1;
     private javax.swing.JButton EliminarClientebtn;
     private javax.swing.JButton Eliminarbtn;
-    private javax.swing.JTable Libretatable;
+    private javax.swing.JTable ProveedoresTable;
     private javax.swing.JButton Regresarbtn;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton2;

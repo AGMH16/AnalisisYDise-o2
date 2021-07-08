@@ -335,7 +335,7 @@ public class MateriaPrima extends javax.swing.JFrame {
         String fecha;
         fecha = f.format(FechaCalendar.getDate());
         System.out.println(fecha);
-
+        
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 

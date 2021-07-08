@@ -129,7 +129,7 @@ public class LibretaClienteSQL {
     }
 
     public void Buscar(JTable jTable) {
-        //   String sql = "SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo";
+        
         String sql = "select Nombre, Apellido, Celular, Telefono, Direccion from libretacliente";
         Statement st;
         DefaultTableModel model = new DefaultTableModel();
