@@ -25,13 +25,16 @@ import java.util.Arrays;
 import javax.swing.ImageIcon;
 import sun.security.util.Password;
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Inventario extends javax.swing.JFrame {
 
     String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "";
-    String nombreproveedor = "", tipoproducto = "";
-    int cantidad = 0, total = 0, cantidad2 = 0, año=0,dia=0,mes=0;
+    String nombreproveedor = "", tipoproducto = "",fecha;
+    java.util.Date date = new java.util.Date();
+    SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+    int cantidad = 0, total = 0, cantidad2 = 0;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
@@ -108,11 +111,9 @@ public class Inventario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Cantidadtxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        Proveedorjcmb = new javax.swing.JComboBox<>();
         Productojcmb = new javax.swing.JComboBox<>();
         AgregarProductobtn = new javax.swing.JButton();
         Dimensionaljcmb = new javax.swing.JComboBox<>();
@@ -120,9 +121,9 @@ public class Inventario extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         Eliminarbtn = new javax.swing.JButton();
         FechaCalendar = new com.toedter.calendar.JCalendar();
-        Totaltxt = new javax.swing.JTextField();
         Guardarbtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        Totaltxt = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
@@ -165,10 +166,7 @@ public class Inventario extends javax.swing.JFrame {
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 668, 82, 35));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bolsa-de-la-compra (1).png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario (2).png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal.png"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 648, -1, -1));
@@ -187,27 +185,17 @@ public class Inventario extends javax.swing.JFrame {
                 CantidadtxtKeyPressed(evt);
             }
         });
-        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 253, 43));
+        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 253, 43));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/quetzal_1.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, -1, -1));
-
-        Proveedorjcmb.setBackground(new java.awt.Color(244, 253, 251));
-        Proveedorjcmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Proveedorjcmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", " ", " " }));
-        Proveedorjcmb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProveedorjcmbActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Proveedorjcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 253, 42));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, -1, -1));
 
         Productojcmb.setBackground(new java.awt.Color(244, 253, 251));
         Productojcmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Productojcmb.setForeground(new java.awt.Color(102, 102, 102));
         Productojcmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Producto" }));
         Productojcmb.setToolTipText("");
-        jPanel2.add(Productojcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 253, 42));
+        jPanel2.add(Productojcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 253, 42));
 
         AgregarProductobtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         AgregarProductobtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -226,7 +214,7 @@ public class Inventario extends javax.swing.JFrame {
                 DimensionaljcmbActionPerformed(evt);
             }
         });
-        jPanel2.add(Dimensionaljcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 187, 43));
+        jPanel2.add(Dimensionaljcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 187, 43));
 
         AgregarDimensionalbtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         AgregarDimensionalbtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -236,7 +224,7 @@ public class Inventario extends javax.swing.JFrame {
                 AgregarDimensionalbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(AgregarDimensionalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 260, -1, -1));
+        jPanel2.add(AgregarDimensionalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, -1, -1));
 
         jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(153, 153, 153));
@@ -263,23 +251,7 @@ public class Inventario extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 100, -1));
-        jPanel2.add(FechaCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, -1, 125));
-
-        Totaltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Totaltxt.setForeground(new java.awt.Color(102, 102, 102));
-        Totaltxt.setText("Total");
-        Totaltxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Totaltxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TotaltxtActionPerformed(evt);
-            }
-        });
-        Totaltxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TotaltxtKeyPressed(evt);
-            }
-        });
-        jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 253, 43));
+        jPanel2.add(FechaCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, 125));
 
         Guardarbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Guardarbtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -293,7 +265,23 @@ public class Inventario extends javax.swing.JFrame {
         jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 470, 100, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+
+        Totaltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Totaltxt.setForeground(new java.awt.Color(102, 102, 102));
+        Totaltxt.setText("Cantidad");
+        Totaltxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Totaltxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TotaltxtActionPerformed(evt);
+            }
+        });
+        Totaltxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TotaltxtKeyPressed(evt);
+            }
+        });
+        jPanel2.add(Totaltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 253, 43));
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
@@ -388,10 +376,6 @@ public class Inventario extends javax.swing.JFrame {
         Productojcmb.addItem(AgregarProducto);
     }//GEN-LAST:event_AgregarProductobtnActionPerformed
 
-    private void ProveedorjcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorjcmbActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ProveedorjcmbActionPerformed
-
     private void CantidadtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -414,20 +398,11 @@ public class Inventario extends javax.swing.JFrame {
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        nombreproveedor = (String) Proveedorjcmb.getSelectedItem();
         tipoproducto = (String) Productojcmb.getSelectedItem();
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
         dimensional2 = (String) Dimensionaljcmb.getSelectedItem();
-        // String fecha = jDateChooser1.getDate().toString();
-        //System.out.println("FECHA  " + fecha);
         total = Integer.parseInt(jTextField6.getText());
-        //   obtener_proveedor(0,nombreproveedor);
-        /* try {
-            thecrud.IngresarProducto(con, tipoproducto, cantidad2, dimensional2, fecha, total, nombreproveedor);
-        } catch (SQLException ex) {
-            Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
+    
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -446,27 +421,14 @@ public class Inventario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
-    private void TotaltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotaltxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TotaltxtActionPerformed
-
-    private void TotaltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyPressed
-        // TODO add your handling code here:
-        total = Integer.parseInt(Totaltxt.getText());
-    }//GEN-LAST:event_TotaltxtKeyPressed
-
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
         // TODO add your handling code here:
-         año = FechaCalendar.getCalendar().get(Calendar.YEAR);
-        mes = FechaCalendar.getCalendar().get(Calendar.MARCH);
-        dia = FechaCalendar.getCalendar().get(Calendar.DAY_OF_MONTH);
-
-        String fecha = (año + "-" + mes + "-" + dia);
-        System.out.println(fecha);
+        
         producto = (String) Productojcmb.getSelectedItem();
-        proveedor = (String) Proveedorjcmb.getSelectedItem();
         cantidad = Integer.parseInt(Cantidadtxt.getText());
         dimensional = (String) Dimensionaljcmb.getSelectedItem();
+        fecha = f.format(FechaCalendar.getDate());
+        System.out.println(fecha);
         total = Integer.parseInt(Totaltxt.getText());
         System.out.println(producto);
         System.out.println(proveedor);
@@ -476,15 +438,23 @@ public class Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        if (!modoOscuro) {
-            pintarInterfaz.ColorearInventarioNegro(jPanel1, jPanel2, btn_oscuro, Productojcmb, Proveedorjcmb, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
+      /*  if (!modoOscuro) {
+            pintarInterfaz.ColorearInventarioNegro(jPanel1, jPanel2, btn_oscuro, Productojcmb, DimensionalJcbx, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearInventarioBlanco(jPanel1, jPanel2, btn_oscuro, Productojcmb, Proveedorjcmb, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
+            pintarInterfazBlanco.ColorearInventarioBlanco(jPanel1, jPanel2, btn_oscuro, Productojcmb, DimensionalJcbx, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
 
             modoOscuro = false;
-        }
+        }*/
     }//GEN-LAST:event_btn_oscuroActionPerformed
+
+    private void TotaltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotaltxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TotaltxtActionPerformed
+
+    private void TotaltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TotaltxtKeyPressed
     boolean modoOscuro = false;
 
     /**
@@ -539,7 +509,6 @@ public class Inventario extends javax.swing.JFrame {
     private com.toedter.calendar.JCalendar FechaCalendar;
     private javax.swing.JButton Guardarbtn;
     private javax.swing.JComboBox<String> Productojcmb;
-    private javax.swing.JComboBox<String> Proveedorjcmb;
     private javax.swing.JTextField Totaltxt;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton1;
@@ -547,7 +516,6 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
