@@ -395,8 +395,8 @@ public class MateriaPrima extends javax.swing.JFrame {
 
     private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
         // TODO add your handling code here:
-        nombreColaborador = Buscartxt.getText();
-        System.out.println("Colaborador a buscar:" + nombreColaborador);
+        loteAverio = CodigoAveriotxt.getText();
+        System.out.println("Codigo a buscar:" + loteAverio);
     }//GEN-LAST:event_BuscarbtnActionPerformed
 
     /**
