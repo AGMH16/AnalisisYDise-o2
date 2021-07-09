@@ -31,7 +31,6 @@ public class Ingreso extends javax.swing.JFrame {
     String usuario = "";
     Password contraseña3;
     String pass_concatenada;
-    ConexionBD sQL = new ConexionBD();
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
     ArrayList<Usuario> listaUsuarios=new ArrayList<Usuario>();

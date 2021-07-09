@@ -27,7 +27,6 @@ import sun.security.util.Password;
  */
 public class LotePollo extends javax.swing.JFrame {
     PruebaSQL pruebasql = new PruebaSQL();
-    ConexionBD Conexion = new ConexionBD();
     ColorearInterfazNegro pintarInterfazNegro = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 

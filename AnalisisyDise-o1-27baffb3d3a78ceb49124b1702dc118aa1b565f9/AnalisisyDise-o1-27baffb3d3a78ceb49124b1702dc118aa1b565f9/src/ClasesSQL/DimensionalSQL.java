@@ -6,6 +6,7 @@
 package ClasesSQL;
 
 import Conexion.ConexionBD;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,15 +22,15 @@ import javax.swing.JTextField;
  */
 public class DimensionalSQL {
 
-    ConexionBD Conexion = new ConexionBD();
+   Connection connection = ConexionBD.getConnection();
 
     public void InsertarDimensional(String dimensional) {
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("INSERT INTO dimensional(Dimensional) VALUES('" + dimensional + "')");
                 JOptionPane.showMessageDialog(null, "Dimensional añedida a la lista");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR DIMENSIONAL");
         }
@@ -38,11 +39,11 @@ public class DimensionalSQL {
     // //DELETE FROM dimensional WHERE Dimensional="Libras";
     public void EliminarDimensional(String dimensional) {
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("DELETE FROM dimensional WHERE dimensional=('" + dimensional + "')");
                 JOptionPane.showMessageDialog(null, "DIMENSIONAL eliminada de la lista");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
         }
@@ -52,7 +53,7 @@ public class DimensionalSQL {
     public int BuscarDimensional(JComboBox Dimensionaljcmb, String nombreDimensional) {
         int id = 0;
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select idDimensional,Dimensional from libreta");
                 while (clr.next()) {
                     id = clr.getInt("idDimensional");
@@ -65,7 +66,7 @@ public class DimensionalSQL {
                 }
 
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             //JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
         }

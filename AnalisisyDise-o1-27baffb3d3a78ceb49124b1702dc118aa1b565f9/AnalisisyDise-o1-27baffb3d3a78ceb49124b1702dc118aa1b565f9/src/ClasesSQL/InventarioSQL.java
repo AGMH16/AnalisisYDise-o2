@@ -6,34 +6,34 @@
 package ClasesSQL;
 import javax.swing.table.DefaultTableModel;
 import Conexion.ConexionBD;
-import java.util.Date;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+
 /**
  *
  * @author jenif
  */
-public class VentaSQL {
+public class InventarioSQL {
     Connection connection = ConexionBD.getConnection();
-
-    public void InsertarVenta(boolean adomicilio,boolean puntoVenta,String producto, int cantidad,float total,  String fecha,int usuario_idUsuario ) {
+     public void InsertarInventario(String nombre,int existencia,String fechaIngreso,int total,int Dimensional_idDimensional,int intUsuario_idUsuario) {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
-                statement.execute("INSERT INTO venta (Adomicilio,PuntoVenta,Producto,Cantidad,Total,Fecha,Usuario_idUsuario) VALUES ('" + adomicilio + "','" + puntoVenta + "','" + producto + "'," + cantidad + "," + total + ",'" + fecha + "'," +usuario_idUsuario + ")");
-                JOptionPane.showMessageDialog(null, "Venta añedida a la lista");
+                statement.execute("INSERT INTO insumouso(Nombre,Existencia,FechaIngreso,Total,Dimensional_idDimensional,Usuario_idUsuario) VALUES ('" + nombre + "'," + existencia + ",'" + fechaIngreso + "'," + total + "," + Dimensional_idDimensional + "," + intUsuario_idUsuario + ")");
+                JOptionPane.showMessageDialog(null, "Insumo añedida a la lista");
             }
             connection.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR ESTA VENTA");
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR ESTE INSUMO");
         }
     }
+
 }

@@ -13,15 +13,17 @@ public class ConexionBD {
 
     private static Connection connection;
 
+    private ConexionBD() {
+
+    }
+
     public static Connection getConnection() {
         try {
             if (connection == null) {
                 CrearConexion();
-               // System.out.println("Entro al if");
+                // System.out.println("Entro al if");
             }
-            if (VerificarSQL()) {
-               // System.out.println("Si esta activa");
-            } else {
+            if (!VerificarSQL()) {
                 connection.close();
                 CrearConexion();
             }
@@ -33,7 +35,7 @@ public class ConexionBD {
         }
     }
 
-    public static void CrearConexion() throws SQLException {
+    private static void CrearConexion() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");//com.mysql.cj.jdbc.Driver
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Analisis2", "root", "1234");
@@ -43,7 +45,7 @@ public class ConexionBD {
 
     }
 
-    public static boolean VerificarSQL() {
+    private static boolean VerificarSQL() {
         boolean x = false;
         try {
             //Connection miConexion=(Connection) Conexion.GetConnection();
@@ -58,5 +60,4 @@ public class ConexionBD {
         return x;
     }
 
-   
 }

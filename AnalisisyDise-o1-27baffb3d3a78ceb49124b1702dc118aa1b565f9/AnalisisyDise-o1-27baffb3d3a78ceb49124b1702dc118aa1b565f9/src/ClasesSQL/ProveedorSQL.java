@@ -2,6 +2,7 @@ package ClasesSQL;
 
 import Conexion.ConexionBD;
 import Clases.Proveedor;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,15 +21,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ProveedorSQL {
 
-    ConexionBD Conexion = new ConexionBD();
+    Connection connection = ConexionBD.getConnection();
 
     public void InsertarProveedor(String nombre, String direccion, String telefono, String empresa) {
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("INSERT INTO proveedor(Nombre, Direccion, Telefono,Empresa) VALUES ('" + nombre + "','" + direccion + "','" + telefono + "','" + empresa + "')");
                 JOptionPane.showMessageDialog(null, "Proveedor añadido a la lista");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
         }
@@ -37,11 +38,11 @@ public class ProveedorSQL {
     //DELETE FROM proveedor WHERE Empresa='Pollo Feliz';
     public void DeleteProveedor(int IdProveedor) {
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("DELETE FROM proveedor WHERE idProveedor=('" + IdProveedor + "')");
                 JOptionPane.showMessageDialog(null, "Proveedor añedido a la lista");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
         }
@@ -50,7 +51,7 @@ public class ProveedorSQL {
     public int BuscarProveedorPorNombre(JTextField NombreProveedortxt1, JTextField TelefonoProveedortxt, JTextField TelefonoProveedortxt1, JTextField EmpresaProveedortxt, String nombreProveedor) {
         int IdProveedor = 0;
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select idProveedor, Nombre, Direccion, Telefono, Empresa from proveedor");
                 while (clr.next()) {
                     IdProveedor = clr.getInt("idProveedor");
@@ -68,7 +69,7 @@ public class ProveedorSQL {
                     }
                 }
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
         }
 
@@ -78,7 +79,7 @@ public class ProveedorSQL {
     public ArrayList<Proveedor> ConsultaProveedorNombre() {
         ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select idProveedor, Nombre, Direccion, Telefono, Empresa from proveedor");
 
                 while (clr.next()) {
@@ -90,7 +91,7 @@ public class ProveedorSQL {
                     proveedores.add(proveedor);
                 }
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
         }
 
@@ -110,7 +111,7 @@ public class ProveedorSQL {
         String[] dato = new String[4];
         try {
 
-            st = Conexion.getConnection().createStatement();
+            st = connection.createStatement();
             ResultSet result = st.executeQuery(sql);
             while (result.next()) {
                 dato[0] = result.getString(1);

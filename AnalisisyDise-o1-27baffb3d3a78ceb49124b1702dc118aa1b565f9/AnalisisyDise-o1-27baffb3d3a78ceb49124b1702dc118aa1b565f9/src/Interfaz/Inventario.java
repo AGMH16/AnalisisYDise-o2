@@ -52,13 +52,6 @@ public class Inventario extends javax.swing.JFrame {
 
         // thecrud.ListaDeProveedores(jComboBox1);
         Dimensionaljcmb.addItem("Unidades");
-        Dimensionaljcmb.addItem("Docenas");
-        Dimensionaljcmb.addItem("Libras");
-        Dimensionaljcmb.addItem("Arroba");
-        Dimensionaljcmb.addItem("Cajas");
-        Dimensionaljcmb.addItem("Cientos");
-        Dimensionaljcmb.addItem("Kilogramos");
-        Dimensionaljcmb.addItem("Quintales");
 
         Productojcmb.addItem("Pollo");
         Productojcmb.addItem("Maíz");

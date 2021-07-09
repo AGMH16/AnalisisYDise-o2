@@ -7,6 +7,7 @@ package ClasesSQL;
 
 import Clases.Usuario;
 import Conexion.ConexionBD;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -21,16 +22,16 @@ import javax.swing.JTextField;
  */
 public class UsuarioSQL {
 
-    ConexionBD Conexion = new ConexionBD();
+     Connection connection = ConexionBD.getConnection();
 
     public void InsertarUsuario(String nombre, String apellido, boolean supervisor, String usuario, String contraseña, String puesto, String correoElectronico) {
         try {
             //insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('Jenifer','Rabanales',0, 'jenirg','1234','Gerente','jeniferrabanales99@gmail.com');
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('" + nombre + "','" + apellido + "','" + supervisor + "','" + usuario + "','" + contraseña + "','"+puesto+ "','" + correoElectronico + "')");
                 JOptionPane.showMessageDialog(null, "Usuario registrado");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO REGISTRAR EL USUARIO");
         }
@@ -39,11 +40,11 @@ public class UsuarioSQL {
     //DELETE FROM usuario WHERE CorreoElectronico='JFFSDFDS';
     public void DeleteUsuario(String correoElectronico) {
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("DELETE FROM usuario WHERE CorreoElectronico=('" + correoElectronico + "')");
                 JOptionPane.showMessageDialog(null, "Usuario elimanado");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR EL USUARIO");
             System.out.println("Error:" + e);
@@ -53,7 +54,7 @@ public class UsuarioSQL {
     public int BuscarUsuarioPorCorreo(JTextField NombreColaboradortxt, JTextField ApellidoColaboradortxt, JTextField Usuariotxt, JComboBox PuestoLaboraltxt, JTextField Correotxt, String correoReferencia) {
         int IdUsuario = 0;
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select idUsuario, Nombre, Apellido,Usuario,Puesto,CorreoElectronico from usuario WHERE CorreoElectronico=('" + correoReferencia + "')");
                 while (clr.next()) {
                     IdUsuario = clr.getInt("idUsuario");
@@ -74,7 +75,7 @@ public class UsuarioSQL {
                     }
                 }
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
         }
 
@@ -84,7 +85,7 @@ public class UsuarioSQL {
     public ArrayList<Usuario> BuscarUsuario() {
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select * from usuario");
                 while (clr.next()) {
                     Usuario usuario = new Usuario();
@@ -99,7 +100,7 @@ public class UsuarioSQL {
                     usuarios.add(usuario);
                 }
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
         }
 

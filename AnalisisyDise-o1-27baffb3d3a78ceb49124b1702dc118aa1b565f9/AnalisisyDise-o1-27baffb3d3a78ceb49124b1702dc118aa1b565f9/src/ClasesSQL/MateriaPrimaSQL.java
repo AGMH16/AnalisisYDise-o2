@@ -8,6 +8,7 @@ package ClasesSQL;
 import Conexion.ConexionBD;
 import Clases.MateriaPrima;
 import Clases.Proveedor;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -19,15 +20,15 @@ import javax.swing.JOptionPane;
  */
 public class MateriaPrimaSQL {
 
-    ConexionBD Conexion = new ConexionBD();
+     Connection connection = ConexionBD.getConnection();
 
     public void InsertarMateriaPrima(MateriaPrima Datos) {
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("INSERT INTO lotepollo(LoteAverio,UnidadExistente,FechaIngreso,Total,Proveedor,Usuario_idUsuario) VALUES ('" + Datos.getLoteAverio() + "'," + Datos.getUnidadExistente() + ",'" + Datos.getFechaIngreso() + "'," + Datos.getTotal() + ",'" + Datos.getProveedor() + "'," + Datos.getUsuario().getIdUsuario() + ")");
                 JOptionPane.showMessageDialog(null, "Proveedor añadido a la lista");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
         }
@@ -35,11 +36,11 @@ public class MateriaPrimaSQL {
 
     public void DeleteMateriaPrima(String codigo) {
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("DELETE FROM lotepollo WHERE LotePollo=('" + codigo + "')");
                 JOptionPane.showMessageDialog(null, "Proveedor añedido a la lista");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
         }
@@ -48,7 +49,7 @@ public class MateriaPrimaSQL {
     public ArrayList<MateriaPrima> ConsultaMateraPrimaCodigo() {
         ArrayList<MateriaPrima> listamateriaprima = new ArrayList<MateriaPrima>();
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select * from lotepollo");
 
                 while (clr.next()) {
@@ -63,7 +64,7 @@ public class MateriaPrimaSQL {
                     listamateriaprima.add(materiaprima);
                 }
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
         }
 

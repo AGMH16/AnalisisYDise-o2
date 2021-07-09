@@ -24,15 +24,14 @@ import javax.swing.JTextField;
  */
 public class LibretaClienteSQL {
 
-    ConexionBD Conexion = new ConexionBD();
-
+Connection connection = ConexionBD.getConnection();
     public void InsertarLibretaCliente(String nombre, String apellido, String celular, String telefono, String direccion) {
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("INSERT INTO libretacliente(Nombre, Apellido, Celular, Telefono, Direccion) VALUES ('" + nombre + "','" + apellido + "','" + celular + "','" + telefono + "','" + direccion + "')");
                 JOptionPane.showMessageDialog(null, "Cliente añedida a la lista");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR CLIENTE");
             System.out.println(e);
@@ -41,18 +40,18 @@ public class LibretaClienteSQL {
 
     public void EliminarLibretaCliente(int nocliente) {
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("DELETE FROM libretacliente WHERE NoCliente=('" + nocliente + "')");
                 JOptionPane.showMessageDialog(null, "Cliente eliminado");
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR CLIENTE");
         }
     }
-    public static void ActualizarLibreta(Connection con, int noCliente, String nombre, String apellido, String celular, String telefono, String direccion) throws SQLException {
+    public void ActualizarLibreta( int noCliente, String nombre, String apellido, String celular, String telefono, String direccion) throws SQLException {
 
-        try (CallableStatement cstmt = con.prepareCall("{call mydb.ActualizarLibreta(?,?,?,?,?,?)}");) {
+        try (CallableStatement cstmt = connection.prepareCall("{call mydb.ActualizarLibreta(?,?,?,?,?,?)}");) {
             cstmt.setInt(1, noCliente);
             cstmt.setString(2, nombre);
             cstmt.setString(3, apellido);
@@ -71,7 +70,7 @@ public class LibretaClienteSQL {
     public int BuscarClientePorTelefono(JTextField NombreClientetxt, JTextField ApellidoClientetxt, JTextField CelularClientetxt, JTextField TelefonoClientetxt, JTextField DireccionClientetxt, String telefonoReferencia) {
         int NoCliente = 0;
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select NoCliente, Nombre, Apellido, Celular, Telefono, Direccion from libretacliente");
                 while (clr.next()) {
                     NoCliente = clr.getInt("NoCliente");
@@ -101,7 +100,7 @@ public class LibretaClienteSQL {
     public int BuscarClientePorCelular(JTextField NombreClientetxt, JTextField ApellidoClientetxt, JTextField CelularClientetxt, JTextField TelefonoClientetxt, JTextField DireccionClientetxt, String celularReferencia) {
         int NoCliente = 0;
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select NoCliente, Nombre, Apellido, Celular, Telefono, Direccion from libretacliente;");
                 while (clr.next()) {
                     NoCliente = clr.getInt("NoCliente");
@@ -142,7 +141,7 @@ public class LibretaClienteSQL {
         String[] dato = new String[5];
         try {
 
-            st = Conexion.getConnection().createStatement();
+            st = connection.createStatement();
             ResultSet result = st.executeQuery(sql);
             while (result.next()) {
                 dato[0] = result.getString(1);

@@ -534,7 +534,12 @@ public class Cliente extends javax.swing.JFrame {
         telefonoMovil = CelularClientetxt.getText();
         telefonocasa = TelefonoClientetxt.getText();
         direccion = DireccionClientetxt.getText();
-
+        try {
+            libretaSQL.ActualizarLibreta(nocliente, nombres, apellidos, nombres, telefonocasa, direccion);
+        } catch (SQLException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
 
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 

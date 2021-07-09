@@ -8,6 +8,7 @@ package ClasesSQL;
 import Clases.Proveedor;
 import Clases.MateriaPrima;
 import Conexion.ConexionBD;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PruebaSQL {
 
-    ConexionBD Conexion = new ConexionBD();
+     Connection connection = ConexionBD.getConnection();
     int val;
 
     public int getVal() {
@@ -50,7 +51,7 @@ public class PruebaSQL {
         String[] dato = new String[3];
         try {
 
-            st = Conexion.getConnection().createStatement();
+            st = connection.createStatement();
             ResultSet result = st.executeQuery(sql);
             while (result.next()) {
                 dato[0] = result.getString(1);
@@ -68,7 +69,7 @@ public class PruebaSQL {
     public int BuscarCodigoLote(JComboBox idLotejcbx) {
         int loteAverio = 0;
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select LoteAverio FROM lotepollo");
                 while (clr.next()) {
                     loteAverio = clr.getInt("idDimensional");
@@ -79,7 +80,7 @@ public class PruebaSQL {
                 }
 
             }
-            Conexion.getConnection().close();
+            connection.close();
         } catch (Exception e) {
             //JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
         }
@@ -92,7 +93,7 @@ public class PruebaSQL {
     public int BuscarUsuario(String usuario, String contraseña) {
         int IdUsuario = 0;
         try {
-            try (Statement statement = (Statement) Conexion.getConnection().createStatement()) {
+            try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("SELECT idUsuario,Usuario, Contraseña from usuario");
                 while (clr.next()) {
                     IdUsuario = clr.getInt("idUsuario");
