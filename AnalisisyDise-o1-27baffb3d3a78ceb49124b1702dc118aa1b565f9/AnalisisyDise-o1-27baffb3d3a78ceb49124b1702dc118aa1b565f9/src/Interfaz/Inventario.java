@@ -221,7 +221,7 @@ public class Inventario extends javax.swing.JFrame {
                 AgregarDimensionalbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(AgregarDimensionalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, -1, -1));
+        jPanel2.add(AgregarDimensionalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
 
         jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(153, 153, 153));
@@ -424,7 +424,7 @@ public class Inventario extends javax.swing.JFrame {
         producto = (String) Productojcmb.getSelectedItem();
 
         cantidad = Integer.parseInt(Cantidadtxt.getText());
-        dimensional = (String) Dimensionaljcmb.getSelectedItem();
+        
         fecha = f.format(FechaCalendar.getDate());
         System.out.println(fecha);
         total = Integer.parseInt(Totaltxt.getText());
@@ -433,7 +433,7 @@ public class Inventario extends javax.swing.JFrame {
         System.out.println(cantidad);
         System.out.println(dimensional);
         System.out.println(total);
-        
+        dimensional = (String) Dimensionaljcmb.getSelectedItem();
         pruebasql.BuscarIdDimensional(dimensional);
         System.out.println("Var para meter en el insert:" + pruebasql.getVal2());
         //Para obtener ID del Usuario

@@ -157,7 +157,7 @@ public class PruebaSQL {
             try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select idDimensional,Dimensional from dimensional");
                 while (clr.next()) {
-                    idDimensional = clr.getInt("idUsuario");
+                    idDimensional = clr.getInt("idDimensional");
                     String Dimensional = clr.getString("Dimensional");
 
                     if (dimesional.equals(Dimensional)) {
