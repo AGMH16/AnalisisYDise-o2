@@ -71,5 +71,6 @@ public class MercaderiaSQL {
             System.out.println(ex);
         }
     }
+    
 
 }

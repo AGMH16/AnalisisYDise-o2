@@ -456,52 +456,7 @@ public class Ventas extends javax.swing.JFrame {
         //   pruebasql.BuscarUsuario(usuarioReferencia,contraseñaReferencia);
         System.out.println("Var para meter en el insert:" + pruebasql.getVal());
         ventasql.InsertarVenta(aDomicilio, puntoDeVenta, tipoproducto, cantidad, total, fecha, pruebasql.getVal());
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        /*      do {
-            System.out.println("Introduce la cantidad de cada producto");
-            System.out.println("Cantidad: ");
-            cantidadProducto = Integer.parseInt(cantidadtxt.getText());
-            System.out.println("Introduce el producto");
-            System.out.println("Producto: ");
-            nombreProducto = (String) ProductoJcmbx.getSelectedItem();
-            System.out.println("Introduce el total de cada producto");
-            System.out.println("Total: ");
-            total2 = Float.parseFloat(totaltxt.getText());
-            if (cantidadProducto != 0) {
-                Cantidad.add(cantidadProducto);
-                Producto.add(nombreProducto);
-                Total.add(total2);
-            }
-        } while (cantidadProducto != 0);
-
-        System.out.println("Ha introducido: " + Cantidad.size() + " números:");
-        System.out.println("Ha introducido: " + Producto.size() + " cantidad:");
-        System.out.println("Ha introducido: " + Total.size() + " total:");
-        //mostrar el arrayList completo
-        System.out.println(Cantidad);
-        System.out.println(Producto);
-        System.out.println(Total);
-        //recorrido usando un iterador para mostrar un elemento por línea                                         
-        Iterator it = Cantidad.iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
-        }
-        Iterator it2 = Producto.iterator();
-        while (it2.hasNext()) {
-            System.out.println(it2.next());
-        }
-        Iterator it3 = Total.iterator();
-        while (it3.hasNext()) {
-            System.out.println(it3.next());
-        }
-        //recorrido usando foreach para sumar los elementos
-        double suma = 0;
-        for (Float i : Total) {
-            suma = suma + i;
-        }
-        System.out.println("Suma: " + suma);
-        System.out.println("Media: " + suma / Total.size());*/
 
     }//GEN-LAST:event_jButton1ActionPerformed
     private String comprimir(String frase) {

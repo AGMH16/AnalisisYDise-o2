@@ -44,9 +44,7 @@ public class Ingreso extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
-        if (sQL.getConnection() != null) {
-            JOptionPane.showMessageDialog(null, "Conexión Exitosa");
-        }
+       
         listaUsuarios=usuariosql.BuscarUsuario();
     }
 

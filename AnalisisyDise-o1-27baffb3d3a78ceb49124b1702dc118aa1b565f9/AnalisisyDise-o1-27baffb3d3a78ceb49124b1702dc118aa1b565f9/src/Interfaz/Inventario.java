@@ -9,6 +9,8 @@ package Interfaz;
 //import Usuario.ConexionBD;
 import Clases.ColorearInterfazBlanco;
 import Clases.ColorearInterfazNegro;
+import ClasesSQL.PruebaSQL;
+import Usuario.Compresor;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -27,22 +29,25 @@ import sun.security.util.Password;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class Inventario extends javax.swing.JFrame {
 
-    String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "";
-    String nombreproveedor = "", tipoproducto = "",fecha;
+    String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "", pass_concatenada = "", Usuario = "", xx, xx2;
+    String nombreproveedor = "", tipoproducto = "", fecha;
     java.util.Date date = new java.util.Date();
     SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+    PruebaSQL pruebasql = new PruebaSQL();
     int cantidad = 0, total = 0, cantidad2 = 0;
     ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
     ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
+    JPasswordField passwordField = new JPasswordField(15);
+    JTextField jtextField = new JTextField(15);
+    char[] password;
 
-    /*crud thecrud = new crud();
-    Connection con = (Connection) ConexionBD.GetConnection();*/
-    /**
-     * Creates new form Menu
-     */
     public Inventario() {
 
         this.setUndecorated(true);
@@ -50,8 +55,7 @@ public class Inventario extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         transparenciButton();
 
-        // thecrud.ListaDeProveedores(jComboBox1);
-        Dimensionaljcmb.addItem("Unidades");
+        pruebasql.BuscarDimesional(Dimensionaljcmb);
 
         Productojcmb.addItem("Pollo");
         Productojcmb.addItem("Maíz");
@@ -395,7 +399,7 @@ public class Inventario extends javax.swing.JFrame {
         cantidad2 = Integer.parseInt(Cantidadtxt.getText());
         dimensional2 = (String) Dimensionaljcmb.getSelectedItem();
         total = Integer.parseInt(jTextField6.getText());
-    
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -416,8 +420,9 @@ public class Inventario extends javax.swing.JFrame {
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
         // TODO add your handling code here:
-        
+
         producto = (String) Productojcmb.getSelectedItem();
+
         cantidad = Integer.parseInt(Cantidadtxt.getText());
         dimensional = (String) Dimensionaljcmb.getSelectedItem();
         fecha = f.format(FechaCalendar.getDate());
@@ -428,10 +433,64 @@ public class Inventario extends javax.swing.JFrame {
         System.out.println(cantidad);
         System.out.println(dimensional);
         System.out.println(total);
-    }//GEN-LAST:event_GuardarbtnActionPerformed
+        
+        pruebasql.BuscarIdDimensional(dimensional);
+        System.out.println("Var para meter en el insert:" + pruebasql.getVal2());
+        //Para obtener ID del Usuario
+        // usuarioReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
+        // contraseñaReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
+        //CONTRASEÑA
+        /*      JPanel panel = new JPanel();
+        JLabel label2 = new JLabel("Usuario:");
+        JLabel label = new JLabel("Contraseña:");
+        // JTextField jtextfield = new JTextField();
 
+        // Agregamos los componentes al panel
+        panel.add(label2);
+        panel.add(jtextField);
+        panel.add(label);
+        panel.add(passwordField);
+
+        // Definimos el texto de las opciones para aceptar o cancelar
+        String[] options = new String[]{"Aceptar", "Cancelar"};
+        // Agregamos el panel y las opciones al dialogo
+        int option = JOptionPane.showOptionDialog(null, panel, "Ingreso de datos usuario",
+                JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE,
+                null, options, options[1]);
+
+        //CONTRASEÑA
+        if (option == 0) // pressing OK button
+        {
+            Usuario = jtextField.getText();
+            System.out.println("Usuario: " + Usuario);
+            password = passwordField.getPassword();
+
+            for (int i = 0; i < password.length; i++) {
+                pass_concatenada = pass_concatenada + password[i];
+                System.out.println(password[i]);
+            }
+
+            xx = comprimir(pass_concatenada);
+            System.out.println(xx);
+            xx2 = String.valueOf(password);
+            pruebasql.BuscarUsuario(Usuario, xx2);
+        } else {
+            System.out.println("Ingreso de contraseña cancelada");
+
+        }
+        System.out.println("Var para meter en el insert:" + pruebasql.getVal());*/
+
+
+    }//GEN-LAST:event_GuardarbtnActionPerformed
+    private String comprimir(String frase) {
+        Compresor compresor = new Compresor();
+        String Cadena_en_binario = compresor.CodigoAscii_a_binario(frase);
+        String cadena_simple = compresor.cadena_RLE(Cadena_en_binario);
+        String ultima_cadena = compresor.rle_a_Ascii(cadena_simple);
+        return ultima_cadena;
+    }
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-      /*  if (!modoOscuro) {
+        /*  if (!modoOscuro) {
             pintarInterfaz.ColorearInventarioNegro(jPanel1, jPanel2, btn_oscuro, Productojcmb, DimensionalJcbx, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
             modoOscuro = true;
         } else if (modoOscuro == true) {
