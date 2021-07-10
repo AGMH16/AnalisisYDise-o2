@@ -146,6 +146,8 @@ public class PruebaSQL {
         return IdUsuario;
     }
     
+   
+    
      public int BuscarIdDimensional(String dimesional) {
         int idDimensional = 0;
         try {

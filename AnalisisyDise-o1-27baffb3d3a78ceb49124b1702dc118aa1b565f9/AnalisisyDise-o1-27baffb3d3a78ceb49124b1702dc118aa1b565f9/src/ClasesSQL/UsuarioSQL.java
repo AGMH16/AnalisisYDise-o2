@@ -106,5 +106,29 @@ public class UsuarioSQL {
 
         return usuarios;
     }
+     public String BuscarUsuario2(String usuario) {
+      //  int IdUsuario = 0;
+        String Usuario="";
+        try {
+            try (Statement statement = (Statement) connection.createStatement()) {
+                ResultSet clr = statement.executeQuery("SELECT Usuario from usuario");
+                while (clr.next()) {
+                    Usuario = clr.getString("Usuario");
+
+                    if ((usuario.equals(Usuario))) {
+                        JOptionPane.showMessageDialog(null, "Este usuario ya esta en uso, pruebe con otro");
+                       // val = IdUsuario;
+                     //   System.out.println(val);
+                        
+
+                    }
+                }
+            }
+            //Conexion.getConnection().close();
+        } catch (Exception e) {
+        }
+
+        return Usuario;
+    }
 
 }

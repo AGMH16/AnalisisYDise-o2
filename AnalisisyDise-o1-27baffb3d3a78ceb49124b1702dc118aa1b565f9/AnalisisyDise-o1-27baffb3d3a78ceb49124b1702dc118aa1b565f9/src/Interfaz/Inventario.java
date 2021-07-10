@@ -86,12 +86,6 @@ public class Inventario extends javax.swing.JFrame {
         jButton4.setOpaque(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setBorderPainted(false);
-        Actualizarbtn.setOpaque(false);
-        Actualizarbtn.setContentAreaFilled(false);
-        Actualizarbtn.setBorderPainted(false);
-        Eliminarbtn.setOpaque(false);
-        Eliminarbtn.setContentAreaFilled(false);
-        Eliminarbtn.setBorderPainted(false);
         Guardarbtn.setOpaque(false);
         Guardarbtn.setContentAreaFilled(false);
         Guardarbtn.setBorderPainted(false);
@@ -478,10 +472,8 @@ public class Inventario extends javax.swing.JFrame {
         panel.setPanelFondo(jPanel1);
         panel.setColorFondo(colorfondo);
         panel.getPanelFondo();
-        boton.setBoton(Actualizarbtn);
         boton.setColorBoton(colorbotones);
         boton.getBoton();
-        boton.setBoton(Eliminarbtn);
         boton.setColorBoton(colorbotones);
         boton.getBoton();
         boton.setBoton(Guardarbtn);
