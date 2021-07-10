@@ -131,14 +131,9 @@ public class PruebaSQL {
                     String Usuario = clr.getString("Usuario");
                     String Contraseña = clr.getString("Contraseña");
 
-                    if ((usuario.equals(Usuario)) && (contraseña.equals(Contraseña))) {
+                    if ((usuario.equals(Usuario))) {
 
                         val = IdUsuario;
-                        //jTextField1.setText(Integer.parseInt(IdUsuario));
-                        /* NombreProveedortxt1.setText(nombre);
-                        TelefonoProveedortxt.setText(direccion);
-                        TelefonoProveedortxt1.setText(telefono);
-                        EmpresaProveedortxt.setText(empresa);*/
                         System.out.println(val);
 
                     }
@@ -150,6 +145,8 @@ public class PruebaSQL {
 
         return IdUsuario;
     }
+    
+   
     
      public int BuscarIdDimensional(String dimesional) {
         int idDimensional = 0;

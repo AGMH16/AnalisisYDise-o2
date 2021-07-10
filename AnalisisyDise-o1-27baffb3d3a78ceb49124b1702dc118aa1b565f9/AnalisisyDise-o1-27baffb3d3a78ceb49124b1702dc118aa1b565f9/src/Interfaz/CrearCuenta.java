@@ -420,6 +420,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             usuario = Usuariotxt.getText();
+            usuarioSQL.BuscarUsuario2(usuario);
             //   PuestoLaboraltxt.setText("");
             //  PuestoLaboraltxt.requestFocus();
         }
