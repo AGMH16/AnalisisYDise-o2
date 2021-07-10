@@ -100,7 +100,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         Actualizarbtn = new javax.swing.JButton();
         Guardarbtn = new javax.swing.JButton();
-        Cantidadtxt = new javax.swing.JTextField();
+        CodigoPerdidatxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         Eliminarbtn = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
@@ -111,8 +111,9 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         Observacionbtn = new javax.swing.JRadioButton();
         Muertosrbtn = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         CodigoAveriocmb = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        Cantidadtxt1 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
 
@@ -160,24 +161,24 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         });
         jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, 120, 35));
 
-        Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Cantidadtxt.setForeground(new java.awt.Color(153, 153, 153));
-        Cantidadtxt.setText("Unidades afectadas");
-        Cantidadtxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Cantidadtxt.addActionListener(new java.awt.event.ActionListener() {
+        CodigoPerdidatxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CodigoPerdidatxt.setForeground(new java.awt.Color(153, 153, 153));
+        CodigoPerdidatxt.setText("Codigo de la perdida");
+        CodigoPerdidatxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CodigoPerdidatxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CantidadtxtActionPerformed(evt);
+                CodigoPerdidatxtActionPerformed(evt);
             }
         });
-        Cantidadtxt.addKeyListener(new java.awt.event.KeyAdapter() {
+        CodigoPerdidatxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                CantidadtxtKeyPressed(evt);
+                CodigoPerdidatxtKeyPressed(evt);
             }
         });
-        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 253, 43));
+        jPanel2.add(CodigoPerdidatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 253, 43));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, -1, -1));
 
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -192,7 +193,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Cantidad");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
 
         Enfermorbtn.setBackground(new java.awt.Color(244, 253, 251));
         Perdidas.add(Enfermorbtn);
@@ -204,13 +205,13 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
                 EnfermorbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Enfermorbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+        jPanel2.add(Enfermorbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Fecha de la perdida");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, -1, -1));
-        jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 400, 150));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
+        jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 400, 150));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
@@ -227,7 +228,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
                 ObservacionbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Observacionbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+        jPanel2.add(Observacionbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, -1, -1));
 
         Muertosrbtn.setBackground(new java.awt.Color(244, 253, 251));
         Perdidas.add(Muertosrbtn);
@@ -239,22 +240,38 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
                 MuertosrbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(Muertosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        jPanel2.add(Muertosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Tipo de Perdida");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel15.setText("Código de averío afectado");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         CodigoAveriocmb.setEditable(true);
         CodigoAveriocmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CodigoAveriocmb.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel2.add(CodigoAveriocmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 260, 50));
+        jPanel2.add(CodigoAveriocmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 260, 50));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel16.setText("Código de averío afectado");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+
+        Cantidadtxt1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Cantidadtxt1.setForeground(new java.awt.Color(153, 153, 153));
+        Cantidadtxt1.setText("Unidades afectadas");
+        Cantidadtxt1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Cantidadtxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cantidadtxt1ActionPerformed(evt);
+            }
+        });
+        Cantidadtxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Cantidadtxt1KeyPressed(evt);
+            }
+        });
+        jPanel2.add(Cantidadtxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 253, 43));
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton4.setForeground(new java.awt.Color(102, 102, 102));
@@ -310,17 +327,17 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void CantidadtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyPressed
+    private void CodigoPerdidatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CodigoPerdidatxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            cantidad = Integer.parseInt(Cantidadtxt.getText());
+            cantidad = Integer.parseInt(CodigoPerdidatxt.getText());
 
         }
-    }//GEN-LAST:event_CantidadtxtKeyPressed
+    }//GEN-LAST:event_CodigoPerdidatxtKeyPressed
 
-    private void CantidadtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantidadtxtActionPerformed
+    private void CodigoPerdidatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoPerdidatxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CantidadtxtActionPerformed
+    }//GEN-LAST:event_CodigoPerdidatxtActionPerformed
     List Proveedores = new ArrayList();
 
     static void obtener_proveedor(ArrayList<Integer> id, ArrayList<String> Proveedor) {
@@ -331,7 +348,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     }
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
         codigo = (String) CodigoAveriocmb.getSelectedItem();
-        uniAfectadas = Integer.parseInt(Cantidadtxt.getText());
+        uniAfectadas = Integer.parseInt(CodigoPerdidatxt.getText());
         System.out.println(codigo);
         System.out.println(uniAfectadas);
 
@@ -397,6 +414,14 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btn_oscuroActionPerformed
+
+    private void Cantidadtxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cantidadtxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidadtxt1ActionPerformed
+
+    private void Cantidadtxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Cantidadtxt1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cantidadtxt1KeyPressed
     private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
         panel.setPanelBase(jPanel2);
         panel.setColorBase(colorbase);
@@ -416,7 +441,9 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         botonIcon.setBotonActivador(btn_oscuro);
         botonIcon.setNombreimagen(imagen);
         botonIcon.getBotonActivador();
-        text.setText(Cantidadtxt);
+        text.setText(CodigoPerdidatxt);
+        text.setColorTexto(colortexto);
+        text.getText(); text.setText(Cantidadtxt1);
         text.setColorTexto(colortexto);
         text.getText();
         label.setLabel(jLabel3);
@@ -734,8 +761,9 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizarbtn;
-    private javax.swing.JTextField Cantidadtxt;
+    private javax.swing.JTextField Cantidadtxt1;
     private javax.swing.JComboBox<String> CodigoAveriocmb;
+    private javax.swing.JTextField CodigoPerdidatxt;
     private javax.swing.JButton Eliminarbtn;
     private javax.swing.JRadioButton Enfermorbtn;
     private com.toedter.calendar.JCalendar FechaCalendar2;
@@ -749,7 +777,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;

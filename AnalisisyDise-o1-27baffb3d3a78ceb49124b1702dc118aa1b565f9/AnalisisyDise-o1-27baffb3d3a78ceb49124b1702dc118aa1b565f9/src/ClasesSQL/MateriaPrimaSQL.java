@@ -56,7 +56,6 @@ public class MateriaPrimaSQL {
                     MateriaPrima materiaprima=new MateriaPrima();
                     materiaprima.setLoteAverio(clr.getString("LoteAverio"));
                     materiaprima.setUnidadExistente(clr.getInt("UnidadExistente"));
-
                     materiaprima.setFechaIngreso(clr.getString("FechaIngreso"));//debería devolver un date no un string
                     materiaprima.setTotal(clr.getFloat("Total"));
                     materiaprima.setProveedor(clr.getString("Proveedor"));
