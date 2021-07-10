@@ -9,6 +9,7 @@ import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
+import ClasesSQL.InventarioSQL;
 import ClasesSQL.PruebaSQL;
 import Usuario.Compresor;
 import java.awt.event.KeyEvent;
@@ -49,6 +50,7 @@ public class Inventario extends javax.swing.JFrame {
     ComponenteLabelText label = new ComponenteLabelText();
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
+    InventarioSQL inventarioSQL = new InventarioSQL();
     char[] password;
 
     public Inventario() {
@@ -107,7 +109,6 @@ public class Inventario extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        Actualizarbtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -119,7 +120,6 @@ public class Inventario extends javax.swing.JFrame {
         Dimensionaljcmb = new javax.swing.JComboBox<>();
         AgregarDimensionalbtn = new javax.swing.JButton();
         jTextField6 = new javax.swing.JTextField();
-        Eliminarbtn = new javax.swing.JButton();
         FechaCalendar = new com.toedter.calendar.JCalendar();
         Guardarbtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -136,17 +136,6 @@ public class Inventario extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Actualizarbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Actualizarbtn.setForeground(new java.awt.Color(102, 102, 102));
-        Actualizarbtn.setText("Actualizar");
-        Actualizarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        Actualizarbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarbtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Actualizarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, 100, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
@@ -240,17 +229,6 @@ public class Inventario extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(371, 660, 206, 43));
-
-        Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
-        Eliminarbtn.setText("Eliminar");
-        Eliminarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        Eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarbtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 100, -1));
         jPanel2.add(FechaCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, 125));
 
         Guardarbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -380,8 +358,6 @@ public class Inventario extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             cantidad = Integer.parseInt(Cantidadtxt.getText());
-            //Totaltxt.setText("");
-            //    Totaltxt.requestFocus();
         }
     }//GEN-LAST:event_CantidadtxtKeyPressed
 
@@ -411,16 +387,6 @@ public class Inventario extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_ActualizarbtnActionPerformed
-
-    private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-
-    }//GEN-LAST:event_EliminarbtnActionPerformed
-
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
         // TODO add your handling code here:
 
@@ -439,11 +405,12 @@ public class Inventario extends javax.swing.JFrame {
         dimensional = (String) Dimensionaljcmb.getSelectedItem();
         pruebasql.BuscarIdDimensional(dimensional);
         System.out.println("Var para meter en el insert:" + pruebasql.getVal2());
+     
         //Para obtener ID del Usuario
         // usuarioReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
         // contraseñaReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
         //CONTRASEÑA
-        /*      JPanel panel = new JPanel();
+        JPanel panel = new JPanel();
         JLabel label2 = new JLabel("Usuario:");
         JLabel label = new JLabel("Contraseña:");
         // JTextField jtextfield = new JTextField();
@@ -481,8 +448,9 @@ public class Inventario extends javax.swing.JFrame {
             System.out.println("Ingreso de contraseña cancelada");
 
         }
-        System.out.println("Var para meter en el insert:" + pruebasql.getVal());*/
-
+        
+        System.out.println("Var para meter en el insert:" + pruebasql.getVal());
+        inventarioSQL.InsertarInventario(producto,cantidad, fecha, total,pruebasql.getVal2(), pruebasql.getVal());
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
     private String comprimir(String frase) {
@@ -591,12 +559,10 @@ public class Inventario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Actualizarbtn;
     private javax.swing.JButton AgregarDimensionalbtn;
     private javax.swing.JButton AgregarProductobtn;
     private javax.swing.JTextField Cantidadtxt;
     private javax.swing.JComboBox<String> Dimensionaljcmb;
-    private javax.swing.JButton Eliminarbtn;
     private com.toedter.calendar.JCalendar FechaCalendar;
     private javax.swing.JButton Guardarbtn;
     private javax.swing.JComboBox<String> Productojcmb;
