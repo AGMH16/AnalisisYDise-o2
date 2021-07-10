@@ -11,6 +11,7 @@ import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
 import ClasesInterfaz.ComponenteRadioButon;
+import ClasesSQL.ProveedorSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -36,7 +37,8 @@ import sun.security.util.Password;
 public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
     boolean medicamento, alimento, vacuna, inmunizador, vitamina, conceEngorde, conceCrecimiento, maiz;
-
+    ProveedorSQL proveedores = new ProveedorSQL();
+    ArrayList<Clases.Proveedor> listaProveedores = proveedores.ConsultaProveedorNombre();
     String nombreproveedor = "", tipoproducto = "", nombreProducto = "", nombreAlimento = "", proveedor = "", Dimensional = "", tipoDimensional = "";
     int cantidad = 0, año = 0, dia = 0, mes = 0, año2 = 0, dia2 = 0, mes2 = 0;
     float total;
@@ -45,7 +47,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     ComponenteLabelText label = new ComponenteLabelText();
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
-    ComponenteRadioButon radio=new ComponenteRadioButon();
+    ComponenteRadioButon radio = new ComponenteRadioButon();
 
 
     /*crud thecrud = new crud();
@@ -59,6 +61,11 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
+        Eliminarbtn.setVisible(false);
+        Actualizarbtn.setVisible(false);
+        for (Clases.Proveedor prov : listaProveedores) {
+            Proveedorjcmb.addItem(prov.getNombre());
+        }
 
     }
 
@@ -235,6 +242,11 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         Medicamentosrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Medicamentosrbtn.setForeground(new java.awt.Color(51, 51, 51));
         Medicamentosrbtn.setText("Medicamentos");
+        Medicamentosrbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MedicamentosrbtnActionPerformed(evt);
+            }
+        });
         jPanel2.add(Medicamentosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
 
         Alimentosrbtn.setBackground(new java.awt.Color(244, 253, 251));
@@ -242,6 +254,11 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         Alimentosrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Alimentosrbtn.setForeground(new java.awt.Color(51, 51, 51));
         Alimentosrbtn.setText("Alimentos");
+        Alimentosrbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlimentosrbtnActionPerformed(evt);
+            }
+        });
         jPanel2.add(Alimentosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maiz.png"))); // NOI18N
@@ -486,9 +503,9 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
                 nombreProducto = "Inmunizador";
                 System.out.println("Nombre Medicamento" + nombreProducto);
             }
-            if (Maizrbtn.isSelected()) {
-                inmunizador = true;
-                nombreProducto = "Inmunizador";
+            if (Vitaminarbtn.isSelected()) {
+                vitamina = true;
+                nombreProducto = "Vitamina";
                 System.out.println("Nombre Medicamento" + nombreProducto);
             }
         } else {
@@ -633,6 +650,26 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_TotaltxtKeyTyped
+
+    private void MedicamentosrbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MedicamentosrbtnActionPerformed
+        // TODO add your handling code here:
+        ConCrecimientorbtn.setEnabled(false);
+        ConEngorderbtn.setEnabled(false);
+        Maizrbtn.setEnabled(false);
+        Vacunarbtn.setEnabled(true);
+        Inmunizadorrbtn.setEnabled(true);
+        Vitaminarbtn.setEnabled(true);
+    }//GEN-LAST:event_MedicamentosrbtnActionPerformed
+
+    private void AlimentosrbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlimentosrbtnActionPerformed
+        // TODO add your handling code here:
+        ConCrecimientorbtn.setEnabled(true);
+        ConEngorderbtn.setEnabled(true);
+        Maizrbtn.setEnabled(true);
+        Vacunarbtn.setEnabled(false);
+        Inmunizadorrbtn.setEnabled(false);
+        Vitaminarbtn.setEnabled(false);
+    }//GEN-LAST:event_AlimentosrbtnActionPerformed
     List Proveedores = new ArrayList();
 
     static void obtener_proveedor(ArrayList<Integer> id, ArrayList<String> Proveedor) {
@@ -668,6 +705,70 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MedicamentosYAlimentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

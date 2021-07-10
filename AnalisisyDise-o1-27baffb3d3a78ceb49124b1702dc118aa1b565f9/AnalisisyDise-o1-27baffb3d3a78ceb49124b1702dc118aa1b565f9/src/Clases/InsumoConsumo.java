@@ -14,7 +14,7 @@ import java.util.Date;
 public class InsumoConsumo {
 
     private String tipoInsumo, nombre;
-    private int existencia;
+    private int existencia, idInsumoConsumo;
     private float total;
     private Date fechaIngreso, fechaVencimiento;
     private Dimensional dimensional;
@@ -25,6 +25,7 @@ public class InsumoConsumo {
         this.tipoInsumo = tipoInsumo;
         this.nombre = nombre;
         this.existencia = existencia;
+        this.idInsumoConsumo = idInsumoConsumo;
         this.total = total;
         this.fechaIngreso = fechaIngreso;
         this.fechaVencimiento = fechaVencimiento;
@@ -33,16 +34,25 @@ public class InsumoConsumo {
         this.proveedor = proveedor;
     }
 
-    public InsumoConsumo(String tipoInsumo, String nombre, int existencia, float total, Date fechaIngreso, Date fechaVencimiento, Dimensional dimensional, Usuario usuario, Proveedor proveedor) {
+    public InsumoConsumo(String tipoInsumo, String nombre, int existencia, int idInsumoConsumo, float total, Date fechaIngreso, Date fechaVencimiento, Dimensional dimensional, Usuario usuario, Proveedor proveedor) {
         this.tipoInsumo = tipoInsumo;
         this.nombre = nombre;
         this.existencia = existencia;
+        this.idInsumoConsumo = idInsumoConsumo;
         this.total = total;
         this.fechaIngreso = fechaIngreso;
         this.fechaVencimiento = fechaVencimiento;
         this.dimensional = dimensional;
         this.usuario = usuario;
         this.proveedor = proveedor;
+    }
+
+    public int getIdInsumoConsumo() {
+        return idInsumoConsumo;
+    }
+
+    public void setIdInsumoConsumo(int idInsumoConsumo) {
+        this.idInsumoConsumo = idInsumoConsumo;
     }
 
     public String getTipoInsumo() {
