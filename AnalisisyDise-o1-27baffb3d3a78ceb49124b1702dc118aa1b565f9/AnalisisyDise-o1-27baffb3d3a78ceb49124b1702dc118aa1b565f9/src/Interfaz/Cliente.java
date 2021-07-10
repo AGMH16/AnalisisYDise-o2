@@ -5,10 +5,11 @@
  */
 package Interfaz;
 
-import Clases.ColorearComponenteNegro;
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
-import Clases.Componente;
+import ClasesInterfaz.ColorBoton;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import ClasesSQL.LibretaClienteSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -33,18 +34,23 @@ import javax.swing.JOptionPane;
 public class Cliente extends javax.swing.JFrame {
 
     Libreta libreta = new Libreta();
-    ColorearInterfazNegro pintarInterfazNegro = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
     String nombres = "", apellidos = "", direccion = "", telefonoMovil = "", telefonocasa = "", pass_concatenada;
     int nocliente = 0;
     Password contraseña3;
     boolean modoOscuro = false;
     LibretaClienteSQL libretaSQL = new LibretaClienteSQL();
 
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
+
     /**
      * Creates new form Menu
      */
     public Cliente(String referencia) {
+
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -159,7 +165,7 @@ public class Cliente extends javax.swing.JFrame {
 
         CelularClientetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         CelularClientetxt.setForeground(new java.awt.Color(102, 102, 102));
-        CelularClientetxt.setText("Teléfono Móvil");
+        CelularClientetxt.setText("Celular Móvil");
         CelularClientetxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         CelularClientetxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,7 +197,7 @@ public class Cliente extends javax.swing.JFrame {
 
         TelefonoClientetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TelefonoClientetxt.setForeground(new java.awt.Color(102, 102, 102));
-        TelefonoClientetxt.setText("Celular");
+        TelefonoClientetxt.setText("Tefono");
         TelefonoClientetxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         TelefonoClientetxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -492,15 +498,54 @@ public class Cliente extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            pintarInterfazNegro.ColorearClienteNegro(jPanel1, jPanel2, GuardarClientebtn, Actualizarbtn, btn_oscuro, NombreClientetxt, ApellidoClientetxt, CelularClientetxt, TelefonoClientetxt, DireccionClientetxt);
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"),Color.decode("#666666"),Color.decode("#2e3951"), Color.decode("#212b41"));
+         //   Pintar(Color.yellow, "/Imagenes/darkmode_2.png", Color.blue,Color.red,Color.green, Color.MAGENTA);
+
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearClienteBlanco(jPanel1, jPanel2, GuardarClientebtn, Actualizarbtn, btn_oscuro, NombreClientetxt, ApellidoClientetxt, CelularClientetxt, TelefonoClientetxt, DireccionClientetxt);
-
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"),Color.decode("#666666"),Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-
+    private void Pintar(Color colorbotones, String imagen,Color colortexto,Color colorlabel,Color colorbase,Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();                
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(Actualizarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Eliminarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(GuardarClientebtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(NombreClientetxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(ApellidoClientetxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(CelularClientetxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(TelefonoClientetxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(DireccionClientetxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel3);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+       
+    }
     private void RegresarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RegresarbtnActionPerformed
@@ -539,7 +584,7 @@ public class Cliente extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
 
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 

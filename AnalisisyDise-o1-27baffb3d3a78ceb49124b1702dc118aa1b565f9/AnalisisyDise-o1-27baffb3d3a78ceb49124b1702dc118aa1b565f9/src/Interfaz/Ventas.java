@@ -5,10 +5,15 @@
  */
 package Interfaz;
 
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import ClasesSQL.MercaderiaSQL;
 import Usuario.Compresor;
 import ClasesSQL.PruebaSQL;
 import ClasesSQL.VentaSQL;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,7 +46,7 @@ public class Ventas extends javax.swing.JFrame {
     PruebaSQL pruebasql = new PruebaSQL();
     MercaderiaSQL mercaderia2 = new MercaderiaSQL();
     VentaSQL ventasql = new VentaSQL();
-    boolean aDomicilio, puntoDeVenta;
+    boolean aDomicilio, puntoDeVenta,modoOscuro;
     int cantidad = 0, cantidad2 = 0, cantidadProducto, ciclo;
     float total = 0, total2;
     String Usuario = "", pass_concatenada = "", nombreproveedor = "", tipoproducto = "", producto = "", xx, xx2, fecha, usuarioReferencia = "", contraseñaReferencia = "", nombreProducto;
@@ -49,6 +54,11 @@ public class Ventas extends javax.swing.JFrame {
     // Definimos el largo de la casilla para la contraseña
     JPasswordField passwordField = new JPasswordField(15);
     JTextField jtextField = new JTextField(15);
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
 
     public Ventas() {
 
@@ -69,15 +79,15 @@ public class Ventas extends javax.swing.JFrame {
     }
 
     public void transparenciButton() {
-        jButton1.setOpaque(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setBorderPainted(false);
+        Guardarbtn.setOpaque(false);
+        Guardarbtn.setContentAreaFilled(false);
+        Guardarbtn.setBorderPainted(false);
         Salirbtn.setOpaque(false);
         Salirbtn.setContentAreaFilled(false);
         Salirbtn.setBorderPainted(false);
-        jButton5.setOpaque(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setBorderPainted(false);
+        AgregarProductobtn.setOpaque(false);
+        AgregarProductobtn.setContentAreaFilled(false);
+        AgregarProductobtn.setBorderPainted(false);
         Salirbtn.setOpaque(false);
         Salirbtn.setContentAreaFilled(false);
         Salirbtn.setBorderPainted(false);
@@ -98,11 +108,11 @@ public class Ventas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Guardarbtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         ProductoJcmbx = new javax.swing.JComboBox<>();
-        jButton5 = new javax.swing.JButton();
+        AgregarProductobtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         Adomijbtn = new javax.swing.JRadioButton();
@@ -132,14 +142,14 @@ public class Ventas extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("VENTAS");
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jButton1.setText("Guardar");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Guardarbtn.setBackground(new java.awt.Color(102, 102, 102));
+        Guardarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Guardarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Guardarbtn.setText("Guardar");
+        Guardarbtn.setBorder(null);
+        Guardarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                GuardarbtnActionPerformed(evt);
             }
         });
 
@@ -156,11 +166,11 @@ public class Ventas extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton5.setText("+");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        AgregarProductobtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        AgregarProductobtn.setText("+");
+        AgregarProductobtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                AgregarProductobtnActionPerformed(evt);
             }
         });
 
@@ -172,10 +182,14 @@ public class Ventas extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("FECHA");
 
+        Adomijbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Adomijbtn.setForeground(new java.awt.Color(51, 51, 51));
         Adomijbtn.setText("A domicilio");
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mercado.png"))); // NOI18N
 
+        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(51, 51, 51));
         jRadioButton2.setText("Punto de venta");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -283,17 +297,17 @@ public class Ventas extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(ProductoJcmbx, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton5)
+                                .addComponent(AgregarProductobtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Guardarbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(61, 61, 61))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,7 +321,7 @@ public class Ventas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Guardarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(23, Short.MAX_VALUE)
@@ -315,15 +329,12 @@ public class Ventas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addGap(13, 13, 13)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel12)
-                            .addComponent(Adomijbtn)
-                            .addComponent(jRadioButton2))
-                        .addGap(21, 21, 21))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel12)
+                    .addComponent(Adomijbtn)
+                    .addComponent(jRadioButton2))
+                .addGap(39, 39, 39)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
@@ -333,7 +344,7 @@ public class Ventas extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(ProductoJcmbx, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton5))
+                                .addComponent(AgregarProductobtn))
                             .addComponent(jButton6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cantidadtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -389,7 +400,7 @@ public class Ventas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
         if (Adomijbtn.isSelected()) {
             aDomicilio = true;
             System.out.println("Adomicilio" + aDomicilio);
@@ -458,7 +469,7 @@ public class Ventas extends javax.swing.JFrame {
         ventasql.InsertarVenta(aDomicilio, puntoDeVenta, tipoproducto, cantidad, total, fecha, pruebasql.getVal());
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_GuardarbtnActionPerformed
     private String comprimir(String frase) {
         Compresor compresor = new Compresor();
         String Cadena_en_binario = compresor.CodigoAscii_a_binario(frase);
@@ -471,50 +482,58 @@ public class Ventas extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_SalirbtnActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void AgregarProductobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductobtnActionPerformed
         // TODO add your handling code here:
         producto = JOptionPane.showInputDialog("Ingrese Producto");
         ProductoJcmbx.addItem(producto);
 
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_AgregarProductobtnActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        /*  if (!modoOscuro) {
-            jPanel1.setBackground(Color.decode("#212b41"));
-            jPanel2.setBackground(Color.decode("#2e3951"));
-            txtOperacion.setForeground(Color.decode("#0db387"));
-            txtResultado.setForeground(Color.decode("#0db387"));
-            cambiarColorBtn1(btn_multi);
-            cambiarColorBtn1(btn_suma);
-            cambiarColorBtn1(btn_resta);
-            cambiarColorBtn1(btn_exp);
-            cambiarColorBtn1(btn_division);
-            cambiarColorBtn1(btn_c);
-            cambiarColorBtn1(btn_porcentaje);
-            cambiarColorBtn2(btn_1);
-            cambiarColorBtn2(btn_2);
-            cambiarColorBtn2(btn_3);
-            cambiarColorBtn2(btn_4);
-            cambiarColorBtn2(btn_5);
-            cambiarColorBtn2(btn_6);
-            cambiarColorBtn2(btn_7);
-            cambiarColorBtn2(btn_8);
-            cambiarColorBtn2(btn_9);
-            cambiarColorBtn2(btn_0);
-            cambiarColorBtn2(btn_dot);
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
-            btn_igual.setIcon(new ImageIcon(getClass().getResource("/images/btn3_dark.png")));
-            btn_igual.setPressedIcon(new ImageIcon(getClass().getResource("/images/btn3_dark.png")));
-            btn_igual.setRolloverIcon(new ImageIcon(getClass().getResource("/images/btn3_pressed_dark.png")));
-            btn_igual.setForeground(Color.decode("#2e3951"));
+        if (!modoOscuro) {
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
             modoOscuro = true;
-        } else {
-            Calculadora frame = new Calculadora();
-            this.dispose();
-            frame.setVisible(true);
-        }*/
+        } else if (modoOscuro == true) {
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"));
+            modoOscuro = false;
+        }
+
     }//GEN-LAST:event_btn_oscuroActionPerformed
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(AgregarProductobtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Guardarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(cantidadtxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(totaltxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel3);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        label.setLabel(jLabel8);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        label.setLabel(jLabel9);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        label.setLabel(jLabel11);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+    }
 
     private void cantidadtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadtxtActionPerformed
         // TODO add your handling code here:
@@ -651,15 +670,15 @@ public class Ventas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton Adomijbtn;
+    private javax.swing.JButton AgregarProductobtn;
     private com.toedter.calendar.JCalendar FechaCalendar;
+    private javax.swing.JButton Guardarbtn;
     private javax.swing.JComboBox<String> ProductoJcmbx;
     private javax.swing.JButton Salirbtn;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JTextField cantidadtxt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

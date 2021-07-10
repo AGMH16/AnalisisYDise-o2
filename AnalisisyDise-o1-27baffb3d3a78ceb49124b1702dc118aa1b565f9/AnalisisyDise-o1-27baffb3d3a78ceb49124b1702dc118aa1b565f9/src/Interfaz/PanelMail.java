@@ -6,8 +6,10 @@
 package Interfaz;
 
 //import CRUD.crud;
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Properties;
@@ -36,13 +38,16 @@ import javax.swing.ImageIcon;
  */
 public class PanelMail extends javax.swing.JFrame {
 
-    private String correo ="";
+    private String correo = "";
     private int codigo;
     private int numero, numero2;
     private int multiplicacion = 0;
     private int ubicaciondeform = 0;
-    ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
 
     public void transparenciButton() {
 
@@ -228,7 +233,7 @@ public class PanelMail extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
-    
+
         //para cambio de contraseña
         codigo = Integer.parseInt(txtcodigo.getText());
         System.out.println(codigo);
@@ -304,20 +309,48 @@ public class PanelMail extends javax.swing.JFrame {
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            pintarInterfaz.ColorearPanelMailNegro(jPanel1, btn_oscuro,txtdestino, txtcodigo, btnEnviar, btnVerificar);
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#212b41"));
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearPanelMailBlanco(jPanel1, btn_oscuro,txtdestino, txtcodigo, btnEnviar, btnVerificar);
-        
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
- private void txtdestinoKeyPressed(java.awt.event.KeyEvent evt) {                                      
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorfondo) {
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(btnEnviar);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(btnVerificar);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(txtdestino);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(txtcodigo);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel4);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        label.setLabel(jLabel1);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+
+    }
+
+    private void txtdestinoKeyPressed(java.awt.event.KeyEvent evt) {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             correo = txtdestino.getText();
         }
-    }     
+    }
+
     /**
      * @param args the command line arguments
      */

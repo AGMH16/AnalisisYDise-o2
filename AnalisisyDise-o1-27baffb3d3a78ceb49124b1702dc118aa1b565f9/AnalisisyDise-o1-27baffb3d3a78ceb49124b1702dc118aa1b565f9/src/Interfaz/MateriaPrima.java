@@ -5,9 +5,10 @@
  */
 package Interfaz;
 
-import Clases.ColorearComponenteBlanco;
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import ClasesSQL.ProveedorSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -40,9 +41,12 @@ public class MateriaPrima extends javax.swing.JFrame {
     float total;
     ProveedorSQL proveedores = new ProveedorSQL();
     ArrayList<Clases.Proveedor> listaProveedores = proveedores.ConsultaProveedorNombre();
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
 
-    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
 
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
@@ -365,15 +369,47 @@ public class MateriaPrima extends javax.swing.JFrame {
     }//GEN-LAST:event_CodigoAveriotxtKeyPressed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        if (!modoOscuro) {
-            pintarInterfaz.ColorearMateriaPrima(jPanel1, jPanel2, btn_oscuro, Proveedorjcmb, Cantidadtxt, Totaltxt, CodigoAveriotxt, Eliminarbtn, Actualizarbtn, Guardarbtn);
+         if (!modoOscuro) {
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"),Color.decode("#666666"),Color.decode("#2e3951"), Color.decode("#212b41"));
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearMateriaPrima(jPanel1, jPanel2, btn_oscuro, Proveedorjcmb, Cantidadtxt, Totaltxt, CodigoAveriotxt, Eliminarbtn, Actualizarbtn, Guardarbtn);
-
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"),Color.decode("#666666"),Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+ private void Pintar(Color colorbotones, String imagen,Color colortexto,Color colorlabel,Color colorbase,Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();                
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(Actualizarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Eliminarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Guardarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(CodigoAveriotxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(Cantidadtxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(Totaltxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel3);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+       
+    }
 
     private void CantidadtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyTyped
         // TODO add your handling code here:

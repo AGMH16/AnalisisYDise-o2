@@ -5,8 +5,10 @@
  */
 package Interfaz;
 
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import ClasesSQL.MercaderiaSQL;
 import ClasesSQL.PruebaSQL;
 import java.awt.event.KeyEvent;
@@ -48,8 +50,11 @@ public class Mercaderia extends javax.swing.JFrame {
     String nombreproveedor = "", agregarProducto = "", fecha1;
     int cantidad = 0, stock = 0;
     float total;
-    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
 
     public Mercaderia() {
 
@@ -382,15 +387,47 @@ public class Mercaderia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        /* if (!modoOscuro) {
-            pintarInterfaz.ColorearMercaderiaNegro(jPanel1, jPanel2, btn_oscuro, Productojcmb, Cantidadtxt, Totaltxt, AgregaMercaderiabtn, Guardarbtn, Actualizarbtn, Eliminarbtn);
+        if (!modoOscuro) {
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearMercaderiaBlanco(jPanel1, jPanel2, btn_oscuro, Productojcmb, Cantidadtxt, Totaltxt, AgregaMercaderiabtn, Guardarbtn, Actualizarbtn, Eliminarbtn);
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
-        }*/
+        }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(Actualizarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregaMercaderiabtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Guardarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(Stocktxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(Cantidadtxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(Totaltxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel3);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
 
+    }
     private void StocktxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StocktxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_StocktxtActionPerformed

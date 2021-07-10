@@ -5,9 +5,12 @@
  */
 package Interfaz;
 
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
 import Clases.InsumoUso;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
+import ClasesInterfaz.ComponenteRadioButon;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -37,8 +40,13 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     String nombreproveedor = "", tipoproducto = "", nombreProducto = "", nombreAlimento = "", proveedor = "", Dimensional = "", tipoDimensional = "";
     int cantidad = 0, año = 0, dia = 0, mes = 0, año2 = 0, dia2 = 0, mes2 = 0;
     float total;
-    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
+    ComponenteRadioButon radio=new ComponenteRadioButon();
+
 
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
@@ -232,6 +240,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         Alimentosrbtn.setBackground(new java.awt.Color(244, 253, 251));
         TipoInsumo.add(Alimentosrbtn);
         Alimentosrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Alimentosrbtn.setForeground(new java.awt.Color(51, 51, 51));
         Alimentosrbtn.setText("Alimentos");
         jPanel2.add(Alimentosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, -1, -1));
 
@@ -251,6 +260,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         Inmunizadorrbtn.setBackground(new java.awt.Color(244, 253, 251));
         Medicamentos.add(Inmunizadorrbtn);
         Inmunizadorrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Inmunizadorrbtn.setForeground(new java.awt.Color(51, 51, 51));
         Inmunizadorrbtn.setText("Inmunizador");
         Inmunizadorrbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,6 +272,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         ConCrecimientorbtn.setBackground(new java.awt.Color(244, 253, 251));
         Alimentos.add(ConCrecimientorbtn);
         ConCrecimientorbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConCrecimientorbtn.setForeground(new java.awt.Color(51, 51, 51));
         ConCrecimientorbtn.setText("Concentrado de crecimiento");
         jPanel2.add(ConCrecimientorbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, -1, -1));
         jPanel2.add(FechaCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, -1, 125));
@@ -280,12 +291,14 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         Maizrbtn.setBackground(new java.awt.Color(244, 253, 251));
         Alimentos.add(Maizrbtn);
         Maizrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Maizrbtn.setForeground(new java.awt.Color(51, 51, 51));
         Maizrbtn.setText("Maiz");
         jPanel2.add(Maizrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, -1, -1));
 
         Vitaminarbtn.setBackground(new java.awt.Color(244, 253, 251));
         Medicamentos.add(Vitaminarbtn);
         Vitaminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Vitaminarbtn.setForeground(new java.awt.Color(51, 51, 51));
         Vitaminarbtn.setText("Vitamina");
         Vitaminarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,6 +310,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         Vacunarbtn.setBackground(new java.awt.Color(244, 253, 251));
         Medicamentos.add(Vacunarbtn);
         Vacunarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Vacunarbtn.setForeground(new java.awt.Color(51, 51, 51));
         Vacunarbtn.setText("Vacuna");
         Vacunarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,11 +322,13 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         ConEngorderbtn.setBackground(new java.awt.Color(244, 253, 251));
         Alimentos.add(ConEngorderbtn);
         ConEngorderbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConEngorderbtn.setForeground(new java.awt.Color(51, 51, 51));
         ConEngorderbtn.setText("Concentrado de engorde ");
         jPanel2.add(ConEngorderbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, -1, -1));
 
         Dimensionaljcmb.setBackground(new java.awt.Color(244, 253, 251));
         Dimensionaljcmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Dimensionaljcmb.setForeground(new java.awt.Color(51, 51, 51));
         Dimensionaljcmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DimensionaljcmbActionPerformed(evt);
@@ -331,6 +347,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
         Proveedorjcmb.setBackground(new java.awt.Color(244, 253, 251));
         Proveedorjcmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Proveedorjcmb.setForeground(new java.awt.Color(51, 51, 51));
         Proveedorjcmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", " ", " " }));
         Proveedorjcmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -452,7 +469,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     }//GEN-LAST:event_CantidadtxtActionPerformed
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
-        InsumoUso datos=new InsumoUso();
+        InsumoUso datos = new InsumoUso();
         if (Medicamentosrbtn.isSelected()) {
             medicamento = true;
             tipoproducto = "Medicamentos";
@@ -462,7 +479,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
                 vacuna = true;
                 nombreProducto = "Vacuna";
                 System.out.println("Nombre Medicamento" + nombreProducto);
-               
+
             }
             if (Inmunizadorrbtn.isSelected()) {
                 inmunizador = true;
@@ -536,15 +553,69 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            pintarInterfaz.ColorearMedicamentosYAlimentos(jPanel1, jPanel2, btn_oscuro, Proveedorjcmb, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearMedicamentosYAlimentos(jPanel1, jPanel2, btn_oscuro, Proveedorjcmb, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
-
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(Actualizarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Eliminarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Guardarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregarDimensionalbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(Cantidadtxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(Totaltxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel3);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        radio.setRadiobtn(Medicamentosrbtn);
+        radio.setColorradio(colortexto);
+        radio.getRadiobtn();
+        radio.setRadiobtn(Alimentosrbtn);
+        radio.setColorradio(colortexto);
+        radio.getRadiobtn();
+        radio.setRadiobtn(Vacunarbtn);
+        radio.setColorradio(colortexto);
+        radio.getRadiobtn();
+        radio.setRadiobtn(Inmunizadorrbtn);
+        radio.setColorradio(colortexto);
+        radio.getRadiobtn();
+        radio.setRadiobtn(Vitaminarbtn);
+        radio.setColorradio(colortexto);
+        radio.getRadiobtn();
+        radio.setRadiobtn(ConCrecimientorbtn);
+        radio.setColorradio(colortexto);
+        radio.getRadiobtn();
+        radio.setRadiobtn(ConEngorderbtn);
+        radio.setColorradio(colortexto);
+        radio.getRadiobtn();
+        radio.setRadiobtn(Maizrbtn);
+        radio.setColorradio(colortexto);
+        radio.getRadiobtn();
+    }
     private void CantidadtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyTyped
         // TODO add your handling code here:
         char validar = evt.getKeyChar();

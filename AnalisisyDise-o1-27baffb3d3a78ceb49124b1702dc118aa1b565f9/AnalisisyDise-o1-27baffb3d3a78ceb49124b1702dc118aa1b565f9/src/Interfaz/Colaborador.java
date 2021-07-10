@@ -5,8 +5,10 @@
  */
 package Interfaz;
 
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -19,11 +21,12 @@ import sun.security.util.Password;
  */
 public class Colaborador extends javax.swing.JFrame {
 
-    ColorearInterfazNegro pintarInterfazNegro = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
-
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
     String nombreColaborador = "";
-   
 
     /**
      * Creates new form Menu
@@ -343,19 +346,43 @@ public class Colaborador extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            pintarInterfazNegro.ColorearConsultasNegro(jPanel1, jPanel2, EliminarClientebtn, Actualizarbtn1, btn_oscuro, Buscartxt);
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png",Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearConsultasBlanco(jPanel1, jPanel2, EliminarClientebtn, Actualizarbtn1, btn_oscuro, Buscartxt);
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
- private void BuscartxtKeyPressed(java.awt.event.KeyEvent evt) {                                     
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(Actualizarbtn1);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(EliminarColaboradorbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(Buscartxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel3);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+    }
+
+    private void BuscartxtKeyPressed(java.awt.event.KeyEvent evt) {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             nombreColaborador = Buscartxt.getText();
         }
-    }      
+    }
     private void EliminarClientebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarClientebtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EliminarClientebtn1ActionPerformed
@@ -366,7 +393,7 @@ public class Colaborador extends javax.swing.JFrame {
 
     private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
         // TODO add your handling code here:
-         nombreColaborador = Buscartxt.getText();
+        nombreColaborador = Buscartxt.getText();
         System.out.println("Colaborador a buscar:" + nombreColaborador);
     }//GEN-LAST:event_BuscarbtnActionPerformed
     boolean modoOscuro = false;

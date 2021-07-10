@@ -5,10 +5,10 @@
  */
 package Interfaz;
 
-//import CRUD.crud;
-//import Usuario.ConexionBD;
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import ClasesSQL.PruebaSQL;
 import Usuario.Compresor;
 import java.awt.event.KeyEvent;
@@ -42,10 +42,13 @@ public class Inventario extends javax.swing.JFrame {
     SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
     PruebaSQL pruebasql = new PruebaSQL();
     int cantidad = 0, total = 0, cantidad2 = 0;
-    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
     JPasswordField passwordField = new JPasswordField(15);
     JTextField jtextField = new JTextField(15);
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
     char[] password;
 
     public Inventario() {
@@ -221,7 +224,7 @@ public class Inventario extends javax.swing.JFrame {
                 AgregarDimensionalbtnActionPerformed(evt);
             }
         });
-        jPanel2.add(AgregarDimensionalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
+        jPanel2.add(AgregarDimensionalbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, -1, -1));
 
         jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(153, 153, 153));
@@ -266,7 +269,7 @@ public class Inventario extends javax.swing.JFrame {
 
         Totaltxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Totaltxt.setForeground(new java.awt.Color(102, 102, 102));
-        Totaltxt.setText("Cantidad");
+        Totaltxt.setText("Total");
         Totaltxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Totaltxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -424,7 +427,7 @@ public class Inventario extends javax.swing.JFrame {
         producto = (String) Productojcmb.getSelectedItem();
 
         cantidad = Integer.parseInt(Cantidadtxt.getText());
-        
+
         fecha = f.format(FechaCalendar.getDate());
         System.out.println(fecha);
         total = Integer.parseInt(Totaltxt.getText());
@@ -490,16 +493,52 @@ public class Inventario extends javax.swing.JFrame {
         return ultima_cadena;
     }
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        /*  if (!modoOscuro) {
-            pintarInterfaz.ColorearInventarioNegro(jPanel1, jPanel2, btn_oscuro, Productojcmb, DimensionalJcbx, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
+        if (!modoOscuro) {
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png",Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
+            //   Pintar(Color.yellow, "/Imagenes/darkmode_2.png", Color.blue,Color.red,Color.green, Color.MAGENTA);
+
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearInventarioBlanco(jPanel1, jPanel2, btn_oscuro, Productojcmb, DimensionalJcbx, Dimensionaljcmb, Cantidadtxt, Totaltxt, AgregarProductobtn, AgregarDimensionalbtn, Eliminarbtn, Actualizarbtn, Guardarbtn);
-
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
-        }*/
+        }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(Actualizarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Eliminarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Guardarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregarDimensionalbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregarProductobtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(Cantidadtxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(Totaltxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel3);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
 
+    }
     private void TotaltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotaltxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TotaltxtActionPerformed

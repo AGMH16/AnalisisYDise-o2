@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package Interfaz;
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
+
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -30,16 +33,18 @@ import sun.security.util.Password;
  */
 public class PerdidaMateriaPrima extends javax.swing.JFrame {
 
-       String codigo = "";
+    String codigo = "";
     String nombreproveedor = "", tipoproducto = "";
-    int cantidad = 0, uniAfectadas=0,año = 0, dia = 0, mes = 0;
+    int cantidad = 0, uniAfectadas = 0, año = 0, dia = 0, mes = 0;
     boolean muerto, enfermo, enObservacion;
-    ColorearInterfazNegro pintarInterfaz=new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco=new ColorearInterfazBlanco();
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
 
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
-
     /**
      * Creates new form Menu
      */
@@ -50,20 +55,17 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         transparenciButton();
 
-       
-
-      
     }
 
     public void transparenciButton() {
-       
+
         Guardarbtn.setOpaque(false);
         Guardarbtn.setContentAreaFilled(false);
         Guardarbtn.setBorderPainted(false);
-      jButton7.setOpaque(false);
+        jButton7.setOpaque(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setBorderPainted(false);
-       
+
         jButton4.setOpaque(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setBorderPainted(false);
@@ -184,6 +186,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         Enfermorbtn.setBackground(new java.awt.Color(244, 253, 251));
         Perdidas.add(Enfermorbtn);
         Enfermorbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Enfermorbtn.setForeground(new java.awt.Color(51, 51, 51));
         Enfermorbtn.setText("Enfermo");
         Enfermorbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +209,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         Observacionbtn.setBackground(new java.awt.Color(244, 253, 251));
         Perdidas.add(Observacionbtn);
         Observacionbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Observacionbtn.setForeground(new java.awt.Color(51, 51, 51));
         Observacionbtn.setText("En observacion");
         Observacionbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,6 +221,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         Muertosrbtn.setBackground(new java.awt.Color(244, 253, 251));
         Perdidas.add(Muertosrbtn);
         Muertosrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Muertosrbtn.setForeground(new java.awt.Color(51, 51, 51));
         Muertosrbtn.setText("Muerto");
         Muertosrbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,8 +329,8 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         Proveedor.get(Integer.parseInt(proveedor));
     }
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
- codigo = CodigoAveriotxt.getText();
-        uniAfectadas =Integer.parseInt(Cantidadtxt.getText()) ;
+        codigo = CodigoAveriotxt.getText();
+        uniAfectadas = Integer.parseInt(Cantidadtxt.getText());
         System.out.println(codigo);
         System.out.println(uniAfectadas);
 
@@ -346,8 +351,8 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
             System.out.println("En Observación" + enObservacion);
 
         }
-         
-         año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
+
+        año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
         mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
         dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
 
@@ -362,11 +367,11 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
-       
+
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
-      
+
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void EnfermorbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnfermorbtnActionPerformed
@@ -380,7 +385,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     private void MuertosrbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MuertosrbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MuertosrbtnActionPerformed
-boolean modoOscuro = false;
+    boolean modoOscuro = false;
     private void CodigoAveriotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoAveriotxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CodigoAveriotxtActionPerformed
@@ -390,15 +395,53 @@ boolean modoOscuro = false;
     }//GEN-LAST:event_CodigoAveriotxtKeyPressed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-        if (!modoOscuro) {
-            pintarInterfaz.ColorearPerdidaMateriaPrima(jPanel1, jPanel2,btn_oscuro, CodigoAveriotxt, Cantidadtxt, Guardarbtn, Actualizarbtn, Eliminarbtn);
+       if (!modoOscuro) {
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"),Color.decode("#666666"),Color.decode("#2e3951"), Color.decode("#212b41"));
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearPerdidaMateriaBlanco(jPanel1, jPanel2,btn_oscuro, CodigoAveriotxt, Cantidadtxt, Guardarbtn, Actualizarbtn, Eliminarbtn);            
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"),Color.decode("#666666"),Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
-        
+
     }//GEN-LAST:event_btn_oscuroActionPerformed
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(Actualizarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Eliminarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Guardarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(Cantidadtxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(CodigoAveriotxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel3);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        label.setLabel(jLabel13);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        label.setLabel(jLabel12);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        label.setLabel(jLabel14);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+    }
 
     /**
      * @param args the command line arguments

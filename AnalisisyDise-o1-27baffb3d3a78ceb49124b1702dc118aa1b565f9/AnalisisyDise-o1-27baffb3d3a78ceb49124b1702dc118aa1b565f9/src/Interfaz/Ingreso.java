@@ -5,9 +5,12 @@
  */
 package Interfaz;
 
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
 import Clases.Usuario;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteContraseña;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import ClasesSQL.UsuarioSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -31,10 +34,16 @@ public class Ingreso extends javax.swing.JFrame {
     String usuario = "";
     Password contraseña3;
     String pass_concatenada;
-    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
-    ArrayList<Usuario> listaUsuarios=new ArrayList<Usuario>();
-    UsuarioSQL usuariosql=new UsuarioSQL();
+    ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+    UsuarioSQL usuariosql = new UsuarioSQL();
+    boolean modoOscuro = false;
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
+    ComponenteContraseña password = new ComponenteContraseña();
+
     /**
      * Creates new form Menu
      */
@@ -44,8 +53,8 @@ public class Ingreso extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
-       
-        listaUsuarios=usuariosql.BuscarUsuario();
+
+        listaUsuarios = usuariosql.BuscarUsuario();
     }
 
     public void transparenciButton() {
@@ -322,9 +331,9 @@ public class Ingreso extends javax.swing.JFrame {
         char[] contraseña = Contraseñiatxt.getPassword();
         System.out.println("1 Usuario" + usuario);
         System.out.println("2 Contraseña" + contraseña);
-        for (Clases.Usuario usuario : listaUsuarios ) {
-            if(usuario.equals(usuario.getUsuario()) && contraseña.equals(usuario.getContraseña())){
-                Menu3 menu=new Menu3();
+        for (Clases.Usuario usuario : listaUsuarios) {
+            if (usuario.equals(usuario.getUsuario()) && contraseña.equals(usuario.getContraseña())) {
+                Menu3 menu = new Menu3();
                 menu.setVisible(true);
             }
         }
@@ -351,14 +360,46 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            pintarInterfaz.ColorearIngresoNegro(jPanel1, jPanel2, btn_oscuro, Usuariotxt, Contraseñiatxt, Entrarbtn, Registrarbtn, RecuperarContraseñiabtn);
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"), Color.decode("#FFFFE0"));
             modoOscuro = true;
-        } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearIngresoBlanco(jPanel1, jPanel2, btn_oscuro, Usuariotxt, Contraseñiatxt, Entrarbtn, Registrarbtn, RecuperarContraseñiabtn);
+        } else {
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"), Color.decode("#FFFFE0"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-    boolean modoOscuro = false;
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo, Color colorcontraseña) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(Registrarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(Entrarbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(RecuperarContraseñiabtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(Usuariotxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        password.setContraseña(Contraseñiatxt);
+        password.setColorContaseña(colorcontraseña);
+        password.getContraseña();
+        label.setLabel(jLabel3);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        label.setLabel(jLabel2);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+
+    }
 
     /**
      * @param args the command line arguments

@@ -5,8 +5,10 @@
  */
 package Interfaz;
 
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
 import ClasesSQL.LibretaClienteSQL;
 import ClasesSQL.ProveedorSQL;
 import static Interfaz.ProveedorVista.nombreReferencia;
@@ -25,10 +27,14 @@ import sun.security.util.Password;
 public class Proveedor extends javax.swing.JFrame {
 
     String nombre = "", telefono = "", direccion = "", empresa = "";
-    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
     ProveedorSQL proveedorSQL = new ProveedorSQL();
     int IdProveedor = 0;
+
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
 
     /**
      * Creates new form Menu
@@ -386,13 +392,49 @@ public class Proveedor extends javax.swing.JFrame {
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            pintarInterfaz.ColorearProveedorNegro(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt, direcciontxt, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            pintarInterfazBlanco.ColorearProveedorBlanco(jPanel1, jPanel2, btn_oscuro, NombreProveedortxt1, TelefonoProveedortxt, EmpresaProveedortxt, direcciontxt, CrearCuentabtn, ActualizarCuentabtn, EliminarCuentabtn);
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(ActualizarCuentabtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(EliminarCuentabtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(CrearCuentabtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(NombreProveedortxt1);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(EmpresaProveedortxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(TelefonoProveedortxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(direcciontxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        label.setLabel(jLabel11);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+
+    }
 
     private void direcciontxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direcciontxtActionPerformed
         // TODO add your handling code here:

@@ -5,8 +5,12 @@
  */
 package Interfaz;
 
-import Clases.ColorearInterfazBlanco;
-import Clases.ColorearInterfazNegro;
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteContraseña;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
+import ClasesInterfaz.ComponenteRadioButon;
 import ClasesSQL.UsuarioSQL;
 import Usuario.Compresor;
 import java.awt.Color;
@@ -27,10 +31,14 @@ public class CrearCuenta extends javax.swing.JFrame {
     Password contraseña3;
     String pass_concatenada = "", pass_concatenada2 = "";
     boolean verificacion;
-    ColorearInterfazNegro pintarInterfaz = new ColorearInterfazNegro();
-    ColorearInterfazBlanco pintarInterfazBlanco = new ColorearInterfazBlanco();
     UsuarioSQL usuarioSQL = new UsuarioSQL();
-
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
+    ComponenteContraseña password = new ComponenteContraseña();
+    ComponenteRadioButon radio=new ComponenteRadioButon();
     /**
      * Creates new form Menu
      */
@@ -444,7 +452,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         char[] contraseña1 = Contraseñatxt.getPassword();
         for (int i = 0; i < contraseña1.length; i++) {
             pass_concatenada2 = pass_concatenada2 + contraseña1[i];
-        //    System.out.println(contraseña1[i]);
+            //    System.out.println(contraseña1[i]);
         }
         char[] contraseña2 = Contraseñatxt1.getPassword();
         for (int i = 0; i < contraseña2.length; i++) {
@@ -461,7 +469,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         System.out.println("Verificación" + verificacion);
         String xx;
         xx = comprimir(pass_concatenada);
-        System.out.println("Esta si:"+xx);
+        System.out.println("Esta si:" + xx);
 
         usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, xx, puesto, correo_electronico);
 
@@ -532,15 +540,55 @@ public class CrearCuenta extends javax.swing.JFrame {
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         // TODO add your handling code here:
-        /* if (!modoOscuro) {
-            pintarInterfaz.ColorearCrearCuentaNegro(jPanel1, jPanel2, btn_oscuro, CrearCuentabtn, NombreColaboradortxt, ApellidoColaboradortxt, Correotxt, PuestoLaboraltxt, Usuariotxt, Contraseñatxt, Contraseñatxt1);
+        if (!modoOscuro) {
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"),Color.decode("#FFFFE0"));
             modoOscuro = true;
         } else {
-            pintarInterfazBlanco.ColorearCrearCuentaBlanco(jPanel1, jPanel2, btn_oscuro, CrearCuentabtn, NombreColaboradortxt, ApellidoColaboradortxt, Correotxt, PuestoLaboraltxt, Usuariotxt, Contraseñatxt, Contraseñatxt1);
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"),Color.decode("#FFFFE0"));
             modoOscuro = false;
-        }*/
+        }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo, Color colorcontraseña) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(jButton1);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(CrearCuentabtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+        text.setText(NombreColaboradortxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(ApellidoColaboradortxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(Usuariotxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        text.setText(Correotxt);
+        text.setColorTexto(colortexto);
+        text.getText();
+        password.setContraseña(Contraseñatxt);
+        password.setColorContaseña(colorcontraseña);
+        password.getContraseña();
+        password.setContraseña(Contraseñatxt1);
+        password.setColorContaseña(colorcontraseña);
+        password.getContraseña();
+        label.setLabel(jLabel11);
+        label.setColorLabel(colorlabel);
+        label.getLabel();
+        radio.setRadiobtn(Supervisorrb);
+        radio.setColorradio(colortexto);
+        radio.getRadiobtn();
+    }
     private void Contraseñatxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Contraseñatxt1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Contraseñatxt1ActionPerformed

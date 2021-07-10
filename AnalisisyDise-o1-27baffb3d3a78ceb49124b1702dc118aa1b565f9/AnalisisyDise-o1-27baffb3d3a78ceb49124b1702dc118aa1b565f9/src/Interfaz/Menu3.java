@@ -5,6 +5,11 @@
  */
 package Interfaz;
 
+import ClasesInterfaz.ComponenteBoton;
+import ClasesInterfaz.ComponenteBotonIcon;
+import ClasesInterfaz.ComponenteLabelText;
+import ClasesInterfaz.ComponentePanel;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import sun.security.util.Password;
@@ -14,6 +19,12 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class Menu3 extends javax.swing.JFrame {
+    private boolean modoOscuro;
+    ComponentePanel panel = new ComponentePanel();
+    ComponenteLabelText text = new ComponenteLabelText();
+    ComponenteLabelText label = new ComponenteLabelText();
+    ComponenteBoton boton = new ComponenteBoton();
+    ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
 
     /**
      * Creates new form Menu
@@ -27,30 +38,30 @@ public class Menu3 extends javax.swing.JFrame {
     }
 
     public void transparenciButton() {
-        jButton1.setOpaque(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setBorderPainted(false);
+        AgregarClientebtn.setOpaque(false);
+        AgregarClientebtn.setContentAreaFilled(false);
+        AgregarClientebtn.setBorderPainted(false);
         jButton2.setOpaque(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setBorderPainted(false);
-        jButton5.setOpaque(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setBorderPainted(false);
-        jButton3.setOpaque(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setBorderPainted(false);
-        jButton8.setOpaque(false);
-        jButton8.setContentAreaFilled(false);
-        jButton8.setBorderPainted(false);
-        jButton4.setOpaque(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setBorderPainted(false);
-        jButton7.setOpaque(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setBorderPainted(false);
-        jButton6.setOpaque(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setBorderPainted(false);
+        AgregarInsumoConsumobtn.setOpaque(false);
+        AgregarInsumoConsumobtn.setContentAreaFilled(false);
+        AgregarInsumoConsumobtn.setBorderPainted(false);
+        AgregarInsumoUsobtn.setOpaque(false);
+        AgregarInsumoUsobtn.setContentAreaFilled(false);
+        AgregarInsumoUsobtn.setBorderPainted(false);
+        AgregarProveedorbtn.setOpaque(false);
+        AgregarProveedorbtn.setContentAreaFilled(false);
+        AgregarProveedorbtn.setBorderPainted(false);
+        AgregarVentabtn.setOpaque(false);
+        AgregarVentabtn.setContentAreaFilled(false);
+        AgregarVentabtn.setBorderPainted(false);
+        AgregarPerdidabtn.setOpaque(false);
+        AgregarPerdidabtn.setContentAreaFilled(false);
+        AgregarPerdidabtn.setBorderPainted(false);
+        AgregarMateriaPrimabtn.setOpaque(false);
+        AgregarMateriaPrimabtn.setContentAreaFilled(false);
+        AgregarMateriaPrimabtn.setBorderPainted(false);
 
     }
 
@@ -64,13 +75,13 @@ public class Menu3 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        AgregarClientebtn = new javax.swing.JButton();
+        AgregarInsumoUsobtn = new javax.swing.JButton();
+        AgregarVentabtn = new javax.swing.JButton();
+        AgregarInsumoConsumobtn = new javax.swing.JButton();
+        AgregarMateriaPrimabtn = new javax.swing.JButton();
+        AgregarPerdidabtn = new javax.swing.JButton();
+        AgregarProveedorbtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
@@ -80,87 +91,87 @@ public class Menu3 extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jButton1.setText("AGREGAR CLIENTE");
-        jButton1.setBorder(null);
-        jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AgregarClientebtn.setBackground(new java.awt.Color(0, 0, 102));
+        AgregarClientebtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AgregarClientebtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregarClientebtn.setText("AGREGAR CLIENTE");
+        AgregarClientebtn.setBorder(null);
+        AgregarClientebtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        AgregarClientebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AgregarClientebtnActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 102));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(102, 102, 102));
-        jButton3.setText("AGREGAR INSUMO PARA USO");
-        jButton3.setBorder(null);
-        jButton3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AgregarInsumoUsobtn.setBackground(new java.awt.Color(0, 0, 102));
+        AgregarInsumoUsobtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AgregarInsumoUsobtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregarInsumoUsobtn.setText("AGREGAR INSUMO PARA USO");
+        AgregarInsumoUsobtn.setBorder(null);
+        AgregarInsumoUsobtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        AgregarInsumoUsobtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                AgregarInsumoUsobtnActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 102));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(102, 102, 102));
-        jButton4.setText("AGREGAR VENTA");
-        jButton4.setBorder(null);
-        jButton4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        AgregarVentabtn.setBackground(new java.awt.Color(0, 0, 102));
+        AgregarVentabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AgregarVentabtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregarVentabtn.setText("AGREGAR VENTA");
+        AgregarVentabtn.setBorder(null);
+        AgregarVentabtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        AgregarVentabtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                AgregarVentabtnActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 102));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(102, 102, 102));
-        jButton5.setText("AGREGAR INSUMO PARA CONSUMO");
-        jButton5.setBorder(null);
-        jButton5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        AgregarInsumoConsumobtn.setBackground(new java.awt.Color(0, 0, 102));
+        AgregarInsumoConsumobtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AgregarInsumoConsumobtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregarInsumoConsumobtn.setText("AGREGAR INSUMO PARA CONSUMO");
+        AgregarInsumoConsumobtn.setBorder(null);
+        AgregarInsumoConsumobtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        AgregarInsumoConsumobtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                AgregarInsumoConsumobtnActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 102));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(102, 102, 102));
-        jButton6.setText("AGREGAR MATERIA PRIMA");
-        jButton6.setBorder(null);
-        jButton6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        AgregarMateriaPrimabtn.setBackground(new java.awt.Color(0, 0, 102));
+        AgregarMateriaPrimabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AgregarMateriaPrimabtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregarMateriaPrimabtn.setText("AGREGAR MATERIA PRIMA");
+        AgregarMateriaPrimabtn.setBorder(null);
+        AgregarMateriaPrimabtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        AgregarMateriaPrimabtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                AgregarMateriaPrimabtnActionPerformed(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(0, 0, 102));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(102, 102, 102));
-        jButton7.setText("AGREGAR PERDIDA");
-        jButton7.setBorder(null);
-        jButton7.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        AgregarPerdidabtn.setBackground(new java.awt.Color(0, 0, 102));
+        AgregarPerdidabtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AgregarPerdidabtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregarPerdidabtn.setText("AGREGAR PERDIDA");
+        AgregarPerdidabtn.setBorder(null);
+        AgregarPerdidabtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        AgregarPerdidabtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                AgregarPerdidabtnActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(0, 0, 102));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(102, 102, 102));
-        jButton8.setText("AGREGAR PROVEEDOR");
-        jButton8.setBorder(null);
-        jButton8.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        AgregarProveedorbtn.setBackground(new java.awt.Color(0, 0, 102));
+        AgregarProveedorbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AgregarProveedorbtn.setForeground(new java.awt.Color(102, 102, 102));
+        AgregarProveedorbtn.setText("AGREGAR PROVEEDOR");
+        AgregarProveedorbtn.setBorder(null);
+        AgregarProveedorbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        AgregarProveedorbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                AgregarProveedorbtnActionPerformed(evt);
             }
         });
 
@@ -173,35 +184,35 @@ public class Menu3 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(AgregarClientebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AgregarInsumoConsumobtn, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                            .addComponent(AgregarInsumoUsobtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(AgregarPerdidabtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AgregarMateriaPrimabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AgregarVentabtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AgregarProveedorbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(110, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AgregarClientebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AgregarInsumoUsobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AgregarInsumoConsumobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AgregarMateriaPrimabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AgregarPerdidabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AgregarProveedorbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AgregarVentabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
         );
 
@@ -249,64 +260,103 @@ public class Menu3 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AgregarClientebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarClientebtnActionPerformed
         // TODO add your handling code here:
         Libreta cliente = new Libreta();
         cliente.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AgregarClientebtnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void AgregarInsumoUsobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarInsumoUsobtnActionPerformed
         // TODO add your handling code here:
         Inventario inventario = new Inventario();
         inventario.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_AgregarInsumoUsobtnActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void AgregarVentabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarVentabtnActionPerformed
         // TODO add your handling code here:
 
         Ventas venta = new Ventas();
         venta.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_AgregarVentabtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void AgregarInsumoConsumobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarInsumoConsumobtnActionPerformed
         // TODO add your handling code here:
         MedicamentosYAlimentos medicamentosYAlimentos = new MedicamentosYAlimentos();
         medicamentosYAlimentos.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_AgregarInsumoConsumobtnActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void AgregarMateriaPrimabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarMateriaPrimabtnActionPerformed
         // TODO add your handling code here:
         MateriaPrima materiaPrima = new MateriaPrima();
         materiaPrima.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_AgregarMateriaPrimabtnActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void AgregarPerdidabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarPerdidabtnActionPerformed
         // TODO add your handling code here:
         PerdidaMateriaPrima perdidaMateriaPrima = new PerdidaMateriaPrima();
         perdidaMateriaPrima.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_AgregarPerdidabtnActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void AgregarProveedorbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProveedorbtnActionPerformed
         // TODO add your handling code here:
         Proveedor proveedor = new Proveedor();
         proveedor.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_AgregarProveedorbtnActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
+          if (!modoOscuro) {
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png",Color.decode("#2e3951"), Color.decode("#212b41"));
 
+            modoOscuro = true;
+        } else if (modoOscuro == true) {
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png",Color.WHITE, Color.decode("#F2FDFA"));
+            modoOscuro = false;
+        }
     }//GEN-LAST:event_btn_oscuroActionPerformed
+    private void Pintar(Color colorbotones, String imagen,Color colorbase, Color colorfondo) {
+        panel.setPanelBase(jPanel2);
+        panel.setColorBase(colorbase);
+        panel.getPanelBase();
+        panel.setPanelFondo(jPanel1);
+        panel.setColorFondo(colorfondo);
+        panel.getPanelFondo();
+        boton.setBoton(AgregarClientebtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregarInsumoConsumobtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregarInsumoUsobtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregarMateriaPrimabtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregarPerdidabtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregarProveedorbtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        boton.setBoton(AgregarVentabtn);
+        boton.setColorBoton(colorbotones);
+        boton.getBoton();
+        botonIcon.setBotonActivador(btn_oscuro);
+        botonIcon.setNombreimagen(imagen);
+        botonIcon.getBotonActivador();
+    }
 
     /**
      * @param args the command line arguments
@@ -345,15 +395,15 @@ public class Menu3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarClientebtn;
+    private javax.swing.JButton AgregarInsumoConsumobtn;
+    private javax.swing.JButton AgregarInsumoUsobtn;
+    private javax.swing.JButton AgregarMateriaPrimabtn;
+    private javax.swing.JButton AgregarPerdidabtn;
+    private javax.swing.JButton AgregarProveedorbtn;
+    private javax.swing.JButton AgregarVentabtn;
     private javax.swing.JButton btn_oscuro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
