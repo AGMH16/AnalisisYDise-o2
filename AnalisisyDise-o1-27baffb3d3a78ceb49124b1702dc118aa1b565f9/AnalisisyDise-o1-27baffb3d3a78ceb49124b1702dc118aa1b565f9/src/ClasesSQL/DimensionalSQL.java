@@ -45,6 +45,7 @@ public class DimensionalSQL {
         } catch (Exception e) {
             System.out.println(e);
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR DIMENSIONAL");
+            System.out.println(e);
         }
     }
 
