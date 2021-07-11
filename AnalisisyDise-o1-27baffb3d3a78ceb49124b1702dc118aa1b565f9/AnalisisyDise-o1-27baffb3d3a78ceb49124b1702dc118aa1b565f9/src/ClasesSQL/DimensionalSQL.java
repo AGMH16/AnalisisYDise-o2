@@ -5,11 +5,13 @@
  */
 package ClasesSQL;
 
+import Clases.Dimensional;
 import Conexion.ConexionBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -23,7 +25,18 @@ import javax.swing.JTextField;
 public class DimensionalSQL {
 
    Connection connection = ConexionBD.getConnection();
+    int  val2;
 
+    public int getVal2() {
+        return val2;
+    }
+
+    public void setVal2(int val2) {
+        this.val2 = val2;
+    }
+    
+
+    
     public void InsertarDimensional(String dimensional) {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
@@ -36,7 +49,7 @@ public class DimensionalSQL {
         }
     }
 
-    // //DELETE FROM dimensional WHERE Dimensional="Libras";
+    
     public void EliminarDimensional(String dimensional) {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
@@ -48,30 +61,29 @@ public class DimensionalSQL {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
         }
     }
-
-//select idDimensional, Dimensional from dimensional;
-    public int BuscarDimensional(JComboBox Dimensionaljcmb, String nombreDimensional) {
-        int id = 0;
+    
+    public int ObtenerIdDimensional(String dimesional) {
+        int idDimensional = 0;
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
-                ResultSet clr = statement.executeQuery("select idDimensional,Dimensional from libreta");
+                ResultSet clr = statement.executeQuery("select idDimensional,Dimensional from dimensional");
                 while (clr.next()) {
-                    id = clr.getInt("idDimensional");
-                    String dimensional1 = clr.getString("Dimensional");
+                    idDimensional = clr.getInt("idDimensional");
+                    String Dimensional = clr.getString("Dimensional");
 
-                    if (nombreDimensional.equals(dimensional1)) {
-                        Dimensionaljcmb.setToolTipText(dimensional1);
+                    if (dimesional.equals(Dimensional)) {
+
+                        val2 = idDimensional;
+                        System.out.println(val2);
 
                     }
                 }
-
             }
-            connection.close();
+            //Conexion.getConnection().close();
         } catch (Exception e) {
-            //JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
         }
 
-        return id;
+        return idDimensional;
     }
 
 }

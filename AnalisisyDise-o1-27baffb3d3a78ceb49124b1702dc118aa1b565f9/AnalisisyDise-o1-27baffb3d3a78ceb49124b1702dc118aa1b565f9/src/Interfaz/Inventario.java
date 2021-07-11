@@ -9,7 +9,9 @@ import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
+import ClasesSQL.DimensionalSQL;
 import ClasesSQL.InventarioSQL;
+import ClasesSQL.MostrarEnInterfaces;
 import ClasesSQL.PruebaSQL;
 import Usuario.Compresor;
 import java.awt.event.KeyEvent;
@@ -42,6 +44,8 @@ public class Inventario extends javax.swing.JFrame {
     java.util.Date date = new java.util.Date();
     SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
     PruebaSQL pruebasql = new PruebaSQL();
+    MostrarEnInterfaces mostrar= new MostrarEnInterfaces();
+    DimensionalSQL dimensionalsql= new DimensionalSQL();
     int cantidad = 0, total = 0, cantidad2 = 0;
     JPasswordField passwordField = new JPasswordField(15);
     JTextField jtextField = new JTextField(15);
@@ -59,9 +63,7 @@ public class Inventario extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
-
-        pruebasql.BuscarDimesional(Dimensionaljcmb);
-
+        mostrar.BuscarDimesional(Dimensionaljcmb);
         Productojcmb.addItem("Pollo");
         Productojcmb.addItem("Maíz");
         Productojcmb.addItem("Vacuna");
@@ -397,8 +399,8 @@ public class Inventario extends javax.swing.JFrame {
         System.out.println(dimensional);
         System.out.println(total);
         dimensional = (String) Dimensionaljcmb.getSelectedItem();
-        pruebasql.BuscarIdDimensional(dimensional);
-        System.out.println("Var para meter en el insert:" + pruebasql.getVal2());
+        dimensionalsql.ObtenerIdDimensional(dimensional);
+        System.out.println("Var para meter en el insert:" + dimensionalsql.getVal2());
      
         //Para obtener ID del Usuario
         // usuarioReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
@@ -444,7 +446,7 @@ public class Inventario extends javax.swing.JFrame {
         }
         
         System.out.println("Var para meter en el insert:" + pruebasql.getVal());
-        inventarioSQL.InsertarInventario(producto,cantidad, fecha, total,pruebasql.getVal2(), pruebasql.getVal());
+        inventarioSQL.InsertarInventario(producto,cantidad, fecha, total,dimensionalsql.getVal2(), pruebasql.getVal());
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
     private String comprimir(String frase) {

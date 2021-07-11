@@ -106,8 +106,7 @@ public class UsuarioSQL {
 
         return usuarios;
     }
-     public String BuscarUsuario2(String usuario) {
-      //  int IdUsuario = 0;
+     public String ComparacioConOtroUsuarios(String usuario) {
         String Usuario="";
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
@@ -117,8 +116,6 @@ public class UsuarioSQL {
 
                     if ((usuario.equals(Usuario))) {
                         JOptionPane.showMessageDialog(null, "Este usuario ya esta en uso, pruebe con otro");
-                       // val = IdUsuario;
-                     //   System.out.println(val);
                         
 
                     }

@@ -10,6 +10,7 @@ import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
 import ClasesSQL.LibretaClienteSQL;
+import ClasesSQL.MostrarEnInterfaces;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -32,6 +33,7 @@ public class Libreta extends javax.swing.JFrame {
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
     LibretaClienteSQL libretaclientesql = new LibretaClienteSQL();
+    MostrarEnInterfaces mostrarEnInterfaces = new MostrarEnInterfaces();
     public static String telefono = "", celular = "";
 
     public static String getTelefono() {
@@ -382,7 +384,7 @@ public class Libreta extends javax.swing.JFrame {
 
     private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
         // TODO add your handling code here:
-        libretaclientesql.Buscar(Libretatable);
+        mostrarEnInterfaces.Buscar(Libretatable);
     }//GEN-LAST:event_BuscarbtnActionPerformed
 
     private void BuscartxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BuscartxtKeyPressed
@@ -409,7 +411,9 @@ public class Libreta extends javax.swing.JFrame {
             Cliente cliente = new Cliente(telefono);
             cliente.setVisible(true);
             dispose();
-        } else {
+        } 
+        
+        if(Buscartxt1.getText() != null){
             Cliente cliente = new Cliente(celular);
             cliente.setVisible(true);
             dispose();

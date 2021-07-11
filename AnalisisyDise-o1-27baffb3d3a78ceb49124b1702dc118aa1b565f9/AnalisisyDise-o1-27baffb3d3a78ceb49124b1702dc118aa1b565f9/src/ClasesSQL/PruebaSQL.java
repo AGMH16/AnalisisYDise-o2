@@ -29,16 +29,7 @@ import javax.swing.table.DefaultTableModel;
 public class PruebaSQL {
 
     Connection connection = ConexionBD.getConnection();
-    int val, val2;
-
-    public int getVal2() {
-        return val2;
-    }
-
-    public void setVal2(int val2) {
-        this.val2 = val2;
-    }
-    
+    int val;
 
     public int getVal() {
         return val;
@@ -75,51 +66,8 @@ public class PruebaSQL {
         }
     }
 
-    public int BuscarCodigoLote(JComboBox idLotejcbx) {
-        int loteAverio = 0;
-        try {
-            try (Statement statement = (Statement) connection.createStatement()) {
-                ResultSet clr = statement.executeQuery("select LoteAverio FROM lotepollo");
-                while (clr.next()) {
-                    loteAverio = clr.getInt("idDimensional");
-                    String dimensional1 = clr.getString("Dimensional");
+   
 
-                    idLotejcbx.setToolTipText(dimensional1);
-
-                }
-
-            }
-            connection.close();
-        } catch (Exception e) {
-            //JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
-        }
-
-        return loteAverio;
-    }
-
-    public int BuscarDimesional(JComboBox Dimensionaljcmb) {
-        int idDimensional = 0;
-        String dimensional = "";
-        try {
-            try (Statement statement = (Statement) connection.createStatement()) {
-                ResultSet clr = statement.executeQuery("select idDimensional,Dimensional from dimensional");
-                while (clr.next()) {
-                    idDimensional = clr.getInt("idDimensional");
-                    dimensional = clr.getString("Dimensional");
-
-                    Dimensionaljcmb.addItem(dimensional);
-                   // System.out.println("Varible para meter en insert:" + idDimensional);
-                }
-                System.out.println("Varible para meter en insert:" + idDimensional);
-            }
-
-        } catch (Exception e) {
-            Logger.getLogger(MercaderiaSQL.class.getName()).log(Level.SEVERE, null, e);
-            System.out.println(e);
-        }
-
-        return idDimensional;
-    }
 
     public int BuscarUsuario(String usuario, String contraseña) {
         int IdUsuario = 0;
@@ -147,28 +95,5 @@ public class PruebaSQL {
     }
     
    
-    
-     public int BuscarIdDimensional(String dimesional) {
-        int idDimensional = 0;
-        try {
-            try (Statement statement = (Statement) connection.createStatement()) {
-                ResultSet clr = statement.executeQuery("select idDimensional,Dimensional from dimensional");
-                while (clr.next()) {
-                    idDimensional = clr.getInt("idDimensional");
-                    String Dimensional = clr.getString("Dimensional");
-
-                    if (dimesional.equals(Dimensional)) {
-
-                        val2 = idDimensional;
-                        System.out.println(val2);
-
-                    }
-                }
-            }
-            //Conexion.getConnection().close();
-        } catch (Exception e) {
-        }
-
-        return idDimensional;
-    }
+ 
 }
