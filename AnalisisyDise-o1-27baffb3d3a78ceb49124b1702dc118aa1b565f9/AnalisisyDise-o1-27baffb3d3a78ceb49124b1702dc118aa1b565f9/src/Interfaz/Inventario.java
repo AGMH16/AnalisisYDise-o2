@@ -38,14 +38,13 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Inventario extends javax.swing.JFrame {
+
     Compresor compresor = new Compresor();
     String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "", pass_concatenada = "", Usuario = "";
     String nombreproveedor = "", tipoproducto = "", fecha;
-    java.util.Date date = new java.util.Date();
-    SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
     PruebaSQL pruebasql = new PruebaSQL();
-    MostrarEnInterfaces mostrar= new MostrarEnInterfaces();
-    DimensionalSQL dimensionalsql= new DimensionalSQL();
+    MostrarEnInterfaces mostrar = new MostrarEnInterfaces();
+    DimensionalSQL dimensionalsql = new DimensionalSQL();
     int cantidad = 0, total = 0, cantidad2 = 0;
     JPasswordField passwordField = new JPasswordField(15);
     JTextField jtextField = new JTextField(15);
@@ -385,7 +384,8 @@ public class Inventario extends javax.swing.JFrame {
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
         // TODO add your handling code here:
-
+        java.util.Date date = new java.util.Date();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         producto = (String) Productojcmb.getSelectedItem();
 
         cantidad = Integer.parseInt(Cantidadtxt.getText());
@@ -401,7 +401,7 @@ public class Inventario extends javax.swing.JFrame {
         dimensional = (String) Dimensionaljcmb.getSelectedItem();
         dimensionalsql.ObtenerIdDimensional(dimensional);
         System.out.println("Var para meter en el insert:" + dimensionalsql.getVal2());
-     
+
         //Para obtener ID del Usuario
         // usuarioReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
         // contraseñaReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
@@ -441,15 +441,15 @@ public class Inventario extends javax.swing.JFrame {
             System.out.println("Ingreso de contraseña cancelada");
 
         }
-        
+
         System.out.println("Var para meter en el insert:" + pruebasql.getVal());
-        inventarioSQL.InsertarInventario(producto,cantidad, fecha, total,dimensionalsql.getVal2(), pruebasql.getVal());
+        inventarioSQL.InsertarInventario(producto, cantidad, fecha, total, dimensionalsql.getVal2(), pruebasql.getVal());
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
-   
+
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png",Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
             //   Pintar(Color.yellow, "/Imagenes/darkmode_2.png", Color.blue,Color.red,Color.green, Color.MAGENTA);
 
             modoOscuro = true;

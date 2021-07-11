@@ -6,6 +6,7 @@
 package Interfaz;
 
 import Clases.Lista;
+import Clases.Venta;
 import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
@@ -14,8 +15,10 @@ import ClasesSQL.MercaderiaSQL;
 import Usuario.Compresor;
 import ClasesSQL.PruebaSQL;
 import ClasesSQL.VentaSQL;
+import Conexion.ConexionBD;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -36,10 +39,12 @@ import javax.swing.table.TableColumnModel;
 import sun.security.util.Password;
 
 public class Ventas extends javax.swing.JFrame {
-    Compresor compresor=new Compresor();
+
+    Connection connection = ConexionBD.getConnection();
+    Compresor compresor = new Compresor();
     DefaultTableModel model;
     Scanner sc = new Scanner(System.in);
-    ArrayList<Lista> listaOriginal = new ArrayList<Lista>();
+    ArrayList<Venta> listaOriginal = new ArrayList<Venta>();
     java.util.Date date = new java.util.Date();
     SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
     PruebaSQL pruebasql = new PruebaSQL();
@@ -48,9 +53,9 @@ public class Ventas extends javax.swing.JFrame {
     boolean aDomicilio, puntoDeVenta, modoOscuro;
     int cantidad = 0, cantidad2 = 0, cantidadProducto, ciclo;
     float total = 0, total2;
-    String Usuario = "", pass_concatenada = "", nombreproveedor = "", tipoproducto = "", producto = "", xx, xx2, fecha, usuarioReferencia = "", contraseñaReferencia = "", nombreProducto;
+    String Usuario = "", pass_concatenada = "", nombreproveedor = "", tipoproducto = "", producto = "", fecha, nombreProducto;
     char[] password;
-   
+
     // Definimos el largo de la casilla para la contraseña
     JPasswordField passwordField = new JPasswordField(15);
     JTextField jtextField = new JTextField(15);
@@ -193,12 +198,12 @@ public class Ventas extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Producto", "Cantidad", "Total"
+                "Adomicilio", "Punto De Venta", "Producto", "Cantidad", "Total", "Fecha"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
@@ -396,24 +401,6 @@ public class Ventas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
-        if (Adomijbtn.isSelected()) {
-            aDomicilio = true;
-            System.out.println("Adomicilio" + aDomicilio);
-        }
-        if (jRadioButton2.isSelected()) {
-            puntoDeVenta = true;
-            System.out.println("Punto de Venta" + puntoDeVenta);
-        }
-        
-        tipoproducto = (String) ProductoJcmbx.getSelectedItem();
-        System.out.println(tipoproducto);
-        cantidad = Integer.parseInt(cantidadtxt.getText());
-        System.out.println(cantidad);
-        total = Float.parseFloat(totaltxt.getText());
-        System.out.println(total);
-
-        fecha = f.format(FechaCalendar.getDate());
-        System.out.println(fecha);
 
         //Para obtener ID del Usuario
         // usuarioReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
@@ -449,35 +436,28 @@ public class Ventas extends javax.swing.JFrame {
                 System.out.println(password[i]);
             }
 
-            xx = compresor.comprimir(pass_concatenada);
-            System.out.println(xx);
-            xx2 = String.valueOf(password);
-            pruebasql.BuscarUsuario(Usuario, xx2);
+            pruebasql.BuscarUsuario(Usuario, pass_concatenada);
         } else {
             System.out.println("Ingreso de contraseña cancelada");
 
         }
-        //   xx=String.valueOf(password);
-        //  System.out.println(xx);
-        //  pruebasql.BuscarUsuario(Usuario, xx2);
-        //   pruebasql.BuscarUsuario(usuarioReferencia,contraseñaReferencia);
-        System.out.println("Var para meter en el insert:" + pruebasql.getVal());
-        
-        for (int i = 0; i < listaOriginal.size(); i++) {
-             String matris[][] = new String[listaOriginal.size()][3];
-            matris[i][0] = listaOriginal.get(i).getProducto();
-            matris[i][1] = String.valueOf(listaOriginal.get(i).getCantidad());
-            matris[i][2] = String.valueOf(listaOriginal.get(i).getTotal());
-            ventasql.InsertarVenta(aDomicilio, puntoDeVenta, listaOriginal.get(i).getProducto(), listaOriginal.get(i).getCantidad(),listaOriginal.get(i).getTotal(), fecha, pruebasql.getVal());
-            
+      //  for (int i = 0; i < listaOriginal.size(); i++) {
+      
+      
+      
+      
+      
+    //}
+            for(Clases.Venta lista2:listaOriginal){
+              ventasql.InsertarVenta(lista2.isAdomicilio(),lista2.isPuntoVenta(), lista2.getProducto(), lista2.getCantidad(), lista2.getTotal(), lista2.getFecha(), pruebasql.getVal());
+               
         }
         
-        
-       // ventasql.InsertarVenta(aDomicilio, puntoDeVenta, tipoproducto, cantidad, total, fecha, pruebasql.getVal());
 
+      
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
-   
+
     private void SalirbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirbtnActionPerformed
         // TODO add your handling code here:
         System.exit(0);
@@ -567,28 +547,33 @@ public class Ventas extends javax.swing.JFrame {
         info[1] = cantidadtxt.getText();
         info[2] = totaltxt.getText();
         model.addRow(info);*/
-    
-        
+
         mostrar();
         cantidadtxt.setText("Cantidad");
         totaltxt.setText("Total");
-       
+
     }//GEN-LAST:event_VerbtnActionPerformed
-    public void mostrar() { 
-         String matris[][] = new String[listaOriginal.size()][3];
+    public void mostrar() {
+
+        String matris[][] = new String[listaOriginal.size()][6];
         for (int i = 0; i < listaOriginal.size(); i++) {
-            matris[i][0] = listaOriginal.get(i).getProducto();
-            matris[i][1] = String.valueOf(listaOriginal.get(i).getCantidad());
-            matris[i][2] = String.valueOf(listaOriginal.get(i).getTotal());
+
+            matris[i][0] = String.valueOf(listaOriginal.get(i).isAdomicilio());
+            matris[i][1] = String.valueOf(listaOriginal.get(i).isPuntoVenta());
+            matris[i][2] = listaOriginal.get(i).getProducto();
+            matris[i][3] = String.valueOf(listaOriginal.get(i).getCantidad());
+            matris[i][4] = String.valueOf(listaOriginal.get(i).getTotal());
+            matris[i][5] = listaOriginal.get(i).getFecha();
+
         }
-        
-        
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 matris,
                 new String[]{
-                    "Producto", "Cantidad", "Total"
+                    "Adomicilio", "Punto De Venta", "Producto", "Cantidad", "Total", "Fecha"
                 }
         ));
+
     }
     private void ProductoJcmbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductoJcmbxActionPerformed
         // TODO add your handling code here:
@@ -596,15 +581,28 @@ public class Ventas extends javax.swing.JFrame {
 
     private void Verbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Verbtn1ActionPerformed
         // TODO add your handling code here:
-         tipoproducto = (String) ProductoJcmbx.getSelectedItem();
+        if (Adomijbtn.isSelected()) {
+            aDomicilio = true;
+            System.out.println("Adomicilio" + aDomicilio);
+        }
+        if (jRadioButton2.isSelected()) {
+            puntoDeVenta = true;
+            System.out.println("Punto de Venta" + puntoDeVenta);
+        }
+
+        tipoproducto = (String) ProductoJcmbx.getSelectedItem();
         System.out.println(tipoproducto);
         cantidad = Integer.parseInt(cantidadtxt.getText());
         System.out.println(cantidad);
         total = Float.parseFloat(totaltxt.getText());
         System.out.println(total);
+        fecha = f.format(FechaCalendar.getDate());
+        System.out.println(fecha);
 
-        Lista lista = new Lista(tipoproducto, cantidad, total);
-        listaOriginal.add(lista);
+        Venta venta = new Venta(aDomicilio, puntoDeVenta, tipoproducto, cantidad, total, fecha);
+        listaOriginal.add(venta);
+
+
     }//GEN-LAST:event_Verbtn1ActionPerformed
 
     /**

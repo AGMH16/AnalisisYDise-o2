@@ -43,5 +43,5 @@ public class Lista {
     public void setTotal(float total) {
         this.total = total;
     }
-    
+
 }

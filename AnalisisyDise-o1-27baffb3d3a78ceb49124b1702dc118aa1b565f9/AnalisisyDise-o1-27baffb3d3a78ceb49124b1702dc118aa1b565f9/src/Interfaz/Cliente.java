@@ -42,7 +42,6 @@ public class Cliente extends javax.swing.JFrame {
     Password contraseña3;
     boolean modoOscuro = false;
     LibretaClienteSQL libretaSQL = new LibretaClienteSQL();
-
     ComponentePanel panel = new ComponentePanel();
     ComponenteLabelText text = new ComponenteLabelText();
     ComponenteLabelText label = new ComponenteLabelText();

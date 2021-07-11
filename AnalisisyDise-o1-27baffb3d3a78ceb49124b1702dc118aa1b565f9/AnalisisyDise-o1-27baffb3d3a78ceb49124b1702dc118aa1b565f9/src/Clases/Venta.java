@@ -13,10 +13,9 @@ import java.sql.Date;
  */
 public class Venta {
     private boolean adomicilio, puntoVenta;
-    private String producto;
+    private String producto,fecha;
     private int cantidad;
     private float total;
-    private Date fecha;
     
     public Venta(){
         this.adomicilio=adomicilio;
@@ -26,7 +25,7 @@ public class Venta {
         this.total=total;
         this.fecha=fecha;
     }
-    public Venta(boolean adomicilio,boolean puntoVenta, String producto, int cantidad, float total, Date fecha){
+    public Venta(boolean adomicilio,boolean puntoVenta, String producto, int cantidad, float total, String fecha){
         this.adomicilio = adomicilio;
         this.puntoVenta=puntoVenta;
         this.producto=producto;
@@ -75,12 +74,14 @@ public class Venta {
         this.total = total;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
+
             
 }
