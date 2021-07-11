@@ -31,6 +31,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     Password contraseña3;
     String pass_concatenada = "", pass_concatenada2 = "";
     boolean verificacion;
+    Compresor compresor = new Compresor();
     UsuarioSQL usuarioSQL = new UsuarioSQL();
     ComponentePanel panel = new ComponentePanel();
     ComponenteLabelText text = new ComponenteLabelText();
@@ -38,7 +39,8 @@ public class CrearCuenta extends javax.swing.JFrame {
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
     ComponenteContraseña password = new ComponenteContraseña();
-    ComponenteRadioButon radio=new ComponenteRadioButon();
+    ComponenteRadioButon radio = new ComponenteRadioButon();
+
     /**
      * Creates new form Menu
      */
@@ -469,20 +471,14 @@ public class CrearCuenta extends javax.swing.JFrame {
         System.out.println("Contraseña" + pass_concatenada);
         System.out.println("Verificación" + verificacion);
         String xx;
-        xx = comprimir(pass_concatenada);
+        xx = compresor.comprimir(pass_concatenada);
         System.out.println("Esta si:" + xx);
 
         usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, xx, puesto, correo_electronico);
 
 
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
-    private String comprimir(String frase) {
-        Compresor compresor = new Compresor();
-        String Cadena_en_binario = compresor.CodigoAscii_a_binario(frase);
-        String cadena_simple = compresor.cadena_RLE(Cadena_en_binario);
-        String ultima_cadena = compresor.rle_a_Ascii(cadena_simple);
-        return ultima_cadena;
-    }
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         jPanel1.setBackground(Color.decode("#212b41"));
@@ -542,10 +538,10 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         // TODO add your handling code here:
         if (!modoOscuro) {
-            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"),Color.decode("#FFFFE0"));
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"), Color.decode("#FFFFE0"));
             modoOscuro = true;
         } else {
-            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"),Color.decode("#FFFFE0"));
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"), Color.decode("#FFFFE0"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed

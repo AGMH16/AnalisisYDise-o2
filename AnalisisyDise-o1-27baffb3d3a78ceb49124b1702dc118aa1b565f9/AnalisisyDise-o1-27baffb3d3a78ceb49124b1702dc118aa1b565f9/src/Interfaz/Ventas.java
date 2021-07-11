@@ -36,7 +36,7 @@ import javax.swing.table.TableColumnModel;
 import sun.security.util.Password;
 
 public class Ventas extends javax.swing.JFrame {
-
+    Compresor compresor=new Compresor();
     DefaultTableModel model;
     Scanner sc = new Scanner(System.in);
     ArrayList<Lista> listaOriginal = new ArrayList<Lista>();
@@ -449,7 +449,7 @@ public class Ventas extends javax.swing.JFrame {
                 System.out.println(password[i]);
             }
 
-            xx = comprimir(pass_concatenada);
+            xx = compresor.comprimir(pass_concatenada);
             System.out.println(xx);
             xx2 = String.valueOf(password);
             pruebasql.BuscarUsuario(Usuario, xx2);
@@ -477,13 +477,7 @@ public class Ventas extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
-    private String comprimir(String frase) {
-        Compresor compresor = new Compresor();
-        String Cadena_en_binario = compresor.CodigoAscii_a_binario(frase);
-        String cadena_simple = compresor.cadena_RLE(Cadena_en_binario);
-        String ultima_cadena = compresor.rle_a_Ascii(cadena_simple);
-        return ultima_cadena;
-    }
+   
     private void SalirbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirbtnActionPerformed
         // TODO add your handling code here:
         System.exit(0);
