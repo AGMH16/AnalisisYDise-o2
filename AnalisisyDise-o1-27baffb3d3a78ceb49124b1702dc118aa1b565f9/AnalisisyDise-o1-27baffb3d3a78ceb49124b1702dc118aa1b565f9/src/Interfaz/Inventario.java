@@ -39,7 +39,7 @@ import javax.swing.JTextField;
 
 public class Inventario extends javax.swing.JFrame {
     Compresor compresor = new Compresor();
-    String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "", pass_concatenada = "", Usuario = "", xx, xx2;
+    String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "", pass_concatenada = "", Usuario = "";
     String nombreproveedor = "", tipoproducto = "", fecha;
     java.util.Date date = new java.util.Date();
     SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
@@ -436,10 +436,7 @@ public class Inventario extends javax.swing.JFrame {
                 System.out.println(password[i]);
             }
 
-            xx = compresor.comprimir(pass_concatenada);
-            System.out.println(xx);
-            xx2 = String.valueOf(password);
-            pruebasql.BuscarUsuario(Usuario, xx2);
+            pruebasql.BuscarUsuario(Usuario, pass_concatenada);
         } else {
             System.out.println("Ingreso de contraseña cancelada");
 
