@@ -34,6 +34,7 @@ import javax.swing.JOptionPane;
  * @author jenif
  */
 public class Cliente extends javax.swing.JFrame {
+
     Connection connection = ConexionBD.getConnection();
     Libreta libreta = new Libreta();
     String nombres = "", apellidos = "", direccion = "", telefonoMovil = "", telefonocasa = "", pass_concatenada;
@@ -41,7 +42,6 @@ public class Cliente extends javax.swing.JFrame {
     Password contraseña3;
     boolean modoOscuro = false;
     LibretaClienteSQL libretaSQL = new LibretaClienteSQL();
-
     ComponentePanel panel = new ComponentePanel();
     ComponenteLabelText text = new ComponenteLabelText();
     ComponenteLabelText label = new ComponenteLabelText();
@@ -587,7 +587,7 @@ public class Cliente extends javax.swing.JFrame {
         System.out.println("Telefono:" + telefonocasa);
         System.out.println("Dirección:" + direccion);
         try {
-            libretaSQL.ActualizarLibreta(connection,nocliente, nombres, apellidos, nombres, telefonocasa, direccion);
+            libretaSQL.ActualizarLibreta(connection, nocliente, nombres, apellidos, nombres, telefonocasa, direccion);
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);

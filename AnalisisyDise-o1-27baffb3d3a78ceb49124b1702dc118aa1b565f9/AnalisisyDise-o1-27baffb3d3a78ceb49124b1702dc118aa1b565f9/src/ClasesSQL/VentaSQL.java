@@ -30,7 +30,7 @@ public class VentaSQL {
                 statement.execute("INSERT INTO venta (Adomicilio,PuntoVenta,Producto,Cantidad,Total,Fecha,Usuario_idUsuario) VALUES ('" + adomicilio + "','" + puntoVenta + "','" + producto + "'," + cantidad + "," + total + ",'" + fecha + "'," +usuario_idUsuario + ")");
                 JOptionPane.showMessageDialog(null, "Venta añedida a la lista");
             }
-            connection.close();
+          //  connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR ESTA VENTA");
             System.out.println(e);

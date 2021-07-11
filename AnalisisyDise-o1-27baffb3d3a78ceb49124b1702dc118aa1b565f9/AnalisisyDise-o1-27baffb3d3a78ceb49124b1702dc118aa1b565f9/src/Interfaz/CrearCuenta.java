@@ -475,8 +475,10 @@ public class CrearCuenta extends javax.swing.JFrame {
         System.out.println("Esta si:" + xx);
 
         usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, xx, puesto, correo_electronico);
-
-
+        NombreColaboradortxt.setText(null);
+        ApellidoColaboradortxt.setText(null);
+        Usuariotxt.setText(null);
+        Correotxt.setText(null);
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
