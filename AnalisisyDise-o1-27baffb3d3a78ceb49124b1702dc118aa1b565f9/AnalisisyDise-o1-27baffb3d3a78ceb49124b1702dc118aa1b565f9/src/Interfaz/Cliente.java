@@ -11,6 +11,7 @@ import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
 import ClasesSQL.LibretaClienteSQL;
+import Conexion.ConexionBD;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -18,6 +19,7 @@ import sun.security.util.Password;
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +34,7 @@ import javax.swing.JOptionPane;
  * @author jenif
  */
 public class Cliente extends javax.swing.JFrame {
-
+    Connection connection = ConexionBD.getConnection();
     Libreta libreta = new Libreta();
     String nombres = "", apellidos = "", direccion = "", telefonoMovil = "", telefonocasa = "", pass_concatenada;
     int nocliente = 0;
@@ -498,19 +500,19 @@ public class Cliente extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"),Color.decode("#666666"),Color.decode("#2e3951"), Color.decode("#212b41"));
-         //   Pintar(Color.yellow, "/Imagenes/darkmode_2.png", Color.blue,Color.red,Color.green, Color.MAGENTA);
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
+            //   Pintar(Color.yellow, "/Imagenes/darkmode_2.png", Color.blue,Color.red,Color.green, Color.MAGENTA);
 
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"),Color.decode("#666666"),Color.WHITE, Color.decode("#F2FDFA"));
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-    private void Pintar(Color colorbotones, String imagen,Color colortexto,Color colorlabel,Color colorbase,Color colorfondo) {
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
         panel.setPanelBase(jPanel2);
         panel.setColorBase(colorbase);
-        panel.getPanelBase();                
+        panel.getPanelBase();
         panel.setPanelFondo(jPanel1);
         panel.setColorFondo(colorfondo);
         panel.getPanelFondo();
@@ -544,7 +546,7 @@ public class Cliente extends javax.swing.JFrame {
         label.setLabel(jLabel3);
         label.setColorLabel(colorlabel);
         label.getLabel();
-       
+
     }
     private void RegresarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarbtnActionPerformed
         // TODO add your handling code here:
@@ -579,9 +581,15 @@ public class Cliente extends javax.swing.JFrame {
         telefonoMovil = CelularClientetxt.getText();
         telefonocasa = TelefonoClientetxt.getText();
         direccion = DireccionClientetxt.getText();
+        System.out.println("Nombres del cliente:" + nombres);
+        System.out.println("Apellido del cliente:" + apellidos);
+        System.out.println("Celular:" + telefonoMovil);
+        System.out.println("Telefono:" + telefonocasa);
+        System.out.println("Dirección:" + direccion);
         try {
-            libretaSQL.ActualizarLibreta(nocliente, nombres, apellidos, nombres, telefonocasa, direccion);
+            libretaSQL.ActualizarLibreta(connection,nocliente, nombres, apellidos, nombres, telefonocasa, direccion);
         } catch (SQLException ex) {
+            System.out.println(ex);
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
 
