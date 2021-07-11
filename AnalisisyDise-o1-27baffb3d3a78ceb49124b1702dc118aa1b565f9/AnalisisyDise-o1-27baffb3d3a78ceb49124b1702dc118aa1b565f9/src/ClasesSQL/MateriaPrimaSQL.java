@@ -20,17 +20,18 @@ import javax.swing.JOptionPane;
  */
 public class MateriaPrimaSQL {
 
-     Connection connection = ConexionBD.getConnection();
+    Connection connection = ConexionBD.getConnection();
 
     public void InsertarMateriaPrima(MateriaPrima Datos) {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
-                statement.execute("INSERT INTO lotepollo(LoteAverio,UnidadExistente,FechaIngreso,Total,Proveedor,Usuario_idUsuario) VALUES ('" + Datos.getLoteAverio() + "'," + Datos.getUnidadExistente() + ",'" + Datos.getFechaIngreso() + "'," + Datos.getTotal() + ",'" + Datos.getProveedor() + "'," + Datos.getUsuario().getIdUsuario() + ")");
+                statement.execute("INSERT INTO lotepollo(LoteAverio,UnidadExistente,FechaIngreso,Total,Proveedor,Usuario_idUsuario) VALUES ('" + Datos.getLoteAverio() + "'," + Datos.getUnidadExistente() + ",'" + Datos.getFechaIngreso() + "'," + Datos.getTotal() + "," + Datos.getProveedor().getIdProveedor() +","+Datos.getUsuario().getIdUsuario() + ")");
                 JOptionPane.showMessageDialog(null, "Proveedor añadido a la lista");
             }
             connection.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
+            System.out.println("ESTO IMPORTA"+e);
+            JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR LA MATERIA PRIMA");
         }
     }
 
@@ -48,6 +49,7 @@ public class MateriaPrimaSQL {
 
     public ArrayList<MateriaPrima> ConsultaMateraPrimaCodigo() {
         ArrayList<MateriaPrima> listamateriaprima = new ArrayList<MateriaPrima>();
+        Proveedor proveedor=new Proveedor();
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select * from lotepollo");
@@ -58,8 +60,9 @@ public class MateriaPrimaSQL {
                     materiaprima.setUnidadExistente(clr.getInt("UnidadExistente"));
                     materiaprima.setFechaIngreso(clr.getString("FechaIngreso"));//debería devolver un date no un string
                     materiaprima.setTotal(clr.getFloat("Total"));
-                    materiaprima.setProveedor(clr.getString("Proveedor"));
-                    materiaprima.getUsuario().setIdUsuario(clr.getInt("Usuario_idUsuario"));
+                    proveedor.setIdProveedor(clr.getInt("Proveedor"));
+                    materiaprima.setProveedor(proveedor);
+                    //materiaprima.getUsuario().setIdUsuario(clr.getInt("Usuario_idUsuario"));
                     listamateriaprima.add(materiaprima);
                 }
             }
@@ -69,4 +72,6 @@ public class MateriaPrimaSQL {
 
         return listamateriaprima;
     }
+    
+       
 }

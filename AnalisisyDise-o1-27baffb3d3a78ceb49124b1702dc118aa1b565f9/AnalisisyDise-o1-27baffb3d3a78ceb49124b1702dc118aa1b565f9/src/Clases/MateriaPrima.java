@@ -14,29 +14,12 @@ import java.util.Date;
  */
 public class MateriaPrima {
     private float total;
-    private String loteAverio, proveedor;
+    private String loteAverio;
+    private Proveedor proveedor;
     private int unidadExistente;
     private String fechaIngreso;
     private Usuario usuario;
 
-    public MateriaPrima() {
-        this.total = total;
-        this.loteAverio = loteAverio;
-        this.proveedor = proveedor;
-        this.unidadExistente = unidadExistente;
-        this.fechaIngreso = fechaIngreso;
-        this.usuario = usuario;
-    }
-    
-    public MateriaPrima(float total, String loteAverio, String proveedor, int unidadExistente, String fechaIngreso, Usuario usuario) {
-        this.total = total;
-        this.loteAverio = loteAverio;
-        this.proveedor = proveedor;
-        this.unidadExistente = unidadExistente;
-        this.fechaIngreso = fechaIngreso;
-        this.usuario = usuario;
-    }
-    
     public Usuario getUsuario() {
         return usuario;
     }
@@ -45,11 +28,11 @@ public class MateriaPrima {
         this.usuario = usuario;
     }
     
-    public String getProveedor() {
+    public Proveedor getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(String proveedor) {
+    public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
 

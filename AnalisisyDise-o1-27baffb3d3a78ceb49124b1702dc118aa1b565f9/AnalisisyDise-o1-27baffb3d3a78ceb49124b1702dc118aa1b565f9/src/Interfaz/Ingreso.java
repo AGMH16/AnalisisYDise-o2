@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 import sun.security.util.Password;
 import java.awt.Color;
 import Conexion.ConexionBD;
+import Usuario.Compresor;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,8 @@ public class Ingreso extends javax.swing.JFrame {
 
     String usuario = "";
     Password contraseña3;
-    String pass_concatenada;
+    String pass_concatenada = "";
+    Compresor compresor = new Compresor();
     ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
     UsuarioSQL usuariosql = new UsuarioSQL();
     boolean modoOscuro = false;
@@ -331,9 +333,16 @@ public class Ingreso extends javax.swing.JFrame {
         char[] contraseña = Contraseñiatxt.getPassword();
         System.out.println("1 Usuario" + usuario);
         System.out.println("2 Contraseña" + contraseña);
+        for (int i = 0; i < contraseña.length; i++) {
+            pass_concatenada = pass_concatenada + contraseña[i];
+            //    System.out.println(contraseña1[i]);
+        }
+        String xx;
+        xx = compresor.comprimir(pass_concatenada);
         for (Clases.Usuario usuario : listaUsuarios) {
-            if (usuario.equals(usuario.getUsuario()) && contraseña.equals(usuario.getContraseña())) {
+            if (this.usuario.equals(usuario.getUsuario()) && pass_concatenada.equals(usuario.getContraseña())) {
                 Menu3 menu = new Menu3();
+                //Menu3 menu=new Menu3(usuario);
                 menu.setVisible(true);
             }
         }

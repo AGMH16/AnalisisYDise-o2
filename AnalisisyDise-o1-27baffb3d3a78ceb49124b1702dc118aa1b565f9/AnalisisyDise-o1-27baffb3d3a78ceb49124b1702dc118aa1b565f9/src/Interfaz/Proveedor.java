@@ -336,13 +336,7 @@ public class Proveedor extends javax.swing.JFrame {
         direcciontxt.setText(null);
         EmpresaProveedortxt.setText(null);
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
-    private String comprimir(String frase) {
-        Compresor compresor = new Compresor();
-        String Cadena_en_binario = compresor.CodigoAscii_a_binario(frase);
-        String cadena_simple = compresor.cadena_RLE(Cadena_en_binario);
-        String ultima_cadena = compresor.rle_a_Ascii(cadena_simple);
-        return ultima_cadena;
-    }
+   
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         jPanel1.setBackground(Color.decode("#212b41"));

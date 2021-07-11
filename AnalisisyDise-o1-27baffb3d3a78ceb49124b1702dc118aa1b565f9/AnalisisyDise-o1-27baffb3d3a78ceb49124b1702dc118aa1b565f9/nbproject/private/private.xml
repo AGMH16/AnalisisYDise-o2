@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesInterfaz/ColorPanel.java</file>
-            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/Interfaz/Cliente.java</file>
-            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesInterfaz/ComponentePanel.java</file>
-            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesInterfaz/ColorLabelText.java</file>
-            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesInterfaz/IconBoton.java</file>
-            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesInterfaz/ColorBoton.java</file>
-            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesInterfaz/ComponenteLabelText.java</file>
+            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/Interfaz/PerdidaRecuperada.java</file>
+            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/Interfaz/PerdidaMateriaPrima.java</file>
+            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesSQL/MercaderiaSQL.java</file>
+            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesSQL/MateriaPrimaSQL.java</file>
+            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesSQL/PerdidaMateriaPrimaSQL.java</file>
+            <file>file:/C:/Users/Toshiba/Documents/GitHub/AnalisisYDise-o2/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/AnalisisyDise-o1-27baffb3d3a78ceb49124b1702dc118aa1b565f9/src/ClasesSQL/PerdidaRecuperadaSQL.java</file>
         </group>
     </open-files>
 </project-private>

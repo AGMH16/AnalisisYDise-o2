@@ -13,10 +13,9 @@ import java.util.Date;
  */
 public class PerdidaMateriaPrima {
 
-    private int idPerdidaMateriaPrima, unidadesAfectadas;
+    private int unidadesAfectadas;
     private boolean muerto, enfermo, enObservacion;
-    private Date fecha;
-    private String detallePerdida;
+    private String fecha,idPerdidaMateriaPrima,detallePerdida;
 
     public PerdidaMateriaPrima() {
         this.idPerdidaMateriaPrima = idPerdidaMateriaPrima;
@@ -28,7 +27,7 @@ public class PerdidaMateriaPrima {
         this.detallePerdida = detallePerdida;
     }
 
-    public PerdidaMateriaPrima(int idPerdidaMateriaPrima, int unidadesAfectadas, boolean muerto, boolean enfermo, boolean enObservacion, Date fecha, String detallePerdida) {
+    public PerdidaMateriaPrima(String idPerdidaMateriaPrima, int unidadesAfectadas, boolean muerto, boolean enfermo, boolean enObservacion, String fecha, String detallePerdida) {
         this.idPerdidaMateriaPrima = idPerdidaMateriaPrima;
         this.unidadesAfectadas = unidadesAfectadas;
         this.muerto = muerto;
@@ -38,11 +37,11 @@ public class PerdidaMateriaPrima {
         this.detallePerdida = detallePerdida;
     }
 
-    public int getIdPerdidaMateriaPrima() {
+    public String getIdPerdidaMateriaPrima() {
         return idPerdidaMateriaPrima;
     }
 
-    public void setIdPerdidaMateriaPrima(int idPerdidaMateriaPrima) {
+    public void setIdPerdidaMateriaPrima(String idPerdidaMateriaPrima) {
         this.idPerdidaMateriaPrima = idPerdidaMateriaPrima;
     }
 
@@ -78,11 +77,11 @@ public class PerdidaMateriaPrima {
         this.enObservacion = enObservacion;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

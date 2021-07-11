@@ -5,10 +5,12 @@
  */
 package Interfaz;
 
+import Clases.Usuario;
 import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
+import ClasesSQL.MateriaPrimaSQL;
 import ClasesSQL.ProveedorSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -35,18 +37,23 @@ import sun.security.util.Password;
  */
 public class MateriaPrima extends javax.swing.JFrame {
 //HOLA ANDREEEEEEEEEEEEEEEE
+//Hola Jeni chula :3    
+
     String loteAverio = "";
     String nombreproveedor = "", proveedor = "";
     int cantidad = 0;
     float total;
     ProveedorSQL proveedores = new ProveedorSQL();
+    MateriaPrimaSQL SQLMateriaPrima = new MateriaPrimaSQL();
+    Clases.MateriaPrima materiaprima = new Clases.MateriaPrima();
+
     ArrayList<Clases.Proveedor> listaProveedores = proveedores.ConsultaProveedorNombre();
     ComponentePanel panel = new ComponentePanel();
     ComponenteLabelText text = new ComponenteLabelText();
     ComponenteLabelText label = new ComponenteLabelText();
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
-
+    Usuario usuario = new Usuario();
 
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
@@ -64,7 +71,20 @@ public class MateriaPrima extends javax.swing.JFrame {
         for (Clases.Proveedor prov : listaProveedores) {
             Proveedorjcmb.addItem(prov.getNombre());
         }
+    }
 
+    public MateriaPrima(Usuario usuario) {
+
+        this.setUndecorated(true);
+        initComponents();
+        this.setLocationRelativeTo(null);
+        transparenciButton();
+        Eliminarbtn.setVisible(false);
+        Actualizarbtn.setVisible(false);
+        for (Clases.Proveedor prov : listaProveedores) {
+            Proveedorjcmb.addItem(prov.getNombre());
+        }
+        this.usuario = usuario;
     }
 
     public void transparenciButton() {
@@ -341,7 +361,17 @@ public class MateriaPrima extends javax.swing.JFrame {
         String fecha;
         fecha = f.format(FechaCalendar.getDate());
         System.out.println(fecha);
-        
+        materiaprima.setLoteAverio(loteAverio);
+        for (Clases.Proveedor prov : listaProveedores) {
+            if (prov.getNombre().equals(proveedor)) {
+                materiaprima.setProveedor(prov);
+            }
+        }
+        materiaprima.setUnidadExistente(cantidad);
+        materiaprima.setFechaIngreso(fecha);
+        materiaprima.setTotal(total);
+        materiaprima.setUsuario(usuario);
+        SQLMateriaPrima.InsertarMateriaPrima(materiaprima);
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
@@ -371,18 +401,18 @@ public class MateriaPrima extends javax.swing.JFrame {
     }//GEN-LAST:event_CodigoAveriotxtKeyPressed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-         if (!modoOscuro) {
-            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"),Color.decode("#666666"),Color.decode("#2e3951"), Color.decode("#212b41"));
+        if (!modoOscuro) {
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"),Color.decode("#666666"),Color.WHITE, Color.decode("#F2FDFA"));
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
- private void Pintar(Color colorbotones, String imagen,Color colortexto,Color colorlabel,Color colorbase,Color colorfondo) {
+    private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
         panel.setPanelBase(jPanel2);
         panel.setColorBase(colorbase);
-        panel.getPanelBase();                
+        panel.getPanelBase();
         panel.setPanelFondo(jPanel1);
         panel.setColorFondo(colorfondo);
         panel.getPanelFondo();
@@ -410,13 +440,13 @@ public class MateriaPrima extends javax.swing.JFrame {
         label.setLabel(jLabel3);
         label.setColorLabel(colorlabel);
         label.getLabel();
-       
+
     }
 
     private void CantidadtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyTyped
         // TODO add your handling code here:
-        char validar=evt.getKeyChar();
-        if(Character.isLetter(validar)){
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
         }
@@ -424,8 +454,8 @@ public class MateriaPrima extends javax.swing.JFrame {
 
     private void TotaltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyTyped
         // TODO add your handling code here:
-        char validar=evt.getKeyChar();
-        if(Character.isLetter(validar)){
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
             evt.consume();
         }

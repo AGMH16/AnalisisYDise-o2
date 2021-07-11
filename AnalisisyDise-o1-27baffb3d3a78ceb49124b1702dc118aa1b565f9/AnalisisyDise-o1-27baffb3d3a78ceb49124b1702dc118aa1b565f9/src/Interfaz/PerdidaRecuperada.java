@@ -9,9 +9,9 @@ import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
-import ClasesInterfaz.ComponenteRadioButon;
 import ClasesSQL.MateriaPrimaSQL;
 import ClasesSQL.PerdidaMateriaPrimaSQL;
+import ClasesSQL.PerdidaRecuperadaSQL;
 import ClasesSQL.UpdateMateriaPrimaSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -36,31 +36,32 @@ import sun.security.util.Password;
  *
  * @author jenif
  */
-public class PerdidaMateriaPrima extends javax.swing.JFrame {
+public class PerdidaRecuperada extends javax.swing.JFrame {
 
-    String codigo = "", codigoperdida = "";
-    int cantidad = 0;
+    String codigo = "", codigoperdida = "", fecha = "";
+    int cantidad = 0, uniRecuperadas = 0;
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-
     ComponentePanel panel = new ComponentePanel();
     ComponenteLabelText text = new ComponenteLabelText();
     ComponenteLabelText label = new ComponenteLabelText();
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
-    ComponenteRadioButon radio = new ComponenteRadioButon();
     MateriaPrimaSQL SQLlamateriaprima = new MateriaPrimaSQL();
-    Clases.MateriaPrima materiaprima = new Clases.MateriaPrima();
+    PerdidaRecuperadaSQL SQLperdidaRecuperada = new PerdidaRecuperadaSQL();
+    PerdidaMateriaPrimaSQL SQLperdidaMateriaPrima = new PerdidaMateriaPrimaSQL();
+    UpdateMateriaPrimaSQL SQLupdateMateriaPrima = new UpdateMateriaPrimaSQL();
     ArrayList<Clases.MateriaPrima> listaMateriaPrima = SQLlamateriaprima.ConsultaMateraPrimaCodigo();
+    ArrayList<Clases.PerdidaMateriaPrima> listaPerdidaMateriaPrima = SQLperdidaMateriaPrima.ConsultaPerdidaMateraPrima();
+    Clases.MovimientoLoteRecuperacion perdidaRecuperada = new Clases.MovimientoLoteRecuperacion();
     Clases.PerdidaMateriaPrima perdidamateriaprima = new Clases.PerdidaMateriaPrima();
-    Clases.MovimientoLotePerdida movimientoperdida = new Clases.MovimientoLotePerdida();
-    PerdidaMateriaPrimaSQL SQLPerdidaMateriaPrima = new PerdidaMateriaPrimaSQL();
-    UpdateMateriaPrimaSQL SQLupdateMateriaPrima=new UpdateMateriaPrimaSQL();
+    Clases.MateriaPrima materiaprima = new Clases.MateriaPrima();
+
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
     /**
      * Creates new form Menu
      */
-    public PerdidaMateriaPrima() {
+    public PerdidaRecuperada() {
 
         this.setUndecorated(true);
         initComponents();
@@ -70,6 +71,9 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         Actualizarbtn.setVisible(false);
         for (Clases.MateriaPrima materia : listaMateriaPrima) {
             CodigoAveriocmb.addItem(materia.getLoteAverio());
+        }
+        for (Clases.PerdidaMateriaPrima perdidamateria : listaPerdidaMateriaPrima) {
+            CodigoAveriocmb.addItem(perdidamateria.getIdPerdidaMateriaPrima());
         }
     }
 
@@ -108,26 +112,22 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         Actualizarbtn = new javax.swing.JButton();
         Guardarbtn = new javax.swing.JButton();
-        CodigoPerdidatxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         Eliminarbtn = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        Enfermorbtn = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
         FechaCalendar2 = new com.toedter.calendar.JCalendar();
         jLabel3 = new javax.swing.JLabel();
-        Observacionbtn = new javax.swing.JRadioButton();
-        Muertosrbtn = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
-        CodigoAveriocmb = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         Cantidadtxt = new javax.swing.JTextField();
+        CodigoAveriocmb = new javax.swing.JComboBox<>();
+        CodigoPerdidacmb = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1110, 515));
-        setPreferredSize(new java.awt.Dimension(1110, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(242, 253, 250));
@@ -169,24 +169,8 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         });
         jPanel2.add(Guardarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, 120, 35));
 
-        CodigoPerdidatxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CodigoPerdidatxt.setForeground(new java.awt.Color(153, 153, 153));
-        CodigoPerdidatxt.setText("Codigo de la perdida");
-        CodigoPerdidatxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CodigoPerdidatxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CodigoPerdidatxtActionPerformed(evt);
-            }
-        });
-        CodigoPerdidatxt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                CodigoPerdidatxtKeyPressed(evt);
-            }
-        });
-        jPanel2.add(CodigoPerdidatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 253, 43));
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
 
         Eliminarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Eliminarbtn.setForeground(new java.awt.Color(102, 102, 102));
@@ -201,73 +185,32 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("Cantidad");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
-
-        Enfermorbtn.setBackground(new java.awt.Color(244, 253, 251));
-        Perdidas.add(Enfermorbtn);
-        Enfermorbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Enfermorbtn.setForeground(new java.awt.Color(51, 51, 51));
-        Enfermorbtn.setText("Enfermo");
-        Enfermorbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnfermorbtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Enfermorbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel14.setText("Fecha de la perdida");
+        jLabel14.setText("Fecha de recuperación");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
         jPanel2.add(FechaCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 400, 150));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("PERDIDA DE LA MATERIA PRIMA");
+        jLabel3.setText("PERDIDA RECUPERADA");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 24, -1, -1));
-
-        Observacionbtn.setBackground(new java.awt.Color(244, 253, 251));
-        Perdidas.add(Observacionbtn);
-        Observacionbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Observacionbtn.setForeground(new java.awt.Color(51, 51, 51));
-        Observacionbtn.setText("En observacion");
-        Observacionbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ObservacionbtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Observacionbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, -1, -1));
-
-        Muertosrbtn.setBackground(new java.awt.Color(244, 253, 251));
-        Perdidas.add(Muertosrbtn);
-        Muertosrbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Muertosrbtn.setForeground(new java.awt.Color(51, 51, 51));
-        Muertosrbtn.setText("Muerto");
-        Muertosrbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MuertosrbtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Muertosrbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel13.setText("Tipo de Perdida");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
-
-        CodigoAveriocmb.setEditable(true);
-        CodigoAveriocmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CodigoAveriocmb.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel2.add(CodigoAveriocmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 260, 50));
+        jLabel13.setText("Código de la perdida");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Código de averío afectado");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
 
         Cantidadtxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Cantidadtxt.setForeground(new java.awt.Color(153, 153, 153));
-        Cantidadtxt.setText("Unidades afectadas");
+        Cantidadtxt.setText("Unidades recuperadas");
         Cantidadtxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Cantidadtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,7 +222,17 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
                 CantidadtxtKeyPressed(evt);
             }
         });
-        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 253, 43));
+        jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 253, 43));
+
+        CodigoAveriocmb.setEditable(true);
+        CodigoAveriocmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CodigoAveriocmb.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel2.add(CodigoAveriocmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 260, 50));
+
+        CodigoPerdidacmb.setEditable(true);
+        CodigoPerdidacmb.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        CodigoPerdidacmb.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel2.add(CodigoPerdidacmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 260, 50));
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButton4.setForeground(new java.awt.Color(102, 102, 102));
@@ -334,18 +287,6 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         menux.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void CodigoPerdidatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CodigoPerdidatxtKeyPressed
-        // TODO add your handling code here:
-        /* if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            cantidad = Integer.parseInt(CodigoPerdidatxt.getText());
-
-        }*/
-    }//GEN-LAST:event_CodigoPerdidatxtKeyPressed
-
-    private void CodigoPerdidatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoPerdidatxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CodigoPerdidatxtActionPerformed
     /* List Proveedores = new ArrayList();
 
     static void obtener_proveedor(ArrayList<Integer> id, ArrayList<String> Proveedor) {
@@ -355,33 +296,32 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         Proveedor.get(Integer.parseInt(proveedor));
     }*/
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
-        codigoperdida = CodigoPerdidatxt.getText();
+        codigoperdida = (String) CodigoPerdidacmb.getSelectedItem();
         codigo = (String) CodigoAveriocmb.getSelectedItem();
         System.out.println(codigo);
-        perdidamateriaprima.setMuerto(Muertosrbtn.isSelected());
-        perdidamateriaprima.setEnfermo(Enfermorbtn.isSelected());
-        perdidamateriaprima.setEnObservacion(Observacionbtn.isSelected());
-        perdidamateriaprima.setUnidadesAfectadas(Integer.parseInt(Cantidadtxt.getText()));
-        perdidamateriaprima.setFecha(formato.format(FechaCalendar2.getDate()));
+
+        perdidaRecuperada.setPerdidaRecuperada(true);
+        perdidaRecuperada.setCantidadRecuperada(Integer.parseInt(Cantidadtxt.getText()));
+        perdidaRecuperada.setFechaRecuperacion(formato.format(FechaCalendar2.getDate()));
+        perdidamateriaprima.setIdPerdidaMateriaPrima(codigoperdida);
+        perdidaRecuperada.setCodigoperdidaMateriaPrima(perdidamateriaprima);
         materiaprima.setLoteAverio(codigo);
-        movimientoperdida.setCodigolotePollo(materiaprima);
-        movimientoperdida.setCodigoperdidaMateriaPrima(perdidamateriaprima);
-        movimientoperdida.setPerdidaMateriaPrima(true);
+        perdidaRecuperada.setCodigolotePollo(materiaprima);
         for (Clases.MateriaPrima materia : listaMateriaPrima) {
             CodigoAveriocmb.addItem(materia.getLoteAverio());
             if (materia.getLoteAverio().equals(materiaprima.getLoteAverio())) {
-                if (materia.getUnidadExistente() >= Integer.parseInt(Cantidadtxt.getText())) {
-                    SQLPerdidaMateriaPrima.InsertarPerdidaMateriaPrima(perdidamateriaprima);
-                    SQLPerdidaMateriaPrima.InsertarPerdidaMovimientoLote(movimientoperdida);
-                    int existenciasActualizadas = materia.getUnidadExistente() - Integer.parseInt(Cantidadtxt.getText());
-                    SQLupdateMateriaPrima.ActualizarExistenciasDeMateriaPrima(existenciasActualizadas, codigo);
-                } else {
-                    JOptionPane.showMessageDialog(null, "No se pueden perder lo que no se tiene. Verifique la cantidad");
+                for (Clases.PerdidaMateriaPrima perdidamateria : listaPerdidaMateriaPrima) {
+                    if (perdidamateria.getIdPerdidaMateriaPrima().equals(perdidamateriaprima.getIdPerdidaMateriaPrima())) {
+                        int existenciasActualizadas = materia.getUnidadExistente() + Integer.parseInt(Cantidadtxt.getText());
+                        SQLupdateMateriaPrima.ActualizarExistenciasDeMateriaPrima(existenciasActualizadas, codigo);
+                        SQLperdidaRecuperada.InsertarPerdidaRecuperada(perdidaRecuperada);
+                        //guardar la materia recuperada
+                    }
                 }
+
             } 
         }
 
-        //Actualizar las existencias de materia prima
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
@@ -397,18 +337,6 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
 
     }//GEN-LAST:event_EliminarbtnActionPerformed
-
-    private void EnfermorbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnfermorbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EnfermorbtnActionPerformed
-
-    private void ObservacionbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObservacionbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ObservacionbtnActionPerformed
-
-    private void MuertosrbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MuertosrbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MuertosrbtnActionPerformed
     boolean modoOscuro = false;
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
@@ -447,13 +375,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         botonIcon.setBotonActivador(btn_oscuro);
         botonIcon.setNombreimagen(imagen);
         botonIcon.getBotonActivador();
-        text.setText(CodigoPerdidatxt);
-        text.setColorTexto(colortexto);
-        text.getText();
         text.setText(Cantidadtxt);
-        text.setColorTexto(colortexto);
-        text.getText();
-        text.setText(CodigoPerdidatxt);
         text.setColorTexto(colortexto);
         text.getText();
         label.setLabel(jLabel3);
@@ -468,15 +390,6 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         label.setLabel(jLabel14);
         label.setColorLabel(colorlabel);
         label.getLabel();
-        radio.setRadiobtn(Muertosrbtn);
-        radio.setColorradio(colortexto);
-        radio.getRadiobtn();
-        radio.setRadiobtn(Enfermorbtn);
-        radio.setColorradio(colortexto);
-        radio.getRadiobtn();
-        radio.setRadiobtn(Observacionbtn);
-        radio.setColorradio(colortexto);
-        radio.getRadiobtn();
     }
 
     /**
@@ -496,14 +409,270 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PerdidaMateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerdidaRecuperada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PerdidaMateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerdidaRecuperada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PerdidaMateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerdidaRecuperada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PerdidaMateriaPrima.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerdidaRecuperada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -764,7 +933,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PerdidaMateriaPrima().setVisible(true);
+                new PerdidaRecuperada().setVisible(true);
             }
         });
     }
@@ -773,13 +942,10 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     private javax.swing.JButton Actualizarbtn;
     private javax.swing.JTextField Cantidadtxt;
     private javax.swing.JComboBox<String> CodigoAveriocmb;
-    private javax.swing.JTextField CodigoPerdidatxt;
+    private javax.swing.JComboBox<String> CodigoPerdidacmb;
     private javax.swing.JButton Eliminarbtn;
-    private javax.swing.JRadioButton Enfermorbtn;
     private com.toedter.calendar.JCalendar FechaCalendar2;
     private javax.swing.JButton Guardarbtn;
-    private javax.swing.JRadioButton Muertosrbtn;
-    private javax.swing.JRadioButton Observacionbtn;
     private javax.swing.ButtonGroup Perdidas;
     private javax.swing.JButton btn_oscuro;
     private javax.swing.JButton jButton4;

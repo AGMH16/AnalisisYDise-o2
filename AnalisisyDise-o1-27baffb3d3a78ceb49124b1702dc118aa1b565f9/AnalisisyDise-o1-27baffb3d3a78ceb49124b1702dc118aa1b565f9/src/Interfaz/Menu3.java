@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Clases.Usuario;
 import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
@@ -19,6 +20,7 @@ import sun.security.util.Password;
  * @author jenif
  */
 public class Menu3 extends javax.swing.JFrame {
+
     private boolean modoOscuro;
     ComponentePanel panel = new ComponentePanel();
     ComponenteLabelText text = new ComponenteLabelText();
@@ -30,6 +32,14 @@ public class Menu3 extends javax.swing.JFrame {
      * Creates new form Menu
      */
     public Menu3() {
+
+        this.setUndecorated(true);
+        initComponents();
+        this.setLocationRelativeTo(null);
+        transparenciButton();
+    }
+
+    public Menu3(Usuario usuario) {
 
         this.setUndecorated(true);
         initComponents();
@@ -297,6 +307,7 @@ public class Menu3 extends javax.swing.JFrame {
     private void AgregarMateriaPrimabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarMateriaPrimabtnActionPerformed
         // TODO add your handling code here:
         MateriaPrima materiaPrima = new MateriaPrima();
+        // MateriaPrima materiaPrima = new MateriaPrima(usuario);
         materiaPrima.setVisible(true);
         dispose();
     }//GEN-LAST:event_AgregarMateriaPrimabtnActionPerformed
@@ -316,16 +327,16 @@ public class Menu3 extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarProveedorbtnActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
-          if (!modoOscuro) {
-            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png",Color.decode("#2e3951"), Color.decode("#212b41"));
+        if (!modoOscuro) {
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#2e3951"), Color.decode("#212b41"));
 
             modoOscuro = true;
         } else if (modoOscuro == true) {
-            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png",Color.WHITE, Color.decode("#F2FDFA"));
+            Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.WHITE, Color.decode("#F2FDFA"));
             modoOscuro = false;
         }
     }//GEN-LAST:event_btn_oscuroActionPerformed
-    private void Pintar(Color colorbotones, String imagen,Color colorbase, Color colorfondo) {
+    private void Pintar(Color colorbotones, String imagen, Color colorbase, Color colorfondo) {
         panel.setPanelBase(jPanel2);
         panel.setColorBase(colorbase);
         panel.getPanelBase();

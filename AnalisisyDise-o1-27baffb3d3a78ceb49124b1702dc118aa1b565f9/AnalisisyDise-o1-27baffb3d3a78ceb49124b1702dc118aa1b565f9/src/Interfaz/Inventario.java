@@ -36,7 +36,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Inventario extends javax.swing.JFrame {
-
+    Compresor compresor = new Compresor();
     String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "", pass_concatenada = "", Usuario = "", xx, xx2;
     String nombreproveedor = "", tipoproducto = "", fecha;
     java.util.Date date = new java.util.Date();
@@ -434,7 +434,7 @@ public class Inventario extends javax.swing.JFrame {
                 System.out.println(password[i]);
             }
 
-            xx = comprimir(pass_concatenada);
+            xx = compresor.comprimir(pass_concatenada);
             System.out.println(xx);
             xx2 = String.valueOf(password);
             pruebasql.BuscarUsuario(Usuario, xx2);
@@ -447,13 +447,7 @@ public class Inventario extends javax.swing.JFrame {
         inventarioSQL.InsertarInventario(producto,cantidad, fecha, total,pruebasql.getVal2(), pruebasql.getVal());
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
-    private String comprimir(String frase) {
-        Compresor compresor = new Compresor();
-        String Cadena_en_binario = compresor.CodigoAscii_a_binario(frase);
-        String cadena_simple = compresor.cadena_RLE(Cadena_en_binario);
-        String ultima_cadena = compresor.rle_a_Ascii(cadena_simple);
-        return ultima_cadena;
-    }
+   
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
             Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png",Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
