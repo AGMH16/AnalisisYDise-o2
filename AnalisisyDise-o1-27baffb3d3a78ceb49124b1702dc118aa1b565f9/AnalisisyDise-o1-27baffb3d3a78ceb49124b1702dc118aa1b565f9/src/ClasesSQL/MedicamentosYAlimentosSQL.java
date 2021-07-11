@@ -45,8 +45,8 @@ public class MedicamentosYAlimentosSQL {
                     insumoconsumo.setNombre(clr.getString("Nombre"));
                     insumoconsumo.setExistencia(clr.getInt("Existencia"));
                     insumoconsumo.setTotal(clr.getInt("Total"));
-                    insumoconsumo.setFechaIngreso(clr.getDate("FechaIngreso"));
-                    insumoconsumo.setFechaVencimiento(clr.getDate("FechaVencimiento"));
+                    insumoconsumo.setFechaIngreso(clr.getString("FechaIngreso"));
+                    insumoconsumo.setFechaVencimiento(clr.getString("FechaVencimiento"));
                     insumoconsumo.getDimensional().setIdDimensional(clr.getInt("Dimensional_idDimensional"));
                     insumoconsumo.getProveedor().setIdProveedor(clr.getInt("Proveedor_idProveedor"));
                     insumoconsumo.getUsuario().setIdUsuario(clr.getInt("Usuario_idUsuario"));

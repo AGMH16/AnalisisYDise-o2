@@ -85,5 +85,24 @@ public class DimensionalSQL {
 
         return idDimensional;
     }
+    
+        public ArrayList<Dimensional> ConsultaDimencional() {
+         ArrayList<Dimensional> listaDimencionales=new ArrayList<Dimensional>() ;
+        try {
+            try (Statement statement = (Statement) connection.createStatement()) {
+                ResultSet clr = statement.executeQuery("select * from dimensional");
+                while (clr.next()) {
+                    Clases.Dimensional dimensional=new Clases.Dimensional();
+                    dimensional.setIdDimensional(clr.getInt("idDimensional"));
+                    dimensional.setDimensional(clr.getString("Dimensional"));
+                    listaDimencionales.add(dimensional);
+                }
+            }
+            //Conexion.getConnection().close();
+        } catch (Exception e) {
+        }
+
+        return listaDimencionales;
+    }
 
 }

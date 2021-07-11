@@ -16,7 +16,7 @@ public class InsumoConsumo {
     private String tipoInsumo, nombre;
     private int existencia, idInsumoConsumo;
     private float total;
-    private Date fechaIngreso, fechaVencimiento;
+    private String fechaIngreso, fechaVencimiento;
     private Dimensional dimensional;
     private Usuario usuario;
     private Proveedor proveedor;
@@ -34,7 +34,7 @@ public class InsumoConsumo {
         this.proveedor = proveedor;
     }
 
-    public InsumoConsumo(String tipoInsumo, String nombre, int existencia, int idInsumoConsumo, float total, Date fechaIngreso, Date fechaVencimiento, Dimensional dimensional, Usuario usuario, Proveedor proveedor) {
+    public InsumoConsumo(String tipoInsumo, String nombre, int existencia, int idInsumoConsumo, float total, String fechaIngreso, String fechaVencimiento, Dimensional dimensional, Usuario usuario, Proveedor proveedor) {
         this.tipoInsumo = tipoInsumo;
         this.nombre = nombre;
         this.existencia = existencia;
@@ -87,19 +87,19 @@ public class InsumoConsumo {
         this.total = total;
     }
 
-    public Date getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Date getFechaVencimiento() {
+    public String getFechaVencimiento() {
         return fechaVencimiento;
     }
 
-    public void setFechaVencimiento(Date fechaVencimiento) {
+    public void setFechaVencimiento(String fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
     }
 

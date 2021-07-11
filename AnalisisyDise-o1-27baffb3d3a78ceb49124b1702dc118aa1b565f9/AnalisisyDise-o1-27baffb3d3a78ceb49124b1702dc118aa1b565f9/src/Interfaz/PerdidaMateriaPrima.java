@@ -126,8 +126,8 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         btn_oscuro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1110, 515));
-        setPreferredSize(new java.awt.Dimension(1110, 480));
+        setMinimumSize(new java.awt.Dimension(1109, 480));
+        setPreferredSize(new java.awt.Dimension(1109, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(242, 253, 250));

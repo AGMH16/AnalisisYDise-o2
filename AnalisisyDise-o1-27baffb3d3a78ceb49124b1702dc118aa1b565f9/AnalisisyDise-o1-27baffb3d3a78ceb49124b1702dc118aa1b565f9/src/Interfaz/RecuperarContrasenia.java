@@ -10,6 +10,7 @@ import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteContraseña;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
+import Usuario.Compresor;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -25,6 +26,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
     String usuario = "";
     Password contraseña3;
+    Compresor compresor = new Compresor();
     String pass_concatenada, pass_concatenada2;
     ComponentePanel panel = new ComponentePanel();
     ComponenteLabelText text = new ComponenteLabelText();
@@ -299,14 +301,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
     private void Contraseña1txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Contraseña1txtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            pass_concatenada = "";
-            char[] contraseña = Contraseña1txt.getPassword();
-            for (int i = 0; i < contraseña.length; i++) {
-                pass_concatenada = pass_concatenada + contraseña[i];
-                System.out.println(contraseña[i]);
-            }
-            System.out.println("pass   " + pass_concatenada);
-            Contraseña2txt.setText("");
+
             Contraseña2txt.requestFocus();
         }
     }//GEN-LAST:event_Contraseña1txtKeyPressed
@@ -318,11 +313,23 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
         }
         usuario = Usuariotxt.getText();
         System.out.println("1 Usuario" + usuario);
-        char[] contraseña = Contraseña1txt.getPassword();
-        System.out.println("Contraseña" + contraseña);
-        char[] contraseña2 = Contraseña1txt.getPassword();
-        System.out.println("Confirmación de constraseña:  " + contraseña2);
-
+        char[] contraseña1 = Contraseña1txt.getPassword();
+        for (int i = 0; i < contraseña1.length; i++) {
+            pass_concatenada2 = pass_concatenada2 + contraseña1[i];
+            //    System.out.println(contraseña1[i]);
+        }
+        char[] contraseña2 = Contraseña2txt.getPassword();
+        for (int i = 0; i < contraseña2.length; i++) {
+            pass_concatenada = pass_concatenada + contraseña2[i];
+            System.out.println(pass_concatenada);
+            System.out.println(contraseña2[i]);
+        }
+        if (pass_concatenada.equals(pass_concatenada2)) {
+            String xx;
+            xx = compresor.comprimir(pass_concatenada);
+            System.out.println("Esta si:" + xx);
+            //acá se actualiza la contraseña
+        }
         Menu3 menux = new Menu3();
         menux.setVisible(true);
         dispose();
@@ -348,16 +355,7 @@ public class RecuperarContrasenia extends javax.swing.JFrame {
 
     private void Contraseña2txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Contraseña2txtKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            pass_concatenada = "";
-            char[] contraseña2 = Contraseña2txt.getPassword();
-            for (int i = 0; i < contraseña2.length; i++) {
-                pass_concatenada2 = pass_concatenada2 + contraseña2[i];
-                System.out.println(contraseña2[i]);
-            }
-            System.out.println("pass   " + pass_concatenada2);
 
-        }
     }//GEN-LAST:event_Contraseña2txtKeyPressed
 
     boolean modoOscuro = false;

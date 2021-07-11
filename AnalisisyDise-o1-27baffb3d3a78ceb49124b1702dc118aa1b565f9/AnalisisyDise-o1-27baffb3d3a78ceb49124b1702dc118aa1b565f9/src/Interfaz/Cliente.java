@@ -34,6 +34,7 @@ import javax.swing.JOptionPane;
  * @author jenif
  */
 public class Cliente extends javax.swing.JFrame {
+
     Connection connection = ConexionBD.getConnection();
     Libreta libreta = new Libreta();
     String nombres = "", apellidos = "", direccion = "", telefonoMovil = "", telefonocasa = "", pass_concatenada;
@@ -550,6 +551,9 @@ public class Cliente extends javax.swing.JFrame {
     }
     private void RegresarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarbtnActionPerformed
         // TODO add your handling code here:
+        Menu menu = new Menu(1);
+        menu.setVisible(true);
+        dispose();
     }//GEN-LAST:event_RegresarbtnActionPerformed
 
     private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed
@@ -587,7 +591,7 @@ public class Cliente extends javax.swing.JFrame {
         System.out.println("Telefono:" + telefonocasa);
         System.out.println("Dirección:" + direccion);
         try {
-            libretaSQL.ActualizarLibreta(connection,nocliente, nombres, apellidos, nombres, telefonocasa, direccion);
+            libretaSQL.ActualizarLibreta(connection, nocliente, nombres, apellidos, nombres, telefonocasa, direccion);
         } catch (SQLException ex) {
             System.out.println(ex);
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);

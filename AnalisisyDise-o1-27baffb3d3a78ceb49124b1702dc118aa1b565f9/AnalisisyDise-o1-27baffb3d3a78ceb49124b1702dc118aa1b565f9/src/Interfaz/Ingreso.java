@@ -57,6 +57,9 @@ public class Ingreso extends javax.swing.JFrame {
         transparenciButton();
 
         listaUsuarios = usuariosql.BuscarUsuario();
+        for (Clases.Usuario us : listaUsuarios) {
+            System.out.println(us.getUsuario() + " " + us.getContraseña());
+        }
     }
 
     public void transparenciButton() {
@@ -332,17 +335,18 @@ public class Ingreso extends javax.swing.JFrame {
         usuario = Usuariotxt.getText();
         char[] contraseña = Contraseñiatxt.getPassword();
         System.out.println("1 Usuario" + usuario);
-        System.out.println("2 Contraseña" + contraseña);
         for (int i = 0; i < contraseña.length; i++) {
             pass_concatenada = pass_concatenada + contraseña[i];
             //    System.out.println(contraseña1[i]);
         }
-        String xx;
-        xx = compresor.comprimir(pass_concatenada);
+        String passcompresa;
+        passcompresa = compresor.comprimir(pass_concatenada);
+        System.out.println("2 Contraseña" + passcompresa);
+
         for (Clases.Usuario usuario : listaUsuarios) {
-            if (this.usuario.equals(usuario.getUsuario()) && pass_concatenada.equals(usuario.getContraseña())) {
-                Menu3 menu = new Menu3();
-                //Menu3 menu=new Menu3(usuario);
+            if (this.usuario.equals(usuario.getUsuario()) && passcompresa.equals(usuario.getContraseña())) {
+                //Menu3 menu = new Menu3();
+                Menu3 menu=new Menu3(usuario);
                 menu.setVisible(true);
             }
         }

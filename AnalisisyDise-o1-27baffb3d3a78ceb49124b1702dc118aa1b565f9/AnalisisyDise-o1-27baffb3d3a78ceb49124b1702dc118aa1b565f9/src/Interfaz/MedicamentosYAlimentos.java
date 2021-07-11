@@ -5,12 +5,16 @@
  */
 package Interfaz;
 
+import Clases.Dimensional;
 import Clases.InsumoUso;
+import Clases.Usuario;
 import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
 import ClasesInterfaz.ComponenteRadioButon;
+import ClasesSQL.DimensionalSQL;
+import ClasesSQL.MedicamentosYAlimentosSQL;
 import ClasesSQL.ProveedorSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -20,6 +24,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -36,25 +41,47 @@ import sun.security.util.Password;
  */
 public class MedicamentosYAlimentos extends javax.swing.JFrame {
 
+    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
     boolean medicamento, alimento, vacuna, inmunizador, vitamina, conceEngorde, conceCrecimiento, maiz;
-    ProveedorSQL proveedores = new ProveedorSQL();
-    ArrayList<Clases.Proveedor> listaProveedores = proveedores.ConsultaProveedorNombre();
-    String nombreproveedor = "", tipoproducto = "", nombreProducto = "", nombreAlimento = "", proveedor = "", Dimensional = "", tipoDimensional = "";
-    int cantidad = 0, año = 0, dia = 0, mes = 0, año2 = 0, dia2 = 0, mes2 = 0;
-    float total;
+    String nombreproveedor = "", tipoproducto = "", nombreProducto = "", nombreAlimento = "", tipoDimensional = "";
+    ProveedorSQL SQLproveedores = new ProveedorSQL();
+    DimensionalSQL SQLDimensionales = new DimensionalSQL();
     ComponentePanel panel = new ComponentePanel();
     ComponenteLabelText text = new ComponenteLabelText();
     ComponenteLabelText label = new ComponenteLabelText();
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
     ComponenteRadioButon radio = new ComponenteRadioButon();
-
+    Clases.InsumoConsumo insumoconsumo = new Clases.InsumoConsumo();
+    Clases.Dimensional dimensional = new Clases.Dimensional();
+    Clases.Proveedor proveedor = new Clases.Proveedor();
+    Clases.Usuario usuario = new Clases.Usuario();
+    ArrayList<Clases.Proveedor> listaProveedores = SQLproveedores.ConsultaProveedorNombre();
+    ArrayList<Clases.Dimensional> listaDimensionales = SQLDimensionales.ConsultaDimencional();
+    MedicamentosYAlimentosSQL SQLInsumoConsumo = new MedicamentosYAlimentosSQL();
 
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
     /**
      * Creates new form Menu
      */
+    public MedicamentosYAlimentos(Usuario usuario) {
+
+        this.setUndecorated(true);
+        initComponents();
+        this.setLocationRelativeTo(null);
+        transparenciButton();
+        Eliminarbtn.setVisible(false);
+        Actualizarbtn.setVisible(false);
+        for (Clases.Proveedor prov : listaProveedores) {
+            Proveedorjcmb.addItem(prov.getNombre());
+        }
+        for (Clases.Dimensional dim : listaDimensionales) {
+            Dimensionaljcmb.addItem(dim.getDimensional());
+        }
+        this.usuario = usuario;
+    }
+
     public MedicamentosYAlimentos() {
 
         this.setUndecorated(true);
@@ -65,6 +92,9 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         Actualizarbtn.setVisible(false);
         for (Clases.Proveedor prov : listaProveedores) {
             Proveedorjcmb.addItem(prov.getNombre());
+        }
+        for (Clases.Dimensional dim : listaDimensionales) {
+            Dimensionaljcmb.addItem(dim.getDimensional());
         }
 
     }
@@ -465,7 +495,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            total = Float.parseFloat(Totaltxt.getText());
+            System.out.println("df");
         }
     }//GEN-LAST:event_TotaltxtKeyPressed
 
@@ -476,8 +506,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     private void CantidadtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            cantidad = Integer.parseInt(Cantidadtxt.getText());
-
+            System.out.println("hh");
         }
     }//GEN-LAST:event_CantidadtxtKeyPressed
 
@@ -536,27 +565,29 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         } else {
             alimento = false;
         }
-        año = FechaCalendar2.getCalendar().get(Calendar.YEAR);
-        mes = FechaCalendar2.getCalendar().get(Calendar.MARCH);
-        dia = FechaCalendar2.getCalendar().get(Calendar.DAY_OF_MONTH);
-
-        año2 = FechaCalendar1.getCalendar().get(Calendar.YEAR);
-        mes2 = FechaCalendar1.getCalendar().get(Calendar.MARCH);
-        dia2 = FechaCalendar1.getCalendar().get(Calendar.DAY_OF_MONTH);
-
-        String fecha1 = (año + "-" + mes + "-" + dia);
-        System.out.println(fecha1);
-
-        String fecha2 = (año + "-" + mes + "-" + dia);
-        System.out.println(fecha2);
-
-        proveedor = (String) Proveedorjcmb.getSelectedItem();
-        cantidad = Integer.parseInt(Cantidadtxt.getText());
-        Dimensional = (String) Dimensionaljcmb.getSelectedItem();
-        total = Float.parseFloat(Totaltxt.getText());
+        String fechaIngreso = formato.format(FechaCalendar2.getDate());
+        System.out.println(fechaIngreso);
+        String fechaVencimiento = formato.format(FechaCalendar1.getDate());
+        System.out.println(fechaIngreso);
+        proveedor.setNombre((String) Proveedorjcmb.getSelectedItem());
+        dimensional.setDimensional((String) Dimensionaljcmb.getSelectedItem());
         System.out.println(proveedor);
-        System.out.println(cantidad);
-        System.out.println(total);
+
+        insumoconsumo.setTipoInsumo(tipoproducto);
+        if (alimento == false) {
+            insumoconsumo.setNombre(nombreProducto);
+        } else if (medicamento == false) {
+            insumoconsumo.setNombre(nombreAlimento);
+        }
+        insumoconsumo.setExistencia(Integer.parseInt(Cantidadtxt.getText()));
+        insumoconsumo.setTotal(Float.parseFloat(Totaltxt.getText()));
+        insumoconsumo.setFechaIngreso(fechaIngreso);
+        insumoconsumo.setFechaVencimiento(fechaVencimiento);
+        insumoconsumo.setDimensional(dimensional);
+        insumoconsumo.setProveedor(proveedor);
+        insumoconsumo.setUsuario(usuario);
+        SQLInsumoConsumo.InsertarMedicamentosYAlimentos(insumoconsumo);
+
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed

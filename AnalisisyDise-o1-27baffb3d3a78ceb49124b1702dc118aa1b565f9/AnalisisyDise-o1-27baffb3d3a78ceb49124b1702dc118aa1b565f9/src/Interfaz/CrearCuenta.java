@@ -431,16 +431,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void ContraseñatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñatxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            pass_concatenada = "";
-            char[] contraseña = Contraseñatxt.getPassword();
-            for (int i = 0; i < contraseña.length; i++) {
-                pass_concatenada = pass_concatenada + contraseña[i];
-                System.out.println(contraseña[i]);
-                // System.out.println("pass   " + pass_concatenada);
-
-            }
-            // System.out.println("pass   " + pass_concatenada);
-            Contraseñatxt1.setText("");
+           
             Contraseñatxt1.requestFocus();
         }
     }//GEN-LAST:event_ContraseñatxtKeyPressed
@@ -460,6 +451,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         char[] contraseña2 = Contraseñatxt1.getPassword();
         for (int i = 0; i < contraseña2.length; i++) {
             pass_concatenada = pass_concatenada + contraseña2[i];
+            System.out.println(pass_concatenada);
             System.out.println(contraseña2[i]);
         }
 
@@ -470,12 +462,14 @@ public class CrearCuenta extends javax.swing.JFrame {
         System.out.println("Correo Electronico" + correo_electronico);
         System.out.println("Contraseña" + pass_concatenada);
         System.out.println("Verificación" + verificacion);
-        String xx;
-        xx = compresor.comprimir(pass_concatenada);
-        System.out.println("Esta si:" + xx);
+        if (pass_concatenada.equals(pass_concatenada2)) {
 
-        usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, xx, puesto, correo_electronico);
+            String xx;
+            xx = compresor.comprimir(pass_concatenada);
+            System.out.println("Esta si:" + xx);
 
+            usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, xx, puesto, correo_electronico);
+        }
 
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
 
@@ -592,15 +586,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void Contraseñatxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Contraseñatxt1KeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            pass_concatenada2 = "";
-            char[] contraseña2 = Contraseñatxt1.getPassword();
-            for (int i = 0; i < contraseña2.length; i++) {
-                pass_concatenada2 = pass_concatenada2 + contraseña2[i];
-                System.out.println(contraseña2[i]);
-            }
-
-        }
+       
     }//GEN-LAST:event_Contraseñatxt1KeyPressed
 
     private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed
