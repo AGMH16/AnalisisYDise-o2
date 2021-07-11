@@ -30,7 +30,7 @@ public class InventarioSQL {
                 statement.execute("INSERT INTO insumouso(Nombre,Existencia,FechaIngreso,Total,Dimensional_idDimensional,Usuario_idUsuario) VALUES ('" + nombre + "'," + existencia + ",'" + fechaIngreso + "'," + total + "," + Dimensional_idDimensional + "," + intUsuario_idUsuario + ")");
                 JOptionPane.showMessageDialog(null, "Insumo añedida a la lista");
             }
-            connection.close();
+            //connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR ESTE INSUMO");
         }

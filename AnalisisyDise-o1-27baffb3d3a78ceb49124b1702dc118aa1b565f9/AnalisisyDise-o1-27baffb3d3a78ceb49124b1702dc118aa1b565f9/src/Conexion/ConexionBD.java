@@ -23,10 +23,10 @@ public class ConexionBD {
                 CrearConexion();
                 // System.out.println("Entro al if");
             }
-            if (!VerificarSQL()) {
+            /*if (!VerificarSQL()) {
                 connection.close();
                 CrearConexion();
-            }
+            }*/
             return connection;
         } catch (SQLException e) {
             System.out.println(e);
@@ -45,7 +45,7 @@ public class ConexionBD {
 
     }
 
-    private static boolean VerificarSQL() {
+   /* private static boolean VerificarSQL() {
         boolean x = false;
         try {
             //Connection miConexion=(Connection) Conexion.GetConnection();
@@ -58,6 +58,6 @@ public class ConexionBD {
             System.out.println(ex);
         }
         return x;
-    }
+    }*/
 
 }

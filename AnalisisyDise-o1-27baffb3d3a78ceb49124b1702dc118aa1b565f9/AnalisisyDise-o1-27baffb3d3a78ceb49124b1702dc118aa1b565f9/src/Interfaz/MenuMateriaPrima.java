@@ -27,7 +27,7 @@ public class MenuMateriaPrima extends javax.swing.JFrame {
     ComponenteLabelText label = new ComponenteLabelText();
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
-
+    Clases.Usuario usuario=new Clases.Usuario();
     /**
      * Creates new form Menu
      */
@@ -53,6 +53,8 @@ public class MenuMateriaPrima extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
+        this.usuario=usuario;
+                
     }
 
     public void transparenciButton() {
@@ -243,14 +245,14 @@ public class MenuMateriaPrima extends javax.swing.JFrame {
 
     private void Accion2btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accion2btnActionPerformed
         // TODO add your handling code here:
-        PerdidaMateriaPrima materiaPrima = new PerdidaMateriaPrima();
+        PerdidaMateriaPrima materiaPrima = new PerdidaMateriaPrima(usuario);
         // MateriaPrima materiaPrima = new MateriaPrima(usuario);
         materiaPrima.setVisible(true);
         dispose();
     }//GEN-LAST:event_Accion2btnActionPerformed
 
     private void Accion1btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accion1btnActionPerformed
-        MateriaPrima materiaPrima = new MateriaPrima();
+        MateriaPrima materiaPrima = new MateriaPrima(usuario);
         // MateriaPrima materiaPrima = new MateriaPrima(usuario);
         materiaPrima.setVisible(true);
         dispose();

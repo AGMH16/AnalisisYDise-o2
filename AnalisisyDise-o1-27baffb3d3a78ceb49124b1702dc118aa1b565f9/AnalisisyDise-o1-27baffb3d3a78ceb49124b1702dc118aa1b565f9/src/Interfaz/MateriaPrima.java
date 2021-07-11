@@ -40,7 +40,7 @@ public class MateriaPrima extends javax.swing.JFrame {
 //Hola Jeni chula :3    
 
     String loteAverio = "";
-    String nombreproveedor = "", proveedor = "";
+    String nombreproveedor = "";
     int cantidad = 0;
     float total;
     ProveedorSQL proveedores = new ProveedorSQL();
@@ -54,7 +54,7 @@ public class MateriaPrima extends javax.swing.JFrame {
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
     Usuario usuario = new Usuario();
-
+    Clases.Proveedor proveedor=new Clases.Proveedor();
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
     /**
@@ -350,7 +350,7 @@ public class MateriaPrima extends javax.swing.JFrame {
     }
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
         loteAverio = CodigoAveriotxt.getText();
-        proveedor = (String) Proveedorjcmb.getSelectedItem();
+        proveedor.setNombre((String) Proveedorjcmb.getSelectedItem());
         cantidad = Integer.parseInt(Cantidadtxt.getText());
         total = Integer.parseInt(Totaltxt.getText());
         System.out.println(loteAverio);
@@ -363,7 +363,8 @@ public class MateriaPrima extends javax.swing.JFrame {
         System.out.println(fecha);
         materiaprima.setLoteAverio(loteAverio);
         for (Clases.Proveedor prov : listaProveedores) {
-            if (prov.getNombre().equals(proveedor)) {
+            if (prov.getNombre().equals(proveedor.getNombre())) {
+                proveedor.setIdProveedor(prov.getIdProveedor());
                 materiaprima.setProveedor(prov);
             }
         }

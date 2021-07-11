@@ -49,7 +49,7 @@ public class MercaderiaSQL {
             }
             connection.commit();
 
-            connection.close();
+            //connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR");
             System.out.println(e);

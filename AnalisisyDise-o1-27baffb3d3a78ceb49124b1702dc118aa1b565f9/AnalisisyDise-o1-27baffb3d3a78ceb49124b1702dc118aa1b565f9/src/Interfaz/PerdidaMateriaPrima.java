@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Clases.Usuario;
 import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
@@ -55,6 +56,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     Clases.MovimientoLotePerdida movimientoperdida = new Clases.MovimientoLotePerdida();
     PerdidaMateriaPrimaSQL SQLPerdidaMateriaPrima = new PerdidaMateriaPrimaSQL();
     UpdateMateriaPrimaSQL SQLupdateMateriaPrima=new UpdateMateriaPrimaSQL();
+    Clases.Usuario usuario=new Clases.Usuario();
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
     /**
@@ -71,6 +73,19 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         for (Clases.MateriaPrima materia : listaMateriaPrima) {
             CodigoAveriocmb.addItem(materia.getLoteAverio());
         }
+    }
+    public PerdidaMateriaPrima(Usuario usuario) {
+
+        this.setUndecorated(true);
+        initComponents();
+        this.setLocationRelativeTo(null);
+        transparenciButton();
+        Eliminarbtn.setVisible(false);
+        Actualizarbtn.setVisible(false);
+        for (Clases.MateriaPrima materia : listaMateriaPrima) {
+            CodigoAveriocmb.addItem(materia.getLoteAverio());
+        }
+        this.usuario=usuario;
     }
 
     public void transparenciButton() {

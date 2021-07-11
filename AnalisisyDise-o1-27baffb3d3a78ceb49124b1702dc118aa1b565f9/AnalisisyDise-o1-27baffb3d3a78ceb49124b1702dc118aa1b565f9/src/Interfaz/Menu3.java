@@ -307,14 +307,14 @@ public class Menu3 extends javax.swing.JFrame {
 
     private void InsumoConsumobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsumoConsumobtnActionPerformed
         // TODO add your handling code here:
-        MedicamentosYAlimentos medicamentosYAlimentos = new MedicamentosYAlimentos();
+        MedicamentosYAlimentos medicamentosYAlimentos = new MedicamentosYAlimentos(usuario);
         medicamentosYAlimentos.setVisible(true);
         dispose();
     }//GEN-LAST:event_InsumoConsumobtnActionPerformed
 
     private void MateriaPrimabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MateriaPrimabtnActionPerformed
         // TODO add your handling code here:
-        MenuMateriaPrima materiaPrima = new MenuMateriaPrima();
+        MenuMateriaPrima materiaPrima = new MenuMateriaPrima(usuario);
         // MateriaPrima materiaPrima = new MateriaPrima(usuario);
         materiaPrima.setVisible(true);
         dispose();

@@ -25,8 +25,8 @@ public class MateriaPrimaSQL {
     public void InsertarMateriaPrima(MateriaPrima Datos) {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
-                statement.execute("INSERT INTO lotepollo(LoteAverio,UnidadExistente,FechaIngreso,Total,Proveedor,Usuario_idUsuario) VALUES ('" + Datos.getLoteAverio() + "'," + Datos.getUnidadExistente() + ",'" + Datos.getFechaIngreso() + "'," + Datos.getTotal() + "," + Datos.getProveedor().getIdProveedor() +","+Datos.getUsuario().getIdUsuario() + ")");
-                JOptionPane.showMessageDialog(null, "Proveedor añadido a la lista");
+                statement.execute("INSERT INTO lotepollo(LoteAverio,UnidadExistente,FechaIngreso,Total,Usuario_idUsuario,Proveedor_idProveedor) VALUES ('" + Datos.getLoteAverio() + "'," + Datos.getUnidadExistente() + ",'" + Datos.getFechaIngreso() + "'," + Datos.getTotal() + "," + Datos.getUsuario().getIdUsuario() +","+Datos.getProveedor().getIdProveedor() + ")");
+                JOptionPane.showMessageDialog(null, "Lote guardado con exito");
             }
       //      connection.close();
         } catch (Exception e) {
@@ -39,7 +39,7 @@ public class MateriaPrimaSQL {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("DELETE FROM lotepollo WHERE LotePollo=('" + codigo + "')");
-                JOptionPane.showMessageDialog(null, "Proveedor añedido a la lista");
+                JOptionPane.showMessageDialog(null, "Lote guardado con exito");
             }
       //      connection.close();
         } catch (Exception e) {
@@ -68,6 +68,7 @@ public class MateriaPrimaSQL {
             }
       //      connection.close();
         } catch (Exception e) {
+            System.out.println("Problema en consulta"+e);
         }
 
         return listamateriaprima;

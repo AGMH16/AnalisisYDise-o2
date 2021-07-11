@@ -29,7 +29,7 @@ public class ProveedorSQL {
                 statement.execute("INSERT INTO proveedor(Nombre, Direccion, Telefono,Empresa) VALUES ('" + nombre + "','" + direccion + "','" + telefono + "','" + empresa + "')");
                 JOptionPane.showMessageDialog(null, "Proveedor añadido a la lista");
             }
-            connection.close();
+           // connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
         }
@@ -41,7 +41,7 @@ public class ProveedorSQL {
                 statement.execute("DELETE FROM proveedor WHERE idProveedor=('" + IdProveedor + "')");
                 JOptionPane.showMessageDialog(null, "Proveedor añedido a la lista");
             }
-            connection.close();
+          //  connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
         }
@@ -68,7 +68,7 @@ public class ProveedorSQL {
                     }
                 }
             }
-            connection.close();
+         //   connection.close();
         } catch (Exception e) {
         }
 
@@ -90,7 +90,7 @@ public class ProveedorSQL {
                     proveedores.add(proveedor);
                 }
             }
-            connection.close();
+        //    connection.close();
         } catch (Exception e) {
         }
 

@@ -24,8 +24,8 @@ import javax.swing.JTextField;
  */
 public class DimensionalSQL {
 
-   Connection connection = ConexionBD.getConnection();
-    int  val2;
+    Connection connection = ConexionBD.getConnection();
+    int val2;
 
     public int getVal2() {
         return val2;
@@ -34,34 +34,32 @@ public class DimensionalSQL {
     public void setVal2(int val2) {
         this.val2 = val2;
     }
-    
 
-    
     public void InsertarDimensional(String dimensional) {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
                 statement.execute("INSERT INTO dimensional(Dimensional) VALUES('" + dimensional + "')");
                 JOptionPane.showMessageDialog(null, "Dimensional añedida a la lista");
             }
-            connection.close();
+            //connection.close();
         } catch (Exception e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR DIMENSIONAL");
         }
     }
 
-    
     public void EliminarDimensional(String dimensional) {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
-                statement.execute("DELETE FROM dimensional WHERE dimensional=('" + dimensional + "')");
+                statement.execute("DELETE FROM dimensional WHERE Dimensional=('" + dimensional + "')");
                 JOptionPane.showMessageDialog(null, "DIMENSIONAL eliminada de la lista");
             }
-            connection.close();
+           // connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR DIMENSIONAL");
         }
     }
-    
+
     public int ObtenerIdDimensional(String dimesional) {
         int idDimensional = 0;
         try {
@@ -85,14 +83,14 @@ public class DimensionalSQL {
 
         return idDimensional;
     }
-    
-        public ArrayList<Dimensional> ConsultaDimencional() {
-         ArrayList<Dimensional> listaDimencionales=new ArrayList<Dimensional>() ;
+
+    public ArrayList<Dimensional> ConsultaDimencional() {
+        ArrayList<Dimensional> listaDimencionales = new ArrayList<Dimensional>();
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select * from dimensional");
                 while (clr.next()) {
-                    Clases.Dimensional dimensional=new Clases.Dimensional();
+                    Clases.Dimensional dimensional = new Clases.Dimensional();
                     dimensional.setIdDimensional(clr.getInt("idDimensional"));
                     dimensional.setDimensional(clr.getString("Dimensional"));
                     listaDimencionales.add(dimensional);

@@ -31,7 +31,7 @@ Connection connection = ConexionBD.getConnection();
                 statement.execute("INSERT INTO libretacliente(Nombre, Apellido, Celular, Telefono, Direccion) VALUES ('" + nombre + "','" + apellido + "','" + celular + "','" + telefono + "','" + direccion + "')");
                 JOptionPane.showMessageDialog(null, "Cliente añedida a la lista");
             }
-            connection.close();
+          //  connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR CLIENTE");
             System.out.println(e);
@@ -44,7 +44,7 @@ Connection connection = ConexionBD.getConnection();
                 statement.execute("DELETE FROM libretacliente WHERE NoCliente=('" + nocliente + "')");
                 JOptionPane.showMessageDialog(null, "Cliente eliminado");
             }
-            connection.close();
+          //  connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR CLIENTE");
         }

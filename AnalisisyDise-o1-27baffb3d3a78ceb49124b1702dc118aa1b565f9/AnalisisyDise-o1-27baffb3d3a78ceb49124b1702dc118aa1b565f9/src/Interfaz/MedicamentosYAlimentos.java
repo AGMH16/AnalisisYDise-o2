@@ -15,6 +15,7 @@ import ClasesInterfaz.ComponentePanel;
 import ClasesInterfaz.ComponenteRadioButon;
 import ClasesSQL.DimensionalSQL;
 import ClasesSQL.MedicamentosYAlimentosSQL;
+import ClasesSQL.MostrarEnInterfaces;
 import ClasesSQL.ProveedorSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -93,10 +94,10 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         for (Clases.Proveedor prov : listaProveedores) {
             Proveedorjcmb.addItem(prov.getNombre());
         }
+
         for (Clases.Dimensional dim : listaDimensionales) {
             Dimensionaljcmb.addItem(dim.getDimensional());
         }
-
     }
 
     public void transparenciButton() {
@@ -107,7 +108,6 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jButton7.setOpaque(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setBorderPainted(false);
-
         jButton4.setOpaque(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setBorderPainted(false);
@@ -469,6 +469,11 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         // TODO add your handling code here:
         tipoDimensional = JOptionPane.showInputDialog("Ingrese Producto");
         Dimensionaljcmb.addItem(tipoDimensional);
+        SQLDimensionales.InsertarDimensional(tipoDimensional);
+        /*listaDimensionales = SQLDimensionales.ConsultaDimencional();
+        for (Clases.Dimensional dim : listaDimensionales) {
+            Dimensionaljcmb.addItem(dim.getDimensional());
+        }*/
     }//GEN-LAST:event_AgregarDimensionalbtnActionPerformed
 
     private void DimensionaljcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DimensionaljcmbActionPerformed
@@ -515,6 +520,9 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     }//GEN-LAST:event_CantidadtxtActionPerformed
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
+        listaProveedores = SQLproveedores.ConsultaProveedorNombre();
+        listaDimensionales = SQLDimensionales.ConsultaDimencional();
+
         InsumoUso datos = new InsumoUso();
         if (Medicamentosrbtn.isSelected()) {
             medicamento = true;
@@ -566,12 +574,19 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
             alimento = false;
         }
         String fechaIngreso = formato.format(FechaCalendar2.getDate());
-        System.out.println(fechaIngreso);
         String fechaVencimiento = formato.format(FechaCalendar1.getDate());
-        System.out.println(fechaIngreso);
-        proveedor.setNombre((String) Proveedorjcmb.getSelectedItem());
-        dimensional.setDimensional((String) Dimensionaljcmb.getSelectedItem());
-        System.out.println(proveedor);
+        for (Clases.Proveedor prov : listaProveedores) {
+            proveedor.setNombre((String) Proveedorjcmb.getSelectedItem());
+            if (proveedor.getNombre().equals(prov.getNombre())) {
+                proveedor.setIdProveedor(prov.getIdProveedor());
+            }
+        }
+        for (Clases.Dimensional dim : listaDimensionales) {
+            dimensional.setDimensional((String) Dimensionaljcmb.getSelectedItem());
+            if (dimensional.getDimensional().equals(dim.getDimensional())) {
+                dimensional.setIdDimensional(dim.getIdDimensional());
+            }
+        }
 
         insumoconsumo.setTipoInsumo(tipoproducto);
         if (alimento == false) {
