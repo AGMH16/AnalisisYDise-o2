@@ -179,6 +179,11 @@ public class Inventario extends javax.swing.JFrame {
         Productojcmb.setForeground(new java.awt.Color(102, 102, 102));
         Productojcmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Producto" }));
         Productojcmb.setToolTipText("");
+        Productojcmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProductojcmbActionPerformed(evt);
+            }
+        });
         jPanel2.add(Productojcmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 253, 42));
 
         AgregarProductobtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -499,6 +504,10 @@ public class Inventario extends javax.swing.JFrame {
     private void TotaltxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TotaltxtKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_TotaltxtKeyPressed
+
+    private void ProductojcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductojcmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProductojcmbActionPerformed
     boolean modoOscuro = false;
 
     /**

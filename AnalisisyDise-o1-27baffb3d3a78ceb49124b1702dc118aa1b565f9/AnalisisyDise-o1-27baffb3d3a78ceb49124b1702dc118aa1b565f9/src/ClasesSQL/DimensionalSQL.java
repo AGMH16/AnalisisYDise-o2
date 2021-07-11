@@ -43,9 +43,10 @@ public class DimensionalSQL {
                 statement.execute("INSERT INTO dimensional(Dimensional) VALUES('" + dimensional + "')");
                 JOptionPane.showMessageDialog(null, "Dimensional añedida a la lista");
             }
-            connection.close();
+            //connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR DIMENSIONAL");
+            System.out.println(e);
         }
     }
 

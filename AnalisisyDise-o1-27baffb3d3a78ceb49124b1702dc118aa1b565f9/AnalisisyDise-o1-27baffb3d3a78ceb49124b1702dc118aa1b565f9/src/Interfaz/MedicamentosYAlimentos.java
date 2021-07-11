@@ -15,6 +15,7 @@ import ClasesInterfaz.ComponentePanel;
 import ClasesInterfaz.ComponenteRadioButon;
 import ClasesSQL.DimensionalSQL;
 import ClasesSQL.MedicamentosYAlimentosSQL;
+import ClasesSQL.MostrarEnInterfaces;
 import ClasesSQL.ProveedorSQL;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -59,20 +60,17 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     ArrayList<Clases.Proveedor> listaProveedores = SQLproveedores.ConsultaProveedorNombre();
     ArrayList<Clases.Dimensional> listaDimensionales = SQLDimensionales.ConsultaDimencional();
     MedicamentosYAlimentosSQL SQLInsumoConsumo = new MedicamentosYAlimentosSQL();
+    MostrarEnInterfaces mostrar = new MostrarEnInterfaces();
 
-    /*crud thecrud = new crud();
-    Connection con = (Connection) ConexionBD.GetConnection();*/
-    /**
-     * Creates new form Menu
-     */
     public MedicamentosYAlimentos(Usuario usuario) {
-
+        
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
         Eliminarbtn.setVisible(false);
         Actualizarbtn.setVisible(false);
+        mostrar.BuscarDimesional(Dimensionaljcmb);
         for (Clases.Proveedor prov : listaProveedores) {
             Proveedorjcmb.addItem(prov.getNombre());
         }
@@ -83,11 +81,12 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
     }
 
     public MedicamentosYAlimentos() {
-
+       
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
+         mostrar.BuscarDimesional(Dimensionaljcmb);
         Eliminarbtn.setVisible(false);
         Actualizarbtn.setVisible(false);
         for (Clases.Proveedor prov : listaProveedores) {
@@ -107,7 +106,6 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         jButton7.setOpaque(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setBorderPainted(false);
-
         jButton4.setOpaque(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setBorderPainted(false);
@@ -469,6 +467,7 @@ public class MedicamentosYAlimentos extends javax.swing.JFrame {
         // TODO add your handling code here:
         tipoDimensional = JOptionPane.showInputDialog("Ingrese Producto");
         Dimensionaljcmb.addItem(tipoDimensional);
+        SQLDimensionales.InsertarDimensional(tipoDimensional);
     }//GEN-LAST:event_AgregarDimensionalbtnActionPerformed
 
     private void DimensionaljcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DimensionaljcmbActionPerformed

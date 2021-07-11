@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MostrarEnInterfaces {
      Connection connection = ConexionBD.getConnection();
+     
  public int BuscarDimesional(JComboBox Dimensionaljcmb) {
         int idDimensional = 0;
         String dimensional = "";
