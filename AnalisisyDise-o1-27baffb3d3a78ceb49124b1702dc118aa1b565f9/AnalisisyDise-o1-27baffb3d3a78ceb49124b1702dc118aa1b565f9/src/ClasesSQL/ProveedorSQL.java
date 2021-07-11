@@ -35,7 +35,6 @@ public class ProveedorSQL {
         }
     }
 
-    //DELETE FROM proveedor WHERE Empresa='Pollo Feliz';
     public void DeleteProveedor(int IdProveedor) {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {

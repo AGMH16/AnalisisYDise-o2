@@ -66,8 +66,6 @@ public class PruebaSQL {
         }
     }
 
-   
-
 
     public int BuscarUsuario(String usuario, String contraseña) {
         int IdUsuario = 0;
