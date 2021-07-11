@@ -25,13 +25,14 @@ public class PerdidaMateriaPrimaSQL {
     public void InsertarPerdidaMateriaPrima(PerdidaMateriaPrima Datos) {
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
-                statement.execute("INSERT INTO perdidamateriaprima(Muerto,Enfermo,EnObservacion,UnidadAfectada,Fecha,DetallePerdida) VALUES ('" + Datos.isMuerto() + "','" + Datos.isEnfermo() + "','" + Datos.isEnObservacion() + "'," + Datos.getUnidadesAfectadas() + ",'" + Datos.getFecha() + "','" + Datos.getDetallePerdida() + "')");
+                statement.execute("INSERT INTO perdidamateriaprima(idPerdidaMateriaPrima,Muerto,Enfermo,EnObservacion,UnidadAfectada,Fecha,DetallePerdida) VALUES ('" +Datos.getIdPerdidaMateriaPrima()+"',"+ Datos.isMuerto() + "," + Datos.isEnfermo() + "," + Datos.isEnObservacion() + "," + Datos.getUnidadesAfectadas() + ",'" + Datos.getFecha() + "','" + Datos.getDetallePerdida() + "')");
 
                 JOptionPane.showMessageDialog(null, "Perdida añadida a la lista");
             }
           //  connection.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
+            System.out.println("perdida "+e);
+            JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR LA PERDIDA");
         }
     }
 
@@ -45,6 +46,7 @@ public class PerdidaMateriaPrimaSQL {
             }
           //  connection.close();
         } catch (Exception e) {
+            System.out.println("movimiento "+ e);
             JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR LA PERDIDA RECUPERADA");
         }
     }

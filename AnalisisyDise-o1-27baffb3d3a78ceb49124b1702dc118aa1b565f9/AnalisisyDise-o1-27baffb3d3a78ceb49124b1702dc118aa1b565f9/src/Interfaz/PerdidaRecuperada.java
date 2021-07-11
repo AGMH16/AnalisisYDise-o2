@@ -73,7 +73,7 @@ public class PerdidaRecuperada extends javax.swing.JFrame {
             CodigoAveriocmb.addItem(materia.getLoteAverio());
         }
         for (Clases.PerdidaMateriaPrima perdidamateria : listaPerdidaMateriaPrima) {
-            CodigoAveriocmb.addItem(perdidamateria.getIdPerdidaMateriaPrima());
+            CodigoPerdidacmb.addItem(perdidamateria.getIdPerdidaMateriaPrima());
         }
     }
 

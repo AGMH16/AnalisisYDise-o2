@@ -21,11 +21,12 @@ public class UpdateMateriaPrimaSQL {
     public void ActualizarExistenciasDeMateriaPrima(int ExistenciasActualizadas, String codigo) {
         try {
             Statement consulta = connection.createStatement(); //Objeto para las consultas
-            consulta.executeUpdate("UPDATE lotepollo set UnidadExistente =" + ExistenciasActualizadas + "WHERE LoteAverio = " + codigo + ")");//Consulta
-            JOptionPane.showMessageDialog(null, "Materia prima ha disminuido");
+            consulta.executeUpdate("UPDATE lotepollo set UnidadExistente = '"+ExistenciasActualizadas+"'WHERE LoteAverio ='"+codigo+"'");//Consulta
+            JOptionPane.showMessageDialog(null, "Materia prima ACTUALIZADA en existencias");
 
            // connection.close();
         } catch (Exception e) {
+            System.out.println("actualizar "+e);
             JOptionPane.showMessageDialog(null, "NO SE PUDO ACTUALIZAR LA MATERIA PRIMA");
         }
     }

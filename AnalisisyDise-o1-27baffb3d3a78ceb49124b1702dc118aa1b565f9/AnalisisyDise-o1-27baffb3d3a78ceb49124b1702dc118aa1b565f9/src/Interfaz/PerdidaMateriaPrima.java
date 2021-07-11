@@ -55,8 +55,9 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     Clases.PerdidaMateriaPrima perdidamateriaprima = new Clases.PerdidaMateriaPrima();
     Clases.MovimientoLotePerdida movimientoperdida = new Clases.MovimientoLotePerdida();
     PerdidaMateriaPrimaSQL SQLPerdidaMateriaPrima = new PerdidaMateriaPrimaSQL();
-    UpdateMateriaPrimaSQL SQLupdateMateriaPrima=new UpdateMateriaPrimaSQL();
-    Clases.Usuario usuario=new Clases.Usuario();
+    UpdateMateriaPrimaSQL SQLupdateMateriaPrima = new UpdateMateriaPrimaSQL();
+    Clases.Usuario usuario = new Clases.Usuario();
+
     /*crud thecrud = new crud();
     Connection con = (Connection) ConexionBD.GetConnection();*/
     /**
@@ -74,6 +75,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
             CodigoAveriocmb.addItem(materia.getLoteAverio());
         }
     }
+
     public PerdidaMateriaPrima(Usuario usuario) {
 
         this.setUndecorated(true);
@@ -85,7 +87,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         for (Clases.MateriaPrima materia : listaMateriaPrima) {
             CodigoAveriocmb.addItem(materia.getLoteAverio());
         }
-        this.usuario=usuario;
+        this.usuario = usuario;
     }
 
     public void transparenciButton() {
@@ -293,6 +295,9 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 CantidadtxtKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CantidadtxtKeyTyped(evt);
+            }
         });
         jPanel2.add(Cantidadtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 253, 43));
 
@@ -373,6 +378,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
         codigoperdida = CodigoPerdidatxt.getText();
         codigo = (String) CodigoAveriocmb.getSelectedItem();
         System.out.println(codigo);
+        perdidamateriaprima.setIdPerdidaMateriaPrima(codigoperdida);
         perdidamateriaprima.setMuerto(Muertosrbtn.isSelected());
         perdidamateriaprima.setEnfermo(Enfermorbtn.isSelected());
         perdidamateriaprima.setEnObservacion(Observacionbtn.isSelected());
@@ -393,7 +399,7 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "No se pueden perder lo que no se tiene. Verifique la cantidad");
                 }
-            } 
+            }
         }
 
         //Actualizar las existencias de materia prima
@@ -443,6 +449,15 @@ public class PerdidaMateriaPrima extends javax.swing.JFrame {
     private void CantidadtxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_CantidadtxtKeyPressed
+
+    private void CantidadtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadtxtKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_CantidadtxtKeyTyped
     private void Pintar(Color colorbotones, String imagen, Color colortexto, Color colorlabel, Color colorbase, Color colorfondo) {
         panel.setPanelBase(jPanel2);
         panel.setColorBase(colorbase);

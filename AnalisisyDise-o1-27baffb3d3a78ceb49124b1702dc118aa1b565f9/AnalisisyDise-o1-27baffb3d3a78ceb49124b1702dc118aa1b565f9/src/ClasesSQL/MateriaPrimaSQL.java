@@ -8,6 +8,7 @@ package ClasesSQL;
 import Conexion.ConexionBD;
 import Clases.MateriaPrima;
 import Clases.Proveedor;
+import Clases.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -50,6 +51,7 @@ public class MateriaPrimaSQL {
     public ArrayList<MateriaPrima> ConsultaMateraPrimaCodigo() {
         ArrayList<MateriaPrima> listamateriaprima = new ArrayList<MateriaPrima>();
         Proveedor proveedor=new Proveedor();
+        Usuario usuario=new Usuario();
         try {
             try (Statement statement = (Statement) connection.createStatement()) {
                 ResultSet clr = statement.executeQuery("select * from lotepollo");
@@ -60,8 +62,10 @@ public class MateriaPrimaSQL {
                     materiaprima.setUnidadExistente(clr.getInt("UnidadExistente"));
                     materiaprima.setFechaIngreso(clr.getString("FechaIngreso"));//debería devolver un date no un string
                     materiaprima.setTotal(clr.getFloat("Total"));
-                    proveedor.setIdProveedor(clr.getInt("Proveedor"));
-                    materiaprima.setProveedor(proveedor);
+                    usuario.setIdUsuario(clr.getInt("Usuario_idUsuario"));
+                    materiaprima.setUsuario(usuario);
+                    proveedor.setIdProveedor(clr.getInt("Proveedor_idProveedor"));
+                    materiaprima.setProveedor(proveedor);                    
                     //materiaprima.getUsuario().setIdUsuario(clr.getInt("Usuario_idUsuario"));
                     listamateriaprima.add(materiaprima);
                 }
