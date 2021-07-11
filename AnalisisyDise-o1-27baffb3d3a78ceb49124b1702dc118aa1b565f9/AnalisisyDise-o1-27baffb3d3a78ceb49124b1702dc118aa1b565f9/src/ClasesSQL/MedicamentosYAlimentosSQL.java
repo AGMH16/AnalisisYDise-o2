@@ -26,7 +26,7 @@ public class MedicamentosYAlimentosSQL {
                 statement.execute("INSERT INTO insumoconsumo(TipoInsumo,Nombre,Existencia,Total,FechaIngreso,FechaVencimiento,Dimensional_idDimensional,Proveedor_idProveedor,Usuario_idUsuario) VALUES ('" + Datos.getTipoInsumo()+ "','" + Datos.getNombre()+ "'," + Datos.getExistencia()+ "," + Datos.getTotal() + ",'" + Datos.getFechaIngreso() + "','" +Datos.getFechaVencimiento()+"','"+Datos.getDimensional().getIdDimensional()+","+Datos.getProveedor().getIdProveedor()+","+ Datos.getUsuario().getIdUsuario() + ")");
                 JOptionPane.showMessageDialog(null, "Ma añadido a la lista");
             }
-            connection.close();
+         //   connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
         }
@@ -53,7 +53,7 @@ public class MedicamentosYAlimentosSQL {
                     listainsumoconsumo.add(insumoconsumo);
                 }
             }
-            connection.close();
+        //    connection.close();
         } catch (Exception e) {
         }
 

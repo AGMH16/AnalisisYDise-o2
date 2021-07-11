@@ -307,7 +307,7 @@ public class Menu3 extends javax.swing.JFrame {
 
     private void InsumoConsumobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsumoConsumobtnActionPerformed
         // TODO add your handling code here:
-        MedicamentosYAlimentos medicamentosYAlimentos = new MedicamentosYAlimentos(usuario);
+        MedicamentosYAlimentos medicamentosYAlimentos = new MedicamentosYAlimentos();
         medicamentosYAlimentos.setVisible(true);
         dispose();
     }//GEN-LAST:event_InsumoConsumobtnActionPerformed

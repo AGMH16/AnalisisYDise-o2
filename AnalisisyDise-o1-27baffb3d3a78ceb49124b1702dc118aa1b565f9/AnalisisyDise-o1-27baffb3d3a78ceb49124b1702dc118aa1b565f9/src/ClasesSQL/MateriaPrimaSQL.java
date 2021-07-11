@@ -28,7 +28,7 @@ public class MateriaPrimaSQL {
                 statement.execute("INSERT INTO lotepollo(LoteAverio,UnidadExistente,FechaIngreso,Total,Proveedor,Usuario_idUsuario) VALUES ('" + Datos.getLoteAverio() + "'," + Datos.getUnidadExistente() + ",'" + Datos.getFechaIngreso() + "'," + Datos.getTotal() + "," + Datos.getProveedor().getIdProveedor() +","+Datos.getUsuario().getIdUsuario() + ")");
                 JOptionPane.showMessageDialog(null, "Proveedor añadido a la lista");
             }
-            connection.close();
+      //      connection.close();
         } catch (Exception e) {
             System.out.println("ESTO IMPORTA"+e);
             JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR LA MATERIA PRIMA");
@@ -41,7 +41,7 @@ public class MateriaPrimaSQL {
                 statement.execute("DELETE FROM lotepollo WHERE LotePollo=('" + codigo + "')");
                 JOptionPane.showMessageDialog(null, "Proveedor añedido a la lista");
             }
-            connection.close();
+      //      connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
         }
@@ -66,7 +66,7 @@ public class MateriaPrimaSQL {
                     listamateriaprima.add(materiaprima);
                 }
             }
-            connection.close();
+      //      connection.close();
         } catch (Exception e) {
         }
 

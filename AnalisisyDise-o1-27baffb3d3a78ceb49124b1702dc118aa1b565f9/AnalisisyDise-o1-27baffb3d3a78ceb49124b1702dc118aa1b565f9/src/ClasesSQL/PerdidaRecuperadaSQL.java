@@ -27,7 +27,7 @@ public class PerdidaRecuperadaSQL {
 
                 JOptionPane.showMessageDialog(null, "Recuperación añadido a la lista");
             }
-            connection.close();
+           // connection.close();
         } catch (Exception e) {
             System.out.println("ESTO IMPORTA" + e);
             JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR LA PERDIDA RECUPERADA");

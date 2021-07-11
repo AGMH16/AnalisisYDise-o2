@@ -29,7 +29,7 @@ public class PerdidaMateriaPrimaSQL {
 
                 JOptionPane.showMessageDialog(null, "Perdida añadida a la lista");
             }
-            connection.close();
+          //  connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR AL PROVEEDOR");
         }
@@ -43,7 +43,7 @@ public class PerdidaMateriaPrimaSQL {
 
                 JOptionPane.showMessageDialog(null, "Recuperación añadido a la lista");
             }
-            connection.close();
+          //  connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR LA PERDIDA RECUPERADA");
         }
@@ -65,7 +65,7 @@ public class PerdidaMateriaPrimaSQL {
                     listaperdidamateriaprima.add(perdidamateriaprima);
                 }
             }
-            connection.close();
+          //  connection.close();
         } catch (Exception e) {
         }
 

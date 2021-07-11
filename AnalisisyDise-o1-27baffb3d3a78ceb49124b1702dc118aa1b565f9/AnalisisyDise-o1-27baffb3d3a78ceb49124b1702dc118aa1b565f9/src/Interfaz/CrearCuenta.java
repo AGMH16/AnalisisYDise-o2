@@ -15,6 +15,7 @@ import ClasesSQL.UsuarioSQL;
 import Usuario.Compresor;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -40,6 +41,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
     ComponenteContraseña password = new ComponenteContraseña();
     ComponenteRadioButon radio = new ComponenteRadioButon();
+    ArrayList<String> listapuesto = usuarioSQL.SeleccionarPuestos();
 
     /**
      * Creates new form Menu
@@ -50,6 +52,9 @@ public class CrearCuenta extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         transparenciButton();
+        for (String nombrepuesto : listapuesto) {
+            PuestoLaboralcmbx.addItem(nombrepuesto);
+        }
     }
 
     public void transparenciButton() {
@@ -431,7 +436,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     private void ContraseñatxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñatxtKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-           
+
             Contraseñatxt1.requestFocus();
         }
     }//GEN-LAST:event_ContraseñatxtKeyPressed
@@ -469,7 +474,12 @@ public class CrearCuenta extends javax.swing.JFrame {
             System.out.println("Esta si:" + xx);
 
             usuarioSQL.InsertarUsuario(nombres, apellidos, verificacion, usuario, xx, puesto, correo_electronico);
+            Ingreso ingreso = new Ingreso();
+            ingreso.setVisible(true);
+            dispose();
         }
+        pass_concatenada = "";
+        pass_concatenada2 = "";
 
     }//GEN-LAST:event_CrearCuentabtnActionPerformed
 
@@ -586,7 +596,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 
     private void Contraseñatxt1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Contraseñatxt1KeyPressed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_Contraseñatxt1KeyPressed
 
     private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed

@@ -22,16 +22,16 @@ import javax.swing.JTextField;
  */
 public class UsuarioSQL {
 
-     Connection connection = ConexionBD.getConnection();
+    //Connection connection = ConexionBD.getConnection();
 
     public void InsertarUsuario(String nombre, String apellido, boolean supervisor, String usuario, String contraseña, String puesto, String correoElectronico) {
         try {
             //insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('Jenifer','Rabanales',0, 'jenirg','1234','Gerente','jeniferrabanales99@gmail.com');
-            try (Statement statement = (Statement) connection.createStatement()) {
-                statement.execute("insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('" + nombre + "','" + apellido + "','" + supervisor + "','" + usuario + "','" + contraseña + "','"+puesto+ "','" + correoElectronico + "')");
+            try (Statement statement = (Statement) ConexionBD.getConnection().createStatement()) {
+                statement.execute("insert into usuario(Nombre,Apellido,Supervisor,Usuario,Contraseña,Puesto,CorreoElectronico) values('" + nombre + "','" + apellido + "','" + supervisor + "','" + usuario + "','" + contraseña + "','" + puesto + "','" + correoElectronico + "')");
                 JOptionPane.showMessageDialog(null, "Usuario registrado");
             }
-            connection.close();
+           // connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO REGISTRAR EL USUARIO");
         }
@@ -40,11 +40,11 @@ public class UsuarioSQL {
     //DELETE FROM usuario WHERE CorreoElectronico='JFFSDFDS';
     public void DeleteUsuario(String correoElectronico) {
         try {
-            try (Statement statement = (Statement) connection.createStatement()) {
+            try (Statement statement = (Statement) ConexionBD.getConnection().createStatement()) {
                 statement.execute("DELETE FROM usuario WHERE CorreoElectronico=('" + correoElectronico + "')");
                 JOptionPane.showMessageDialog(null, "Usuario elimanado");
             }
-            connection.close();
+          //  connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ELIMINAR EL USUARIO");
             System.out.println("Error:" + e);
@@ -54,7 +54,7 @@ public class UsuarioSQL {
     public int BuscarUsuarioPorCorreo(JTextField NombreColaboradortxt, JTextField ApellidoColaboradortxt, JTextField Usuariotxt, JComboBox PuestoLaboraltxt, JTextField Correotxt, String correoReferencia) {
         int IdUsuario = 0;
         try {
-            try (Statement statement = (Statement) connection.createStatement()) {
+            try (Statement statement = (Statement) ConexionBD.getConnection().createStatement()) {
                 ResultSet clr = statement.executeQuery("select idUsuario, Nombre, Apellido,Usuario,Puesto,CorreoElectronico from usuario WHERE CorreoElectronico=('" + correoReferencia + "')");
                 while (clr.next()) {
                     IdUsuario = clr.getInt("idUsuario");
@@ -75,7 +75,7 @@ public class UsuarioSQL {
                     }
                 }
             }
-            connection.close();
+         //   connection.close();
         } catch (Exception e) {
         }
 
@@ -85,7 +85,7 @@ public class UsuarioSQL {
     public ArrayList<Usuario> BuscarUsuario() {
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         try {
-            try (Statement statement = (Statement) connection.createStatement()) {
+            try (Statement statement = (Statement) ConexionBD.getConnection().createStatement()) {
                 ResultSet clr = statement.executeQuery("select * from usuario");
                 while (clr.next()) {
                     Usuario usuario = new Usuario();
@@ -100,23 +100,23 @@ public class UsuarioSQL {
                     usuarios.add(usuario);
                 }
             }
-            connection.close();
+           // connection.close();
         } catch (Exception e) {
         }
 
         return usuarios;
     }
-     public String ComparacioConOtroUsuarios(String usuario) {
-        String Usuario="";
+
+    public String ComparacioConOtroUsuarios(String usuario) {
+        String Usuario = "";
         try {
-            try (Statement statement = (Statement) connection.createStatement()) {
+            try (Statement statement = (Statement) ConexionBD.getConnection().createStatement()) {
                 ResultSet clr = statement.executeQuery("SELECT Usuario from usuario");
                 while (clr.next()) {
                     Usuario = clr.getString("Usuario");
 
                     if ((usuario.equals(Usuario))) {
                         JOptionPane.showMessageDialog(null, "Este usuario ya esta en uso, pruebe con otro");
-                        
 
                     }
                 }
@@ -126,6 +126,22 @@ public class UsuarioSQL {
         }
 
         return Usuario;
+    }
+
+    public ArrayList<String> SeleccionarPuestos() {
+        ArrayList<String> listapuestos = new ArrayList<String>();
+        try {
+            try (Statement statement = (Statement) ConexionBD.getConnection().createStatement()) {
+                ResultSet clr = statement.executeQuery("SELECT distinct puesto from usuario");
+                while (clr.next()) {
+                    listapuestos.add(clr.getString("puesto"));
+                }
+            }
+            //Conexion.getConnection().close();
+        } catch (Exception e) {
+        }
+
+        return listapuestos;
     }
 
 }

@@ -24,7 +24,7 @@ public class UpdateMateriaPrimaSQL {
             consulta.executeUpdate("UPDATE lotepollo set UnidadExistente =" + ExistenciasActualizadas + "WHERE LoteAverio = " + codigo + ")");//Consulta
             JOptionPane.showMessageDialog(null, "Materia prima ha disminuido");
 
-            connection.close();
+           // connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ACTUALIZAR LA MATERIA PRIMA");
         }
