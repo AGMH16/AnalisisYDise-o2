@@ -30,26 +30,6 @@ public class MercaderiaSQL {
                 JOptionPane.showMessageDialog(null, "Mercaderia añadida a la lista");
             }
 
-            try (Statement statement = (Statement) connection.createStatement()) {
-                ResultSet clr = statement.executeQuery("SELECT  r.LotePollo_LoteAverio, r.Stock, r.idMercaderia,s.UnidadExistente FROM mercaderia r INNER JOIN lotepollo s ON r.LotePollo_LoteAverio = s.LoteAverio WHERE r.idMercaderia=5;");//IDMERCADERIA
-
-                if (clr.next()) {
-                    //   NoCliente = clr.getInt("NoCliente");
-                    int stock2 = clr.getInt("r.Stock");
-                    int unidadExistente = clr.getInt("s.UnidadExistente");
-                    // clr.getInt("idProveedor");
-                    String apellido = clr.getString("Apellido");
-                    if (stock2 <= unidadExistente) {
-                        //set UNIDAD=UNIDADEXISTENTE-STOCKM;
-                         unidadExistente= unidadExistente-stock2;
-                        //UPDATE lotepollo SET UnidadExistente=UNIDAD WHERE LoteAverio= LOTEPOLLO_LOTEAVERIO;
-                        
-                    }
-                }
-
-            }
-            connection.commit();
-
             //connection.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO AGREGAR");

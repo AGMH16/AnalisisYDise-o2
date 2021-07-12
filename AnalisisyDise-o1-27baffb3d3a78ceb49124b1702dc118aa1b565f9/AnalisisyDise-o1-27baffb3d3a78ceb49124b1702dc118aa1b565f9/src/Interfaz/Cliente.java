@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Interfaz;
-
 import ClasesInterfaz.ColorBoton;
 import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
@@ -35,7 +34,6 @@ import javax.swing.JOptionPane;
  */
 public class Cliente extends javax.swing.JFrame {
 
-    Connection connection = ConexionBD.getConnection();
     Libreta libreta = new Libreta();
     String nombres = "", apellidos = "", direccion = "", telefonoMovil = "", telefonocasa = "", pass_concatenada;
     int nocliente = 0;
@@ -85,9 +83,9 @@ public class Cliente extends javax.swing.JFrame {
         Regresarbtn.setOpaque(false);
         Regresarbtn.setContentAreaFilled(false);
         Regresarbtn.setBorderPainted(false);
-        Buscartxt.setOpaque(false);
-        Buscartxt.setContentAreaFilled(false);
-        Buscartxt.setBorderPainted(false);
+        Buscarbtn.setOpaque(false);
+        Buscarbtn.setContentAreaFilled(false);
+        Buscarbtn.setBorderPainted(false);
         Eliminarbtn.setOpaque(false);
         Eliminarbtn.setContentAreaFilled(false);
         Eliminarbtn.setBorderPainted(false);
@@ -116,7 +114,7 @@ public class Cliente extends javax.swing.JFrame {
         GuardarClientebtn = new javax.swing.JButton();
         Actualizarbtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        Buscartxt = new javax.swing.JButton();
+        Buscarbtn = new javax.swing.JButton();
         Eliminarbtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -243,15 +241,15 @@ public class Cliente extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("DATOS DEL CLIENTE");
 
-        Buscartxt.setBackground(new java.awt.Color(102, 102, 102));
-        Buscartxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Buscartxt.setForeground(new java.awt.Color(102, 102, 102));
-        Buscartxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar (1).png"))); // NOI18N
-        Buscartxt.setBorder(null);
-        Buscartxt.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
-        Buscartxt.addActionListener(new java.awt.event.ActionListener() {
+        Buscarbtn.setBackground(new java.awt.Color(102, 102, 102));
+        Buscarbtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Buscarbtn.setForeground(new java.awt.Color(102, 102, 102));
+        Buscarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar (1).png"))); // NOI18N
+        Buscarbtn.setBorder(null);
+        Buscarbtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
+        Buscarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscartxtActionPerformed(evt);
+                BuscarbtnActionPerformed(evt);
             }
         });
 
@@ -306,7 +304,7 @@ public class Cliente extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Buscarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(75, 75, 75))
         );
         jPanel2Layout.setVerticalGroup(
@@ -320,7 +318,7 @@ public class Cliente extends javax.swing.JFrame {
                             .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(Buscartxt, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Buscarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -483,11 +481,11 @@ public class Cliente extends javax.swing.JFrame {
         telefonoMovil = CelularClientetxt.getText();
         telefonocasa = TelefonoClientetxt.getText();
         direccion = DireccionClientetxt.getText();
-        System.out.println("Nombres del cliente:" + nombres);
+        /*System.out.println("Nombres del cliente:" + nombres);
         System.out.println("Apellido del cliente:" + apellidos);
         System.out.println("Celular:" + telefonoMovil);
         System.out.println("Telefono:" + telefonocasa);
-        System.out.println("Dirección:" + direccion);
+        System.out.println("Dirección:" + direccion);*/
         libretaSQL.InsertarLibretaCliente(nombres, apellidos, telefonoMovil, telefonocasa, direccion);
         NombreClientetxt.setText(null);
         ApellidoClientetxt.setText(null);
@@ -553,7 +551,7 @@ public class Cliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_RegresarbtnActionPerformed
 
-    private void BuscartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscartxtActionPerformed
+    private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
         // TODO add your handling code here:
         //   String telefonoReferencia = JOptionPane.showInputDialog("Ingrese el telefono del cliente");
         //  nocliente = libretaSQL.BuscarClientePorTelefono(NombreClientetxt, ApellidoClientetxt, CelularClientetxt, TelefonoClientetxt, DireccionClientetxt, telefonoReferencia);
@@ -564,7 +562,7 @@ public class Cliente extends javax.swing.JFrame {
         dispose();
 
         System.out.println("No cliente" + nocliente);
-    }//GEN-LAST:event_BuscartxtActionPerformed
+    }//GEN-LAST:event_BuscarbtnActionPerformed
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
         libretaSQL.EliminarLibretaCliente(nocliente);
@@ -587,13 +585,7 @@ public class Cliente extends javax.swing.JFrame {
         System.out.println("Celular:" + telefonoMovil);
         System.out.println("Telefono:" + telefonocasa);
         System.out.println("Dirección:" + direccion);
-        try {
-            libretaSQL.ActualizarLibreta(connection, nocliente, nombres, apellidos, nombres, telefonocasa, direccion);
-        } catch (SQLException ex) {
-            System.out.println(ex);
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+       
 
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 
@@ -638,7 +630,7 @@ public class Cliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizarbtn;
     private javax.swing.JTextField ApellidoClientetxt;
-    private javax.swing.JButton Buscartxt;
+    private javax.swing.JButton Buscarbtn;
     private javax.swing.JTextField CelularClientetxt;
     private javax.swing.JTextField DireccionClientetxt;
     private javax.swing.JButton Eliminarbtn;

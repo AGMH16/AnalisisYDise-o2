@@ -30,6 +30,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import sun.security.util.Password;
 import ClasesSQL.PruebaSQL;
+import ClasesSQL.UpdateMateriaPrimaSQL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -41,10 +42,9 @@ import javax.mail.internet.ParseException;
  */
 public class Mercaderia extends javax.swing.JFrame {
 
-    java.util.Date date = new java.util.Date();
-    SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
     PruebaSQL pruebasql = new PruebaSQL();
     MercaderiaSQL mercaderiasql = new MercaderiaSQL();
+    UpdateMateriaPrimaSQL SQLupdateMateriaPrima = new UpdateMateriaPrimaSQL();
     LotePollo lote = new LotePollo();
     String proveedor = "", producto = "", loteAverio = "", fecha;
     String nombreproveedor = "", agregarProducto = "", fecha1;
@@ -349,7 +349,8 @@ public class Mercaderia extends javax.swing.JFrame {
     }
 
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
-
+        java.util.Date date = new java.util.Date();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         producto = (String) Productojcmb.getSelectedItem();
         cantidad = Integer.parseInt(Cantidadtxt.getText());
         total = Float.parseFloat(Totaltxt.getText());
@@ -363,10 +364,20 @@ public class Mercaderia extends javax.swing.JFrame {
         Date fechas = (Date) FechaCalendar2.getDate();
         System.out.println(fechas);
 
-        mercaderiasql.InsertarMercaderia(producto, cantidad, fecha, total, loteAverio, stock);
-        Stocktxt.setText(null);
-        Cantidadtxt.setText(null);
-        Totaltxt.setText(null);
+            mercaderiasql.InsertarMercaderia(producto, cantidad, fecha, total, loteAverio, stock);
+            loteAverio = lote.getLoteAverio();
+            pruebasql.LotePollo(loteAverio);
+            System.out.println(pruebasql.getLoteAverio2());
+            System.out.println(pruebasql.getUnidadExistente2());
+            int existenciasActualizadas = pruebasql.getUnidadExistente2() - Integer.parseInt(Stocktxt.getText());
+            System.out.println(existenciasActualizadas);
+            SQLupdateMateriaPrima.ActualizarExistenciasDeMateriaPrima(existenciasActualizadas, pruebasql.getLoteAverio2());
+       
+
+        //pruebasql.LotePollo(loteAverio);
+        Stocktxt.setText("Stock");
+        Cantidadtxt.setText("Cantidad");
+        Totaltxt.setText("Total");
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 

@@ -127,7 +127,7 @@ Connection connection = ConexionBD.getConnection();
         return NoCliente;
     }
 
-    
+
     
     
 }

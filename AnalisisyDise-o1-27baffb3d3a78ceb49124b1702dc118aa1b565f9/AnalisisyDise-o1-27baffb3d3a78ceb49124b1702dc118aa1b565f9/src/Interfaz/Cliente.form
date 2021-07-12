@@ -121,7 +121,7 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jLabel7" min="-2" pref="100" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="Buscartxt" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="Buscarbtn" min="-2" pref="62" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -142,7 +142,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="Buscartxt" min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="Buscarbtn" min="-2" pref="51" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
@@ -375,7 +375,7 @@
                 <Property name="text" type="java.lang.String" value="DATOS DEL CLIENTE"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="Buscartxt">
+            <Component class="javax.swing.JButton" name="Buscarbtn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -397,7 +397,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscartxtActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BuscarbtnActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="Eliminarbtn">
