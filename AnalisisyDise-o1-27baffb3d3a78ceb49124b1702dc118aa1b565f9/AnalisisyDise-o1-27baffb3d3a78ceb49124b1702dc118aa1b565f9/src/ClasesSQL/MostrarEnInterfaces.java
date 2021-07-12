@@ -5,6 +5,7 @@
  */
 package ClasesSQL;
 
+import Clases.MateriaPrima;
 import Conexion.ConexionBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -73,6 +74,32 @@ public class MostrarEnInterfaces {
             }
         } catch (SQLException ex) {
             Logger.getLogger(LibretaClienteSQL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+        }
+    }
+   public void BuscarLotePollo(JTable jTable) {
+        String sql = "SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo";
+        Statement st;
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("LoteAverio");
+        model.addColumn("UnidadExistente");
+        model.addColumn("FechaIngreso");
+        jTable.setModel(model);
+
+        String[] dato = new String[3];
+        try {
+
+            st = connection.createStatement();
+            ResultSet result = st.executeQuery(sql);
+            while (result.next()) {
+                dato[0] = result.getString(1);
+                dato[1] = result.getString(2);
+                dato[2] = result.getString(3);
+
+                model.addRow(dato);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MateriaPrima.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex);
         }
     }

@@ -9,6 +9,7 @@ import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
 import ClasesInterfaz.ComponenteLabelText;
 import ClasesInterfaz.ComponentePanel;
+import ClasesSQL.MostrarEnInterfaces;
 import ClasesSQL.PruebaSQL;
 import Conexion.ConexionBD;
 import java.awt.Color;
@@ -33,7 +34,7 @@ public class LotePollo extends javax.swing.JFrame {
     ComponenteLabelText label = new ComponenteLabelText();
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
-    PruebaSQL pruebasql = new PruebaSQL();
+    MostrarEnInterfaces pruebasql = new MostrarEnInterfaces();
 
     public static String loteAverio = "";
 
@@ -375,7 +376,7 @@ public class LotePollo extends javax.swing.JFrame {
 
     private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
      
-       pruebasql.Buscar(jTable);
+       pruebasql.BuscarLotePollo(jTable);
     }//GEN-LAST:event_BuscarbtnActionPerformed
 
     private void lotetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lotetxtActionPerformed
