@@ -33,27 +33,21 @@ public class PanelContraseña {
         String Usuario = "", pass_concatenada = "";
 
         //Para obtener ID del Usuario
-        // usuarioReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
-        // contraseñaReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
         //CONTRASEÑA
         JPanel panel = new JPanel();
         JLabel label2 = new JLabel("Usuario:");
         JLabel label = new JLabel("Contraseña:");
-        // JTextField jtextfield = new JTextField();
-
         // Agregamos los componentes al panel
         panel.add(label2);
         panel.add(jtextField);
         panel.add(label);
         panel.add(passwordField);
-
         // Definimos el texto de las opciones para aceptar o cancelar
         String[] options = new String[]{"Aceptar", "Cancelar"};
         // Agregamos el panel y las opciones al dialogo
         int option = JOptionPane.showOptionDialog(null, panel, "Ingreso de datos usuario",
                 JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE,
                 null, options, options[1]);
-
         //CONTRASEÑA
         if (option == 0) // pressing OK button
         {

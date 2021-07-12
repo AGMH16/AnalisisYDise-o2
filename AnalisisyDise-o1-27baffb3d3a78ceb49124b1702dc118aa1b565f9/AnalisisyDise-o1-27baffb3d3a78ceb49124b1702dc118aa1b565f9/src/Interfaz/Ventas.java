@@ -55,7 +55,6 @@ public class Ventas extends javax.swing.JFrame {
     float total = 0, total2;
     String Usuario = "", pass_concatenada = "", nombreproveedor = "", tipoproducto = "", producto = "", fecha, nombreProducto;
     char[] password;
-
     // Definimos el largo de la casilla para la contraseña
     JPasswordField passwordField = new JPasswordField(15);
     JTextField jtextField = new JTextField(15);
@@ -66,7 +65,6 @@ public class Ventas extends javax.swing.JFrame {
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
 
     public Ventas() {
-
         try {
             this.setUndecorated(true);
             initComponents();
@@ -570,21 +568,15 @@ public class Ventas extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (Adomijbtn.isSelected()) {
             aDomicilio = true;
-            System.out.println("Adomicilio" + aDomicilio);
         }
         if (jRadioButton2.isSelected()) {
             puntoDeVenta = true;
-            System.out.println("Punto de Venta" + puntoDeVenta);
         }
 
         tipoproducto = (String) ProductoJcmbx.getSelectedItem();
-        System.out.println(tipoproducto);
         cantidad = Integer.parseInt(cantidadtxt.getText());
-        System.out.println(cantidad);
         total = Float.parseFloat(totaltxt.getText());
-        System.out.println(total);
         fecha = f.format(FechaCalendar.getDate());
-        System.out.println(fecha);
 
         Venta venta = new Venta(aDomicilio, puntoDeVenta, tipoproducto, cantidad, total, fecha);
         listaOriginal.add(venta);

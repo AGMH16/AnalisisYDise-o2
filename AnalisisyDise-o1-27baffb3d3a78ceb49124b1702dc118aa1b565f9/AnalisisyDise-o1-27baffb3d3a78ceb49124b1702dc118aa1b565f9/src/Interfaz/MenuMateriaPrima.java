@@ -73,6 +73,9 @@ public class MenuMateriaPrima extends javax.swing.JFrame {
         Accion4btn.setOpaque(false);
         Accion4btn.setContentAreaFilled(false);
         Accion4btn.setBorderPainted(false);
+        Regresarbtn.setOpaque(false);
+        Regresarbtn.setContentAreaFilled(false);
+        Regresarbtn.setBorderPainted(false);
 
     }
 

@@ -346,7 +346,7 @@ public class Colaborador extends javax.swing.JFrame {
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
         if (!modoOscuro) {
-            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png",Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
+            Pintar(Color.decode("#FFFFE0"), "/Imagenes/darkmode_2.png", Color.decode("#666666"), Color.decode("#666666"), Color.decode("#2e3951"), Color.decode("#212b41"));
             modoOscuro = true;
         } else if (modoOscuro == true) {
             Pintar(Color.decode("#66646C"), "/Imagenes/darkmode_1.png", Color.decode("#666666"), Color.decode("#666666"), Color.WHITE, Color.decode("#F2FDFA"));
@@ -389,6 +389,9 @@ public class Colaborador extends javax.swing.JFrame {
 
     private void RegresarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarbtnActionPerformed
         // TODO add your handling code here:
+        MenuMateriaPrima menuMateriaPrima = new MenuMateriaPrima();
+        menuMateriaPrima.setVisible(true);
+        dispose();
     }//GEN-LAST:event_RegresarbtnActionPerformed
 
     private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
