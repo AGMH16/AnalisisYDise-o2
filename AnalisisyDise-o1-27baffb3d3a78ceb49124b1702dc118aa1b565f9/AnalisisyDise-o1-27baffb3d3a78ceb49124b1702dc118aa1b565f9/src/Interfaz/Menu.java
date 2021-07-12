@@ -68,6 +68,9 @@ public class Menu extends javax.swing.JFrame {
         Accion2btn.setOpaque(false);
         Accion2btn.setContentAreaFilled(false);
         Accion2btn.setBorderPainted(false);
+        Regresarbtn.setOpaque(false);
+        Regresarbtn.setContentAreaFilled(false);
+        Regresarbtn.setBorderPainted(false);
 
     }
 
