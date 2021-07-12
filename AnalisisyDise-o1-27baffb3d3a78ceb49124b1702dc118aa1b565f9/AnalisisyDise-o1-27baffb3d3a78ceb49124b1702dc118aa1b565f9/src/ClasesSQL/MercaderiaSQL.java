@@ -43,6 +43,7 @@ public class MercaderiaSQL {
                         //set UNIDAD=UNIDADEXISTENTE-STOCKM;
                          unidadExistente= unidadExistente-stock2;
                         //UPDATE lotepollo SET UnidadExistente=UNIDAD WHERE LoteAverio= LOTEPOLLO_LOTEAVERIO;
+                        
                     }
                 }
 

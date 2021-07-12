@@ -488,9 +488,7 @@ public class Cliente extends javax.swing.JFrame {
         System.out.println("Celular:" + telefonoMovil);
         System.out.println("Telefono:" + telefonocasa);
         System.out.println("Dirección:" + direccion);
-
         libretaSQL.InsertarLibretaCliente(nombres, apellidos, telefonoMovil, telefonocasa, direccion);
-
         NombreClientetxt.setText(null);
         ApellidoClientetxt.setText(null);
         CelularClientetxt.setText(null);
