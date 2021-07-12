@@ -2,6 +2,3 @@ Casos de uso:
 Inventario: https://app.diagrams.net/#G1kTpkwi4_yPUAo4U-1XyXwbYhLCOQuLxO
 Gestion de usuario: https://app.diagrams.net/#G18QQvnJDypIPoKyjfohKsw1PuDrsVJHh_
 Ventas: https://app.diagrams.net/#G1Sz6jFXtmCWH7vcLpbJan60a2_x7evZ7S
-Diagramas de clases:
-Diagrama decorador para interfaz: https://app.diagrams.net/#G1CGeGPG4RTnLE5Rfskq0rdZIaiMSDSQvg
-Diagrama singleton para conexión: https://app.diagrams.net/#G1V-VJpTl8--IQRChiw5sXB6JU31KYBkOy
