@@ -186,7 +186,7 @@ public class Menu3 extends javax.swing.JFrame {
         Usuariobtn.setBackground(new java.awt.Color(0, 0, 102));
         Usuariobtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Usuariobtn.setForeground(new java.awt.Color(102, 102, 102));
-        Usuariobtn.setText("USUARIO");
+        Usuariobtn.setText("VER USUARIOS");
         Usuariobtn.setBorder(null);
         Usuariobtn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aprovechar.png"))); // NOI18N
         Usuariobtn.addActionListener(new java.awt.event.ActionListener() {
@@ -322,8 +322,8 @@ public class Menu3 extends javax.swing.JFrame {
 
     private void UsuariobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuariobtnActionPerformed
         // TODO add your handling code here:
-        Menu menu = new Menu(2);
-        menu.setVisible(true);
+        Colaborador colaborador=new Colaborador();
+        colaborador.setVisible(true);
         dispose();
     }//GEN-LAST:event_UsuariobtnActionPerformed
 

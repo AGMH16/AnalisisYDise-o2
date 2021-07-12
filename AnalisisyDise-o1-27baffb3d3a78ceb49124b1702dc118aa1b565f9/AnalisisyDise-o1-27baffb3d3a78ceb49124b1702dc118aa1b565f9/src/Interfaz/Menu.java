@@ -246,10 +246,10 @@ public class Menu extends javax.swing.JFrame {
             Accion1btn.setText("AGREGAR CLIENTE");
             Accion2btn.setText("VER LIBRETA");
 
-        } else if (numeromenu == 2) {
+        }/* else if (numeromenu == 2) {
             Accion1btn.setText("CREAR CUENTA");
             Accion2btn.setText("VER COLABORADORES");
-        } else if (numeromenu == 3) {
+        }*/ else if (numeromenu == 3) {
             Accion1btn.setText("CREAR PROVEEDOR");
             Accion2btn.setText("VER PROVEEDORES");
         } else if (numeromenu == 4) {
@@ -270,7 +270,7 @@ public class Menu extends javax.swing.JFrame {
                 libreta.setVisible(true);
                 dispose();
             }
-        } else if (numeromenu == 2) {
+        } /*else if (numeromenu == 2) {
             if (accion == 1) {
                 CrearCuenta crearcuenta = new CrearCuenta();
                 crearcuenta.setVisible(true);
@@ -280,7 +280,7 @@ public class Menu extends javax.swing.JFrame {
                 colaborador.setVisible(true);
                 dispose();
             }
-        } else if (numeromenu == 3) {
+        }*/ else if (numeromenu == 3) {
             if (accion == 1) {
                 Proveedor proveedor = new Proveedor();
                 proveedor.setVisible(true);
