@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
 import ClasesInterfaz.ColorBoton;
 import ClasesInterfaz.ComponenteBoton;
 import ClasesInterfaz.ComponenteBotonIcon;
@@ -197,7 +198,7 @@ public class Cliente extends javax.swing.JFrame {
 
         TelefonoClientetxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         TelefonoClientetxt.setForeground(new java.awt.Color(102, 102, 102));
-        TelefonoClientetxt.setText("Tefono");
+        TelefonoClientetxt.setText("Teléfono");
         TelefonoClientetxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         TelefonoClientetxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -481,17 +482,12 @@ public class Cliente extends javax.swing.JFrame {
         telefonoMovil = CelularClientetxt.getText();
         telefonocasa = TelefonoClientetxt.getText();
         direccion = DireccionClientetxt.getText();
-        /*System.out.println("Nombres del cliente:" + nombres);
-        System.out.println("Apellido del cliente:" + apellidos);
-        System.out.println("Celular:" + telefonoMovil);
-        System.out.println("Telefono:" + telefonocasa);
-        System.out.println("Dirección:" + direccion);*/
         libretaSQL.InsertarLibretaCliente(nombres, apellidos, telefonoMovil, telefonocasa, direccion);
-        NombreClientetxt.setText(null);
-        ApellidoClientetxt.setText(null);
-        CelularClientetxt.setText(null);
-        TelefonoClientetxt.setText(null);
-        DireccionClientetxt.setText(null);
+        NombreClientetxt.setText("Nombres");
+        ApellidoClientetxt.setText("Apellidos");
+        CelularClientetxt.setText("Celular");
+        TelefonoClientetxt.setText("Teléfono");
+        DireccionClientetxt.setText("Dirección");
     }//GEN-LAST:event_GuardarClientebtnActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
@@ -566,11 +562,11 @@ public class Cliente extends javax.swing.JFrame {
 
     private void EliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarbtnActionPerformed
         libretaSQL.EliminarLibretaCliente(nocliente);
-        NombreClientetxt.setText(null);
-        ApellidoClientetxt.setText(null);
-        CelularClientetxt.setText(null);
-        TelefonoClientetxt.setText(null);
-        DireccionClientetxt.setText(null);
+        NombreClientetxt.setText("Nombres");
+        ApellidoClientetxt.setText("Apellidos");
+        CelularClientetxt.setText("Celular");
+        TelefonoClientetxt.setText("Teléfono");
+        DireccionClientetxt.setText("Dirección");
     }//GEN-LAST:event_EliminarbtnActionPerformed
 
     private void ActualizarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarbtnActionPerformed
@@ -580,12 +576,7 @@ public class Cliente extends javax.swing.JFrame {
         telefonoMovil = CelularClientetxt.getText();
         telefonocasa = TelefonoClientetxt.getText();
         direccion = DireccionClientetxt.getText();
-        System.out.println("Nombres del cliente:" + nombres);
-        System.out.println("Apellido del cliente:" + apellidos);
-        System.out.println("Celular:" + telefonoMovil);
-        System.out.println("Telefono:" + telefonocasa);
-        System.out.println("Dirección:" + direccion);
-       
+
 
     }//GEN-LAST:event_ActualizarbtnActionPerformed
 

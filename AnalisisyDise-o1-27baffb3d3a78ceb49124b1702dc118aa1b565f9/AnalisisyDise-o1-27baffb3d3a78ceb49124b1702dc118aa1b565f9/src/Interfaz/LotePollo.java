@@ -374,31 +374,7 @@ public class LotePollo extends javax.swing.JFrame {
     }//GEN-LAST:event_RegresarbtnActionPerformed
 
     private void BuscarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarbtnActionPerformed
-       /* String sql = "SELECT LoteAverio, UnidadExistente, FechaIngreso FROM lotepollo";
-        Statement st;
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("LoteAverio");
-        model.addColumn("UnidadExistente");
-        model.addColumn("FechaIngreso");
-        jTable.setModel(model);
-
-        String[] dato = new String[3];
-        try {
-
-            st = Conexion.getConnection().createStatement();
-            ResultSet result = st.executeQuery(sql);
-            while (result.next()) {
-                dato[0] = result.getString(1);
-                dato[1] = result.getString(2);
-                dato[2] = result.getString(3);
-
-                model.addRow(dato);
-                //System.out.println(result.getString(3));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex);
-        }*/
+     
        pruebasql.Buscar(jTable);
     }//GEN-LAST:event_BuscarbtnActionPerformed
 

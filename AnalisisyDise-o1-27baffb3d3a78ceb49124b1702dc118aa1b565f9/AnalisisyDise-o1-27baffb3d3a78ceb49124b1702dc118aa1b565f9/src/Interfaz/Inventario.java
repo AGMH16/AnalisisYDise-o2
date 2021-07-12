@@ -53,6 +53,7 @@ public class Inventario extends javax.swing.JFrame {
     ComponenteLabelText label = new ComponenteLabelText();
     ComponenteBoton boton = new ComponenteBoton();
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
+    PanelContraseña panelContraseña = new PanelContraseña();
     InventarioSQL inventarioSQL = new InventarioSQL();
     char[] password;
 
@@ -392,21 +393,13 @@ public class Inventario extends javax.swing.JFrame {
         java.util.Date date = new java.util.Date();
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         producto = (String) Productojcmb.getSelectedItem();
-
         cantidad = Integer.parseInt(Cantidadtxt.getText());
-
         fecha = f.format(FechaCalendar.getDate());
-        System.out.println(fecha);
         total = Integer.parseInt(Totaltxt.getText());
-        System.out.println(producto);
-        System.out.println(proveedor);
-        System.out.println(cantidad);
-        System.out.println(dimensional);
-        System.out.println(total);
         dimensional = (String) Dimensionaljcmb.getSelectedItem();
         dimensionalsql.ObtenerIdDimensional(dimensional);
         System.out.println("Var para meter en el insert:" + dimensionalsql.getVal2());
-
+        /*
         //Para obtener ID del Usuario
         // usuarioReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
         // contraseñaReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
@@ -447,9 +440,11 @@ public class Inventario extends javax.swing.JFrame {
 
         }
 
-        System.out.println("Var para meter en el insert:" + pruebasql.getVal());
-        inventarioSQL.InsertarInventario(producto, cantidad, fecha, total, dimensionalsql.getVal2(), pruebasql.getVal());
-
+        System.out.println("Var para meter en el insert:" + pruebasql.getVal());*/
+        // panelContraseña.retornandoId();
+       // System.out.println(panelContraseña.retornandoId());
+        //  inventarioSQL.InsertarInventario(producto, cantidad, fecha, total, dimensionalsql.getVal2(), pruebasql.getVal());
+        inventarioSQL.InsertarInventario(producto, cantidad, fecha, total, dimensionalsql.getVal2(), panelContraseña.retornandoId());
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
     private void btn_oscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_oscuroActionPerformed
