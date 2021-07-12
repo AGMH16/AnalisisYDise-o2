@@ -40,14 +40,11 @@ import javax.swing.JTextField;
 public class Inventario extends javax.swing.JFrame {
 
     Compresor compresor = new Compresor();
-    String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "", pass_concatenada = "", Usuario = "";
+    String proveedor = "", AgregarProducto = "", producto = "", dimensional = "", dimensional2 = "";
     String nombreproveedor = "", tipoproducto = "", fecha;
-    PruebaSQL pruebasql = new PruebaSQL();
     MostrarEnInterfaces mostrar = new MostrarEnInterfaces();
     DimensionalSQL dimensionalsql = new DimensionalSQL();
     int cantidad = 0, total = 0, cantidad2 = 0;
-    JPasswordField passwordField = new JPasswordField(15);
-    JTextField jtextField = new JTextField(15);
     ComponentePanel panel = new ComponentePanel();
     ComponenteLabelText text = new ComponenteLabelText();
     ComponenteLabelText label = new ComponenteLabelText();
@@ -55,7 +52,6 @@ public class Inventario extends javax.swing.JFrame {
     ComponenteBotonIcon botonIcon = new ComponenteBotonIcon();
     PanelContraseña panelContraseña = new PanelContraseña();
     InventarioSQL inventarioSQL = new InventarioSQL();
-    char[] password;
 
     public Inventario() {
 
@@ -399,51 +395,6 @@ public class Inventario extends javax.swing.JFrame {
         dimensional = (String) Dimensionaljcmb.getSelectedItem();
         dimensionalsql.ObtenerIdDimensional(dimensional);
         System.out.println("Var para meter en el insert:" + dimensionalsql.getVal2());
-        /*
-        //Para obtener ID del Usuario
-        // usuarioReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
-        // contraseñaReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
-        //CONTRASEÑA
-        JPanel panel = new JPanel();
-        JLabel label2 = new JLabel("Usuario:");
-        JLabel label = new JLabel("Contraseña:");
-        // JTextField jtextfield = new JTextField();
-
-        // Agregamos los componentes al panel
-        panel.add(label2);
-        panel.add(jtextField);
-        panel.add(label);
-        panel.add(passwordField);
-
-        // Definimos el texto de las opciones para aceptar o cancelar
-        String[] options = new String[]{"Aceptar", "Cancelar"};
-        // Agregamos el panel y las opciones al dialogo
-        int option = JOptionPane.showOptionDialog(null, panel, "Ingreso de datos usuario",
-                JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE,
-                null, options, options[1]);
-
-        //CONTRASEÑA
-        if (option == 0) // pressing OK button
-        {
-            Usuario = jtextField.getText();
-            System.out.println("Usuario: " + Usuario);
-            password = passwordField.getPassword();
-
-            for (int i = 0; i < password.length; i++) {
-                pass_concatenada = pass_concatenada + password[i];
-                System.out.println(password[i]);
-            }
-
-            pruebasql.BuscarUsuario(Usuario, pass_concatenada);
-        } else {
-            System.out.println("Ingreso de contraseña cancelada");
-
-        }
-
-        System.out.println("Var para meter en el insert:" + pruebasql.getVal());*/
-        // panelContraseña.retornandoId();
-       // System.out.println(panelContraseña.retornandoId());
-        //  inventarioSQL.InsertarInventario(producto, cantidad, fecha, total, dimensionalsql.getVal2(), pruebasql.getVal());
         inventarioSQL.InsertarInventario(producto, cantidad, fecha, total, dimensionalsql.getVal2(), panelContraseña.retornandoId());
     }//GEN-LAST:event_GuardarbtnActionPerformed
 

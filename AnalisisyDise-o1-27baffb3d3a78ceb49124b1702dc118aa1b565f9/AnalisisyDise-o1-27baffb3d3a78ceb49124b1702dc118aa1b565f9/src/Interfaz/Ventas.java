@@ -403,14 +403,10 @@ public class Ventas extends javax.swing.JFrame {
     private void GuardarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarbtnActionPerformed
 
         //Para obtener ID del Usuario
-        // usuarioReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
-        // contraseñaReferencia = JOptionPane.showInputDialog("Ingrese su usuario");
         //CONTRASEÑA
         JPanel panel = new JPanel();
         JLabel label2 = new JLabel("Usuario:");
         JLabel label = new JLabel("Contraseña:");
-        // JTextField jtextfield = new JTextField();
-
         // Agregamos los componentes al panel
         panel.add(label2);
         panel.add(jtextField);
@@ -441,20 +437,11 @@ public class Ventas extends javax.swing.JFrame {
             System.out.println("Ingreso de contraseña cancelada");
 
         }
-      //  for (int i = 0; i < listaOriginal.size(); i++) {
-      
-      
-      
-      
-      
-    //}
-            for(Clases.Venta lista2:listaOriginal){
-              ventasql.InsertarVenta(lista2.isAdomicilio(),lista2.isPuntoVenta(), lista2.getProducto(), lista2.getCantidad(), lista2.getTotal(), lista2.getFecha(), pruebasql.getVal());
-               
-        }
-        
+        for (Clases.Venta lista2 : listaOriginal) {
+            ventasql.InsertarVenta(lista2.isAdomicilio(), lista2.isPuntoVenta(), lista2.getProducto(), lista2.getCantidad(), lista2.getTotal(), lista2.getFecha(), pruebasql.getVal());
 
-      
+        }
+
 
     }//GEN-LAST:event_GuardarbtnActionPerformed
 
